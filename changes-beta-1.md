@@ -60,7 +60,7 @@ then we'd also love to know that. :)
   namespace. For example, the posts collection endpoint is now at
   `/wp-json/wp/v2/posts`
 
-* **Changed**: Hypermedia links have changed from `meta.links` to changed to
+* **Changed**: Hypermedia links have changed from `meta.links` to 
   `_links` to follow the HAL standard. In custom endpoints, you can either
   return `_links` in your data, or use `WP_REST_Response->add_link`
 
