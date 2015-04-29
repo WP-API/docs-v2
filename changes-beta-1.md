@@ -5,7 +5,7 @@ layout: default
 # What's Changed?
 
 This document is a summary of what we've changed in the REST API between
-versions 1 and 2. The key changes to the API are listed belong, along with an
+versions 1 and 2. The key changes to the API are listed below, along with an
 example of migrating an endpoint to version 2.
 
 **Important note:** Beta 1 does not guarantee forwards compatibility with
