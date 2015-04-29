@@ -1,9 +1,7 @@
 ---
-page: introduction
-title: What's Changed: v2 Beta 1
+title: "What's Changed: v2 Beta 1"
 layout: default
 ---
-
 # What's Changed?
 
 This document is a summary of what we've changed in the REST API between
