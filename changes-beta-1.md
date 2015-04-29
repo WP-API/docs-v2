@@ -23,13 +23,13 @@ then we'd also love to know that. :)
 
 ## Internals
 
-* Changed: Endpoints now take a single parameter of type `WP_JSON_Request`.
+* Changed: Endpoints now take a single parameter of type `WP_REST_Request`.
   Argument registration has been moved to the route registration. You can now
   set whether arguments are required with the `required` option, and a default
   value with `default`. (A corresponding `rest_ensure_request` function has
   been added to coerce array data to a request object.)
 
-* Added: Route registration can now be done via `register_json_route`. This
+* Added: Route registration can now be done via `register_rest_route`. This
   function requires using a namespace. We recommend plugin and theme authors
   use the plugin slug, followed by a version in the form of `/v1`; the core
   API endpoints use the namespace `api/v2`
@@ -62,7 +62,7 @@ then we'd also love to know that. :)
 
 * **Changed**: Hypermedia links have changed from `meta.links` to changed to
   `_links` to follow the HAL standard. In custom endpoints, you can either
-  return `_links` in your data, or use `WP_JSON_Response->add_link`
+  return `_links` in your data, or use `WP_REST_Response->add_link`
 
 * **Added**: Links can now have an embeddable attribute that indicates they
   can be "embedded" in the response. Pass the `&_embed` parameter to get
@@ -147,7 +147,7 @@ function tsla_add_horn_honks( WP_REST_Response $request ) {
     $honks = $request['honks'];
     $count = get_option( 'wc-heartbeat-honk', 0 );
     update_option( 'wc-heartbeat-honk', $count + $honks );
-    $response = new WP_JSON_Response( array( 'result' => true ) );
+    $response = new WP_REST_Response( array( 'result' => true ) );
     $response->header( 'X-Prev-Honks', $count );
     return $response;
 }
