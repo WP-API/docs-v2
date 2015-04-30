@@ -16,7 +16,7 @@ layout: default
 		<li><a href="{{ HOME_PATH }}#comments">Comments</a></li>
 		<li><a href="{{ HOME_PATH }}#taxonomies">Taxonomies</a></li>
 		<li><a href="{{ HOME_PATH }}#terms">Terms</a></li>
-		<li><a href="{{ HOME_PATH }}#media">Users</a></li>
+		<li><a href="{{ HOME_PATH }}#users">Users</a></li>
 	</ul>
 </div>
 
