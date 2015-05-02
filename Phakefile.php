@@ -16,9 +16,10 @@ desc( 'Build the endpoint documentation.' );
 task( 'endpoint-list', function( $app ){
 
 	$endpoints = array(
-		'comments'         => array(
-			'name'         => 'Comments',
-			'schema_path'  => '/wp-json/wp/v2/comments/schema',
+		'comments'           => array(
+			'plural_name'    => 'Comments',
+			'singular_name'  => 'Comment',
+			'schema_route'   => '/wp-json/wp/v2/comments/schema',
 			),
 		);
 
@@ -26,7 +27,7 @@ task( 'endpoint-list', function( $app ){
 
 	foreach( $endpoints as $file_name => $attributes ) {
 
-		$response = Requests::get( $dev_domain . $attributes['schema_path'] );
+		$response = Requests::get( $dev_domain . $attributes['schema_route'] );
 		if ( 200 !== $response->status_code ) {
 			echo "Error fetching schema (HTTP code {$response->status_code})";
 			exit(1);
@@ -50,11 +51,8 @@ task( 'endpoint-list', function( $app ){
 			}
 		}
 
-		$data = array(
-			'name'                => $attributes['name'],
-			'schema_properties'   => $properties,
-			);
-		file_put_contents( dirname( __FILE__ ) . '/_includes/routes/' . $file_name . '.md', render( 'endpoint.mustache', $data ) );
+		$attributes['schema_properties'] = $properties;
+		file_put_contents( dirname( __FILE__ ) . '/_includes/routes/' . $file_name . '.md', render( 'endpoint.mustache', $attributes ) );
 	}
 
 });
