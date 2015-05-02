@@ -37,12 +37,16 @@ task( 'endpoint-list', function( $app ){
 		$properties = array();
 		if ( ! empty( $response_data->properties ) ) {
 			foreach( $response_data->properties as $name => $args ) {
-				$properties[] = array(
+				$property = array(
 					'name'          => $name,
 					'description'   => ! empty( $args->description ) ? $args->description : '',
 					'type'          => ! empty( $args->type ) ? $args->type : '',
 					'context'       => ! empty( $args->context ) ? implode( $args->context, ', ' ) : '',
 					);
+				if ( ! empty( $args->format ) ) {
+					$property['type'] = $args->format;
+				}
+				$properties[] = $property;
 			}
 		}
 
