@@ -21,7 +21,6 @@
 | `url` | uri | URL of the object. | embed, view, edit |
 | `username` | string | Login name for the user. | edit |
 
-
 ### List all Users
 
 ### Create a User

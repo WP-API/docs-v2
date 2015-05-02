@@ -13,6 +13,12 @@
 | `slug` | string | An alphanumeric identifier for the object unique to its type. | view |
 | `taxonomy` | string | Type attribution for the object. | view |
 
-### List all Terms for a Taxonomy
+### List all Terms
 
-### Retrieve a Term for a Taxonomy
+### Create a Term
+
+### Retrieve a Term
+
+### Update a Term
+
+### Delete a Term

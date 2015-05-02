@@ -27,12 +27,12 @@
 | `post` | integer | The ID for the associated post of the attachment. | view, edit |
 | `source_url` | uri | URL to the original attachment file. | view, edit |
 
-### List all Attachments
+### List all Media
 
-### Create an Attachment
+### Create a Attachment
 
-### Retrieve an Attachment
+### Retrieve a Attachment
 
-### Update an Attachment
+### Update a Attachment
 
-### Delete an Attachment
+### Delete a Attachment

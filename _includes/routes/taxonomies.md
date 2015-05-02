@@ -4,7 +4,7 @@
 
 | Property | Type | Description | Context |
 | :------- | :--- | :---------- | :------ |
- `description` | string | A human-readable description of the object. | view |
+| `description` | string | A human-readable description of the object. | view |
 | `hierarchical` | boolean | Whether or not the type should have children. | view |
 | `labels` | object | Human-readable labels for the type for various contexts. | view |
 | `name` | string | The title for the object. | view |
@@ -14,4 +14,10 @@
 
 ### List all Taxonomies
 
+### Create a Taxonomy
+
 ### Retrieve a Taxonomy
+
+### Update a Taxonomy
+
+### Delete a Taxonomy

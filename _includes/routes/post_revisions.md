@@ -1,4 +1,4 @@
-## Post Revisions
+## Revisions for a Post
 
 ### Schema
 

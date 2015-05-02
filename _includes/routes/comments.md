@@ -21,7 +21,6 @@
 | `status` | string | State of the object. | view, edit |
 | `type` | string | Type of Comment for the object. | view, edit |
 
-
 ### List all Comments
 
 ### Create a Comment

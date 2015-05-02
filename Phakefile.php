@@ -21,6 +21,46 @@ task( 'endpoint-list', function( $app ){
 			'singular_name'  => 'Comment',
 			'schema_route'   => '/wp-json/wp/v2/comments/schema',
 			),
+		'media'              => array(
+			'plural_name'    => 'Media',
+			'singular_name'  => 'Attachment',
+			'schema_route'   => '/wp-json/wp/v2/media/schema',
+			),
+		'pages'              => array(
+			'plural_name'    => 'Pages',
+			'singular_name'  => 'Page',
+			'schema_route'   => '/wp-json/wp/v2/pages/schema',
+			),
+		'posts'              => array(
+			'plural_name'    => 'Posts',
+			'singular_name'  => 'Post',
+			'schema_route'   => '/wp-json/wp/v2/posts/schema',
+			),
+		'post_meta'          => array(
+			'plural_name'    => 'Meta for a Post',
+			'singular_name'  => 'Meta for a Post',
+			'schema_route'   => '/wp-json/wp/v2/posts/meta/schema',
+			),
+		'post_revisions'     => array(
+			'plural_name'    => 'Revisions for a Post',
+			'singular_name'  => 'Revision for a Post',
+			'schema_route'   => '/wp-json/wp/v2/posts/revisions/schema',
+			),
+		'taxonomies'         => array(
+			'plural_name'    => 'Taxonomies',
+			'singular_name'  => 'Taxonomy',
+			'schema_route'   => '/wp-json/wp/v2/taxonomies/schema',
+			),
+		'terms'              => array(
+			'plural_name'    => 'Terms',
+			'singular_name'  => 'Term',
+			'schema_route'   => '/wp-json/wp/v2/terms/categories/schema',
+			),
+		'users'              => array(
+			'plural_name'    => 'Users',
+			'singular_name'  => 'User',
+			'schema_route'   => '/wp-json/wp/v2/users/schema',
+			),
 		);
 
 	$dev_domain = rtrim( getenv( 'WP_API_DEV_DOMAIN' ), '/' );
