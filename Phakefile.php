@@ -29,7 +29,7 @@ task( 'endpoint-list', function( $app ){
 
 		$response = Requests::get( $dev_domain . $attributes['schema_route'] );
 		if ( 200 !== $response->status_code ) {
-			echo "Error fetching schema (HTTP code {$response->status_code})";
+			echo "Error fetching schema: {$attributes['schema_route']} (HTTP code {$response->status_code})";
 			exit(1);
 		}
 
