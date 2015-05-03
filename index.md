@@ -27,6 +27,11 @@ layout: default
 		<li><a href="{{ HOME_PATH }}#users">Users</a></li>
 	</ul>
 
+	<h3><a href="{{ HOME_PATH }}#extending">Extending</a></h3>
+	<ul>
+		<li><a href="{{ HOME_PATH }}#internal-classes">Internal Classes</a></li>
+	</ul>
+
 	<h3><a href="{{ HOME_PATH }}#reference">Reference</a></h3>
 	<ul>
 		<li><a href="{{ HOME_PATH }}#glossary">Glossary</a></li>
@@ -53,6 +58,14 @@ layout: default
 	{{ terms | markdownify }}
 	{% capture users %}{% include routes/users.md %}{% endcapture %}
 	{{ users | markdownify }}
+</div>
+
+<div class="extending">
+	<h1 id="extending">Extending</h1>
+
+	{% capture internal_classes %}{% include extending/internal-classes.md %}{% endcapture %}
+	{{ internal_classes | markdownify }}
+
 </div>
 
 <div class="reference">
