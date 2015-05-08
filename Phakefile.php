@@ -54,7 +54,7 @@ task( 'endpoint-list', function( $app ){
 		'terms'              => array(
 			'plural_name'    => 'Terms',
 			'singular_name'  => 'Term',
-			'schema_route'   => '/wp-json/wp/v2/terms/categories/schema',
+			'schema_route'   => '/wp-json/wp/v2/terms/category/schema',
 			),
 		'users'              => array(
 			'plural_name'    => 'Users',
@@ -85,7 +85,7 @@ task( 'endpoint-list', function( $app ){
 					'context'       => ! empty( $args->context ) ? implode( $args->context, ', ' ) : '',
 					);
 				if ( ! empty( $args->format ) ) {
-					$property['type'] = $args->format;
+					$property['type'] .= ',' . $args->format;
 				}
 				$properties[] = $property;
 			}

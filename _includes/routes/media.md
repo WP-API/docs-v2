@@ -4,13 +4,13 @@
 
 | Property | Type | Description | Context |
 | :------- | :--- | :---------- | :------ |
-| `date` | date-time | The date the object was published. | view, edit |
-| `date_gmt` | date-time | The date the object was published, as GMT. | edit |
+| `date` | string,date-time | The date the object was published. | view, edit |
+| `date_gmt` | string,date-time | The date the object was published, as GMT. | edit |
 | `guid` | object | The globally unique identifier for the object. | view, edit |
 | `id` | integer | Unique identifier for the object. | view, edit |
-| `link` | uri | URL to the object. | view, edit |
-| `modified` | date-time | The date the object was last modified. | view, edit |
-| `modified_gmt` | date-time | The date the object was last modified, as GMT. | view, edit |
+| `link` | string,uri | URL to the object. | view, edit |
+| `modified` | string,date-time | The date the object was last modified. | view, edit |
+| `modified_gmt` | string,date-time | The date the object was last modified, as GMT. | view, edit |
 | `password` | string | A password to protect access to the post. | edit |
 | `slug` | string | An alphanumeric identifier for the object unique to its type. | view, edit |
 | `status` | string | A named status for the object. | edit |
@@ -25,7 +25,7 @@
 | `media_type` | string | Type of attachment. | view, edit |
 | `media_details` | object | Details about the attachment file, specific to its type. | view, edit |
 | `post` | integer | The ID for the associated post of the attachment. | view, edit |
-| `source_url` | uri | URL to the original attachment file. | view, edit |
+| `source_url` | string,uri | URL to the original attachment file. | view, edit |
 
 ### List all Media
 
