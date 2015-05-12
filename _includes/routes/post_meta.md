@@ -1,4 +1,4 @@
-## Post Meta
+## Meta for a Post
 
 ### Schema
 
@@ -10,10 +10,10 @@
 
 ### List all Meta for a Post
 
-### Create Meta for a Post
+### Create a Meta for a Post
 
-### Retrieve Meta for a Post
+### Retrieve a Meta for a Post
 
-### Update Meta for a Post
+### Update a Meta for a Post
 
-### Delete Meta for a Post
+### Delete a Meta for a Post
