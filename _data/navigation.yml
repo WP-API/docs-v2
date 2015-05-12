@@ -1,0 +1,63 @@
+- title: Overview
+  items:
+    - title: Introduction
+      path: /intro/
+      page: intro.md
+
+- title: Integration
+  items:
+    - title: Resources
+      path: /resources/
+      page: resources.md
+
+- title: User Guide
+  items:
+    - title: Connecting to the API
+      path: /connect/
+      page: connect.md
+
+    - title: Authentication
+      path: /authentication/
+      page: authentication/index.md
+
+    - title: Discovery
+      path: /disco/
+      page: disco.md
+
+- title: API Reference
+  items:
+    - title: Posts
+      path: /reference/posts/
+      page: reference/posts.md
+
+    - title: Pages
+      path: /reference/pages/
+      page: reference/pages.md
+
+    - title: Media
+      path: /reference/media/
+      page: reference/media.md
+
+    - title: Post Meta
+      path: /reference/meta/
+      page: reference/meta.md
+
+    - title: Post Revisions
+      path: /reference/revisions/
+      page: reference/revisions.md
+
+    - title: Comments
+      path: /reference/comments/
+      page: reference/comments.md
+
+    - title: Taxonomies
+      path: /reference/taxonomies/
+      page: reference/taxonomies.md
+
+    - title: Terms
+      path: /reference/terms/
+      page: reference/terms.md
+
+    - title: Users
+      path: /reference/users/
+      page: reference/users.md
