@@ -61,3 +61,9 @@
     - title: Users
       path: /reference/users/
       page: reference/users.md
+
+- title: Extending
+  items:
+    - title: Internal Classes
+      path: /extending/internal-classes/
+      page: extending/internal-classes.md

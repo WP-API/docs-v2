@@ -34,14 +34,6 @@ API, including errors.
 	{{ users | markdownify }}
 </div>
 
-<div class="extending">
-	<h1 id="extending">Extending</h1>
-
-	{% capture internal_classes %}{% include extending/internal-classes.md %}{% endcapture %}
-	{{ internal_classes | markdownify }}
-
-</div>
-
 <div class="reference">
 	<h1 id="reference">Reference</h1>
 
