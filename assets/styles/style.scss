@@ -1,0 +1,114 @@
+---
+---
+
+@import "config";
+@import "foundation";
+@import "highlight";
+
+header {
+	font-size: $header-text-size;
+
+	color: $fg-header;
+	background: $bg-header;
+
+	padding: 20px 40px;
+
+	@include clearfix;
+
+	h1 {
+		font-size: 1.2em;
+		font-weight: normal;
+		line-height: inherit;
+		float: left;
+		margin: 0;
+	}
+
+	a {
+		color: inherit;
+		text-decoration: none;
+	}
+
+	nav {
+		float: right;
+
+		ul {
+			@include inline-list;
+			margin: 0;
+			overflow: visible;
+		}
+	}
+
+	.download {
+		margin-bottom: 0;
+		margin-top: -$button-tny;
+	}
+}
+
+#sidebar {
+	@include grid-column($columns: $sidebar-column-width);
+	height: 100%;
+
+	color: $fg-secondary;
+	background: $bg-secondary;
+
+	font-size: $sidebar-text-size;
+
+	overflow: scroll;
+
+	&.sticky {
+		position: fixed;
+		top: 0;
+	}
+
+	h3 {
+		color: inherit;
+		font-size: 1.25em;
+		font-weight: normal;
+		margin: {
+			top: 1.2em;
+			bottom: 0.5em;
+		}
+	}
+
+	nav ul {
+		list-style: none;
+		margin: {
+			top: 0;
+			left: 0;
+			right: 0;
+		}
+		padding: {
+			left: 0;
+			right: 0;
+		}
+	}
+
+	nav li {
+		margin-bottom: 0.5em;
+	}
+
+	a {
+		color: rgba($fg-secondary, 0.6);
+		text-decoration: none;
+	}
+}
+
+#content {
+	@include grid-column($columns: $content-column-width);
+
+	// Ensure the column is correct when the sidebar is stuck
+	float: right;
+
+	color: $fg-primary;
+	background: $bg-primary;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: $header-font-family;
+	font-weight: $header-font-weight;
+}
+
+code {
+	font-family: $code-font-family;
+	font-size: 0.8em;
+}

@@ -12,3 +12,14 @@ redcarpet:
 # kramdown:
 #   input: GFM
 #   line_width: 80
+
+sass:
+    sass_dir: assets/styles
+
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      layout: "default"
+      include_title: Yes

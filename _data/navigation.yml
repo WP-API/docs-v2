@@ -1,0 +1,60 @@
+- title: Overview
+  items:
+    - title: Introduction
+      page: index.md
+
+    - title: Glossary
+      page: glossary.md
+
+    - title: What's Changed?
+      page: changes-beta-1.md
+
+#- title: Integration
+#  items:
+#    - title: Resources
+#      page: resources.md
+
+- title: User Guide
+  items:
+    #- title: Connecting to the API
+    #  page: guide/connecting/index.md
+
+    - title: Authentication
+      page: guide/authentication/index.md
+
+    #- title: Discovery
+    #  page: guide/discovery/index.md
+
+#- title: API Reference
+#  items:
+#    - title: Posts
+#      page: reference/posts.md
+#
+#    - title: Pages
+#      page: reference/pages.md
+#
+#    - title: Media
+#      page: reference/media.md
+#
+#    - title: Post Meta
+#      page: reference/meta.md
+#
+#    - title: Post Revisions
+#      page: reference/revisions.md
+#
+#    - title: Comments
+#      page: reference/comments.md
+#
+#    - title: Taxonomies
+#      page: reference/taxonomies.md
+#
+#    - title: Terms
+#      page: reference/terms.md
+#
+#    - title: Users
+#      page: reference/users.md
+
+- title: Extending
+  items:
+    - title: Internal Classes
+      page: extending/internal-classes/index.md
