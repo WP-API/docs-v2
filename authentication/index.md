@@ -1,6 +1,5 @@
 ---
-title: WP REST API Documentation
-layout: default
+title: Authentication
 ---
 Authentication
 ==============
