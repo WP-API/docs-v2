@@ -64,11 +64,31 @@ Pragmatically, here's how you'd typically interact with WP-API resources:
 
 ## Routes / Endpoints
 
-Routes and Endpoints are synonymous. These words essentially mean everything
-after the domain in a URL. For instance, with the URL
-`http://example.com/wp-json/wp/v2/posts/123`, the route is `wp/v2/posts/123`.
-The route doesn't include `wp-json` because `wp-json` is the base path for the
-API itself. All other URLs are handled by WordPress' default request handling.
+Endpoints are functions available through the API. This can be things like
+retrieving the API index, updating a post, or deleting a comment. Endpoints
+perform a specific function, taking some number of parameters and return data
+to the client.
+
+A route is the "name" you use to access endpoints, used in the URL. A route
+can have multiple endpoints associated with it, and which is used depends on
+the HTTP verb.
+
+For example, with the URL `http://example.com/wp-json/wp/v2/posts/123`:
+
+* The "route" is `wp/v2/posts/123` - The route doesn't include `wp-json`
+  because `wp-json` is the base path for the API itself.
+
+* This route has 3 endpoints:
+
+  * `GET` triggers a `get_item` method, returning the post data to the client.
+  * `PUT` triggers an `update_item` method, taking the data to update, and
+    returning the updated post data.
+  * `DELETE` triggers a `delete_item` method, returning the now-deleted post
+    data to the client.
+
+**Note:** On sites without pretty permalinks, the route is instead added to
+the URL as the `rest_route` parameter. For the above example, the full URL
+would then be `http://example.com/?rest_route=wp/v2/posts/123`
 
 ## Schema
 
