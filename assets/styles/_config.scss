@@ -1,0 +1,28 @@
+// Colors
+$fg-primary: #333;
+$bg-primary: #fff;
+$fg-secondary: #eee;
+$bg-secondary: #333;
+$fg-header: #fff;
+$bg-header: #2B3D50;
+
+// Text
+$header-text-size: 14px;
+$sidebar-text-size: 12px;
+
+$font-family-monospace: "Monaco", Consolas, "Liberation Mono", Courier, monospace;
+
+// Layout
+$content-column-width: 10;
+$sidebar-column-width: 12 - $content-column-width;
+
+// Configure Foundation
+// We turn everything default off, then turn back on as needed
+$include-html-classes: false;
+$include-html-button-classes: true;
+$include-html-global-classes: true;
+$include-html-table-classes: true;
+
+// Foundation colors
+$body-bg: $bg-primary;
+$body-font-color: $fg-primary;
