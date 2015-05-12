@@ -33,11 +33,3 @@ API, including errors.
 	{% capture users %}{% include routes/users.md %}{% endcapture %}
 	{{ users | markdownify }}
 </div>
-
-<div class="reference">
-	<h1 id="reference">Reference</h1>
-
-	{% capture glossary %}{% include reference/glossary.md %}{% endcapture %}
-	{{ glossary | markdownify }}
-
-</div>

@@ -3,6 +3,9 @@
     - title: Introduction
       page: index.md
 
+    - title: Glossary
+      page: glossary.md
+
 - title: Integration
   items:
     - title: Resources
