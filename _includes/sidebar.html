@@ -6,8 +6,10 @@
 		<ul>
 			{% for item in section.items %}
 
+				{% capture item_url %}/{{ item.page | remove: 'index.md' | replace: '.md', '.html' }}{% endcapture %}
+
 				<li {% if page.path == item.page %} class="active" {% endif %} >
-					<a href="{{ item.path }}">{{ item.title }}</a>
+					<a href="{{ item_url }}">{{ item.title }}</a>
 				</li>
 
 			{% endfor %}
