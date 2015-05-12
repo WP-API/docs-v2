@@ -1,4 +1,6 @@
-# Internal Classes
+---
+title: Extending Internal Classes
+---
 
 WP-API has a deliberate design pattern for its internal classes. They can be categorized as either _infrastructure_ or _endpoints_.
 

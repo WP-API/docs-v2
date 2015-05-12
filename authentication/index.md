@@ -1,8 +1,6 @@
 ---
 title: Authentication
 ---
-Authentication
-==============
 
 There are two options for authenticating with the API. The basic choice boils
 down to:

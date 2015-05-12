@@ -22,3 +22,4 @@ defaults:
       path: ""
     values:
       layout: "default"
+      include_title: Yes

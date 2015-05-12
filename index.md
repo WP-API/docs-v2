@@ -1,6 +1,7 @@
 ---
 page: introduction
 title: WP REST API version 2.0 Introduction
+include_title: No
 ---
 WP-API is organized around [REST][]. Our API is designed to have predictable,
 resource-oriented URLs and to use HTTP response codes to indicate API errors.
