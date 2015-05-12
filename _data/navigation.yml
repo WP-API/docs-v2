@@ -6,6 +6,9 @@
     - title: Glossary
       page: glossary.md
 
+    - title: What's Changed?
+      page: changes-beta-1.md
+
 #- title: Integration
 #  items:
 #    - title: Resources

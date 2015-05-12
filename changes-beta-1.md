@@ -1,8 +1,6 @@
 ---
 title: "What's Changed: v2 Beta 1"
-layout: default
 ---
-# What's Changed?
 
 This document is a summary of what we've changed in the REST API between
 versions 1 and 2. The key changes to the API are listed below, along with an
