@@ -53,6 +53,8 @@ header {
 
 	font-size: $sidebar-text-size;
 
+	overflow: scroll;
+
 	&.sticky {
 		position: fixed;
 		top: 0;
