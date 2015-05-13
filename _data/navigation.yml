@@ -22,8 +22,8 @@
     - title: Authentication
       page: guide/authentication/index.md
 
-    #- title: Discovery
-    #  page: guide/discovery/index.md
+    - title: Discovery
+      page: guide/discovery/index.md
 
 #- title: API Reference
 #  items:
