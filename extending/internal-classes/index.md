@@ -67,7 +67,7 @@ represent a consistent pattern for manipulating WordPress resources.
 * `update_item_permissions_check()`: Before calling the callback, check
   whether a given request has permissions to update an individual resource.
 
-* `delete_items_permissions_check()`: Before calling the callback, check
+* `delete_item_permissions_check()`: Before calling the callback, check
   whether a given request has permissions to delete an individual resource.
 
 * `prepare_item_for_response()`: TK
