@@ -30,7 +30,7 @@ then we'd also love to know that. :)
 * Added: Route registration can now be done via `register_rest_route`. This
   function requires using a namespace. We recommend plugin and theme authors
   use the plugin slug, followed by a version in the form of `/v1`; the core
-  API endpoints use the namespace `api/v2`
+  API endpoints use the namespace `wp/v2`
 
 * Changed:  All built-in endpoints now use a common Controller base class with
   a standardised pattern. This is part of the public API for developers, and
