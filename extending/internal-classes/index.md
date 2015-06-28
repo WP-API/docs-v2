@@ -51,7 +51,7 @@ represent a consistent pattern for manipulating WordPress resources.
 
 * `update_item()`: Update an existing entity, given a valid `WP_REST_Request`.
 
-& `delete_item()`: Delete an existing entity, given a valid `WP_REST_Request`.
+* `delete_item()`: Delete an existing entity, given a valid `WP_REST_Request`.
   If deletion is errored in some way, the appropriate HTTP error code should
   be returned.
 
