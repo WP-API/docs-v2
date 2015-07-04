@@ -51,7 +51,7 @@ represent a consistent pattern for manipulating WordPress resources.
 
 * `update_item()`: Update an existing entity, given a valid `WP_REST_Request`.
 
-& `delete_item()`: Delete an existing entity, given a valid `WP_REST_Request`.
+* `delete_item()`: Delete an existing entity, given a valid `WP_REST_Request`.
   If deletion is errored in some way, the appropriate HTTP error code should
   be returned.
 
@@ -67,7 +67,7 @@ represent a consistent pattern for manipulating WordPress resources.
 * `update_item_permissions_check()`: Before calling the callback, check
   whether a given request has permissions to update an individual resource.
 
-* `delete_items_permissions_check()`: Before calling the callback, check
+* `delete_item_permissions_check()`: Before calling the callback, check
   whether a given request has permissions to delete an individual resource.
 
 * `prepare_item_for_response()`: TK
