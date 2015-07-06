@@ -5,6 +5,8 @@ $fg-secondary: #eee;
 $bg-secondary: #333;
 $fg-header: #fff;
 $bg-header: #2B3D50;
+$fg-superbar: rgba( $fg-primary, 0.7 );
+$bg-superbar: rgba( $bg-secondary, 0.08 );
 
 // Text
 $header-text-size: 14px;
@@ -19,8 +21,9 @@ $header-font-family: 'Lora', serif;
 $font-family-monospace: "Monaco", Consolas, "Liberation Mono", Courier, monospace;
 
 // Layout
-$content-column-width: 10;
-$sidebar-column-width: 12 - $content-column-width;
+$content-column-width: 7;
+$superbar-column-width: 3;
+$sidebar-column-width: 2;
 
 // Configure Foundation
 // We turn everything default off, then turn back on as needed
