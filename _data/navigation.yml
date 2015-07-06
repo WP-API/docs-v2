@@ -58,3 +58,6 @@
   items:
     - title: Internal Classes
       page: extending/internal-classes/index.md
+
+    - title: Linking
+      page: extending/linking/index.md
