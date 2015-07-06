@@ -52,6 +52,7 @@ header {
 	background: $bg-secondary;
 
 	font-size: $sidebar-text-size;
+	line-height: $sidebar-line-height;
 
 	overflow: scroll;
 
@@ -96,11 +97,24 @@ header {
 #content {
 	@include grid-column($columns: $content-column-width);
 
-	// Ensure the column is correct when the sidebar is stuck
-	float: right;
+	float: left;
 
 	color: $fg-primary;
 	background: $bg-primary;
+}
+
+.has-sticky #content {
+	@include grid-column($push: $sidebar-column-width);
+}
+
+#superbar {
+	@include grid-column($columns: $superbar-column-width);
+	height: 100%;
+
+	float: right;
+
+	color: $fg-superbar;
+	background: $bg-superbar;
 }
 
 h1, h2, h3, h4, h5, h6 {
