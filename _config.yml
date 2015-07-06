@@ -23,3 +23,8 @@ defaults:
     values:
       layout: "default"
       include_title: Yes
+  -
+    scope:
+      path: "assets"
+    values:
+      layout: ""
