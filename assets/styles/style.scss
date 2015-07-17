@@ -135,6 +135,13 @@ code {
 	font-size: 0.8em;
 }
 
+pre {
+	max-width: 100%;
+	overflow: auto;
+	background: rgba(0,0,0,0.04);
+	padding: 1.8em 1em;
+}
+
 // Home
 .hero {
 	text-align: center;
