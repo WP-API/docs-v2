@@ -107,6 +107,14 @@ header {
 	@include grid-column($push: $sidebar-column-width);
 }
 
+.no-superbar #content {
+	@include grid-column($push: floor( $superbar-column-width / 2 ));
+}
+
+.no-superbar.has-sticky #content {
+	@include grid-column($push: $sidebar-column-width + floor( $superbar-column-width / 2 ));
+}
+
 #superbar {
 	@include grid-column($columns: $superbar-column-width);
 	height: 100%;
@@ -125,4 +133,30 @@ h1, h2, h3, h4, h5, h6 {
 code {
 	font-family: $code-font-family;
 	font-size: 0.8em;
+}
+
+// Home
+.hero {
+	text-align: center;
+	margin-top: 20px;
+
+	.subtitle {
+		font-size: 1.8rem;
+	}
+
+	.download {
+		font-size: 1.6rem;
+		text-decoration: none;
+
+		span {
+			display: block;
+			font-size: 0.8rem;
+		}
+	}
+
+	.status {
+		a {
+			text-decoration: none;
+		}
+	}
 }
