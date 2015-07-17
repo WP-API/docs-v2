@@ -1,8 +1,8 @@
 // Colors
 $fg-primary: #333;
 $bg-primary: #fff;
-$fg-secondary: #eee;
-$bg-secondary: #333;
+$fg-secondary: $fg-primary;
+$bg-secondary: #f7f7f7;
 $fg-header: #fff;
 $bg-header: #2B3D50;
 $fg-superbar: rgba( $fg-primary, 0.7 );
