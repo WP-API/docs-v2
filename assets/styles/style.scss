@@ -134,3 +134,29 @@ code {
 	font-family: $code-font-family;
 	font-size: 0.8em;
 }
+
+// Home
+.hero {
+	text-align: center;
+	margin-top: 20px;
+
+	.subtitle {
+		font-size: 1.8rem;
+	}
+
+	.download {
+		font-size: 1.6rem;
+		text-decoration: none;
+
+		span {
+			display: block;
+			font-size: 0.8rem;
+		}
+	}
+
+	.status {
+		a {
+			text-decoration: none;
+		}
+	}
+}
