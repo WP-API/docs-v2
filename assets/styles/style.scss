@@ -39,8 +39,12 @@ header {
 	}
 
 	.download {
-		margin-bottom: 0;
-		margin-top: -$button-tny;
+		margin: {
+			top: -$button-tny;
+			bottom: -$button-tny;
+		}
+
+		@include button-size($padding:$button-tny);
 	}
 }
 
