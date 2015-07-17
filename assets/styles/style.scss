@@ -107,6 +107,14 @@ header {
 	@include grid-column($push: $sidebar-column-width);
 }
 
+.no-superbar #content {
+	@include grid-column($push: floor( $superbar-column-width / 2 ));
+}
+
+.no-superbar.has-sticky #content {
+	@include grid-column($push: $sidebar-column-width + floor( $superbar-column-width / 2 ));
+}
+
 #superbar {
 	@include grid-column($columns: $superbar-column-width);
 	height: 100%;

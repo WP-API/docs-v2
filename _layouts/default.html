@@ -13,7 +13,7 @@
 		<meta content="{{site.title}}" property="og:title" />
 		<meta content="{{site.description}}" name="description" />
 	</head>
-	<body>
+	<body class="{% unless page.has_superbar %}no-superbar{% endunless %}">
 		{% include header.html %}
 
 		<section id="sidebar">
