@@ -4,7 +4,7 @@ title: Linking
 
 The WP REST API heavily incorporates hypermedia concepts, including linking. At the core, this relies on hyperlinking between resources, similar to how normal web pages link between related pages. This allows the API to be discoverable to new users and clients.
 
-The linking system we use is based on [HAL][] (Hypertext Markup Language).
+The linking system we use is based on [HAL][] (Hypertext Application Language).
 
 [HAL]: http://stateless.co/hal_specification.html
 
