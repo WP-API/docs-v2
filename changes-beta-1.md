@@ -138,7 +138,7 @@ function tsla_register_routes( $routes ) {
                 'validate_callback' => 'is_numeric',
             ),
         )
-    );
+    ) );
 }
 
 function tsla_add_horn_honks( WP_REST_Response $request ) {
