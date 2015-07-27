@@ -35,15 +35,17 @@ For each object -- a post type, or users, terms, comments, meta, etc, $wp_rest_a
 How To Use `register_api_field`
 -------------------------------
 
-The function `register_api_field` field accepts three parameters. The first is the name of the object, as a string, or an array of the names of objects the field is being registered to. When adding to posts type endpoints, the name of the post type(s) should be used. Alternatively "terms", "meta", "user" or "comments" may be used.
+The function `register_api_field` field accepts three parameters:
 
-The second parameter is the name of the field. This name will be used to define the key in the response object.
+1. `$object_type`: The name of the object, as a string, or an array of the names of objects the field is being registered to. When adding to posts type endpoints, the name of the post type(s) should be used. Alternatively "terms", "meta", "user" or "comments" may be used.
 
-The third parameter is an array with keys that define the callback functions used to retrieve the value of the field, to update the value of the field and define its schema. Each of these keys are optional, but if not used, that capability will not be added.
+2. `$attribute`: The name of the field. This name will be used to define the key in the response object.
+
+3. `$args`: An array with keys that define the callback functions used to retrieve the value of the field, to update the value of the field and define its schema. Each of these keys are optional, but if not used, that capability will not be added.
 
 This means that if you specify a callback function for reading the value, but not a callback for updating then it will be readable, but not updatable. This may be desired in many situations.
 
-Fields should be registered at the "rest_api_init" action. Using this action, as opposed to "init" will prevent the field registration from happening during requests to WordPress that do not use the REST API.
+Fields should be registered at the `rest_api_init` action. Using this action rather than `init` will prevent the field registration from happening during requests to WordPress that do not use the REST API.
 
 
 Examples
@@ -78,7 +80,7 @@ Examples
   }
 
 ```
-This example illustrates adding the post meta field "starship" to the response for posts. Not that the field name corresponds to the post meta field name to simplify the code. It does not have to.
+This example illustrates adding the post meta field "starship" to the response for posts. Note that the field name corresponds to the post meta field name to simplify the code. It does not have to.
 
 ### Read and write a post meta field in post responses
 ```php
