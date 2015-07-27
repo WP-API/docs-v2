@@ -229,9 +229,9 @@ The Controller Pattern
 
 The controller pattern is a best practice for working with complex endpoints with the API.
 
-It is recommended that you read "Extending Internal Classes" before reading this section. Doing so will familiarize you with the patterns used by the default routes, which is the best practice.
+It is recommended that you read "Extending Internal Classes" before reading this section. Doing so will familiarize you with the patterns used by the default routes, which is the best practice. While it is not required that the class you use to process your request extends the `WP_REST_Controller` class or a class that extends it, doing so allows you to inherit work done in those classes. In addition, you can rest assured that you're following best practices based on the controller methods you're using.
 
-While it is not required that the class you use to process your request extends the `WP_REST_Controller` class or a class that extends it, doing so allows you to inherit work done in those classes. In addition when you do so, you are forced to follow many of the patterns of the core API.
+At their core, controllers are nothing more than a set of commonly named methods to match up with REST conventions, along with some handy helpers. Controllers register their routes in a `register_routes` method, respond to requests with `get_items`, `get_item`, `create_item`, `update_item` and `delete_item`, and have similarly named permission check methods. Following this pattern will ensure you don't miss any steps or functionality in your endpoints.
 
 To use controllers, you first need to subclass the base controller. This gives you a base set of methods, ready for you to add your own behaviour into.
 
