@@ -67,8 +67,9 @@ The following is a "starter" custom route:
     	 * Register the routes for the objects of the controller.
     	 */
     	public function register_routes() {
-    		$namespace = "vendor";
-    		$base = "route";
+            $version = '1';
+    		$namespace = 'vendor/v' . $version;
+    		$base = 'route';
     		register_rest_route( $namespace, '/' . $base, array(
     			array(
     				'methods'         => WP_REST_Server::READABLE,
@@ -126,19 +127,14 @@ The following is a "starter" custom route:
     	 * @return WP_Error|WP_REST_Response
     	 */
     	public function get_items( $request ) {
-
     		$items = array(); //do a query, call another class, etc
+            $data = array();
     		foreach( $items as $item ) {
-    			$data[] = prepare_item_for_response( $item, $request );
+    			$itemdata = $this->prepare_item_for_response( $item, $request );
+                $data[] = $this->prepare_response_for_collection( $itemdata );
     		}
 
-    		//return a response or error based on some conditional
-    		if ( 1 == 1 ) {
-    			return new WP_REST_Response( $data, 200 );
-    		}else{
-    			return new WP_Error( 'code', __( 'message', 'text-domain' ) );
-    		}
-
+			return new WP_REST_Response( $data, 200 );
     	}
 
     	/**
