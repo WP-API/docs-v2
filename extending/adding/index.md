@@ -96,12 +96,14 @@ function my_awesome_func( WP_REST_Request $request ) {
 	$parameters = $request->get_url_params();
 	$parameters = $request->get_query_params();
 	$parameters = $request->get_body_params();
-	$parameters = $request->get_file_params();
 	$parameters = $request->get_default_params();
+
+	// Uploads aren't merged in, but can be accessed separately:
+	$parameters = $request->get_file_params();
 }
 ```
 
-(To find out exactly how parameters are merged, check the source of `WP_REST_Request::get_parameter_order()`)
+(To find out exactly how parameters are merged, check the source of `WP_REST_Request::get_parameter_order()`; the basic order is body, query, URL, then defaults.)
 
 Normally, you'll get every parameter brought in unaltered. However, you can register your arguments when registering your route, which allows you to run sanitization and validation on these.
 
