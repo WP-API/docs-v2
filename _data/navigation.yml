@@ -56,8 +56,14 @@
 
 - title: Extending
   items:
+    - title: Modifying Responses
+      page: extending/modifying/index.md
+
     - title: Internal Classes
       page: extending/internal-classes/index.md
+
+    - title: Adding Endpoints
+      page: extending/adding/index.md
 
     - title: Linking
       page: extending/linking/index.md
