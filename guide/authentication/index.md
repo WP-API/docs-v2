@@ -16,7 +16,7 @@ Cookie authentication is the basic authentication method included with
 WordPress. When you log in to your dashboard, this sets up the cookies correctly
 for you, so plugin and theme developers need only to have a logged-in user.
 
-However, WP API includes a technique called [nonces][] to avoid [CSRF][] issues.
+However, the REST API includes a technique called [nonces][] to avoid [CSRF][] issues.
 This prevents other sites from forcing you to perform actions without explicitly
 intending to do so. This requires slightly special handling for the API.
 
@@ -25,10 +25,12 @@ for you. This is the recommended way to use the API for plugins and themes.
 Custom data models can extend `wp.api.models.Base` to ensure this is sent
 correctly for any custom requests.
 
-For developers making manual Ajax requests, the nonce will need to be passed
+For developers making manual AJAX requests, the nonce will need to be passed
 with each request. The API uses nonces with the action set to `wp_api`. These
 can then be passed to the API via the `_wp_json_nonce` data parameter (either
 POST data or in the query for GET requests), or via the `X-WP-Nonce` header.
+
+It is important to keep in mind that this authentication method relies on WordPress cookie. As a result this method is only applicable when the REST API is used inside of WordPress and the current user is logged in. In addition, the current user must have the appropirate capability to perform the action being performed.
 
 As an example, this is how the built-in Javascript client creates the nonce:
 
@@ -46,6 +48,23 @@ options.beforeSend = function(xhr) {
 		return beforeSend.apply(this, arguments);
 	}
 };
+```
+
+Here is an example of editing the title of a post, using jQuery AJAX:
+
+```javascript
+$.ajax( {
+    url: WP_API_Settings.root + 'wp/v2/posts/1',
+    method: 'POST',
+    beforeSend: function ( xhr ) {
+        xhr.setRequestHeader( 'X-WP-Nonce', WP_API_Settings.nonce );
+    },
+    data:{
+        'title' :  'Hello Moon'
+    }
+} ).done( function ( response ) {
+    console.log( response );
+} );
 ```
 
 [nonces]: http://codex.wordpress.org/WordPress_Nonces
@@ -94,18 +113,39 @@ starting point.
 
 Basic Authentication
 --------------------
-Basic Authentication is an optional authentication handler for external clients.
-Due to the complexity of OAuth authentication, Basic authentication can be
-useful during development. However, Basic authentication requires passing your
+Basic authentication is an optional authentication handler for external clients.
+Due to the complexity of OAuth authentication, basic authentication can be
+useful during development. However, basic authentication requires passing your
 username and password on every request, as well as giving your credentials to
 clients, so it is heavily discouraged for production use.
 
 Basic authentication uses [HTTP Basic Authentication][http-basic] (published as
 RFC2617) and requires installing the [Basic Auth plugin][basic-auth-plugin].
 
-To use Basic authentication, simply pass the username and password with each
-request through the `Authorization` header. This value should be encoded as per
+To use basic authentication, simply pass the username and password with each
+request through the `Authorization` header. This value should be encoded (using base64 encoding) as per
 the HTTP Basic specification.
+
+This is an example of how to update a post, using basic authentication, via the WordPress HTTP API:
+
+```php
+$headers    = array (
+	'Authorization' => 'Basic ' . base64_encode( 'admin' . ':' . '12345' ),
+);
+$url = rest_url( 'wp/v2/posts/1' );
+
+$body = array(
+	'title' => 'Hello Gaia' 
+);
+
+$response = wp_remote_post( $url, array (
+	        'method'  => 'POST',
+	        'headers' => $headers,
+	        'body' 	  =>  $data
+	)
+);
+```
+    
 
 [http-basic]: https://tools.ietf.org/html/rfc2617
 [basic-auth-plugin]: https://github.com/WP-API/Basic-Auth
