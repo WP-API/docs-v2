@@ -25,6 +25,9 @@
     - title: Discovery
       page: guide/discovery/index.md
 
+    - title: Common Problems
+      page: guide/problems/index.md
+
 #- title: API Reference
 #  items:
 #    - title: Posts
