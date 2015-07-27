@@ -77,26 +77,149 @@ An added benefit of using namespaces is that clients can detect support for your
 If a client wants to check that your API exists on a site, they can check against this list. (For more information, see the [Discovery guide](/guide/discovery/).)
 
 
-The Permissions Callback
-------------------------
+### Arguments
 
-The permissions check callback should return a boolean or a WP_Error. If this function returns true, the response will be procccesed. If it returns false, a default error message will be returned and the request will not proceed with processing. If it returns a `WP_Error`, that error will be returned.
+By default, routes receive all arguments passed in from the request. These are merged into a single set of parameters, then added to the Request object, which is passed in as the first parameter to your endpoint:
 
-The permissions callback is run after remote authentication, which sets the current user. This means you can use `current_user_can` to check if the user that has been authenticated has the appropriate capability for the action, or any other check based on current user ID.
+```php
+function my_awesome_func( WP_REST_Request $request ) {
+	// You can access parameters via direct array access on the object:
+	$param = $request['some_param'];
 
+	// Or via the helper method:
+	$param = $request->get_param( 'some_param' );
 
-Setting Up Fields
------------------
+	// You can get the combined, merged set of parameters:
+	$parameters = $request->get_params();
 
-Fields are defined in an array in the key 'args' of the array passed to the second argument of `register_rest_route()`. Each field should be a multi-demensional array, where the key is the name of the field. That array can contain a key for `default`, `required`, `sanitize_callback` and `validate_callback`.
+	// The individual sets of parameters are also available, if needed:
+	$parameters = $request->get_url_params();
+	$parameters = $request->get_query_params();
+	$parameters = $request->get_body_params();
+	$parameters = $request->get_file_params();
+	$parameters = $request->get_default_params();
+}
+```
 
-If the `required` key is defined as true, and no value is passed for that field, an error will be returned. If the field is not required and a default is set, that default will be passed.
+(To find out exactly how parameters are merged, check the source of `WP_REST_Request::get_parameter_order()`)
 
-The `validate_callback` key is optional. It can be used to pass a function that will be passed the value of the field. That function should return true if the value is valid, and false if not. The `sanitize_callback` key is optional as well. It can be used to pass a function that is used to sanatize the value of the field before passing it to the main callback.
+Normally, you'll get every parameter brought in unaltered. However, you can register your arguments when registering your route, which allows you to run sanitization and validation on these.
+
+Arguments are defined as a map in the key `args` for each endpoint (next to your `callback` option). This map uses the name of the argument of the key, with the value being a map of options for that argument. This array can contain a key for `default`, `required`, `sanitize_callback` and `validate_callback`.
+
+* `default`: Used as the default value for the argument, if none is supplied.
+* `required`: If defined as true, and no value is passed for that argument, an error will be returned. No effect if a default value is set, as the argument will always have a value.
+
+* `validate_callback`: Used to pass a function that will be passed the value of the argument. That function should return true if the value is valid, and false if not.
+* `sanitize_callback`: Used to pass a function that is used to sanitize the value of the argument before passing it to the main callback.
 
 Using `sanitize_callback` and `validate_callback` allows the main callback to act only to process the request, and prepare data to be returned using the `WP_REST_Response` class. By using these two callbacks, you will be able to safely assume your inputs are valid and safe when processing.
 
-All field parameters can be retirved by using the method `get_params` of the `WP_REST_Request` object passed to the callback for the endpoint.
+Taking our previous example, we can ensure the parameter passed in is always an integer:
+
+```php
+add_action( 'rest_api_init', function () {
+	register_rest_route( 'myplugin/v1', '/author/(?P<id>\d+)', array(
+		'methods' => 'GET',
+		'callback' => 'my_awesome_func',
+		'args' => array(
+			'id' => array(
+				'validate_callback' => 'is_numeric'
+			),
+		),
+	) );
+} );
+```
+
+We could also use `'sanitize_callback' => 'absint'` instead, but validation will throw an error, allowing clients to understand what they're doing wrong. Sanitization is useful when you would rather change the data being input rather than throwing an error (such as invalid HTML).
+
+### Return Value
+
+After your callback is called, the return value is then converted to JSON, and returned to the client. This allows you to return basically any form of data. In our example above, we're returning either a string or null, which are automatically handled by the API and converted to JSON.
+
+Like any other WordPress function, you can also return a `WP_Error` instance. This error information will be passed along to the client, along with a 500 Internal Service Error status code. You can further customise your error by setting the `status` option in the `WP_Error` instance data to a code, such as `400` for bad input data.
+
+Taking our example from before, we can now return an error instance:
+
+```php
+/**
+ * Grab latest post title by an author!
+ *
+ * @param array $data Options for the function.
+ * @return string|null Post title for the latest,
+ * or null if none.
+ */
+function my_awesome_func( $data ) {
+	$posts = get_posts( array(
+		'author' => $data['id'],
+	) );
+
+	if ( empty( $posts ) ) {
+		return new WP_Error( 'awesome_no_author', 'Invalid author', array( 'status' => 404 ) );
+	}
+
+	return $posts[0]->post_title;
+}
+```
+
+When an author doesn't have any posts belonging to them, this will return a 404 Not Found error to the client:
+
+```
+HTTP/1.1 404 Not Found
+
+[{
+   "code": "no_author",
+   "message": "Invalid author",
+   "data": { "status": 404 }
+}]
+```
+
+For more advanced usage, you can return a `WP_REST_Response` object. This object "wraps" normal body data, but allows you to return a custom status code, or custom headers. You can also [add links to your response](/extending/linking/). The quickest way to use this is via the constructor:
+
+```php
+$data = array( 'some', 'response', 'data' );
+
+// Create the response object
+$response = new WP_REST_Response( $data );
+
+// Add a custom status code
+$response->set_status( 201 );
+
+// Add a custom header
+$response->header( 'Location', 'http://example.com/' );
+```
+
+When wrapping existing callbacks, you should always use `rest_ensure_response()` on the return value. This will take raw data returned from an endpoint and automatically turn it into a `WP_REST_Response` for you. (Note that `WP_Error` is not converted to a `WP_REST_Response` to allow proper error handling.)
+
+
+### Permissions Callback
+
+You can also register a permissions callback for the endpoint. This is a function that checks if the user can perform the action (reading, updating, etc) before the real callback is called. This allows the API to tell the client what actions they can perform on a given URL without needing to attempt the request first.
+
+This callback can be registered as `permission_callback`, again in the endpoint options next to your `callback` option. This callback should return a boolean or a `WP_Error` instance. If this function returns true, the response will be proccessed. If it returns false, a default error message will be returned and the request will not proceed with processing. If it returns a `WP_Error`, that error will be returned to the client.
+
+The permissions callback is run after remote authentication, which sets the current user. This means you can use `current_user_can` to check if the user that has been authenticated has the appropriate capability for the action, or any other check based on current user ID. Where possible, you should always use `current_user_can`; instead of checking if the user is logged in (authentication), check whether they can perform the action (authorization).
+
+Continuing with our previous example, we can make it so that only editors or above can view this author data. We can check a number of different capabilities here, but the best is `edit_others_posts`, which is really the core of what an editor is. To do this, we just need a callback here:
+
+```php
+add_action( 'rest_api_init', function () {
+	register_rest_route( 'myplugin/v1', '/author/(?P<id>\d+)', array(
+		'methods' => 'GET',
+		'callback' => 'my_awesome_func',
+		'args' => array(
+			'id' => array(
+				'validate_callback' => 'is_numeric'
+			),
+		),
+		'permission_callback' => function () {
+			return current_user_can( 'edit_others_posts' );
+		}
+	) );
+} );
+```
+
+Note that the permission callback also receives the Request object as the first parameter, so you can do checks based on request arguments if you need to.
 
 
 The Controller Pattern
