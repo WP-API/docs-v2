@@ -4,25 +4,77 @@ title: Adding Custom Endpoints
 
 The WordPress REST API is more than just a set of default routes. It is also a tool for creating custom routes and endpoints. The WordPress front-end provides a default set of URL mappings, but the tools used to create them (e.g. the Rewrites API, as well as the query classes: `WP_Query`, `WP_User`, etc) are also available for creating your own URL mappings, or custom queries.
 
-This document details how to create a totally custom route, with its own endpoints. It is recommended that you read "Extending Internal Classes" before reading this document. Doing so will familiarize you with the patterns used by the default routes, which is the best practice.
-
-While it is not required that the class you use to process your request extends the `WP_REST_Controller` class or a class that extends it, doing so allows you to inherit work done in those classes. In addition when you do so, you are forced to follow many of the patterns of the core API.
+This document details how to create a totally custom route, with its own endpoints. We'll first work through a short example, then expand it out to the full controller pattern as used internally.
 
 
-Registering a Route
--------------------
-
-A custom route is created by using the function `register_rest_route()` and then instantiating the class containing it inside of a function hooked to rest_api_init and calling that method.
-
-Each route can have any number of endpoints, and for each endpoint, you can define the HTTP transport methods allowed, a callback function for responding to the request and  a permissions callback for creating custom permissions. In addition you are able to define allowed fields in this request and for each field specify a default value, a sanitization callback, a validation callback, and to specify the field as required.
-
-
-Namespacing
+Bare Basics
 -----------
 
-Namespaces are the first part of the url for the endpoint, after `wp-json` they should be used as a vendor/package prefix to prevent clashes between custom routes. Namespaces allows for two plugins to add a route of the same name, with different functionality.
+So you want to add custom endpoints to the API? Fantastic! Let's get started with a simple example.
+
+Let's start with a simple function that looks like this:
+
+```php
+/**
+ * Grab latest post title by an author!
+ *
+ * @param array $data Options for the function.
+ * @return string|null Post title for the latest,  * or null if none.
+ */
+function my_awesome_func( $data ) {
+	$posts = get_posts( array(
+		'author' => $data['id'],
+	) );
+
+	if ( empty( $posts ) ) {
+		return null;
+	}
+
+	return $posts[0]->post_title;
+}
+```
+
+To make this available via the API, we need to register a route. This tells the API to respond to a given request with our function. We do this through a function called `register_rest_route`, which should be called in a callback on `rest_api_init` to avoid doing extra work when the API isn't loaded.
+
+We need to pass in three things to `register_rest_route`: the namespace, the route we want, and the options. We'll come back to the namespace in a bit, but for now, let's pick `myplugin/v1`. We're going to have the route match anything with `/author/{id}`, where `{id}` is an integer.
+
+```php
+add_action( 'rest_api_init', function () {
+	register_rest_route( 'myplugin/v1', '/author/(?P<id>\d+)', array(
+		'methods' => 'GET',
+		'callback' => 'my_awesome_func',
+	) );
+} );
+```
+
+Right now, we're only registering the one endpoint for the route. ("Route" is the URL, whereas "endpoint" is the function behind it that corresponds to a method *and* a URL. For more, see the [Glossary](/glossary.html).) Each route can have any number of endpoints, and for each endpoint, you can define the HTTP methods allowed, a callback function for responding to the request and a permissions callback for creating custom permissions. In addition you can define allowed fields in the request and for each field specify a default value, a sanitization callback, a validation callback, and whether the field is required.
+
+
+### Namespacing
+
+Namespaces are the first part of the URL for the endpoint. They should be used as a vendor/package prefix to prevent clashes between custom routes. Namespaces allows for two plugins to add a route of the same name, with different functionality.
+
+Namespaces in general should follow the pattern of `vendor/v1`, where `vendor` is typically your plugin or theme slug, and `v1` represents the first version of the API. If you ever need to break compatibility with new endpoints, you can then bump this to `v2`.
 
 The above scenario, two routes with the same name, from two different plugins, requires all vendors to use a unique namespace. Failing to do so is analagous to a failure to use a vendor function prefix, class prefix and/ or class namespace in a theme or plugin, which is very `_doing_it_wrong`.
+
+An added benefit of using namespaces is that clients can detect support for your custom API. The API index lists out the available namespaces on a site:
+
+```json
+{
+	"name": "WordPress Site"
+	"description": "Just another WordPress site",
+	"url": "http://example.com/",
+	"namespaces": [
+		"wp/v2",
+		"vendor/v1",
+		"myplugin/v1",
+		"myplugin/v2",
+	]
+}
+```
+
+If a client wants to check that your API exists on a site, they can check against this list. (For more information, see the [Discovery guide](/guide/discovery/).)
 
 
 The Permissions Callback
@@ -30,13 +82,7 @@ The Permissions Callback
 
 The permissions check callback should return a boolean or a WP_Error. If this function returns true, the response will be procccesed. If it returns false, a default error message will be returned and the request will not proceed with processing. If it returns a `WP_Error`, that error will be returned.
 
-The permissions callback is run after remote authentication, which sets the current user. This means you can use current_user_can to check if the user that has been authenticated has the appropriate capability for the action, or any other check based on current user ID.
-
-
-Define Transport Method
------------------------
-
-When defining transport methods, the constants of the WP_REST_Server class should be used. Note that a single transport method, or a list of transport methods can be used here.
+The permissions callback is run after remote authentication, which sets the current user. This means you can use `current_user_can` to check if the user that has been authenticated has the appropriate capability for the action, or any other check based on current user ID.
 
 
 Setting Up Fields
@@ -51,6 +97,20 @@ The `validate_callback` key is optional. It can be used to pass a function that 
 Using `sanitize_callback` and `validate_callback` allows the main callback to act only to process the request, and prepare data to be returned using the `WP_REST_Response` class. By using these two callbacks, you will be able to safely assume your inputs are valid and safe when processing.
 
 All field parameters can be retirved by using the method `get_params` of the `WP_REST_Request` object passed to the callback for the endpoint.
+
+
+The Controller Pattern
+----------------------
+
+The controller pattern is a best practice for working with complex endpoints with the API.
+
+It is recommended that you read "Extending Internal Classes" before reading this section. Doing so will familiarize you with the patterns used by the default routes, which is the best practice.
+
+While it is not required that the class you use to process your request extends the `WP_REST_Controller` class or a class that extends it, doing so allows you to inherit work done in those classes. In addition when you do so, you are forced to follow many of the patterns of the core API.
+
+To use controllers, you first need to subclass the base controller. This gives you a base set of methods, ready for you to add your own behaviour into.
+
+Once we've subclassed the controller, we need to instantiate the class to get it working. This should be done inside of a callback hooked into `rest_api_init`, which ensures we only instantiate the class when we need to. The normal controller pattern is to call `$controller->register_routes()` inside this callback, where the class can then register its endpoints.
 
 
 Examples
