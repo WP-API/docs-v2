@@ -12,6 +12,18 @@ In addition, it allows you to update that value from the endpoints the field is 
 It is important to note that in the context of this document, the term "field" refers to a field in the object returned by the API. It does not refer to a meta field of a post, comment or user. While it `register_api_field` can be used to add meta fields to a response, it can be used to add any data.
 
 
+Important Note about Changing Responses
+---------------------------------------
+
+The API exposes many fields on API responses, including things you might not need, or might not fit into how your site works. While it's tempting to modify or remove fields from responses, this **will** cause problems with API clients that expect standard responses. This includes things like mobile clients, or third party tools to help you manage your site.
+
+You may only need a small amount of data, but it's important to keep in mind that the API is about exposing an interface to all clients, not just the feature you're working on. Changing responses is dangerous.
+
+Adding fields is not dangerous, so if you need to modify data, it's much better to duplicate the field instead with your modified data. Removing fields is never encouraged; if you need to get back a smaller subset of data, work with contexts instead, and consider making your own context.
+
+Note that the API cannot prevent you from changing responses, but the code is structured to strongly discourage this. Internally, field registration is powered by filters, and these can be used if you absolutely have no other choice.
+
+
 What `register_api_field` Does
 ------------------------------
 
