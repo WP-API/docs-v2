@@ -64,7 +64,7 @@ An added benefit of using namespaces is that clients can detect support for your
 
 ```json
 {
-	"name": "WordPress Site"
+	"name": "WordPress Site",
 	"description": "Just another WordPress site",
 	"url": "http://example.com/",
 	"namespaces": [
