@@ -54,104 +54,109 @@ Examples
 ### Show a post meta field in post responses
 
 ```php
-  add_action( 'rest_api_init', 'slug_register_starship' );
-  function slug_register_starship() {
-  	register_api_field( 'post',
-  		'starship',
-  		array(
-  			'get_callback'    => 'slug_get_starship',
-  			'update_callback' => null,
-  			'schema'          => null,
-  		)
-  	);
-  }
+<?php
+add_action( 'rest_api_init', 'slug_register_starship' );
+function slug_register_starship() {
+    register_api_field( 'post',
+        'starship',
+        array(
+            'get_callback'    => 'slug_get_starship',
+            'update_callback' => null,
+            'schema'          => null,
+        )
+    );
+}
 
-  /**
-   * Get the value of the "starship" field
-   *
-   * @param array $object Details of current post.
-   * @param string $field_name Name of field.
-   * @param WP_REST_Request $request Current request
-   *
-   * @return mixed
-   */
-  function slug_get_starship( $object, $field_name, $request ) {
-  	return get_post_meta( $object[ 'id' ], $field_name, true );
-  }
-
+/**
+ * Get the value of the "starship" field
+ *
+ * @param array $object Details of current post.
+ * @param string $field_name Name of field.
+ * @param WP_REST_Request $request Current request
+ *
+ * @return mixed
+ */
+function slug_get_starship( $object, $field_name, $request ) {
+    return get_post_meta( $object[ 'id' ], $field_name, true );
+}
 ```
+
 This example illustrates adding the post meta field "starship" to the response for posts. Note that the field name corresponds to the post meta field name to simplify the code. It does not have to.
 
 ### Read and write a post meta field in post responses
+
 ```php
-  /**
-   * Add the field "spaceship" to REST API responses for posts read and write
-   */
-  add_action( 'rest_api_init', 'slug_register_spaceship' );
-  function slug_register_spaceship() {
-  	register_api_field( 'post',
-  		'starship',
-  		array(
-  			'get_callback'    => 'slug_get_spaceship',
-  			'update_callback' => 'slug_update_spaceship',
-  			'schema'          => null,
-  		)
-  	);
-  }
-  /**
-   * Handler for getting custom field data.
-   *
-   * @since 0.1.0
-   *
-   * @param array $object The object from the response
-   * @param string $field_name Name of field
-   * @param WP_REST_Request $request Current request
-   *
-   * @return mixed
-   */
-  public function slug_get_spaceship( $object, $field_name, $request ) {
-  	return get_post_meta( $object[ 'id' ], $field_name );
-  }
+<?php
+/**
+ * Add the field "spaceship" to REST API responses for posts read and write
+ */
+add_action( 'rest_api_init', 'slug_register_spaceship' );
+function slug_register_spaceship() {
+    register_api_field( 'post',
+        'starship',
+        array(
+            'get_callback'    => 'slug_get_spaceship',
+            'update_callback' => 'slug_update_spaceship',
+            'schema'          => null,
+        )
+    );
+}
+/**
+ * Handler for getting custom field data.
+ *
+ * @since 0.1.0
+ *
+ * @param array $object The object from the response
+ * @param string $field_name Name of field
+ * @param WP_REST_Request $request Current request
+ *
+ * @return mixed
+ */
+public function slug_get_spaceship( $object, $field_name, $request ) {
+    return get_post_meta( $object[ 'id' ], $field_name );
+}
 
-  /**
-   * Handler for updating custom field data.
-   *
-   * @since 0.1.0
-   *
-   * @param mixed $value The value of the field
-   * @param object $object The object from the response
-   * @param string $field_name Name of field
-   *
-   * @return bool|int
-   */
-  public function slug_update_spaceship( $value, $object, $field_name ) {
-  	if ( ! $value || ! is_string( $value ) ) {
-  		return;
-  	}
+/**
+ * Handler for updating custom field data.
+ *
+ * @since 0.1.0
+ *
+ * @param mixed $value The value of the field
+ * @param object $object The object from the response
+ * @param string $field_name Name of field
+ *
+ * @return bool|int
+ */
+public function slug_update_spaceship( $value, $object, $field_name ) {
+    if ( ! $value || ! is_string( $value ) ) {
+        return;
+    }
 
-  	return update_post_meta( $object->ID, $field_name, strip_tags( $value ) );
+    return update_post_meta( $object->ID, $field_name, strip_tags( $value ) );
 
-  }
-
+}
 ```
+
 This example shows how to allow reading and writing of a post meta field. This will allow the spaceship field to be updated via a POST request to `wp-json/wp/v2/posts/<post-id>` or created along with a post via a POST request to ``wp-json/wp/v2/posts/`
 
 ### Return an arbitrary function
-```php
-  /**
-   * Use arbitrary functions to add a field
-   */
-  add_action( 'rest_api_init', 'slug_register_something_random' );
-  function slug_register_starship() {
-  	register_api_field( 'post',
-  		'something',
-  		array(
-  			'get_callback'    => 'slug_get_something',
-  			'update_callback' => 'slug_update_something',
-  			'schema'          => null,
-  		)
-  	);
-  }
 
+```php
+<?php
+/**
+ * Use arbitrary functions to add a field
+ */
+add_action( 'rest_api_init', 'slug_register_something_random' );
+function slug_register_starship() {
+    register_api_field( 'post',
+        'something',
+        array(
+            'get_callback'    => 'slug_get_something',
+            'update_callback' => 'slug_update_something',
+            'schema'          => null,
+        )
+    );
+}
 ```
+
 In the previous examples, helper functions were used to align the arguments passed by the API to `get_post_meta` and `update_post_meta`. In this example, an arbitrary function is called, which presumably accepts arguments in a compatible fashion.

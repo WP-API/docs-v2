@@ -15,6 +15,7 @@ So you want to add custom endpoints to the API? Fantastic! Let's get started wit
 Let's start with a simple function that looks like this:
 
 ```php
+<?php
 /**
  * Grab latest post title by an author!
  *
@@ -39,6 +40,7 @@ To make this available via the API, we need to register a route. This tells the 
 We need to pass in three things to `register_rest_route`: the namespace, the route we want, and the options. We'll come back to the namespace in a bit, but for now, let's pick `myplugin/v1`. We're going to have the route match anything with `/author/{id}`, where `{id}` is an integer.
 
 ```php
+<?php
 add_action( 'rest_api_init', function () {
 	register_rest_route( 'myplugin/v1', '/author/(?P<id>\d+)', array(
 		'methods' => 'GET',
@@ -82,6 +84,7 @@ If a client wants to check that your API exists on a site, they can check agains
 By default, routes receive all arguments passed in from the request. These are merged into a single set of parameters, then added to the Request object, which is passed in as the first parameter to your endpoint:
 
 ```php
+<?php
 function my_awesome_func( WP_REST_Request $request ) {
 	// You can access parameters via direct array access on the object:
 	$param = $request['some_param'];
@@ -120,6 +123,7 @@ Using `sanitize_callback` and `validate_callback` allows the main callback to ac
 Taking our previous example, we can ensure the parameter passed in is always an integer:
 
 ```php
+<?php
 add_action( 'rest_api_init', function () {
 	register_rest_route( 'myplugin/v1', '/author/(?P<id>\d+)', array(
 		'methods' => 'GET',
@@ -144,6 +148,7 @@ Like any other WordPress function, you can also return a `WP_Error` instance. Th
 Taking our example from before, we can now return an error instance:
 
 ```php
+<?php
 /**
  * Grab latest post title by an author!
  *
@@ -179,6 +184,7 @@ HTTP/1.1 404 Not Found
 For more advanced usage, you can return a `WP_REST_Response` object. This object "wraps" normal body data, but allows you to return a custom status code, or custom headers. You can also [add links to your response](/extending/linking/). The quickest way to use this is via the constructor:
 
 ```php
+<?php
 $data = array( 'some', 'response', 'data' );
 
 // Create the response object
@@ -205,6 +211,7 @@ The permissions callback is run after remote authentication, which sets the curr
 Continuing with our previous example, we can make it so that only editors or above can view this author data. We can check a number of different capabilities here, but the best is `edit_others_posts`, which is really the core of what an editor is. To do this, we just need a callback here:
 
 ```php
+<?php
 add_action( 'rest_api_init', function () {
 	register_rest_route( 'myplugin/v1', '/author/(?P<id>\d+)', array(
 		'methods' => 'GET',
