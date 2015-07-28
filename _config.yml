@@ -12,8 +12,7 @@ redcarpet:
 # kramdown:
 #   input: GFM
 #   line_width: 80
-pygments:
-  options: ['startinline']
+pygments_options: ['startinline']
 
 sass:
     sass_dir: assets/styles
