@@ -4,15 +4,16 @@ description: Documentation for version 2.0 of the WP REST API.
 # url: http://v2.wp-api.org/
 baseurl: /
 encoding: utf-8
-highlighter: pygments
-markdown: redcarpet
+markdown: kramdown
 redcarpet:
   extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
 # markdown: kramdown
-# kramdown:
-#   input: GFM
-#   line_width: 80
-pygments_options: ['startinline']
+kramdown:
+  input: GFM
+  use_coderay: Yes
+  coderay:
+    coderay_line_numbers: ''
+    coderay_css: class
 
 sass:
     sass_dir: assets/styles
