@@ -30,7 +30,7 @@ with each request. The API uses nonces with the action set to `wp_api`. These
 can then be passed to the API via the `_wp_json_nonce` data parameter (either
 POST data or in the query for GET requests), or via the `X-WP-Nonce` header.
 
-It is important to keep in mind that this authentication method relies on WordPress cookie. As a result this method is only applicable when the REST API is used inside of WordPress and the current user is logged in. In addition, the current user must have the appropirate capability to perform the action being performed.
+It is important to keep in mind that this authentication method relies on WordPress cookie. As a result this method is only applicable when the REST API is used inside of WordPress and the current user is logged in. In addition, the current user must have the appropriate capability to perform the action being performed.
 
 As an example, this is how the built-in Javascript client creates the nonce:
 
@@ -60,7 +60,7 @@ $.ajax( {
         xhr.setRequestHeader( 'X-WP-Nonce', WP_API_Settings.nonce );
     },
     data:{
-        'title' :  'Hello Moon'
+        'title':'Hello Moon'
     }
 } ).done( function ( response ) {
     console.log( response );
@@ -115,21 +115,21 @@ Basic Authentication
 --------------------
 Basic authentication is an optional authentication handler for external clients.
 Due to the complexity of OAuth authentication, basic authentication can be
-useful during development. However, basic authentication requires passing your
+useful during development. However, Basic authentication requires passing your
 username and password on every request, as well as giving your credentials to
 clients, so it is heavily discouraged for production use.
 
 Basic authentication uses [HTTP Basic Authentication][http-basic] (published as
 RFC2617) and requires installing the [Basic Auth plugin][basic-auth-plugin].
 
-To use basic authentication, simply pass the username and password with each
+To use Basic authentication, simply pass the username and password with each
 request through the `Authorization` header. This value should be encoded (using base64 encoding) as per
 the HTTP Basic specification.
 
-This is an example of how to update a post, using basic authentication, via the WordPress HTTP API:
+This is an example of how to update a post, using Basic authentication, via the WordPress HTTP API:
 
 ```php
-$headers    = array (
+$headers = array (
 	'Authorization' => 'Basic ' . base64_encode( 'admin' . ':' . '12345' ),
 );
 $url = rest_url( 'wp/v2/posts/1' );
