@@ -9,7 +9,7 @@ resource: Type
 	<div class="primary">
 		<h2>Schema</h2>
 		<table class="attributes">
-			{% for property in site.data.terms.schema.properties %}
+			{% for property in site.data.types.schema.properties %}
 				<tr>
 					<td>
 						<code>{{ property[0] }}</code><br />
