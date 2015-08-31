@@ -33,7 +33,8 @@ POST data or in the query for GET requests), or via the `X-WP-Nonce` header.
 As an example, this is how the built-in Javascript client creates the nonce:
 
 ```php
-wp_localize_script( 'wp-api', 'WP_API_Settings', array( 'root' => esc_url_raw( get_json_url() ), 'nonce' => wp_create_nonce( 'wp_json' ) ) );
+<?php
+wp_localize_script( 'wp-api', 'WP_API_Settings', array( 'root' => esc_url_raw( rest_url() ), 'nonce' => wp_create_nonce( 'wp_rest' ) ) );
 ```
 
 This is then used in the base model:

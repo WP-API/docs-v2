@@ -4,7 +4,7 @@ title: Linking
 
 The WP REST API heavily incorporates hypermedia concepts, including linking. At the core, this relies on hyperlinking between resources, similar to how normal web pages link between related pages. This allows the API to be discoverable to new users and clients.
 
-The linking system we use is based on [HAL][] (Hypertext Markup Language).
+The linking system we use is based on [HAL][] (Hypertext Application Language).
 
 [HAL]: http://stateless.co/hal_specification.html
 
@@ -41,6 +41,7 @@ HAL uses the `_links` property to indicate links from the current resource to ot
 You can add these links into your returned data manually if you'd like, but the recommended way to add them is to use the helpers on Response objects. The `add_link` method on `WP_REST_Response` takes a relation, a URL HTTP reference, and optional attributes:
 
 ```php
+<?php
 $response = new WP_REST_Response( $data );
 $response->add_link( 'author', rest_url( '/wp/v2/users/42' ) );
 ```
@@ -48,6 +49,7 @@ $response->add_link( 'author', rest_url( '/wp/v2/users/42' ) );
 You can also add multiple using the `add_links` method by structuring them similar to the output format:
 
 ```php
+<?php
 $response = new WP_REST_Response( $data );
 $response->add_links( array(
 	'author' => array(
@@ -127,6 +129,7 @@ Embedding can reduce the number of HTTP requests that clients need to make, whic
 Enabling links to be embedded is super simple, simply add `'embeddable' => true` to your link attributes. The URL needs to be "local", that is, pointing to an internal REST API route. When a client requests the resource, they can then add `_embed` to the parameters (i.e. `?_embed`), and the API infrastructure will automatically embed these links into the returned data. The `_embedded` key in the returned data will then contain the content of the embedded resources, in the same order as the `_links` values.
 
 ```php
+<?php
 $response->add_link( 'author', rest_url( '/wp/v2/users/42' ), array( 'embeddable' => true ) );
 ```
 
