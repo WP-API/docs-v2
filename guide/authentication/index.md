@@ -26,7 +26,7 @@ Custom data models can extend `wp.api.models.Base` to ensure this is sent
 correctly for any custom requests.
 
 For developers making manual Ajax requests, the nonce will need to be passed
-with each request. The API uses nonces with the action set to `wp_api`. These
+with each request. The API uses nonces with the action set to `wp_rest`. These
 can then be passed to the API via the `_wp_json_nonce` data parameter (either
 POST data or in the query for GET requests), or via the `X-WP-Nonce` header.
 
