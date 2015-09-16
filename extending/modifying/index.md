@@ -112,7 +112,7 @@ function slug_register_spaceship() {
  *
  * @return mixed
  */
-public function slug_get_spaceship( $object, $field_name, $request ) {
+function slug_get_spaceship( $object, $field_name, $request ) {
     return get_post_meta( $object[ 'id' ], $field_name );
 }
 
@@ -127,7 +127,7 @@ public function slug_get_spaceship( $object, $field_name, $request ) {
  *
  * @return bool|int
  */
-public function slug_update_spaceship( $value, $object, $field_name ) {
+function slug_update_spaceship( $value, $object, $field_name ) {
     if ( ! $value || ! is_string( $value ) ) {
         return;
     }
