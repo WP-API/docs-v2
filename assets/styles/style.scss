@@ -107,13 +107,14 @@ header {
 }
 
 .no-superbar {
+	$content-column-offset: floor( ( $superbar-column-width / 2 ) * ( $main-column-width / 12 ) );
 	#content {
 		@include grid-column($columns: $content-column-width);
-		@include grid-column($push: floor( $superbar-column-width / 2 ));
+		@include grid-column($push: $content-column-offset );
 	}
 
 	&.has-sticky #content {
-		@include grid-column($push: $sidebar-column-width + floor( $superbar-column-width / 2 ));
+		@include grid-column($push: $sidebar-column-width + $content-column-offset);
 	}
 }
 
