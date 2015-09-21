@@ -71,7 +71,7 @@ then we'd also love to know that. :)
 
 * **Changed**: Comments have been moved to a top-level endpoint at
   `/wp/v2/comments`. To fetch comments belonging to a post, use
-  `/wp/v2/comments?post_id=<id>`
+  `/wp/v2/comments?post=<id>`
 
 
 ## Future Changes
