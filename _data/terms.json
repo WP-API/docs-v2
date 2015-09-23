@@ -1,3 +1,141 @@
-[
-
-]
+{
+	"namespace": "wp/v2",
+  "methods": [
+    "GET",
+    "POST"
+  ],
+  "endpoints": [
+    {
+      "methods": [
+        "GET"
+      ],
+      "args": {
+        "page": {
+          "required": false,
+          "default": 1
+        },
+        "per_page": {
+          "required": false,
+          "default": 10
+        },
+        "search": {
+          "required": false
+        },
+        "order": {
+          "required": false,
+          "default": "asc"
+        },
+        "orderby": {
+          "required": false,
+          "default": "name"
+        },
+        "parent": {
+          "required": false
+        }
+      }
+    },
+    {
+      "methods": [
+        "POST"
+      ],
+      "args": {
+        "description": {
+          "required": false
+        },
+        "name": {
+          "required": true
+        },
+        "slug": {
+          "required": false
+        },
+        "parent": {
+          "required": false
+        }
+      }
+    }
+  ],
+  "schema": {
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "term",
+    "type": "object",
+    "properties": {
+      "id": {
+        "description": "Unique identifier for the object.",
+        "type": "integer",
+        "context": [
+          "view",
+          "embed"
+        ],
+        "readonly": true
+      },
+      "count": {
+        "description": "Number of published posts for the object.",
+        "type": "integer",
+        "context": [
+          "view"
+        ],
+        "readonly": true
+      },
+      "description": {
+        "description": "A human-readable description of the object.",
+        "type": "string",
+        "context": [
+          "view"
+        ]
+      },
+      "link": {
+        "description": "URL to the object.",
+        "type": "string",
+        "format": "uri",
+        "context": [
+          "view",
+          "embed"
+        ],
+        "readonly": true
+      },
+      "name": {
+        "description": "The title for the object.",
+        "type": "string",
+        "context": [
+          "view",
+          "embed"
+        ],
+        "required": true
+      },
+      "slug": {
+        "description": "An alphanumeric identifier for the object unique to its type.",
+        "type": "string",
+        "context": [
+          "view",
+          "embed"
+        ]
+      },
+      "taxonomy": {
+        "description": "Type attribution for the object.",
+        "type": "string",
+        "enum": [
+          "category",
+          "post_tag",
+          "nav_menu",
+          "link_category",
+          "post_format"
+        ],
+        "context": [
+          "view",
+          "embed"
+        ],
+        "readonly": true
+      },
+      "parent": {
+        "description": "The ID for the parent of the object.",
+        "type": "integer",
+        "context": [
+          "view"
+        ]
+      }
+    }
+  },
+  "_links": {
+    "self": "http://wpapi.dev/wp-json/wp/v2/terms/category"
+  }
+}

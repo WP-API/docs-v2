@@ -7,7 +7,7 @@ resource: Term
 
 <section class="route">
 	<div class="primary">
-		<h2>Schema</h2>
+		<h2>{{ page.resource }} Object Schema</h2>
 		<table class="attributes">
 			{% for property in site.data.terms.schema.properties %}
 				<tr>
@@ -38,16 +38,79 @@ resource: Term
 	<div class="secondary">
 		<h3>Example Request</h3>
 
-		$ curl -X OPTIONS -i http://demo.wp-api.org/{{ page.route_path }}
+		$ curl -X OPTIONS -i http://demo.wp-api.org/{{ page.route_path }}/{taxonomy}
+	</div>
+</section>
+<section class="route">
+	<h2>List all Taxonomy {{ page.resource }}s</h2>
+
+	<div class="primary">
+		<h3>Arguments</h3>
+		<table class="arguments">
+			{% for arg in site.data.terms.endpoints[0].args %}
+				<tr>
+					<td>
+						<code>{{ arg[0] }}</code><br />
+					</td>
+					<td>
+						<p class="required">
+							Required: {{ arg[1].required }}
+						</p>
+						<p class="default">
+							{% if arg[1].default %}
+								Default: <code>{{ arg[1].default }}</code>
+							{% endif %}
+						</p>
+					</td>
+				</tr>
+			{% endfor %}
+		</table>
+	</div>
+	<div class="secondary">
+		<h3>Definition</h3>
+
+		<code> {{ site.data.terms.endpoints[0].methods[0] }} http://demo.wp-api.org/wp-json/wp/v2/terms/{taxonomy}</code>
+		
+		<h3>Example Request</h3>
+
+		<code>$ curl http://demo.wp-api.org/{{ page.route_path}}/{taxonomy}</code>
 	</div>
 </section>
 
-### List all {{ page.resource }}s
+<section class="route">
+	<h2>Create a Taxonomy {{ page.resource }}</h2>
 
-### Create a {{ page.resource }}
+	<div class="primary">
+		<h3>Arguments</h3>
+		<table class="arguments">
+			{% for arg in site.data.terms.endpoints[1].args %}
+				<tr>
+					<td>
+						<code>{{ arg[0] }}</code><br />
+					</td>
+					<td>
+						<p class="required">
+							Required: {{ arg[1].required }}
+						</p>
+						<p class="default">
+							{% if arg[1].default %}
+								Default: <code>{{ arg[1].default }}</code>
+							{% endif %}
+						</p>
+					</td>
+				</tr>
+			{% endfor %}
+		</table>
+	</div>
+	<div class="secondary">
+		<h3>Definition</h3>
 
-### Retrieve a {{ page.resource }}
+		<code> {{ site.data.terms.endpoints[1].methods[0] }} http://demo.wp-api.org/{{ page.route_path }}/{taxonomy}</code>
+		
+	</div>
+</section>
+### Retrieve a Taxonomy {{ page.resource }}
 
-### Update a {{ page.resource }}
+### Update a Taxonomy {{ page.resource }}
 
-### Delete a {{ page.resource }}
+### Delete a Taxonomy {{ page.resource }}
