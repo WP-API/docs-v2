@@ -7,7 +7,7 @@ resource: Comment
 
 <section class="route">
 	<div class="primary">
-		<h2>Schema</h2>
+		<h2>{{ page.resource }} Object Schema</h2>
 		<table class="attributes">
 			{% for property in site.data.comments.schema.properties %}
 				<tr>
@@ -38,16 +38,77 @@ resource: Comment
 	<div class="secondary">
 		<h3>Example Request</h3>
 
-		$ curl -X OPTIONS -i http://demo.wp-api.org/{{ page.route_path }}
+		<code>$ curl -X OPTIONS -i http://demo.wp-api.org/{{ page.route_path }}</code>
 	</div>
 </section>
 
-### List all {{ page.resource }}s
+<section class="route">
+	<h2>List all {{ page.resource }}s</h2>
 
-### Create a {{ page.resource }}
+	<div class="primary">
+		<h3>Arguments</h3>
+		<table class="arguments">
+			{% for arg in site.data.comments.endpoints[0].args %}
+				<tr>
+					<td>
+						<code>{{ arg[0] }}</code><br />
+					</td>
+					<td>
+						<p class="required">
+							Required: {{ arg[1].required }}
+						</p>
+						<p class="default">
+							{% if arg[1].default %}
+								Default: <code>{{ arg[1].default }}</code>
+							{% endif %}
+						</p>
+					</td>
+				</tr>
+			{% endfor %}
+		</table>
+	</div>
+	<div class="secondary">
+		<h3>Definition</h3>
 
-### Retrieve a {{ page.resource }}
+		<code> {{ site.data.comments.endpoints[0].methods[0] }} http://demo.wp-api.org/{{ page.route_path }}</code>
+		
+		<h3>Example Request</h3>
 
-### Update a {{ page.resource }}
+		<code>$ curl http://demo.wp-api.org/{{ page.route_path}}</code>
+	</div>
+</section>
+<section class="route">
+	<h2>Create a {{ page.resource }}</h2>
+	<div class="primary">
+		<h3>Arguments</h3>
+		<table class="arguments">
+			{% for arg in site.data.comments.endpoints[1].args %}
+				<tr>
+					<td>
+						<code>{{ arg[0] }}</code><br />
+					</td>
+					<td>
+						<p class="required">
+							Required: {{ arg[1].required }}
+						</p>
+						<p class="default">
+							{% if arg[1].default %}
+								Default: <code>{{ arg[1].default }}</code>
+							{% endif %}
+						</p>
+					</td>
+				</tr>
+			{% endfor %}
+		</table>
+	</div>
+	<div class="secondary">
+		<h3>Definition</h3>
 
-### Delete a {{page.resource}}
+		<code> {{ site.data.comments.endpoints[1].methods[0] }} http://demo.wp-api.org/{{ page.route_path }}</code>
+	</div>
+</section>
+<h2>Retrieve a {{ page.resource }}</h2>
+
+<h2>Update a {{ page.resource }}</h2>
+
+<h2>Delete a {{page.resource}}</h2>
