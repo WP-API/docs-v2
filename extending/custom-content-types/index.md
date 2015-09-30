@@ -2,7 +2,7 @@
 title: Adding REST API Support For Custom Content Types
 ---
 
-The REST API can create routes for custom post types and custom taxonomies, inside of the `wp/v2` namespace, using the same controllers as the default post type or taxonomy term controllers. Alternatively, you can use your own controllers and namespace. This document will cover using the default controllers for you custom content type's API routes. This is the easiest way and ensures the highest chance of compatibility with third parties.
+The REST API can create routes for custom post types and custom taxonomies, inside of the `wp/v2` namespace, using the same controllers as the default post type or taxonomy term controllers. Alternatively, you can use your own controllers and namespace. This document will cover using the default controllers for your custom content type's API routes. This is the easiest way and ensures the highest chance of compatibility with third parties.
 
 ### Registering A Custom Post Type With REST API Support
 When registering a custom post type, if you want it to be available via the REST API, you should set, in the arguments passed to `register_post_type` an argument for `show_in_rest`. Setting this argument to true will add a route in the `wp/v2` namespace, as long as you use the default post controller (see below.)
