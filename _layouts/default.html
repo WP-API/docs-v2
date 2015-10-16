@@ -13,7 +13,7 @@
 		<meta content="{{site.title}}" property="og:title" />
 		<meta content="{{site.description}}" name="description" />
 	</head>
-	<body class="{% unless page.has_superbar %}no-superbar{% endunless %}">
+	<body class="{% if page.has_superbar %}has-superbar{% else %}no-superbar{% endif %}">
 		{% include header.html %}
 
 		<section id="sidebar">
@@ -21,8 +21,12 @@
 		</section>
 
 		<section id="content">
-			{% if page.include_title %}
-				<h1>{{ page.title }}</h1>
+			{% if page.has_superbar %}
+				<div class="background"><div class="primary"></div><div class="secondary"></div></div>
+			{% else %}
+				{% if page.include_title %}
+					<h1>{{ page.title }}</h1>
+				{% endif %}
 			{% endif %}
 
 			{{ content }}

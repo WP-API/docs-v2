@@ -93,30 +93,39 @@ header {
 	}
 
 	a {
-		color: rgba($fg-secondary, 0.6);
+		color: rgba($fg-secondary, 0.7);
 		text-decoration: none;
 	}
 }
 
 #content {
-	@include grid-column($columns: $content-column-width);
-
 	float: left;
+	position: relative;
 
 	color: $fg-primary;
 	background: $bg-primary;
 }
 
-.has-sticky #content {
-	@include grid-column($push: $sidebar-column-width);
+.no-superbar {
+	$content-column-offset: floor( ( $superbar-column-width / 2 ) * ( $main-column-width / 12 ) );
+	#content {
+		@include grid-column($columns: $content-column-width);
+		@include grid-column($push: $content-column-offset );
+	}
+
+	&.has-sticky #content {
+		@include grid-column($push: $sidebar-column-width + $content-column-offset);
+	}
 }
 
-.no-superbar #content {
-	@include grid-column($push: floor( $superbar-column-width / 2 ));
-}
+.has-superbar {
+	#content {
+		@include grid-column($columns: $main-column-width, $collapse: true);
+	}
 
-.no-superbar.has-sticky #content {
-	@include grid-column($push: $sidebar-column-width + floor( $superbar-column-width / 2 ));
+	&.has-sticky #content {
+		@include grid-column($push: $sidebar-column-width, $collapse: true);
+	}
 }
 
 #superbar {
@@ -124,9 +133,6 @@ header {
 	height: 100%;
 
 	float: right;
-
-	color: $fg-superbar;
-	background: $bg-superbar;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -144,6 +150,10 @@ pre {
 	overflow: auto;
 	background: rgba(0,0,0,0.04);
 	padding: 1.8em 1em;
+}
+
+.secondary pre {
+	background: rgba($fg-superbar, 0.04);
 }
 
 // Home
@@ -170,4 +180,35 @@ pre {
 			text-decoration: none;
 		}
 	}
+}
+
+// Reference Pages
+#content .background {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+
+	.primary, .secondary {
+		height: 100%;
+	}
+}
+
+.has-superbar {
+	.primary {
+		@include grid-column($columns: $content-column-width);
+	}
+
+	.secondary {
+		@include grid-column($columns: $superbar-column-width, $last-column: true);
+
+		color: $fg-superbar;
+		background: $bg-superbar;
+	}
+}
+
+.route {
+	@include grid-row($behavior: nest-collapse);
+	position: relative;
 }

@@ -71,7 +71,7 @@ then we'd also love to know that. :)
 
 * **Changed**: Comments have been moved to a top-level endpoint at
   `/wp/v2/comments`. To fetch comments belonging to a post, use
-  `/wp/v2/comments?post_id=<id>`
+  `/wp/v2/comments?post=<id>`
 
 
 ## Future Changes
@@ -91,6 +91,7 @@ Migrating endpoints from version 1 code to version 2 is pretty simple, and the
 easiest way to see this is by example. Let's take an example API:
 
 ```php
+<?php
 add_filter( 'json_endpoints', 'tsla_register_routes' );
 
 function tsla_register_routes( $routes ) {
@@ -126,6 +127,7 @@ headers. There are a few key changes we need to make here:
 Here's what the new API looks like:
 
 ```php
+<?php
 add_filter( 'rest_api_init', 'tsla_register_routes' );
 
 function tsla_register_routes( $routes ) {
