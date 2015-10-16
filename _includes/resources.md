@@ -51,11 +51,13 @@ WordPress Plugin Integrations
 * [bbPress][]
 * [Pods Framework][]
 * [WooCommerce][]
+* [Yoast][]
 
 [BuddyPress]: https://github.com/modemlooper/buddypress-json-api
 [bbPress]: https://github.com/thenbrent/BB-API
 [Pods Framework]: https://github.com/pods-framework/pods-json-api
 [WooCommerce]: http://woothemes.github.io/woocommerce/rest-api
+[Yoast]: https://github.com/jmfurlott/wp-api-yoast
 
 
 

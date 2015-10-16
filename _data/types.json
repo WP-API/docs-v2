@@ -1,0 +1,63 @@
+{
+  "namespace": "wp/v2",
+  "methods": [
+    "GET"
+  ],
+  "endpoints": [
+    {
+      "methods": [
+        "GET"
+      ],
+      "args": {
+        "post_type": {
+          "required": false
+        }
+      }
+    }
+  ],
+  "schema": {
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "type",
+    "type": "object",
+    "properties": {
+      "description": {
+        "description": "A human-readable description of the object.",
+        "type": "string",
+        "context": [
+          "view"
+        ]
+      },
+      "hierarchical": {
+        "description": "Whether or not the type should have children.",
+        "type": "boolean",
+        "context": [
+          "view"
+        ]
+      },
+      "labels": {
+        "description": "Human-readable labels for the type for various contexts.",
+        "type": "object",
+        "context": [
+          "view"
+        ]
+      },
+      "name": {
+        "description": "The title for the object.",
+        "type": "string",
+        "context": [
+          "view"
+        ]
+      },
+      "slug": {
+        "description": "An alphanumeric identifier for the object.",
+        "type": "string",
+        "context": [
+          "view"
+        ]
+      }
+    }
+  },
+  "_links": {
+    "self": "http://demo.wp-api.org/wp-json/wp/v2/types"
+  }
+}
