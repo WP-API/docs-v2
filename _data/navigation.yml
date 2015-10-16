@@ -76,6 +76,9 @@
 
     - title: Adding Endpoints
       page: extending/adding/index.md
+      
+    - title: Custom Content Types
+      page: extending/custom-content-types/index.md
 
     - title: Linking
       page: extending/linking/index.md
