@@ -30,7 +30,7 @@ with each request. The API uses nonces with the action set to `wp_api`. These
 can then be passed to the API via the `_wp_json_nonce` data parameter (either
 POST data or in the query for GET requests), or via the `X-WP-Nonce` header.
 
-It is important to keep in mind that this authentication method relies on WordPress cookie. As a result this method is only applicable when the REST API is used inside of WordPress and the current user is logged in. In addition, the current user must have the appropriate capability to perform the action being performed.
+It is important to keep in mind that this authentication method relies on WordPress cookies. As a result this method is only applicable when the REST API is used inside of WordPress and the current user is logged in. In addition, the current user must have the appropriate capability to perform the action being performed.
 
 As an example, this is how the built-in Javascript client creates the nonce:
 
@@ -60,7 +60,7 @@ $.ajax( {
         xhr.setRequestHeader( 'X-WP-Nonce', WP_API_Settings.nonce );
     },
     data:{
-        'title':'Hello Moon'
+        'title' : 'Hello Moon'
     }
 } ).done( function ( response ) {
     console.log( response );
@@ -139,11 +139,10 @@ $body = array(
 );
 
 $response = wp_remote_post( $url, array (
-	        'method'  => 'POST',
-	        'headers' => $headers,
-	        'body' 	  =>  $data
-	)
-);
+    'method'  => 'POST',
+    'headers' => $headers,
+    'body'    =>  $data
+) );
 ```
     
 
