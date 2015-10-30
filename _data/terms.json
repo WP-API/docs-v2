@@ -1,5 +1,5 @@
 {
-	"namespace": "wp/v2",
+  "namespace": "wp/v2",
   "methods": [
     "GET",
     "POST"
@@ -21,6 +21,10 @@
         "search": {
           "required": false
         },
+        "context": {
+          "required": false,
+          "default": "view"
+        },
         "order": {
           "required": false,
           "default": "asc"
@@ -28,6 +32,10 @@
         "orderby": {
           "required": false,
           "default": "name"
+        },
+        "hide_empty": {
+          "required": false,
+          "default": false
         },
         "parent": {
           "required": false
@@ -136,6 +144,6 @@
     }
   },
   "_links": {
-    "self": "http://wpapi.dev/wp-json/wp/v2/terms/category"
+    "self": "http://demo.wp-api.org/wp-json/wp/v2/terms/category"
   }
 }

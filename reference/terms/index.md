@@ -69,7 +69,7 @@ resource: Term
 	<div class="secondary">
 		<h3>Definition</h3>
 
-		<code> {{ site.data.terms.endpoints[0].methods[0] }} http://demo.wp-api.org/wp-json/wp/v2/terms/{taxonomy}</code>
+		<code> {{ site.data.terms.endpoints[0].methods[0] }} http://demo.wp-api.org/{{ page.route_path }}/{taxonomy}</code>
 		
 		<h3>Example Request</h3>
 
