@@ -4,6 +4,8 @@ These files comprise v2.wp-api.org. The endpoint documentation is programmatical
 
 You should have Ruby and gem installed.
 
+[Install Jekyll](https://help.github.com/articles/using-jekyll-with-pages/#installing-jekyll)
+
 [Install bundler](https://github.com/bundler/bundler/#installation-and-usage)
 
 Install gem dependencies
