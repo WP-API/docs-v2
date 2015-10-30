@@ -144,6 +144,6 @@
     }
   },
   "_links": {
-    "self": "http://wpapi.dev/wp-json/wp/v2/terms/category"
+    "self": "http://demo.wp-api.org/wp-json/wp/v2/terms/category"
   }
 }
