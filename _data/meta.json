@@ -1,0 +1,317 @@
+{
+  "name": "meta",
+  "routes": {
+    "/wp/v2/posts/<parent_id>/meta": {
+      "namespace": "wp/v2",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "endpoints": [
+        {
+          "methods": [
+            "GET"
+          ],
+          "args": {
+            "context": {
+              "required": false,
+              "default": "view"
+            }
+          }
+        },
+        {
+          "methods": [
+            "POST"
+          ],
+          "args": {
+            "key": {
+              "required": true
+            },
+            "value": {
+              "required": false
+            }
+          }
+        }
+      ],
+      "schema": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "title": "meta",
+        "type": "object",
+        "properties": {
+          "id": {
+            "description": "Unique identifier for the object.",
+            "type": "int",
+            "context": [
+              "edit"
+            ],
+            "readonly": true
+          },
+          "key": {
+            "description": "The key for the custom field.",
+            "type": "string",
+            "context": [
+              "edit"
+            ],
+            "required": true
+          },
+          "value": {
+            "description": "The value of the custom field.",
+            "type": "string",
+            "context": [
+              "edit"
+            ]
+          }
+        }
+      },
+      "nicename": "/wp/v2/posts/<parent_id>/meta"
+    },
+    "/wp/v2/posts/<parent_id>/meta/<id>": {
+      "namespace": "wp/v2",
+      "methods": [
+        "GET",
+        "POST",
+        "PUT",
+        "PATCH",
+        "DELETE"
+      ],
+      "endpoints": [
+        {
+          "methods": [
+            "GET"
+          ],
+          "args": {
+            "context": {
+              "required": false,
+              "default": "view"
+            }
+          }
+        },
+        {
+          "methods": [
+            "POST",
+            "PUT",
+            "PATCH"
+          ],
+          "args": {
+            "key": {
+              "required": false
+            },
+            "value": {
+              "required": false
+            }
+          }
+        },
+        {
+          "methods": [
+            "DELETE"
+          ],
+          "args": [
+
+          ]
+        }
+      ],
+      "schema": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "title": "meta",
+        "type": "object",
+        "properties": {
+          "id": {
+            "description": "Unique identifier for the object.",
+            "type": "int",
+            "context": [
+              "edit"
+            ],
+            "readonly": true
+          },
+          "key": {
+            "description": "The key for the custom field.",
+            "type": "string",
+            "context": [
+              "edit"
+            ],
+            "required": true
+          },
+          "value": {
+            "description": "The value of the custom field.",
+            "type": "string",
+            "context": [
+              "edit"
+            ]
+          }
+        }
+      },
+      "nicename": "/wp/v2/posts/<parent_id>/meta/<id>"
+    },
+    "/wp/v2/pages/<parent_id>/meta": {
+      "namespace": "wp/v2",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "endpoints": [
+        {
+          "methods": [
+            "GET"
+          ],
+          "args": {
+            "context": {
+              "required": false,
+              "default": "view"
+            }
+          }
+        },
+        {
+          "methods": [
+            "POST"
+          ],
+          "args": {
+            "key": {
+              "required": true
+            },
+            "value": {
+              "required": false
+            }
+          }
+        }
+      ],
+      "schema": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "title": "meta",
+        "type": "object",
+        "properties": {
+          "id": {
+            "description": "Unique identifier for the object.",
+            "type": "int",
+            "context": [
+              "edit"
+            ],
+            "readonly": true
+          },
+          "key": {
+            "description": "The key for the custom field.",
+            "type": "string",
+            "context": [
+              "edit"
+            ],
+            "required": true
+          },
+          "value": {
+            "description": "The value of the custom field.",
+            "type": "string",
+            "context": [
+              "edit"
+            ]
+          }
+        }
+      },
+      "nicename": "/wp/v2/pages/<parent_id>/meta"
+    },
+    "/wp/v2/pages/<parent_id>/meta/<id>": {
+      "namespace": "wp/v2",
+      "methods": [
+        "GET",
+        "POST",
+        "PUT",
+        "PATCH",
+        "DELETE"
+      ],
+      "endpoints": [
+        {
+          "methods": [
+            "GET"
+          ],
+          "args": {
+            "context": {
+              "required": false,
+              "default": "view"
+            }
+          }
+        },
+        {
+          "methods": [
+            "POST",
+            "PUT",
+            "PATCH"
+          ],
+          "args": {
+            "key": {
+              "required": false
+            },
+            "value": {
+              "required": false
+            }
+          }
+        },
+        {
+          "methods": [
+            "DELETE"
+          ],
+          "args": [
+
+          ]
+        }
+      ],
+      "schema": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "title": "meta",
+        "type": "object",
+        "properties": {
+          "id": {
+            "description": "Unique identifier for the object.",
+            "type": "int",
+            "context": [
+              "edit"
+            ],
+            "readonly": true
+          },
+          "key": {
+            "description": "The key for the custom field.",
+            "type": "string",
+            "context": [
+              "edit"
+            ],
+            "required": true
+          },
+          "value": {
+            "description": "The value of the custom field.",
+            "type": "string",
+            "context": [
+              "edit"
+            ]
+          }
+        }
+      },
+      "nicename": "/wp/v2/pages/<parent_id>/meta/<id>"
+    }
+  },
+  "schema": {
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "meta",
+    "type": "object",
+    "properties": {
+      "id": {
+        "description": "Unique identifier for the object.",
+        "type": "int",
+        "context": [
+          "edit"
+        ],
+        "readonly": true
+      },
+      "key": {
+        "description": "The key for the custom field.",
+        "type": "string",
+        "context": [
+          "edit"
+        ],
+        "required": true
+      },
+      "value": {
+        "description": "The value of the custom field.",
+        "type": "string",
+        "context": [
+          "edit"
+        ]
+      }
+    }
+  }
+}
