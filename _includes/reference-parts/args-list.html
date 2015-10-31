@@ -1,29 +1,30 @@
-<h3>Arguments</h3>
-<table class="arguments">
-	{% for arg in include.args %}
-		<tr>
-			<td>
-				{% if include.link %}
-					<code><a href="#schema-{{ arg[0] }}">{{ arg[0] }}</a></code><br />
-				{% else %}
-					<code>{{ arg[0] }}</code><br />
-				{% endif %}
-			</td>
-			<td>
-				{% if arg[1].required %}
-					<p class="required">
-						Required: {{ arg[1].required }}
-					</p>
-				{% endif %}
-				{% if arg[1].default %}
-					<p class="default">
-						Default: <code>{{ arg[1].default }}</code>
-					</p>
-				{% endif %}
-			</td>
-		</tr>
-	{% endfor %}
-</table>
-{% if include.args.size == 0 %}
+{% if include.args.size > 0 %}
+	<h3>Arguments</h3>
+	<table class="arguments">
+		{% for arg in include.args %}
+			<tr>
+				<td>
+					{% if include.link %}
+						<code><a href="#schema-{{ arg[0] }}">{{ arg[0] }}</a></code><br />
+					{% else %}
+						<code>{{ arg[0] }}</code><br />
+					{% endif %}
+				</td>
+				<td>
+					{% if arg[1].required %}
+						<p class="required">
+							Required: {{ arg[1].required }}
+						</p>
+					{% endif %}
+					{% if arg[1].default %}
+						<p class="default">
+							Default: <code>{{ arg[1].default }}</code>
+						</p>
+					{% endif %}
+				</td>
+			</tr>
+		{% endfor %}
+	</table>
+{% else %}
 	<p>There are no arguments for this enpdoint.
 {% endif %}
