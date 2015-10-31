@@ -36,6 +36,15 @@
     - title: Posts
       page: reference/posts/index.md
 
+    - title: Post Meta
+      page: reference/posts/meta.md
+
+    - title: Post Terms
+      page: reference/posts/terms.md
+
+    - title: Post Revisions
+      page: reference/posts/revisions.md
+
     - title: Pages
       page: reference/pages/index.md
 

@@ -1,0 +1,31 @@
+<h2>Schema</h2>
+<p>The schema defines all the fields that exist for a {{ include.schema.title }} object.</p>
+<table class="attributes">
+	{% for property in include.schema.properties %}
+		<tr id="schema-{{ property[0] }}">
+			<td>
+				<code>{{ property[0] }}</code><br />
+				<span class="type">
+					{{ property[1].type }}{% if property[1].format %}, {% case property[1].format %}
+						{% when 'date-time' %}
+							datetime (ISO8601)
+						{% when 'uri' %}
+							uri
+						{% else %}
+							{{ property[1].format }}
+					{% endcase %}{% endif %}
+				</span>
+			</td>
+			<td>
+				<p>{{ property[1].description }}</p>
+				{% if property[1].readonly %}
+					<p class="read-only">Read only</p>
+				{% endif %}
+				<p class="context">Context: <code>{{ property[1].context | join:"</code>, <code>"}}</code></p>
+				{% if property[1].enum %}
+					<p>One of: <code>{{ property[1].enum | join:"</code>, <code>"}}</code></p>
+				{% endif %}
+			</td>
+		</tr>
+	{% endfor %}
+</table>

@@ -57,6 +57,7 @@ header {
 
 	font-size: $sidebar-text-size;
 	line-height: $sidebar-line-height;
+	border-right: 1px solid rgba(0,0,0,.15);
 
 	overflow: scroll;
 
@@ -90,6 +91,7 @@ header {
 
 	nav li {
 		margin-bottom: 0.5em;
+		font-size: 13px;
 	}
 
 	a {
@@ -156,6 +158,16 @@ pre {
 	background: rgba($fg-superbar, 0.04);
 }
 
+.secondary code {
+	background: rgba(0,0,0,.18);
+	margin: 0 -15px;
+	padding: 15px;
+	display: inline-block;
+	word-wrap: break-word;
+	width: 109%;
+	color: #bbb;
+}
+
 // Home
 .hero {
 	text-align: center;
@@ -205,10 +217,46 @@ pre {
 
 		color: $fg-superbar;
 		background: $bg-superbar;
+		
+		box-shadow: inset 5px 0 10px rgba(0,0,0,.1);
 	}
 }
 
 .route {
 	@include grid-row($behavior: nest-collapse);
 	position: relative;
+}
+
+table.arguments, table.attributes {
+	width: 100%;
+	
+	p {
+		margin: .5rem 0;
+	}
+	td:first-child {
+		width: 33%;
+
+		.type {
+			color: #666;
+			font-size: 13px;
+		}
+
+		code {
+			font-size: 14px;
+		}
+	}
+
+	td > *:first-child {
+		margin-top: 0;
+	}
+
+	td > *:last-child {
+		margin-bottom: 0;
+	}
+	
+	.read-only {
+		color: #666;
+		font-size: 13px;
+		margin-top: 0;
+	}
 }
