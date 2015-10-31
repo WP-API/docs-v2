@@ -212,3 +212,37 @@ pre {
 	@include grid-row($behavior: nest-collapse);
 	position: relative;
 }
+
+table.arguments, table.attributes {
+	width: 100%;
+	
+	p {
+		margin: .5rem 0;
+	}
+	td:first-child {
+		width: 33%;
+
+		.type {
+			color: #666;
+			font-size: 13px;
+		}
+
+		code {
+			font-size: 14px;
+		}
+	}
+
+	td > *:first-child {
+		margin-top: 0;
+	}
+
+	td > *:last-child {
+		margin-bottom: 0;
+	}
+	
+	.read-only {
+		color: #666;
+		font-size: 13px;
+		margin-top: 0;
+	}
+}
