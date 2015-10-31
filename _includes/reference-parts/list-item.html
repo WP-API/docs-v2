@@ -1,0 +1,17 @@
+<section class="route">
+	<h2>List {{ page.resource }}s</h2>
+
+	<div class="primary">
+		{% assign args = include.route.endpoints[0].args %}
+		{% include reference-parts/args-list.html args=args link=false %}
+	</div>
+	<div class="secondary">
+		<h3>Definition</h3>
+
+		<code> GET http://demo.wp-api.org/wp-json{{ include.route.nicename }}</code>
+
+		<h3>Example Request</h3>
+
+		<code>$ curl http://demo.wp-api.org/wp-json{{ include.route.nicename }}</code>
+	</div>
+</section>

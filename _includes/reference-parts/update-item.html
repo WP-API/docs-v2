@@ -1,0 +1,18 @@
+<section class="route">
+	<h2>Update a {{ page.resource }}</h2>
+
+	<div class="primary">
+		{% assign args = include.route.endpoints[1].args %}
+		{% include reference-parts/args-list.html args=args link=true %}
+	</div>
+	<div class="secondary">
+		<h3>Definition</h3>
+
+		<code>POST http://demo.wp-api.org/wp-json{{ include.route.nicename }}</code>
+
+		<h3>Example Request</h3>
+		{% capture example_include %}reference-parts/examples/update-{{ include.route.schema.title }}-curl.html{% endcapture %}
+
+		<code>{% include {{ example_include }} %}</code>
+	</div>
+</section>

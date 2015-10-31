@@ -7,47 +7,26 @@ resource: User
 
 <section class="route">
 	<div class="primary">
-		<h2>Schema</h2>
-		<table class="attributes">
-			{% for property in site.data.users.schema.properties %}
-				<tr>
-					<td>
-						<code>{{ property[0] }}</code><br />
-						<span class="type">
-							{{ property[1].type }}{% if property[1].format %}, {% case property[1].format %}
-								{% when 'date-time' %}
-									datetime (ISO8601)
-								{% when 'uri' %}
-									uri
-								{% else %}
-									property[1].format
-							{% endcase %}{% endif %}
-						</span>
-					</td>
-					<td>
-						<p>{{ property[1].description }}</p>
-						{% if property[1].readonly %}
-							<p>(Read only)</p>
-						{% endif %}
-						<p class="context">Context: <code>{{ property[1].context | join:"</code>, <code>"}}</code></p>
-					</td>
-				</tr>
-			{% endfor %}
-		</table>
+		{% include reference-parts/schema.html schema=site.data.user.schema %}
 	</div>
 	<div class="secondary">
 		<h3>Example Request</h3>
 
-		$ curl -X OPTIONS -i http://demo.wp-api.org/{{ page.route_path }}
+		$ curl -X OPTIONS -i http://demo.wp-api.org/{{ site.data.user.routes['/wp/v2/users'].nicename }}
 	</div>
 </section>
 
-### List all {{ page.resource }}s
+{% assign route=site.data.user.routes['/wp/v2/users'] %}
+{% include reference-parts/list-item.html route=route %}
 
-### Create a {{ page.resource }}
+{% assign route=site.data.user.routes['/wp/v2/users/<id>'] %}
+{% include reference-parts/get-item.html route=route %}
 
-### Retrieve a {{ page.resource }}
+{% assign route=site.data.user.routes['/wp/v2/users'] %}
+{% include reference-parts/create-item.html route=route %}
 
-### Update a {{ page.resource }}
+{% assign route=site.data.user.routes['/wp/v2/users/<id>'] %}
+{% include reference-parts/update-item.html route=route %}
 
-### Delete a {{ page.resource }}
+{% assign route=site.data.user.routes['/wp/v2/users/<id>'] %}
+{% include reference-parts/delete-item.html route=route %}

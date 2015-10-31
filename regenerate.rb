@@ -15,7 +15,9 @@ def add_simple_schemas(http)
 
     # make a readable route name from the route regex
     route_nicename = route[0].gsub(/\(\?P<(\w+?)>.*?\)/, '<\1>')
-    route[1]['nicename'] = route_nicename
+
+    # escape the <> as this value is only used in HTML
+    route[1]['nicename'] = route_nicename.gsub( /</, '&lt;' ).gsub( />/, '&gt;' )
 
     # group the objects by unique schema titles [ post => ..., term => ..., etc ]
     if not objects.key?( route[1]['schema']['title'] )
