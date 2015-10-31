@@ -12,7 +12,7 @@ resource: Media
 	<div class="secondary">
 		<h3>Example Request</h3>
 
-		$ curl -X OPTIONS -i http://demo.wp-api.org/{{ site.data.attachment.routes['/wp/v2/media'].nicename }}
+		<code>$ curl -X OPTIONS -i http://demo.wp-api.org/wp-json{{ site.data.attachment.routes['/wp/v2/media'].nicename }}</code>
 	</div>
 </section>
 

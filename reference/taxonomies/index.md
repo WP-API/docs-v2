@@ -12,7 +12,7 @@ resource: Taxonomy
 	<div class="secondary">
 		<h3>Example Request</h3>
 
-		$ curl -X OPTIONS -i http://demo.wp-api.org/{{ site.data.taxonomy.routes['/wp/v2/taxonomies'].nicename }}
+		<code>$ curl -X OPTIONS -i http://demo.wp-api.org/wp-json{{ site.data.taxonomy.routes['/wp/v2/taxonomies'].nicename }}</code>
 	</div>
 </section>
 

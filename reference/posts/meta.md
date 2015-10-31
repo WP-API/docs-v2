@@ -12,7 +12,7 @@ resource: Post Meta
 	<div class="secondary">
 		<h3>Example Request</h3>
 
-		$ curl -X OPTIONS -i http://demo.wp-api.org/{{ site.data.meta.routes['/wp/v2/posts/<parent_id>/meta'].nicename }}
+		<code>$ curl -X OPTIONS -i http://demo.wp-api.org/wp-json{{ site.data.meta.routes['/wp/v2/posts/<parent_id>/meta'].nicename }}</code>
 	</div>
 </section>
 

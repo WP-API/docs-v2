@@ -12,7 +12,7 @@ resource: Comment
 	<div class="secondary">
 		<h3>Example Request</h3>
 
-		$ curl -X OPTIONS -i http://demo.wp-api.org/{{ site.data.comment.routes['/wp/v2/comments'].nicename }}
+		<code>$ curl -X OPTIONS -i http://demo.wp-api.org/wp-json{{ site.data.comment.routes['/wp/v2/comments'].nicename }}</code>
 	</div>
 </section>
 

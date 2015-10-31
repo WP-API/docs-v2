@@ -12,7 +12,7 @@ resource: Status
 	<div class="secondary">
 		<h3>Example Request</h3>
 
-		$ curl -X OPTIONS -i http://demo.wp-api.org/{{ site.data.status.routes['/wp/v2/statuses'].nicename }}
+		<code>$ curl -X OPTIONS -i http://demo.wp-api.org/wp-json{{ site.data.status.routes['/wp/v2/statuses'].nicename }}</code>
 	</div>
 </section>
 

@@ -12,7 +12,7 @@ resource: Page
 	<div class="secondary">
 		<h3>Example Request</h3>
 
-		$ curl -X OPTIONS -i http://demo.wp-api.org/{{ site.data.page.routes['/wp/v2/pages'].nicename }}
+		<code>$ curl -X OPTIONS -i http://demo.wp-api.org/wp-json{{ site.data.page.routes['/wp/v2/pages'].nicename }}</code>
 	</div>
 </section>
 
