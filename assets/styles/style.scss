@@ -57,6 +57,7 @@ header {
 
 	font-size: $sidebar-text-size;
 	line-height: $sidebar-line-height;
+	border-right: 1px solid rgba(0,0,0,.15);
 
 	overflow: scroll;
 
@@ -90,6 +91,7 @@ header {
 
 	nav li {
 		margin-bottom: 0.5em;
+		font-size: 13px;
 	}
 
 	a {
@@ -215,6 +217,8 @@ pre {
 
 		color: $fg-superbar;
 		background: $bg-superbar;
+		
+		box-shadow: inset 5px 0 10px rgba(0,0,0,.1);
 	}
 }
 
