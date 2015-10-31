@@ -1,8 +1,7 @@
 
 <section class="route">
-	<h2>Delete a {{ page.resource }}</h2>
-
 	<div class="primary">
+		<h2>Delete a {{ page.resource }}</h2>
 		{% assign args = include.route.endpoints[2].args %}
 		{% include reference-parts/args-list.html args=args %}
 	</div>

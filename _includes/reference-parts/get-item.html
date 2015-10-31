@@ -1,7 +1,6 @@
 <section class="route">
-	<h2>Retrieve a {{ page.resource }}</h2>
-
 	<div class="primary">
+		<h2>Retrieve a {{ page.resource }}</h2>
 		{% assign args = include.route.endpoints[0].args %}
 		{% include reference-parts/args-list.html args=args link=false %}
 	</div>
