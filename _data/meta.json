@@ -63,7 +63,7 @@
           }
         }
       },
-      "nicename": "/wp/v2/posts/<parent_id>/meta"
+      "nicename": "/wp/v2/posts/&lt;parent_id&gt;/meta"
     },
     "/wp/v2/posts/<parent_id>/meta/<id>": {
       "namespace": "wp/v2",
@@ -140,7 +140,7 @@
           }
         }
       },
-      "nicename": "/wp/v2/posts/<parent_id>/meta/<id>"
+      "nicename": "/wp/v2/posts/&lt;parent_id&gt;/meta/&lt;id&gt;"
     },
     "/wp/v2/pages/<parent_id>/meta": {
       "namespace": "wp/v2",
@@ -204,7 +204,7 @@
           }
         }
       },
-      "nicename": "/wp/v2/pages/<parent_id>/meta"
+      "nicename": "/wp/v2/pages/&lt;parent_id&gt;/meta"
     },
     "/wp/v2/pages/<parent_id>/meta/<id>": {
       "namespace": "wp/v2",
@@ -281,7 +281,7 @@
           }
         }
       },
-      "nicename": "/wp/v2/pages/<parent_id>/meta/<id>"
+      "nicename": "/wp/v2/pages/&lt;parent_id&gt;/meta/&lt;id&gt;"
     }
   },
   "schema": {

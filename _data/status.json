@@ -148,7 +148,7 @@
           }
         }
       },
-      "nicename": "/wp/v2/statuses/<status>"
+      "nicename": "/wp/v2/statuses/&lt;status&gt;"
     }
   },
   "schema": {

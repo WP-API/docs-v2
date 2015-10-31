@@ -540,7 +540,7 @@
           }
         }
       },
-      "nicename": "/wp/v2/users/<id>"
+      "nicename": "/wp/v2/users/&lt;id&gt;"
     }
   },
   "schema": {

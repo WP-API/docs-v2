@@ -737,7 +737,7 @@
           }
         }
       },
-      "nicename": "/wp/v2/posts/<id>"
+      "nicename": "/wp/v2/posts/&lt;id&gt;"
     }
   },
   "schema": {

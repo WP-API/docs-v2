@@ -122,7 +122,7 @@
           }
         }
       },
-      "nicename": "/wp/v2/types/<type>"
+      "nicename": "/wp/v2/types/&lt;type&gt;"
     }
   },
   "schema": {

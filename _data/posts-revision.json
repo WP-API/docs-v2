@@ -114,7 +114,7 @@
           }
         }
       },
-      "nicename": "/wp/v2/posts/<parent_id>/revisions"
+      "nicename": "/wp/v2/posts/&lt;parent_id&gt;/revisions"
     },
     "/wp/v2/posts/<parent_id>/revisions/<id>": {
       "namespace": "wp/v2",
@@ -238,7 +238,7 @@
           }
         }
       },
-      "nicename": "/wp/v2/posts/<parent_id>/revisions/<id>"
+      "nicename": "/wp/v2/posts/&lt;parent_id&gt;/revisions/&lt;id&gt;"
     }
   },
   "schema": {

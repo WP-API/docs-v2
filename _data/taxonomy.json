@@ -150,7 +150,7 @@
           }
         }
       },
-      "nicename": "/wp/v2/taxonomies/<taxonomy>"
+      "nicename": "/wp/v2/taxonomies/&lt;taxonomy&gt;"
     }
   },
   "schema": {

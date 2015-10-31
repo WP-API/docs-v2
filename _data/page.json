@@ -741,7 +741,7 @@
           }
         }
       },
-      "nicename": "/wp/v2/pages/<id>"
+      "nicename": "/wp/v2/pages/&lt;id&gt;"
     }
   },
   "schema": {

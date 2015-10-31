@@ -689,7 +689,7 @@
           }
         }
       },
-      "nicename": "/wp/v2/media/<id>"
+      "nicename": "/wp/v2/media/&lt;id&gt;"
     }
   },
   "schema": {
