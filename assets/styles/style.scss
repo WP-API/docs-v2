@@ -261,11 +261,17 @@ table.arguments, table.attributes {
 	}
 }
 
+.link-icon {
+	&:before {
+		content: "#";
+	}
+}
+
 h1, h2, h3, h4, h5, h6 {
 	.header-link {
-		padding-left: 3px;
-		font-size: 85%;
+		padding-left: 5px;
 		color: $header-font-color;
+		text-decoration: none;
 		display: none;
 	}
 
