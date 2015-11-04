@@ -260,3 +260,18 @@ table.arguments, table.attributes {
 		margin-top: 0;
 	}
 }
+
+h1, h2, h3, h4, h5, h6 {
+	.header-link {
+		padding-left: 3px;
+		font-size: 85%;
+		color: $header-font-color;
+		display: none;
+	}
+
+	&:hover {
+		.header-link {
+			display: inline-block;
+		}
+	}
+}
