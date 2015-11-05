@@ -260,3 +260,24 @@ table.arguments, table.attributes {
 		margin-top: 0;
 	}
 }
+
+.link-icon {
+	&:before {
+		content: "#";
+	}
+}
+
+h1, h2, h3, h4, h5, h6 {
+	.header-link {
+		padding-left: 5px;
+		color: $header-font-color;
+		text-decoration: none;
+		display: none;
+	}
+
+	&:hover {
+		.header-link {
+			display: inline-block;
+		}
+	}
+}
