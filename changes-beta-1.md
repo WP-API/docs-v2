@@ -143,7 +143,7 @@ function tsla_register_routes( $routes ) {
     ) );
 }
 
-function tsla_add_horn_honks( WP_REST_Response $request ) {
+function tsla_add_horn_honks( WP_REST_Request $request ) {
     $honks = $request['honks'];
     $count = get_option( 'wc-heartbeat-honk', 0 );
     update_option( 'wc-heartbeat-honk', $count + $honks );
