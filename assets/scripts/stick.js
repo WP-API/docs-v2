@@ -4,6 +4,8 @@
 (function () {
 	var hasClass = false;
 	var headerSize = 0;
+	var showingConfNote = false,
+		confNote = document.getElementById('conf-note');
 	var sidebar = document.getElementById('sidebar'),
 		body = document.body;
 
@@ -20,6 +22,12 @@
 			}
 			sidebar.className = shouldStick ? 'sticky' : '';
 			hasClass = shouldStick;
+			if ( shouldStick && ! showingConfNote ) {
+				setTimeout(function () {
+					confNote.className = shouldStick ? 'showing' : '';
+					showingConfNote = true;
+				}, 100);
+			}
 		}
 	};
 

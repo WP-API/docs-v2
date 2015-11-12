@@ -281,3 +281,45 @@ h1, h2, h3, h4, h5, h6 {
 		}
 	}
 }
+
+/* A Day of REST promo */
+header {
+	position: relative;
+	z-index: 2;
+}
+#conf-note {
+	position: fixed;
+	top: 0px;
+	right: 0px;
+	height: 60px;
+	width: 83.3333%;
+	z-index: 1;
+
+	text-align: center;
+
+	color: #fff;
+	background: #22303F;
+	border-bottom: 5px solid #E24D1F;
+
+	opacity: 0;
+	transition: 400ms opacity;
+
+	&.showing {
+		opacity: 1;
+	}
+
+	a {
+		color: #fff;
+		text-decoration: none;
+	}
+
+	strong {
+		font-weight: bold;
+		background: url(/assets/images/ador.svg) no-repeat;
+		background-size: 150px auto;
+		background-position: left center;
+		width: 152px;
+		text-indent: -9999px;
+		display: inline-block;
+	}
+}
