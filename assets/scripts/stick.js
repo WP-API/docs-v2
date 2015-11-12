@@ -3,7 +3,7 @@
 // Avoids unnecessary dependency on jQuery
 (function () {
 	var hasClass = false;
-	var headerSize = 0;
+	var headerSize = 60;
 	var showingConfNote = false,
 		confNote = document.getElementById('conf-note');
 	var sidebar = document.getElementById('sidebar'),
