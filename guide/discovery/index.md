@@ -22,7 +22,7 @@ supplied address. The REST API automatically adds a Link header to all
 frontend pages that looks like the following:
 
 ```
-Link: <http://example.com/wp-json/>; rel="https://github.com/WP-API/WP-API"
+Link: <http://example.com/wp-json/>; rel="https://api.w.org/"
 ```
 
 This URL points to the root route (`/`) of the API, which is then used for
@@ -33,7 +33,7 @@ handled by WordPress. This means that normal/default WordPress permalinks will
 be used instead. These headers look more like this:
 
 ```
-Link: <http://example.com/?rest_route=/>; rel="https://github.com/WP-API/WP-API"
+Link: <http://example.com/?rest_route=/>; rel="https://api.w.org/"
 ```
 
 Clients should keep this variation in mind and ensure that both routes can be
@@ -44,9 +44,15 @@ installation, so no pre-processing on user input needs to be added. Since this
 is a HEAD request, the request should be safe to send blindly to servers
 without worrying about causing side-effects.
 
-(Note: The relation (`rel`) is `https://github.com/WP-API/WP-API` during the
-plugin's development period. The final version in WordPress core may change
-from this.)
+<div class="note warning">
+{% capture note %}
+Note: The relation (`rel`) is `https://api.w.org/` for WordPress 4.4 and later.
+During the plugin's development period, this was instead `https://github.com/WP-API/WP-API`.
+New code should use the new relation exclusively.
+{% endcapture %}
+
+{{ note | markdownify }}
+</div>
 
 ### `<link>` Element
 
@@ -55,20 +61,20 @@ the Link header is included in the `<head>` of frontend pages through a
 `<link>` element:
 
 ```html
-<link rel='https://github.com/WP-API/WP-API' href='http://example.com/wp-json/' />
+<link rel='https://api.w.org/' href='http://example.com/wp-json/' />
 ```
 
 In-browser Javascript can access this via the DOM:
 
 ```js
 // jQuery method
-var $link = jQuery( 'link[rel="https://github.com/WP-API/WP-API"]' );
+var $link = jQuery( 'link[rel="https://api.w.org/"]' );
 var api_root = $link.attr( 'href' );
 
 // Native method
 var links = document.getElementsByTagName('link');
 var link = Array.prototype.filter.apply( links, function ( item ) {
-	return ( item.rel === "https://github.com/WP-API/WP-API" );
+	return ( item.rel === "https://api.w.org/" );
 } );
 var api_root = link[0].href;
 ```
