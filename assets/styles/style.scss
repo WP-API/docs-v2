@@ -168,6 +168,18 @@ pre {
 	color: #bbb;
 }
 
+.note {
+	border-left: 4px solid orange;
+	background: rgba(orange, 0.1);
+
+	padding: 0.1em 1em;
+
+	&.warning {
+		border-left-color: red;
+		background: rgba(red, 0.1);
+	}
+}
+
 // Home
 .hero {
 	text-align: center;
