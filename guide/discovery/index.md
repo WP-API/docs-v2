@@ -163,5 +163,59 @@ for the options for specific authentication methods.
 Extension Discovery
 -------------------
 
-The REST API currently doesn't support full extension discovery, but it will
-soon. :)
+Once you've discovered the API, the next step is check what the API supports.
+The index of the API exposes the `namespaces` item, which contains the
+extensions to the API that are supported.
+
+For regular WordPress (4.4) sites, only the base API infrastructure is
+available, not the full API with endpoints. This also includes the oEmbed
+endpoints:
+
+```json
+{
+	"name": "Example WordPress Site",
+	"namespaces": [
+		"oembed/1.0/"
+	]
+}
+```
+
+Sites with the full API available (i.e. with the REST API plugin installed) will
+have the `wp/v2` item in `namespaces` as well:
+
+```json
+{
+	"name": "Example WordPress Site",
+	"namespaces": [
+		"wp/v2",
+		"oembed/1.0/"
+	]
+}
+```
+
+Before attempting to use any of the core endpoints, you should be sure to check
+that the API is supported by checking for `wp/v2` support. WordPress 4.4 will
+enable the API infrastructure for all sites, but will **not** include the core
+endpoints under `wp/v2`.
+
+This same mechanism can be used for detecting support for any plugins that
+support the REST API. For example, take a plugin which registers the
+following route:
+
+```php
+<?php
+register_rest_route( 'testplugin/v1', '/testroute', array( /* ... */ ) );
+```
+
+This would add the `testplugin/v1` namespace to the index:
+
+```json
+{
+	"name": "Example WordPress Site",
+	"namespaces": [
+		"wp/v2",
+		"oembed/1.0/",
+		"testplugin/v1"
+	]
+}
+```
