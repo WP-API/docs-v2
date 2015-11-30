@@ -142,16 +142,25 @@ h1, h2, h3, h4, h5, h6 {
 	font-weight: $header-font-weight;
 }
 
+code, pre {
+	background: rgba(0,0,0,0.04);
+}
+
 code {
 	font-family: $code-font-family;
 	font-size: 0.8em;
+	padding: 2px 0.4em;
 }
 
 pre {
 	max-width: 100%;
 	overflow: auto;
-	background: rgba(0,0,0,0.04);
 	padding: 1.8em 1em;
+
+	code {
+		background: transparent;
+		padding: 0;
+	}
 }
 
 .secondary pre {
