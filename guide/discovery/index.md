@@ -159,6 +159,7 @@ method ID to authentication options. The options available here are specific
 to the authentication method itself. See the [authentication documentation][]
 for the options for specific authentication methods.
 
+[authentication documentation]: /guide/authentication/
 
 Extension Discovery
 -------------------
