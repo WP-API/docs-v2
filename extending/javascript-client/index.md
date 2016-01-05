@@ -137,7 +137,7 @@ postsCollection.fetch( { data: { per_page: 25 } } );
 use filter to change the order & orderby options:
 
 ```
-postsCollection.fetch( { data: { 'filter[orderby]': 'title', 'filter[order]': 'ASC' } } );
+postsCollection.fetch( { data: { 'filter': { 'oderby': 'title', 'order': 'ASC' } } } );
 ```
 
 All collections support pagination automatically, and you can get the next page of results using `more`:
