@@ -27,7 +27,6 @@ These objects contain the following:
 Models:
  * Categories
  * Comments
- * Customposttype
  * Media
  * Pages
  * PagesMeta
