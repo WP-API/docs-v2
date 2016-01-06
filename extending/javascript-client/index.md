@@ -111,11 +111,43 @@ wp.api.collections.Posts.options
 ```
 ### Model example:
 
-To create a post, make sure you are logged in, then:
+To create a post and edit its categories, make sure you are logged in, then:
 
 ```
+// Create a new post
 var post = new wp.api.models.Posts( { title: 'This is a test post' } );
 post.save();
+
+// Create a new post
+var post = new wp.api.models.Posts({ title:'new test' } );
+post.save();
+
+// Get a collection of the post's categories
+var postCategories = post.getCategories();
+
+// The new post has an single Category: Uncategorized
+postCategories.at( 0 ).get('name');
+// response -> "Uncategorized"
+
+
+// Get all the categories
+var allCategories = new wp.api.collections.Categories()
+allCategories.fetch();
+
+var appleCategory = allCategories.findWhere( { slug: 'apples' } );
+
+// Add the category to the postCategories collection
+appleCategory.set( 'parent_post', post.get( 'id' ) );
+postCategories.create( appleCategory.toJSON(), { type: 'POST' } );
+
+// Remove the Uncategorized category
+postCategories.at( 0 ).destroy();
+
+// Check the results - refectch
+postCategories = post.getCategories();
+
+postCategories.at( 0 ).get('name');
+// response -> "apples"
 ```
 
 ### Collection examples:
