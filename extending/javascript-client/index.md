@@ -129,6 +129,8 @@ var postCategories = post.getCategories();
 postCategories.at( 0 ).get('name');
 // response -> "Uncategorized"
 
+// Set the post categories
+post.setCategories( [ 'apples', 'oranges' ] );
 
 // Get all the categories
 var allCategories = new wp.api.collections.Categories()
