@@ -147,7 +147,7 @@ This example shows how to allow reading and writing of a post meta field. This w
  * Use arbitrary functions to add a field
  */
 add_action( 'rest_api_init', 'slug_register_something_random' );
-function slug_register_starship() {
+function slug_register_something_random() {
     register_rest_field( 'post',
         'something',
         array(
