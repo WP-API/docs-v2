@@ -27,7 +27,6 @@ These objects contain the following:
 Models:
  * Categories
  * Comments
- * Customposttype
  * Media
  * Pages
  * PagesMeta
@@ -110,13 +109,61 @@ wp.api.collections.Posts.options
  * search
  * status
 ```
-### Model example:
+### Model examples:
 
-To create a post, make sure you are logged in, then:
+To create a post and edit its categories, make sure you are logged in, then:
 
 ```
+// Create a new post
 var post = new wp.api.models.Posts( { title: 'This is a test post' } );
 post.save();
+
+// Create a new post
+var post = new wp.api.models.Posts({ title:'new test' } );
+post.save();
+
+// Get a collection of the post's categories (returns a promise)
+// Uses _embedded data if available, in which case promise resolves immediately.
+post.getCategories().done( function( postCategories ) {
+	// ... do something with the categories.
+	// The new post has an single Category: Uncategorized
+	postCategories.at( 0 ).get( 'name' );
+	// response -> "Uncategorized"
+} );
+
+// Get a posts author User model.
+post.getAuthorUser().done( function( user ){
+	// ... do something with user
+} );
+
+// Get a posts featured image Media model.
+post.getFeaturedImage().done( function( image ){
+	// ... do something with image
+} );
+
+// Set the post categories.
+post.setCategories( [ 'apples', 'oranges' ] );
+
+// Get all the categories
+var allCategories = new wp.api.collections.Categories()
+allCategories.fetch();
+
+var appleCategory = allCategories.findWhere( { slug: 'apples' } );
+
+// Add the category to the postCategories collection we previously fetched.
+appleCategory.set( 'parent_post', post.get( 'id' ) );
+
+// Use the POST method so Backbone will not PUT it even though it has an id.
+postCategories.create( appleCategory.toJSON(), { type: 'POST' } );
+
+// Remove the Uncategorized category
+postCategories.at( 0 ).destroy();
+
+// Check the results - refectch
+postCategories = post.getCategories();
+
+postCategories.at( 0 ).get('name');
+// response -> "apples"
 ```
 
 ### Collection examples:
@@ -137,7 +184,7 @@ postsCollection.fetch( { data: { per_page: 25 } } );
 use filter to change the order & orderby options:
 
 ```
-postsCollection.fetch( { data: { 'filter': { 'oderby': 'title', 'order': 'ASC' } } } );
+postsCollection.fetch( { data: { 'filter': { 'orderby': 'title', 'order': 'ASC' } } } );
 ```
 
 All collections support pagination automatically, and you can get the next page of results using `more`:
@@ -147,4 +194,3 @@ postsCollection.more();
 ```
 
 If you add custom endpoints to the api they will also become available as models/collections. For example, you will get new models and collections when you [add REST API support to your custom post type](http://v2.wp-api.org/extending/custom-content-types/). Note that you may need to open a new tab to get a new read of the Schema.
-
