@@ -25,7 +25,7 @@ ruby regenerate.rb
 Run the website locally, and recompile files on change
 
 ```bash
-jekyll serve --watch
+bundle exec jekyll serve --watch
 ```
 
 Open http://0.0.0.0:4000 in your browser to see the site
