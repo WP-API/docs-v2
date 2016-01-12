@@ -517,16 +517,23 @@
             "page": {
               "required": false,
               "default": 1,
-              "description": "Number of the desired page within the paginated query results."
+              "description": "Current page of the collection."
             },
             "per_page": {
               "required": false,
               "default": 10,
-              "description": "Number of terms to query at a time with pagination."
+              "description": "Maximum number of items to be returned in result set."
             },
             "search": {
               "required": false,
-              "description": "Search keyword."
+              "description": "Limit results to those matching a string."
+            },
+            "include": {
+              "required": false,
+              "default": [
+
+              ],
+              "description": "Limit result set to specific ids."
             },
             "order": {
               "required": false,
@@ -542,10 +549,10 @@
               "default": "name",
               "enum": [
                 "id",
+                "include",
                 "name",
                 "slug",
                 "term_group",
-                "term_id",
                 "description",
                 "count"
               ],
@@ -831,16 +838,23 @@
             "page": {
               "required": false,
               "default": 1,
-              "description": "Number of the desired page within the paginated query results."
+              "description": "Current page of the collection."
             },
             "per_page": {
               "required": false,
               "default": 10,
-              "description": "Number of terms to query at a time with pagination."
+              "description": "Maximum number of items to be returned in result set."
             },
             "search": {
               "required": false,
-              "description": "Search keyword."
+              "description": "Limit results to those matching a string."
+            },
+            "include": {
+              "required": false,
+              "default": [
+
+              ],
+              "description": "Limit result set to specific ids."
             },
             "order": {
               "required": false,
@@ -856,10 +870,10 @@
               "default": "name",
               "enum": [
                 "id",
+                "include",
                 "name",
                 "slug",
                 "term_group",
-                "term_id",
                 "description",
                 "count"
               ],

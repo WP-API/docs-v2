@@ -41,9 +41,16 @@
               "required": false,
               "description": "Limit result set to posts assigned to a specific author."
             },
+            "include": {
+              "required": false,
+              "default": [
+
+              ],
+              "description": "Limit result set to specific ids."
+            },
             "order": {
               "required": false,
-              "default": "asc",
+              "default": "desc",
               "enum": [
                 "asc",
                 "desc"
@@ -52,9 +59,11 @@
             },
             "orderby": {
               "required": false,
-              "default": "name",
+              "default": "date",
               "enum": [
+                "date",
                 "id",
+                "include",
                 "title",
                 "slug"
               ],
@@ -66,7 +75,8 @@
               "description": "Limit result set to posts assigned a specific status."
             },
             "filter": {
-              "required": false
+              "required": false,
+              "description": "Use WP Query arguments to modify the response; private query vars require appropriate authorization."
             }
           }
         },
@@ -79,12 +89,6 @@
               "required": false
             },
             "date_gmt": {
-              "required": false
-            },
-            "modified": {
-              "required": false
-            },
-            "modified_gmt": {
               "required": false
             },
             "password": {
@@ -204,7 +208,8 @@
             "context": [
               "view",
               "edit"
-            ]
+            ],
+            "readonly": true
           },
           "modified_gmt": {
             "description": "The date the object was last modified, as GMT.",
@@ -213,7 +218,8 @@
             "context": [
               "view",
               "edit"
-            ]
+            ],
+            "readonly": true
           },
           "password": {
             "description": "A password to protect access to the post.",
@@ -450,12 +456,6 @@
             "date_gmt": {
               "required": false
             },
-            "modified": {
-              "required": false
-            },
-            "modified_gmt": {
-              "required": false
-            },
             "password": {
               "required": false
             },
@@ -584,7 +584,8 @@
             "context": [
               "view",
               "edit"
-            ]
+            ],
+            "readonly": true
           },
           "modified_gmt": {
             "description": "The date the object was last modified, as GMT.",
@@ -593,7 +594,8 @@
             "context": [
               "view",
               "edit"
-            ]
+            ],
+            "readonly": true
           },
           "password": {
             "description": "A password to protect access to the post.",
@@ -866,7 +868,8 @@
         "context": [
           "view",
           "edit"
-        ]
+        ],
+        "readonly": true
       },
       "modified_gmt": {
         "description": "The date the object was last modified, as GMT.",
@@ -875,7 +878,8 @@
         "context": [
           "view",
           "edit"
-        ]
+        ],
+        "readonly": true
       },
       "password": {
         "description": "A password to protect access to the post.",

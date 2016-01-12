@@ -16,7 +16,8 @@
               "required": false,
               "default": "view",
               "enum": [
-                "view"
+                "view",
+                "edit"
               ],
               "description": "Scope under which the request is made; determines fields present in response."
             }
@@ -32,35 +33,39 @@
             "description": "A human-readable description of the object.",
             "type": "string",
             "context": [
-              "view"
+              "view",
+              "edit"
             ]
           },
           "hierarchical": {
             "description": "Whether or not the type should have children.",
             "type": "boolean",
             "context": [
-              "view"
+              "view",
+              "edit"
             ]
           },
           "labels": {
             "description": "Human-readable labels for the type for various contexts.",
             "type": "object",
             "context": [
-              "view"
+              "edit"
             ]
           },
           "name": {
             "description": "The title for the object.",
             "type": "string",
             "context": [
-              "view"
+              "view",
+              "edit"
             ]
           },
           "slug": {
             "description": "An alphanumeric identifier for the object.",
             "type": "string",
             "context": [
-              "view"
+              "view",
+              "edit"
             ]
           }
         }
@@ -85,7 +90,8 @@
               "required": false,
               "default": "view",
               "enum": [
-                "view"
+                "view",
+                "edit"
               ],
               "description": "Scope under which the request is made; determines fields present in response."
             }
@@ -101,35 +107,39 @@
             "description": "A human-readable description of the object.",
             "type": "string",
             "context": [
-              "view"
+              "view",
+              "edit"
             ]
           },
           "hierarchical": {
             "description": "Whether or not the type should have children.",
             "type": "boolean",
             "context": [
-              "view"
+              "view",
+              "edit"
             ]
           },
           "labels": {
             "description": "Human-readable labels for the type for various contexts.",
             "type": "object",
             "context": [
-              "view"
+              "edit"
             ]
           },
           "name": {
             "description": "The title for the object.",
             "type": "string",
             "context": [
-              "view"
+              "view",
+              "edit"
             ]
           },
           "slug": {
             "description": "An alphanumeric identifier for the object.",
             "type": "string",
             "context": [
-              "view"
+              "view",
+              "edit"
             ]
           }
         }
@@ -146,35 +156,39 @@
         "description": "A human-readable description of the object.",
         "type": "string",
         "context": [
-          "view"
+          "view",
+          "edit"
         ]
       },
       "hierarchical": {
         "description": "Whether or not the type should have children.",
         "type": "boolean",
         "context": [
-          "view"
+          "view",
+          "edit"
         ]
       },
       "labels": {
         "description": "Human-readable labels for the type for various contexts.",
         "type": "object",
         "context": [
-          "view"
+          "edit"
         ]
       },
       "name": {
         "description": "The title for the object.",
         "type": "string",
         "context": [
-          "view"
+          "view",
+          "edit"
         ]
       },
       "slug": {
         "description": "An alphanumeric identifier for the object.",
         "type": "string",
         "context": [
-          "view"
+          "view",
+          "edit"
         ]
       }
     }

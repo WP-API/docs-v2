@@ -37,6 +37,13 @@
               "required": false,
               "description": "Limit results to those matching a string."
             },
+            "include": {
+              "required": false,
+              "default": [
+
+              ],
+              "description": "Limit result set to specific ids."
+            },
             "order": {
               "required": false,
               "default": "asc",
@@ -51,6 +58,7 @@
               "default": "name",
               "enum": [
                 "id",
+                "include",
                 "name",
                 "registered_date"
               ],
@@ -200,7 +208,8 @@
             "properties": {
               "24": {
                 "description": "Avatar URL with image size of 24 pixels.",
-                "type": "uri",
+                "type": "string",
+                "format": "uri",
                 "context": [
                   "embed",
                   "view",
@@ -209,7 +218,8 @@
               },
               "48": {
                 "description": "Avatar URL with image size of 48 pixels.",
-                "type": "uri",
+                "type": "string",
+                "format": "uri",
                 "context": [
                   "embed",
                   "view",
@@ -218,7 +228,8 @@
               },
               "96": {
                 "description": "Avatar URL with image size of 96 pixels.",
-                "type": "uri",
+                "type": "string",
+                "format": "uri",
                 "context": [
                   "embed",
                   "view",
@@ -270,7 +281,13 @@
               "editor",
               "author",
               "contributor",
-              "subscriber"
+              "subscriber",
+              "foo,bar",
+              "customer",
+              "shop_manager",
+              "shop_accountant",
+              "shop_worker",
+              "shop_vendor"
             ]
           },
           "capabilities": {
@@ -481,7 +498,8 @@
             "properties": {
               "24": {
                 "description": "Avatar URL with image size of 24 pixels.",
-                "type": "uri",
+                "type": "string",
+                "format": "uri",
                 "context": [
                   "embed",
                   "view",
@@ -490,7 +508,8 @@
               },
               "48": {
                 "description": "Avatar URL with image size of 48 pixels.",
-                "type": "uri",
+                "type": "string",
+                "format": "uri",
                 "context": [
                   "embed",
                   "view",
@@ -499,7 +518,8 @@
               },
               "96": {
                 "description": "Avatar URL with image size of 96 pixels.",
-                "type": "uri",
+                "type": "string",
+                "format": "uri",
                 "context": [
                   "embed",
                   "view",
@@ -676,7 +696,8 @@
         "properties": {
           "24": {
             "description": "Avatar URL with image size of 24 pixels.",
-            "type": "uri",
+            "type": "string",
+            "format": "uri",
             "context": [
               "embed",
               "view",
@@ -685,7 +706,8 @@
           },
           "48": {
             "description": "Avatar URL with image size of 48 pixels.",
-            "type": "uri",
+            "type": "string",
+            "format": "uri",
             "context": [
               "embed",
               "view",
@@ -694,7 +716,8 @@
           },
           "96": {
             "description": "Avatar URL with image size of 96 pixels.",
-            "type": "uri",
+            "type": "string",
+            "format": "uri",
             "context": [
               "embed",
               "view",
