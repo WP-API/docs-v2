@@ -14,7 +14,11 @@
           "args": {
             "context": {
               "required": false,
-              "default": "view"
+              "default": "view",
+              "enum": [
+                "view"
+              ],
+              "description": "Scope under which the request is made; determines fields present in response."
             }
           }
         }
@@ -25,7 +29,7 @@
         "type": "object",
         "properties": {
           "author": {
-            "description": "The ID for the author of the object.",
+            "description": "The id for the author of the object.",
             "type": "integer",
             "context": [
               "view"
@@ -78,7 +82,7 @@
             ]
           },
           "parent": {
-            "description": "The ID for the parent of the object.",
+            "description": "The id for the parent of the object.",
             "type": "integer",
             "context": [
               "view"
@@ -130,7 +134,11 @@
           "args": {
             "context": {
               "required": false,
-              "default": "view"
+              "default": "view",
+              "enum": [
+                "view"
+              ],
+              "description": "Scope under which the request is made; determines fields present in response."
             }
           }
         },
@@ -149,7 +157,7 @@
         "type": "object",
         "properties": {
           "author": {
-            "description": "The ID for the author of the object.",
+            "description": "The id for the author of the object.",
             "type": "integer",
             "context": [
               "view"
@@ -202,7 +210,7 @@
             ]
           },
           "parent": {
-            "description": "The ID for the parent of the object.",
+            "description": "The id for the parent of the object.",
             "type": "integer",
             "context": [
               "view"
@@ -247,7 +255,7 @@
     "type": "object",
     "properties": {
       "author": {
-        "description": "The ID for the author of the object.",
+        "description": "The id for the author of the object.",
         "type": "integer",
         "context": [
           "view"
@@ -300,7 +308,7 @@
         ]
       },
       "parent": {
-        "description": "The ID for the parent of the object.",
+        "description": "The id for the parent of the object.",
         "type": "integer",
         "context": [
           "view"

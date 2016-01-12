@@ -12,8 +12,13 @@
             "GET"
           ],
           "args": {
-            "post_type": {
-              "required": false
+            "context": {
+              "required": false,
+              "default": "view",
+              "enum": [
+                "view"
+              ],
+              "description": "Scope under which the request is made; determines fields present in response."
             }
           }
         }
@@ -75,9 +80,16 @@
           "methods": [
             "GET"
           ],
-          "args": [
-
-          ]
+          "args": {
+            "context": {
+              "required": false,
+              "default": "view",
+              "enum": [
+                "view"
+              ],
+              "description": "Scope under which the request is made; determines fields present in response."
+            }
+          }
         }
       ],
       "schema": {

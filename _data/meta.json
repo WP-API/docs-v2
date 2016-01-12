@@ -15,7 +15,11 @@
           "args": {
             "context": {
               "required": false,
-              "default": "view"
+              "default": "edit",
+              "enum": [
+                "edit"
+              ],
+              "description": "Scope under which the request is made; determines fields present in response."
             }
           }
         },
@@ -40,7 +44,7 @@
         "properties": {
           "id": {
             "description": "Unique identifier for the object.",
-            "type": "int",
+            "type": "integer",
             "context": [
               "edit"
             ],
@@ -82,7 +86,11 @@
           "args": {
             "context": {
               "required": false,
-              "default": "view"
+              "default": "edit",
+              "enum": [
+                "edit"
+              ],
+              "description": "Scope under which the request is made; determines fields present in response."
             }
           }
         },
@@ -105,9 +113,12 @@
           "methods": [
             "DELETE"
           ],
-          "args": [
-
-          ]
+          "args": {
+            "force": {
+              "required": false,
+              "default": false
+            }
+          }
         }
       ],
       "schema": {
@@ -117,7 +128,7 @@
         "properties": {
           "id": {
             "description": "Unique identifier for the object.",
-            "type": "int",
+            "type": "integer",
             "context": [
               "edit"
             ],
@@ -156,7 +167,11 @@
           "args": {
             "context": {
               "required": false,
-              "default": "view"
+              "default": "edit",
+              "enum": [
+                "edit"
+              ],
+              "description": "Scope under which the request is made; determines fields present in response."
             }
           }
         },
@@ -181,7 +196,7 @@
         "properties": {
           "id": {
             "description": "Unique identifier for the object.",
-            "type": "int",
+            "type": "integer",
             "context": [
               "edit"
             ],
@@ -223,7 +238,11 @@
           "args": {
             "context": {
               "required": false,
-              "default": "view"
+              "default": "edit",
+              "enum": [
+                "edit"
+              ],
+              "description": "Scope under which the request is made; determines fields present in response."
             }
           }
         },
@@ -246,9 +265,12 @@
           "methods": [
             "DELETE"
           ],
-          "args": [
-
-          ]
+          "args": {
+            "force": {
+              "required": false,
+              "default": false
+            }
+          }
         }
       ],
       "schema": {
@@ -258,7 +280,7 @@
         "properties": {
           "id": {
             "description": "Unique identifier for the object.",
-            "type": "int",
+            "type": "integer",
             "context": [
               "edit"
             ],
@@ -291,7 +313,7 @@
     "properties": {
       "id": {
         "description": "Unique identifier for the object.",
-        "type": "int",
+        "type": "integer",
         "context": [
           "edit"
         ],
