@@ -15,15 +15,55 @@
           "args": {
             "context": {
               "required": false,
-              "default": "view"
+              "default": "view",
+              "enum": [
+                "view",
+                "embed",
+                "edit"
+              ],
+              "description": "Scope under which the request is made; determines fields present in response."
             },
             "page": {
               "required": false,
-              "default": 1
+              "default": 1,
+              "description": "Current page of the collection."
             },
             "per_page": {
               "required": false,
-              "default": 10
+              "default": 10,
+              "description": "Maximum number of items to be returned in result set."
+            },
+            "search": {
+              "required": false,
+              "description": "Limit results to those matching a string."
+            },
+            "author": {
+              "required": false,
+              "description": "Limit result set to posts assigned to a specific author."
+            },
+            "order": {
+              "required": false,
+              "default": "asc",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "description": "Order sort attribute ascending or descending."
+            },
+            "orderby": {
+              "required": false,
+              "default": "name",
+              "enum": [
+                "id",
+                "title",
+                "slug"
+              ],
+              "description": "Sort collection by object attribute."
+            },
+            "status": {
+              "required": false,
+              "default": "publish",
+              "description": "Limit result set to posts assigned a specific status."
             },
             "filter": {
               "required": false
@@ -95,7 +135,7 @@
         "type": "object",
         "properties": {
           "date": {
-            "description": "The date the object was published.",
+            "description": "The date the object was published, in the site's timezone.",
             "type": "string",
             "format": "date-time",
             "context": [
@@ -109,6 +149,7 @@
             "type": "string",
             "format": "date-time",
             "context": [
+              "view",
               "edit"
             ]
           },
@@ -160,7 +201,7 @@
             "readonly": true
           },
           "modified": {
-            "description": "The date the object was last modified.",
+            "description": "The date the object was last modified, in the site's timezone.",
             "type": "string",
             "format": "date-time",
             "context": [
@@ -218,7 +259,7 @@
             "readonly": true
           },
           "parent": {
-            "description": "The ID for the parent of the object.",
+            "description": "The id for the parent of the object.",
             "type": "integer",
             "context": [
               "view",
@@ -278,7 +319,7 @@
             }
           },
           "author": {
-            "description": "The ID for the author of the object.",
+            "description": "The id for the author of the object.",
             "type": "integer",
             "context": [
               "view",
@@ -314,7 +355,7 @@
             }
           },
           "featured_image": {
-            "description": "ID of the featured image for the object.",
+            "description": "The id of the featured image for the object.",
             "type": "integer",
             "context": [
               "view",
@@ -388,7 +429,13 @@
           "args": {
             "context": {
               "required": false,
-              "default": "view"
+              "default": "view",
+              "enum": [
+                "view",
+                "embed",
+                "edit"
+              ],
+              "description": "Scope under which the request is made; determines fields present in response."
             }
           }
         },
@@ -470,7 +517,7 @@
         "type": "object",
         "properties": {
           "date": {
-            "description": "The date the object was published.",
+            "description": "The date the object was published, in the site's timezone.",
             "type": "string",
             "format": "date-time",
             "context": [
@@ -484,6 +531,7 @@
             "type": "string",
             "format": "date-time",
             "context": [
+              "view",
               "edit"
             ]
           },
@@ -535,7 +583,7 @@
             "readonly": true
           },
           "modified": {
-            "description": "The date the object was last modified.",
+            "description": "The date the object was last modified, in the site's timezone.",
             "type": "string",
             "format": "date-time",
             "context": [
@@ -593,7 +641,7 @@
             "readonly": true
           },
           "parent": {
-            "description": "The ID for the parent of the object.",
+            "description": "The id for the parent of the object.",
             "type": "integer",
             "context": [
               "view",
@@ -653,7 +701,7 @@
             }
           },
           "author": {
-            "description": "The ID for the author of the object.",
+            "description": "The id for the author of the object.",
             "type": "integer",
             "context": [
               "view",
@@ -689,7 +737,7 @@
             }
           },
           "featured_image": {
-            "description": "ID of the featured image for the object.",
+            "description": "The id of the featured image for the object.",
             "type": "integer",
             "context": [
               "view",
@@ -750,7 +798,7 @@
     "type": "object",
     "properties": {
       "date": {
-        "description": "The date the object was published.",
+        "description": "The date the object was published, in the site's timezone.",
         "type": "string",
         "format": "date-time",
         "context": [
@@ -764,6 +812,7 @@
         "type": "string",
         "format": "date-time",
         "context": [
+          "view",
           "edit"
         ]
       },
@@ -815,7 +864,7 @@
         "readonly": true
       },
       "modified": {
-        "description": "The date the object was last modified.",
+        "description": "The date the object was last modified, in the site's timezone.",
         "type": "string",
         "format": "date-time",
         "context": [
@@ -873,7 +922,7 @@
         "readonly": true
       },
       "parent": {
-        "description": "The ID for the parent of the object.",
+        "description": "The id for the parent of the object.",
         "type": "integer",
         "context": [
           "view",
@@ -933,7 +982,7 @@
         }
       },
       "author": {
-        "description": "The ID for the author of the object.",
+        "description": "The id for the author of the object.",
         "type": "integer",
         "context": [
           "view",
@@ -969,7 +1018,7 @@
         }
       },
       "featured_image": {
-        "description": "ID of the featured image for the object.",
+        "description": "The id of the featured image for the object.",
         "type": "integer",
         "context": [
           "view",

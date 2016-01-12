@@ -13,28 +13,48 @@
             "GET"
           ],
           "args": {
+            "context": {
+              "required": false,
+              "default": "view",
+              "enum": [
+                "view",
+                "embed",
+                "edit"
+              ],
+              "description": "Scope under which the request is made; determines fields present in response."
+            },
             "page": {
               "required": false,
-              "default": 1
+              "default": 1,
+              "description": "Current page of the collection."
             },
             "per_page": {
               "required": false,
-              "default": 10
+              "default": 10,
+              "description": "Maximum number of items to be returned in result set."
             },
             "search": {
-              "required": false
-            },
-            "context": {
               "required": false,
-              "default": "view"
+              "description": "Limit results to those matching a string."
             },
             "order": {
               "required": false,
-              "default": "asc"
+              "default": "asc",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "description": "Order sort attribute ascending or descending."
             },
             "orderby": {
               "required": false,
-              "default": "name"
+              "default": "name",
+              "enum": [
+                "id",
+                "name",
+                "registered_date"
+              ],
+              "description": "Sort collection by object attribute."
             }
           }
         },
@@ -43,14 +63,11 @@
             "POST"
           ],
           "args": {
-            "capabilities": {
-              "required": false
-            },
-            "description": {
-              "required": false
-            },
-            "email": {
+            "username": {
               "required": true
+            },
+            "name": {
+              "required": false
             },
             "first_name": {
               "required": false
@@ -58,20 +75,23 @@
             "last_name": {
               "required": false
             },
-            "name": {
+            "email": {
+              "required": true
+            },
+            "description": {
               "required": false
             },
             "nickname": {
               "required": false
             },
-            "role": {
-              "required": false
-            },
             "slug": {
               "required": false
             },
-            "username": {
-              "required": true
+            "role": {
+              "required": false
+            },
+            "capabilities": {
+              "required": false
             },
             "password": {
               "required": true
@@ -84,6 +104,90 @@
         "title": "user",
         "type": "object",
         "properties": {
+          "id": {
+            "description": "Unique identifier for the object.",
+            "type": "integer",
+            "context": [
+              "embed",
+              "view",
+              "edit"
+            ],
+            "readonly": true
+          },
+          "username": {
+            "description": "Login name for the user.",
+            "type": "string",
+            "context": [
+              "edit"
+            ],
+            "required": true
+          },
+          "name": {
+            "description": "Display name for the object.",
+            "type": "string",
+            "context": [
+              "embed",
+              "view",
+              "edit"
+            ]
+          },
+          "first_name": {
+            "description": "First name for the object.",
+            "type": "string",
+            "context": [
+              "view",
+              "edit"
+            ]
+          },
+          "last_name": {
+            "description": "Last name for the object.",
+            "type": "string",
+            "context": [
+              "view",
+              "edit"
+            ]
+          },
+          "email": {
+            "description": "The email address for the object.",
+            "type": "string",
+            "format": "email",
+            "context": [
+              "view",
+              "edit"
+            ],
+            "required": true
+          },
+          "url": {
+            "description": "URL of the object.",
+            "type": "string",
+            "format": "uri",
+            "context": [
+              "embed",
+              "view",
+              "edit"
+            ],
+            "readonly": true
+          },
+          "description": {
+            "description": "Description of the object.",
+            "type": "string",
+            "context": [
+              "embed",
+              "view",
+              "edit"
+            ]
+          },
+          "link": {
+            "description": "Author URL to the object.",
+            "type": "string",
+            "format": "uri",
+            "context": [
+              "embed",
+              "view",
+              "edit"
+            ],
+            "readonly": true
+          },
           "avatar_urls": {
             "description": "Avatar URLs for the object.",
             "type": "object",
@@ -123,91 +227,19 @@
               }
             }
           },
-          "capabilities": {
-            "description": "All capabilities assigned to the user.",
-            "type": "object",
-            "context": [
-              "view",
-              "edit"
-            ]
-          },
-          "description": {
-            "description": "Description of the object.",
-            "type": "string",
-            "context": [
-              "embed",
-              "view",
-              "edit"
-            ]
-          },
-          "email": {
-            "description": "The email address for the object.",
-            "type": "string",
-            "format": "email",
-            "context": [
-              "view",
-              "edit"
-            ],
-            "required": true
-          },
-          "extra_capabilities": {
-            "description": "Any extra capabilities assigned to the user.",
-            "type": "object",
-            "context": [
-              "edit"
-            ],
-            "readonly": true
-          },
-          "first_name": {
-            "description": "First name for the object.",
-            "type": "string",
-            "context": [
-              "view",
-              "edit"
-            ]
-          },
-          "id": {
-            "description": "Unique identifier for the object.",
-            "type": "integer",
-            "context": [
-              "embed",
-              "view",
-              "edit"
-            ],
-            "readonly": true
-          },
-          "last_name": {
-            "description": "Last name for the object.",
-            "type": "string",
-            "context": [
-              "view",
-              "edit"
-            ]
-          },
-          "link": {
-            "description": "Author URL to the object.",
-            "type": "string",
-            "format": "uri",
-            "context": [
-              "embed",
-              "view",
-              "edit"
-            ],
-            "readonly": true
-          },
-          "name": {
-            "description": "Display name for the object.",
-            "type": "string",
-            "context": [
-              "embed",
-              "view",
-              "edit"
-            ]
-          },
           "nickname": {
             "description": "The nickname for the object.",
             "type": "string",
             "context": [
+              "view",
+              "edit"
+            ]
+          },
+          "slug": {
+            "description": "An alphanumeric identifier for the object unique to its type.",
+            "type": "string",
+            "context": [
+              "embed",
               "view",
               "edit"
             ]
@@ -241,32 +273,21 @@
               "subscriber"
             ]
           },
-          "slug": {
-            "description": "An alphanumeric identifier for the object unique to its type.",
-            "type": "string",
+          "capabilities": {
+            "description": "All capabilities assigned to the user.",
+            "type": "object",
             "context": [
               "view",
               "edit"
             ]
           },
-          "url": {
-            "description": "URL of the object.",
-            "type": "string",
-            "format": "uri",
+          "extra_capabilities": {
+            "description": "Any extra capabilities assigned to the user.",
+            "type": "object",
             "context": [
-              "embed",
-              "view",
               "edit"
             ],
             "readonly": true
-          },
-          "username": {
-            "description": "Login name for the user.",
-            "type": "string",
-            "context": [
-              "edit"
-            ],
-            "required": true
           }
         }
       },
@@ -292,7 +313,13 @@
           "args": {
             "context": {
               "required": false,
-              "default": "embed"
+              "default": "embed",
+              "enum": [
+                "view",
+                "embed",
+                "edit"
+              ],
+              "description": "Scope under which the request is made; determines fields present in response."
             }
           }
         },
@@ -303,13 +330,10 @@
             "PATCH"
           ],
           "args": {
-            "capabilities": {
+            "username": {
               "required": false
             },
-            "description": {
-              "required": false
-            },
-            "email": {
+            "name": {
               "required": false
             },
             "first_name": {
@@ -318,19 +342,22 @@
             "last_name": {
               "required": false
             },
-            "name": {
+            "email": {
+              "required": false
+            },
+            "description": {
               "required": false
             },
             "nickname": {
               "required": false
             },
-            "role": {
-              "required": false
-            },
             "slug": {
               "required": false
             },
-            "username": {
+            "role": {
+              "required": false
+            },
+            "capabilities": {
               "required": false
             },
             "password": {
@@ -343,6 +370,10 @@
             "DELETE"
           ],
           "args": {
+            "force": {
+              "required": false,
+              "default": false
+            },
             "reassign": {
               "required": false
             }
@@ -354,6 +385,90 @@
         "title": "user",
         "type": "object",
         "properties": {
+          "id": {
+            "description": "Unique identifier for the object.",
+            "type": "integer",
+            "context": [
+              "embed",
+              "view",
+              "edit"
+            ],
+            "readonly": true
+          },
+          "username": {
+            "description": "Login name for the user.",
+            "type": "string",
+            "context": [
+              "edit"
+            ],
+            "required": true
+          },
+          "name": {
+            "description": "Display name for the object.",
+            "type": "string",
+            "context": [
+              "embed",
+              "view",
+              "edit"
+            ]
+          },
+          "first_name": {
+            "description": "First name for the object.",
+            "type": "string",
+            "context": [
+              "view",
+              "edit"
+            ]
+          },
+          "last_name": {
+            "description": "Last name for the object.",
+            "type": "string",
+            "context": [
+              "view",
+              "edit"
+            ]
+          },
+          "email": {
+            "description": "The email address for the object.",
+            "type": "string",
+            "format": "email",
+            "context": [
+              "view",
+              "edit"
+            ],
+            "required": true
+          },
+          "url": {
+            "description": "URL of the object.",
+            "type": "string",
+            "format": "uri",
+            "context": [
+              "embed",
+              "view",
+              "edit"
+            ],
+            "readonly": true
+          },
+          "description": {
+            "description": "Description of the object.",
+            "type": "string",
+            "context": [
+              "embed",
+              "view",
+              "edit"
+            ]
+          },
+          "link": {
+            "description": "Author URL to the object.",
+            "type": "string",
+            "format": "uri",
+            "context": [
+              "embed",
+              "view",
+              "edit"
+            ],
+            "readonly": true
+          },
           "avatar_urls": {
             "description": "Avatar URLs for the object.",
             "type": "object",
@@ -393,91 +508,19 @@
               }
             }
           },
-          "capabilities": {
-            "description": "All capabilities assigned to the user.",
-            "type": "object",
-            "context": [
-              "view",
-              "edit"
-            ]
-          },
-          "description": {
-            "description": "Description of the object.",
-            "type": "string",
-            "context": [
-              "embed",
-              "view",
-              "edit"
-            ]
-          },
-          "email": {
-            "description": "The email address for the object.",
-            "type": "string",
-            "format": "email",
-            "context": [
-              "view",
-              "edit"
-            ],
-            "required": true
-          },
-          "extra_capabilities": {
-            "description": "Any extra capabilities assigned to the user.",
-            "type": "object",
-            "context": [
-              "edit"
-            ],
-            "readonly": true
-          },
-          "first_name": {
-            "description": "First name for the object.",
-            "type": "string",
-            "context": [
-              "view",
-              "edit"
-            ]
-          },
-          "id": {
-            "description": "Unique identifier for the object.",
-            "type": "integer",
-            "context": [
-              "embed",
-              "view",
-              "edit"
-            ],
-            "readonly": true
-          },
-          "last_name": {
-            "description": "Last name for the object.",
-            "type": "string",
-            "context": [
-              "view",
-              "edit"
-            ]
-          },
-          "link": {
-            "description": "Author URL to the object.",
-            "type": "string",
-            "format": "uri",
-            "context": [
-              "embed",
-              "view",
-              "edit"
-            ],
-            "readonly": true
-          },
-          "name": {
-            "description": "Display name for the object.",
-            "type": "string",
-            "context": [
-              "embed",
-              "view",
-              "edit"
-            ]
-          },
           "nickname": {
             "description": "The nickname for the object.",
             "type": "string",
             "context": [
+              "view",
+              "edit"
+            ]
+          },
+          "slug": {
+            "description": "An alphanumeric identifier for the object unique to its type.",
+            "type": "string",
+            "context": [
+              "embed",
               "view",
               "edit"
             ]
@@ -511,32 +554,21 @@
               "subscriber"
             ]
           },
-          "slug": {
-            "description": "An alphanumeric identifier for the object unique to its type.",
-            "type": "string",
+          "capabilities": {
+            "description": "All capabilities assigned to the user.",
+            "type": "object",
             "context": [
               "view",
               "edit"
             ]
           },
-          "url": {
-            "description": "URL of the object.",
-            "type": "string",
-            "format": "uri",
+          "extra_capabilities": {
+            "description": "Any extra capabilities assigned to the user.",
+            "type": "object",
             "context": [
-              "embed",
-              "view",
               "edit"
             ],
             "readonly": true
-          },
-          "username": {
-            "description": "Login name for the user.",
-            "type": "string",
-            "context": [
-              "edit"
-            ],
-            "required": true
           }
         }
       },
@@ -548,6 +580,90 @@
     "title": "user",
     "type": "object",
     "properties": {
+      "id": {
+        "description": "Unique identifier for the object.",
+        "type": "integer",
+        "context": [
+          "embed",
+          "view",
+          "edit"
+        ],
+        "readonly": true
+      },
+      "username": {
+        "description": "Login name for the user.",
+        "type": "string",
+        "context": [
+          "edit"
+        ],
+        "required": true
+      },
+      "name": {
+        "description": "Display name for the object.",
+        "type": "string",
+        "context": [
+          "embed",
+          "view",
+          "edit"
+        ]
+      },
+      "first_name": {
+        "description": "First name for the object.",
+        "type": "string",
+        "context": [
+          "view",
+          "edit"
+        ]
+      },
+      "last_name": {
+        "description": "Last name for the object.",
+        "type": "string",
+        "context": [
+          "view",
+          "edit"
+        ]
+      },
+      "email": {
+        "description": "The email address for the object.",
+        "type": "string",
+        "format": "email",
+        "context": [
+          "view",
+          "edit"
+        ],
+        "required": true
+      },
+      "url": {
+        "description": "URL of the object.",
+        "type": "string",
+        "format": "uri",
+        "context": [
+          "embed",
+          "view",
+          "edit"
+        ],
+        "readonly": true
+      },
+      "description": {
+        "description": "Description of the object.",
+        "type": "string",
+        "context": [
+          "embed",
+          "view",
+          "edit"
+        ]
+      },
+      "link": {
+        "description": "Author URL to the object.",
+        "type": "string",
+        "format": "uri",
+        "context": [
+          "embed",
+          "view",
+          "edit"
+        ],
+        "readonly": true
+      },
       "avatar_urls": {
         "description": "Avatar URLs for the object.",
         "type": "object",
@@ -587,91 +703,19 @@
           }
         }
       },
-      "capabilities": {
-        "description": "All capabilities assigned to the user.",
-        "type": "object",
-        "context": [
-          "view",
-          "edit"
-        ]
-      },
-      "description": {
-        "description": "Description of the object.",
-        "type": "string",
-        "context": [
-          "embed",
-          "view",
-          "edit"
-        ]
-      },
-      "email": {
-        "description": "The email address for the object.",
-        "type": "string",
-        "format": "email",
-        "context": [
-          "view",
-          "edit"
-        ],
-        "required": true
-      },
-      "extra_capabilities": {
-        "description": "Any extra capabilities assigned to the user.",
-        "type": "object",
-        "context": [
-          "edit"
-        ],
-        "readonly": true
-      },
-      "first_name": {
-        "description": "First name for the object.",
-        "type": "string",
-        "context": [
-          "view",
-          "edit"
-        ]
-      },
-      "id": {
-        "description": "Unique identifier for the object.",
-        "type": "integer",
-        "context": [
-          "embed",
-          "view",
-          "edit"
-        ],
-        "readonly": true
-      },
-      "last_name": {
-        "description": "Last name for the object.",
-        "type": "string",
-        "context": [
-          "view",
-          "edit"
-        ]
-      },
-      "link": {
-        "description": "Author URL to the object.",
-        "type": "string",
-        "format": "uri",
-        "context": [
-          "embed",
-          "view",
-          "edit"
-        ],
-        "readonly": true
-      },
-      "name": {
-        "description": "Display name for the object.",
-        "type": "string",
-        "context": [
-          "embed",
-          "view",
-          "edit"
-        ]
-      },
       "nickname": {
         "description": "The nickname for the object.",
         "type": "string",
         "context": [
+          "view",
+          "edit"
+        ]
+      },
+      "slug": {
+        "description": "An alphanumeric identifier for the object unique to its type.",
+        "type": "string",
+        "context": [
+          "embed",
           "view",
           "edit"
         ]
@@ -705,32 +749,21 @@
           "subscriber"
         ]
       },
-      "slug": {
-        "description": "An alphanumeric identifier for the object unique to its type.",
-        "type": "string",
+      "capabilities": {
+        "description": "All capabilities assigned to the user.",
+        "type": "object",
         "context": [
           "view",
           "edit"
         ]
       },
-      "url": {
-        "description": "URL of the object.",
-        "type": "string",
-        "format": "uri",
+      "extra_capabilities": {
+        "description": "Any extra capabilities assigned to the user.",
+        "type": "object",
         "context": [
-          "embed",
-          "view",
           "edit"
         ],
         "readonly": true
-      },
-      "username": {
-        "description": "Login name for the user.",
-        "type": "string",
-        "context": [
-          "edit"
-        ],
-        "required": true
       }
     }
   }
