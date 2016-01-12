@@ -69,8 +69,11 @@
     - title: Taxonomies
       page: reference/taxonomies/index.md
 
-    - title: Terms
-      page: reference/terms/index.md
+    - title: Categories
+      page: reference/categories/index.md
+
+    - title: Tags
+      page: reference/tags/index.md
 
     - title: Users
       page: reference/users/index.md
