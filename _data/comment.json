@@ -41,9 +41,30 @@
               "required": false,
               "description": "Limit result set to that from a specific author email."
             },
+            "include": {
+              "required": false,
+              "default": [
+
+              ],
+              "description": "Limit result set to specific ids."
+            },
             "karma": {
               "required": false,
               "description": "Limit result set to that of a particular comment karma."
+            },
+            "order": {
+              "required": false,
+              "default": "asc",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "description": "Order sort attribute ascending or descending."
+            },
+            "orderby": {
+              "required": false,
+              "default": "date_gmt",
+              "description": "Sort collection by object attribute."
             },
             "parent": {
               "required": false,
@@ -125,7 +146,8 @@
               "default": 0
             },
             "post": {
-              "required": false
+              "required": false,
+              "default": 0
             },
             "status": {
               "required": false
@@ -173,7 +195,8 @@
             "properties": {
               "24": {
                 "description": "Avatar URL with image size of 24 pixels.",
-                "type": "uri",
+                "type": "string",
+                "format": "uri",
                 "context": [
                   "embed",
                   "view",
@@ -182,7 +205,8 @@
               },
               "48": {
                 "description": "Avatar URL with image size of 48 pixels.",
-                "type": "uri",
+                "type": "string",
+                "format": "uri",
                 "context": [
                   "embed",
                   "view",
@@ -191,7 +215,8 @@
               },
               "96": {
                 "description": "Avatar URL with image size of 96 pixels.",
-                "type": "uri",
+                "type": "string",
+                "format": "uri",
                 "context": [
                   "embed",
                   "view",
@@ -467,7 +492,8 @@
             "properties": {
               "24": {
                 "description": "Avatar URL with image size of 24 pixels.",
-                "type": "uri",
+                "type": "string",
+                "format": "uri",
                 "context": [
                   "embed",
                   "view",
@@ -476,7 +502,8 @@
               },
               "48": {
                 "description": "Avatar URL with image size of 48 pixels.",
-                "type": "uri",
+                "type": "string",
+                "format": "uri",
                 "context": [
                   "embed",
                   "view",
@@ -485,7 +512,8 @@
               },
               "96": {
                 "description": "Avatar URL with image size of 96 pixels.",
-                "type": "uri",
+                "type": "string",
+                "format": "uri",
                 "context": [
                   "embed",
                   "view",
@@ -676,7 +704,8 @@
         "properties": {
           "24": {
             "description": "Avatar URL with image size of 24 pixels.",
-            "type": "uri",
+            "type": "string",
+            "format": "uri",
             "context": [
               "embed",
               "view",
@@ -685,7 +714,8 @@
           },
           "48": {
             "description": "Avatar URL with image size of 48 pixels.",
-            "type": "uri",
+            "type": "string",
+            "format": "uri",
             "context": [
               "embed",
               "view",
@@ -694,7 +724,8 @@
           },
           "96": {
             "description": "Avatar URL with image size of 96 pixels.",
-            "type": "uri",
+            "type": "string",
+            "format": "uri",
             "context": [
               "embed",
               "view",
