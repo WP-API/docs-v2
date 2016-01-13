@@ -39,8 +39,11 @@
     - title: Post Meta
       page: reference/posts/meta.md
 
-    - title: Post Terms
-      page: reference/posts/terms.md
+    - title: Post Categories
+      page: reference/posts/categories.md
+
+    - title: Post Tags
+      page: reference/posts/tags.md
 
     - title: Post Revisions
       page: reference/posts/revisions.md
