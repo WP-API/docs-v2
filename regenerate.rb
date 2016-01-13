@@ -4,7 +4,7 @@ require 'json'
 def add_simple_schemas(http)
   objects = {}
 
-  response = http.send_request('GET', 'http://demo.wp-api.org/wp-json/?context=help')
+  response = http.send_request('GET', 'http://wordpress-develop.dev/wp-json/?context=help')
   parsed_data = JSON.parse(response.body)
 
   parsed_data['routes'].each {
@@ -45,7 +45,7 @@ def add_terms_schema(http)
   file.write(JSON.pretty_generate(parsed_data))
 end
 
-res = Net::HTTP.start("demo.wp-api.org", 80) {
+res = Net::HTTP.start("wordpress-develop.dev", 80) {
   |http|
   add_simple_schemas(http)
   #add_terms_schema(http)
