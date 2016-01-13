@@ -120,7 +120,7 @@ Arguments are defined as a map in the key `args` for each endpoint (next to your
 
 Using `sanitize_callback` and `validate_callback` allows the main callback to act only to process the request, and prepare data to be returned using the `WP_REST_Response` class. By using these two callbacks, you will be able to safely assume your inputs are valid and safe when processing.
 
-Taking our previous example, we can ensure the parameter passed in is always an integer:
+Taking our previous example, we can ensure the parameter passed in is always a number:
 
 ```php
 <?php
@@ -130,14 +130,18 @@ add_action( 'rest_api_init', function () {
 		'callback' => 'my_awesome_func',
 		'args' => array(
 			'id' => array(
-				'validate_callback' => 'is_numeric'
+				'validate_callback' => function($param, $request, $key) {
+					return is_numeric( $param );
+				}
 			),
 		),
 	) );
 } );
 ```
 
-We could also use `'sanitize_callback' => 'absint'` instead, but validation will throw an error, allowing clients to understand what they're doing wrong. Sanitization is useful when you would rather change the data being input rather than throwing an error (such as invalid HTML).
+You could also pass in a function name to `validate_callback`, but passing certain functions like `is_numeric` directly will not only throw a warning about having extra parameters passed to it, but will also return `NULL` causing the callback function to be called with invalid data.
+
+We could also use something like `'sanitize_callback' => 'absint'` instead, but validation will throw an error, allowing clients to understand what they're doing wrong. Sanitization is useful when you would rather change the data being input rather than throwing an error (such as invalid HTML).
 
 ### Return Value
 
