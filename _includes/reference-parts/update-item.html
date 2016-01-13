@@ -7,7 +7,7 @@
 	<div class="secondary">
 		<h3>Definition</h3>
 
-		<code>POST http://demo.wp-api.org/wp-json{{ include.route.nicename }}</code>
+		<code>POST {{ include.route.nicename }}</code>
 
 		<h3>Example Request</h3>
 		{% capture example_include %}reference-parts/examples/update-{{ include.route.schema.title }}-curl.html{% endcapture %}
