@@ -139,7 +139,7 @@ add_action( 'rest_api_init', function () {
 } );
 ```
 
-You could also pass in a function name to `validate_callback`, but passing certain functions like `is_numeric` directly will not only throw a warning about having extra parameters passed to it, but will also return `NULL` causing the callback function to be called with invalid data.
+You could also pass in a function name to `validate_callback`, but passing certain functions like `is_numeric` directly will not only throw a warning about having extra parameters passed to it, but will also return `NULL` causing the callback function to be called with invalid data. We hope to [eventually solve this problem in WordPress core](https://core.trac.wordpress.org/ticket/34659).
 
 We could also use something like `'sanitize_callback' => 'absint'` instead, but validation will throw an error, allowing clients to understand what they're doing wrong. Sanitization is useful when you would rather change the data being input rather than throwing an error (such as invalid HTML).
 
