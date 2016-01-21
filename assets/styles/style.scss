@@ -92,6 +92,11 @@ header {
 	nav li {
 		margin-bottom: 0.5em;
 		font-size: 13px;
+		&.active {
+			a {
+				font-weight: bold;
+			}
+		}
 	}
 
 	a {
