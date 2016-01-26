@@ -41,6 +41,13 @@
               "required": false,
               "description": "Limit result set to that from a specific author email."
             },
+            "exclude": {
+              "required": false,
+              "default": [
+
+              ],
+              "description": "Ensure result set excludes specific ids."
+            },
             "include": {
               "required": false,
               "default": [
@@ -51,6 +58,10 @@
             "karma": {
               "required": false,
               "description": "Limit result set to that of a particular comment karma."
+            },
+            "offset": {
+              "required": false,
+              "description": "Offset the result set by a specific number of comments."
             },
             "order": {
               "required": false,
@@ -64,6 +75,15 @@
             "orderby": {
               "required": false,
               "default": "date_gmt",
+              "enum": [
+                "date",
+                "date_gmt",
+                "id",
+                "include",
+                "post",
+                "parent",
+                "type"
+              ],
               "description": "Sort collection by object attribute."
             },
             "parent": {
@@ -104,7 +124,7 @@
               "default": "comment",
               "description": "Limit result set to comments assigned a specific type."
             },
-            "user": {
+            "author": {
               "required": false,
               "description": "Limit result set to comments assigned to a specific user id."
             }
@@ -451,7 +471,9 @@
           ],
           "args": {
             "force": {
-              "required": false
+              "required": false,
+              "default": false,
+              "description": "Whether to bypass trash and force deletion."
             }
           }
         }

@@ -116,7 +116,8 @@
           "args": {
             "force": {
               "required": false,
-              "default": false
+              "default": false,
+              "description": "Required to be true, as resource does not support trashing."
             }
           }
         }
@@ -268,7 +269,8 @@
           "args": {
             "force": {
               "required": false,
-              "default": false
+              "default": false,
+              "description": "Required to be true, as resource does not support trashing."
             }
           }
         }
