@@ -1,259 +1,6 @@
 {
   "name": "category",
   "routes": {
-    "/wp/v2/posts/<post_id>/categories": {
-      "namespace": "wp/v2",
-      "methods": [
-        "GET"
-      ],
-      "endpoints": [
-        {
-          "methods": [
-            "GET"
-          ],
-          "args": {
-            "context": {
-              "required": false,
-              "default": "view",
-              "enum": [
-                "view",
-                "embed"
-              ],
-              "description": "Scope under which the request is made; determines fields present in response."
-            },
-            "order": {
-              "required": false,
-              "default": "asc",
-              "enum": [
-                "asc",
-                "desc"
-              ],
-              "description": "Order sort attribute ascending or descending."
-            },
-            "orderby": {
-              "required": false,
-              "default": "name",
-              "enum": [
-                "count",
-                "name",
-                "slug",
-                "term_order"
-              ],
-              "description": "Sort collection by object attribute."
-            }
-          }
-        }
-      ],
-      "schema": {
-        "$schema": "http://json-schema.org/draft-04/schema#",
-        "title": "category",
-        "type": "object",
-        "properties": {
-          "id": {
-            "description": "Unique identifier for the object.",
-            "type": "integer",
-            "context": [
-              "view",
-              "embed"
-            ],
-            "readonly": true
-          },
-          "count": {
-            "description": "Number of published posts for the object.",
-            "type": "integer",
-            "context": [
-              "view"
-            ],
-            "readonly": true
-          },
-          "description": {
-            "description": "A human-readable description of the object.",
-            "type": "string",
-            "context": [
-              "view"
-            ]
-          },
-          "link": {
-            "description": "URL to the object.",
-            "type": "string",
-            "format": "uri",
-            "context": [
-              "view",
-              "embed"
-            ],
-            "readonly": true
-          },
-          "name": {
-            "description": "The title for the object.",
-            "type": "string",
-            "context": [
-              "view",
-              "embed"
-            ],
-            "required": true
-          },
-          "slug": {
-            "description": "An alphanumeric identifier for the object unique to its type.",
-            "type": "string",
-            "context": [
-              "view",
-              "embed"
-            ]
-          },
-          "taxonomy": {
-            "description": "Type attribution for the object.",
-            "type": "string",
-            "enum": [
-              "category",
-              "post_tag",
-              "nav_menu",
-              "link_category",
-              "post_format"
-            ],
-            "context": [
-              "view",
-              "embed"
-            ],
-            "readonly": true
-          },
-          "parent": {
-            "description": "The id for the parent of the object.",
-            "type": "integer",
-            "context": [
-              "view"
-            ]
-          }
-        }
-      },
-      "nicename": "/wp/v2/posts/&lt;post_id&gt;/categories"
-    },
-    "/wp/v2/posts/<post_id>/categories/<term_id>": {
-      "namespace": "wp/v2",
-      "methods": [
-        "GET",
-        "POST",
-        "DELETE"
-      ],
-      "endpoints": [
-        {
-          "methods": [
-            "GET"
-          ],
-          "args": {
-            "context": {
-              "required": false,
-              "default": "view",
-              "enum": [
-                "view",
-                "embed"
-              ],
-              "description": "Scope under which the request is made; determines fields present in response."
-            }
-          }
-        },
-        {
-          "methods": [
-            "POST"
-          ],
-          "args": [
-
-          ]
-        },
-        {
-          "methods": [
-            "DELETE"
-          ],
-          "args": {
-            "force": {
-              "required": false,
-              "default": false
-            }
-          }
-        }
-      ],
-      "schema": {
-        "$schema": "http://json-schema.org/draft-04/schema#",
-        "title": "category",
-        "type": "object",
-        "properties": {
-          "id": {
-            "description": "Unique identifier for the object.",
-            "type": "integer",
-            "context": [
-              "view",
-              "embed"
-            ],
-            "readonly": true
-          },
-          "count": {
-            "description": "Number of published posts for the object.",
-            "type": "integer",
-            "context": [
-              "view"
-            ],
-            "readonly": true
-          },
-          "description": {
-            "description": "A human-readable description of the object.",
-            "type": "string",
-            "context": [
-              "view"
-            ]
-          },
-          "link": {
-            "description": "URL to the object.",
-            "type": "string",
-            "format": "uri",
-            "context": [
-              "view",
-              "embed"
-            ],
-            "readonly": true
-          },
-          "name": {
-            "description": "The title for the object.",
-            "type": "string",
-            "context": [
-              "view",
-              "embed"
-            ],
-            "required": true
-          },
-          "slug": {
-            "description": "An alphanumeric identifier for the object unique to its type.",
-            "type": "string",
-            "context": [
-              "view",
-              "embed"
-            ]
-          },
-          "taxonomy": {
-            "description": "Type attribution for the object.",
-            "type": "string",
-            "enum": [
-              "category",
-              "post_tag",
-              "nav_menu",
-              "link_category",
-              "post_format"
-            ],
-            "context": [
-              "view",
-              "embed"
-            ],
-            "readonly": true
-          },
-          "parent": {
-            "description": "The id for the parent of the object.",
-            "type": "integer",
-            "context": [
-              "view"
-            ]
-          }
-        }
-      },
-      "nicename": "/wp/v2/posts/&lt;post_id&gt;/categories/&lt;term_id&gt;"
-    },
     "/wp/v2/categories": {
       "namespace": "wp/v2",
       "methods": [
@@ -288,6 +35,13 @@
             "search": {
               "required": false,
               "description": "Limit results to those matching a string."
+            },
+            "exclude": {
+              "required": false,
+              "default": [
+
+              ],
+              "description": "Ensure result set excludes specific ids."
             },
             "include": {
               "required": false,
@@ -327,6 +81,15 @@
             "parent": {
               "required": false,
               "description": "Limit result set to terms assigned to a specific parent term."
+            },
+            "post": {
+              "required": false,
+              "default": false,
+              "description": "Limit result set to terms assigned to a specific post."
+            },
+            "slug": {
+              "required": false,
+              "description": "Limit result set to terms with a specific slug."
             }
           }
         },
@@ -487,9 +250,13 @@
           "methods": [
             "DELETE"
           ],
-          "args": [
-
-          ]
+          "args": {
+            "force": {
+              "required": false,
+              "default": false,
+              "description": "Required to be true, as resource does not support trashing."
+            }
+          }
         }
       ],
       "schema": {

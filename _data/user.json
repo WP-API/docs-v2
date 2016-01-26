@@ -44,6 +44,10 @@
               ],
               "description": "Limit result set to specific ids."
             },
+            "offset": {
+              "required": false,
+              "description": "Offset the result set by a specific number of items."
+            },
             "order": {
               "required": false,
               "default": "asc",
@@ -63,6 +67,10 @@
                 "registered_date"
               ],
               "description": "Sort collection by object attribute."
+            },
+            "slug": {
+              "required": false,
+              "description": "Limit result set to users with a specific slug."
             }
           }
         },
@@ -389,7 +397,8 @@
           "args": {
             "force": {
               "required": false,
-              "default": false
+              "default": false,
+              "description": "Required to be true, as resource does not support trashing."
             },
             "reassign": {
               "required": false
@@ -571,7 +580,13 @@
               "editor",
               "author",
               "contributor",
-              "subscriber"
+              "subscriber",
+              "foo,bar",
+              "customer",
+              "shop_manager",
+              "shop_accountant",
+              "shop_worker",
+              "shop_vendor"
             ]
           },
           "capabilities": {
@@ -769,7 +784,13 @@
           "editor",
           "author",
           "contributor",
-          "subscriber"
+          "subscriber",
+          "foo,bar",
+          "customer",
+          "shop_manager",
+          "shop_accountant",
+          "shop_worker",
+          "shop_vendor"
         ]
       },
       "capabilities": {

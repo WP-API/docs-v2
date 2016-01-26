@@ -1,7 +1,7 @@
 {
-  "name": "pages-revision",
+  "name": "post-revision",
   "routes": {
-    "/wp/v2/pages/<parent_id>/revisions": {
+    "/wp/v2/posts/<parent_id>/revisions": {
       "namespace": "wp/v2",
       "methods": [
         "GET"
@@ -25,7 +25,7 @@
       ],
       "schema": {
         "$schema": "http://json-schema.org/draft-04/schema#",
-        "title": "pages-revision",
+        "title": "post-revision",
         "type": "object",
         "properties": {
           "author": {
@@ -118,9 +118,9 @@
           }
         }
       },
-      "nicename": "/wp/v2/pages/&lt;parent_id&gt;/revisions"
+      "nicename": "/wp/v2/posts/&lt;parent_id&gt;/revisions"
     },
-    "/wp/v2/pages/<parent_id>/revisions/<id>": {
+    "/wp/v2/posts/<parent_id>/revisions/<id>": {
       "namespace": "wp/v2",
       "methods": [
         "GET",
@@ -153,7 +153,7 @@
       ],
       "schema": {
         "$schema": "http://json-schema.org/draft-04/schema#",
-        "title": "pages-revision",
+        "title": "post-revision",
         "type": "object",
         "properties": {
           "author": {
@@ -246,12 +246,12 @@
           }
         }
       },
-      "nicename": "/wp/v2/pages/&lt;parent_id&gt;/revisions/&lt;id&gt;"
+      "nicename": "/wp/v2/posts/&lt;parent_id&gt;/revisions/&lt;id&gt;"
     }
   },
   "schema": {
     "$schema": "http://json-schema.org/draft-04/schema#",
-    "title": "pages-revision",
+    "title": "post-revision",
     "type": "object",
     "properties": {
       "author": {
