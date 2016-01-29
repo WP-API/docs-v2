@@ -115,6 +115,13 @@ To create a post and edit its categories, make sure you are logged in, then:
 var post = new wp.api.models.Posts( { title: 'This is a test post' } );
 post.save();
 
+// Create a new post
+var post = new wp.api.models.Posts({ title:'new test' } );
+post.save();
+
+// Get a collection of the post's categories
+var postCategories = post.getCategories();
+
 // Get a collection of the post's categories (returns a promise)
 // Uses _embedded data if available, in which case promise resolves immediately.
 post.getCategories().done( function( postCategories ) {
