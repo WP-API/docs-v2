@@ -1,1 +1,4 @@
-$ curl -X POST http://demo.wp-api.org/wp-json{{ include.route.nicename }} -d '{"title":"My New Title"}'
+<h4>Update title on post with id 1 using access token</h4>
+<code>$ curl -X PUT http://demo.wp-api.org/wp-json/wp/v2/posts/1/?access_token=<your access token> -d '{"title":"My New Title"}'</code>
+
+
