@@ -91,3 +91,6 @@
 
     - title: Linking
       page: extending/linking/index.md
+
+    - title: JavaScript Client
+      page: extending/javascript-client/index.md
