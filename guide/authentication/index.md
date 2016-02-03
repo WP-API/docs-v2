@@ -84,7 +84,6 @@ can be revoked by users at any point.
 
 OAuth authentication uses the [OAuth 1.0a specification][oauth] (published as
 RFC5849) and requires installing the [OAuth plugin][oauth-plugin] on the site.
-(This plugin will be included with the API when merged into core.)
 
 Once you have WP API and the OAuth server plugins activated on your server,
 you'll need to create a "consumer". This is an identifier for the application,
