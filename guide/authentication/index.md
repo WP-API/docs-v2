@@ -7,7 +7,7 @@ down to:
 
 * Are you a plugin/theme running on the site? Use **cookie authentication**
 * Are you a desktop/web/mobile client accessing the site externally? Use
-  **OAuth authentication**
+  **OAuth authentication**, **application passwords**, or **basic authentication**.
 
 
 Cookie Authentication
@@ -113,23 +113,30 @@ starting point.
 [client-cli]: https://github.com/WP-API/client-cli
 [api-console]: https://github.com/WP-API/api-console
 
-
-Basic Authentication
---------------------
+Application Passwords or Basic Authentication
+---------------------------------------------
 Basic authentication is an optional authentication handler for external clients.
 Due to the complexity of OAuth authentication, basic authentication can be
 useful during development. However, Basic authentication requires passing your
 username and password on every request, as well as giving your credentials to
 clients, so it is heavily discouraged for production use.
 
-Basic authentication uses [HTTP Basic Authentication][http-basic] (published as
-RFC2617) and requires installing the [Basic Auth plugin][basic-auth-plugin].
+Application passwords are used similarly, however instead of providing your normal
+account password, unique and easily revokable passwords are generated from your
+edit profile screen in the WordPress admin.  These application passwords are valid
+exclusively for the REST API and the legacy XML-RPC API and may not be used to log
+in to WordPress.
+
+Both basic authentication and application passwords use [HTTP Basic Authentication][http-basic]
+(published as RFC2617) and requires installing either the [Basic Auth plugin][basic-auth-plugin] or
+[Application Passwords plugin][application-passwords] respectively.
 
 To use Basic authentication, simply pass the username and password with each
 request through the `Authorization` header. This value should be encoded (using base64 encoding) as per
 the HTTP Basic specification.
 
-This is an example of how to update a post, using Basic authentication, via the WordPress HTTP API:
+This is an example of how to update a post, using these authentications, via the
+WordPress HTTP API:
 
 ```php
 $headers = array (
@@ -151,3 +158,4 @@ $response = wp_remote_post( $url, array (
 
 [http-basic]: https://tools.ietf.org/html/rfc2617
 [basic-auth-plugin]: https://github.com/WP-API/Basic-Auth
+[application-passwords]: https://github.com/georgestephanis/application-passwords
