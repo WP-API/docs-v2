@@ -2,7 +2,7 @@
 title: Authentication
 ---
 
-There are two options for authenticating with the API. The basic choice boils
+There are several options for authenticating with the API. The basic choice boils
 down to:
 
 * Are you a plugin/theme running on the site? Use **cookie authentication**
