@@ -149,7 +149,7 @@ $headers = array (
 );
 $url = rest_url( 'wp/v2/posts/1' );
 
-$body = array(
+$data = array(
 	'title' => 'Hello Gaia' 
 );
 
