@@ -95,12 +95,13 @@ Once you have WP API and the OAuth server plugins activated on your server,
 you'll need to create a "client". This is an identifier for the application,
 and includes a "key" and "secret", both needed to link to your site.
 
-The OAuth server plugin now has a full admin UI, including application management
-and the ability to revoke tokens. To generate a new application, you should see
-an "Applications" item appear under the users menu: this is where you manage OAuth clients.
+The OAuth server plugin now has a full admin UI, including client application
+management and the ability to revoke tokens. To generate a new client
+application, you should see an "Applications" item appear under the users menu:
+this is where you manage OAuth clients.
 
-You can also use WPCLI to generate credentials on your server. To create the client,
-run the following on your server:
+You can also use WPCLI to generate client credentials on your server. To create
+the client, run the following on your server:
 
 ```bash
 $ wp oauth1 add
@@ -113,12 +114,13 @@ Secret: LnUdIsyhPFnURkatekRIAUfYV7nmP4iF3AVxkS5PRHPXxgOW
 This key and secret is your client key and secret, and needs to be used
 throughout the authorization process.
 
-For examples on how to use this, both the [CLI client][client-cli] and the
-[API console][api-console] make use of the OAuth functionality, and are a great
-starting point.
+For examples on how to use OAuth Authentication, as a starting point, we suggest
+you checkout the [Demo PHP API Client][demo-api-client], the [CLI client][client-cli] or
+the [API console][api-console].
 
 [oauth]: http://tools.ietf.org/html/rfc5849
 [oauth-plugin]: https://github.com/WP-API/OAuth1
+[demo-api-client]: https://github.com/WP-API/example-client
 [client-cli]: https://github.com/WP-API/client-cli
 [api-console]: https://github.com/WP-API/api-console
 
