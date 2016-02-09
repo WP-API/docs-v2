@@ -92,10 +92,15 @@ OAuth authentication uses the [OAuth 1.0a specification][oauth] (published as
 RFC5849) and requires installing the [OAuth plugin][oauth-plugin] on the site.
 
 Once you have WP API and the OAuth server plugins activated on your server,
-you'll need to create a "consumer". This is an identifier for the application,
+you'll need to create a "client". This is an identifier for the application,
 and includes a "key" and "secret", both needed to link to your site.
 
-To create the consumer, run the following on your server:
+The OAuth server plugin now has a full admin UI, including application management
+and the ability to revoke tokens. To generate a new application, you should see
+an "Applications" item appear under the users menu: this is where you manage OAuth clients.
+
+You can also use WPCLI to generate credentials on your server. To create the client,
+run the following on your server:
 
 ```bash
 $ wp oauth1 add
@@ -105,9 +110,8 @@ Key: sDc51JgH2mFu
 Secret: LnUdIsyhPFnURkatekRIAUfYV7nmP4iF3AVxkS5PRHPXxgOW
 ```
 
-This key and secret is your consumer key and secret, and needs to be used
-throughout the authorization process. Currently no UI exists to manage this,
-however this is planned for a future release.
+This key and secret is your client key and secret, and needs to be used
+throughout the authorization process.
 
 For examples on how to use this, both the [CLI client][client-cli] and the
 [API console][api-console] make use of the OAuth functionality, and are a great
