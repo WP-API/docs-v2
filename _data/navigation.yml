@@ -36,9 +36,6 @@
     - title: Posts
       page: reference/posts/index.md
 
-    - title: Post Meta
-      page: reference/posts/meta.md
-
     - title: Post Revisions
       page: reference/posts/revisions.md
 
@@ -53,12 +50,6 @@
 
     - title: Post Statuses
       page: reference/statuses/index.md
-
-  # - title: Post Meta
-  #   page: reference/meta.md
-
-  # - title: Post Revisions
-  #   page: reference/revisions.md
 
     - title: Comments
       page: reference/comments/index.md

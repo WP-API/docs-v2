@@ -39,7 +39,17 @@
             },
             "author": {
               "required": false,
-              "description": "Limit result set to posts assigned to a specific author."
+              "default": [
+
+              ],
+              "description": "Limit result set to posts assigned to specific authors."
+            },
+            "author_exclude": {
+              "required": false,
+              "default": [
+
+              ],
+              "description": "Ensure result set excludes posts assigned to specific authors."
             },
             "exclude": {
               "required": false,
@@ -111,6 +121,20 @@
             "filter": {
               "required": false,
               "description": "Use WP Query arguments to modify the response; private query vars require appropriate authorization."
+            },
+            "media_type": {
+              "required": false,
+              "enum": [
+                "image",
+                "video",
+                "audio",
+                "application"
+              ],
+              "description": "Limit result set to attachments of a particular media type."
+            },
+            "mime_type": {
+              "required": false,
+              "description": "Limit result set to attachments of a particular mime type."
             }
           }
         },
@@ -132,7 +156,14 @@
               "required": false
             },
             "status": {
-              "required": false
+              "required": false,
+              "enum": [
+                "publish",
+                "future",
+                "draft",
+                "pending",
+                "private"
+              ]
             },
             "title": {
               "required": false
@@ -141,10 +172,18 @@
               "required": false
             },
             "comment_status": {
-              "required": false
+              "required": false,
+              "enum": [
+                "open",
+                "closed"
+              ]
             },
             "ping_status": {
-              "required": false
+              "required": false,
+              "enum": [
+                "open",
+                "closed"
+              ]
             },
             "alt_text": {
               "required": false
@@ -309,7 +348,7 @@
                 ]
               },
               "rendered": {
-                "description": "Title for the object, transformed for display.",
+                "description": "HTML title for the object, transformed for display.",
                 "type": "string",
                 "context": [
                   "view",
@@ -353,7 +392,7 @@
             ]
           },
           "alt_text": {
-            "description": "Alternative text to display when attachment is not displayed.",
+            "description": "Alternative text to display when resource is not displayed.",
             "type": "string",
             "context": [
               "view",
@@ -362,7 +401,7 @@
             ]
           },
           "caption": {
-            "description": "The caption for the attachment.",
+            "description": "The caption for the resource.",
             "type": "string",
             "context": [
               "view",
@@ -370,7 +409,7 @@
             ]
           },
           "description": {
-            "description": "The description for the attachment.",
+            "description": "The description for the resource.",
             "type": "string",
             "context": [
               "view",
@@ -378,7 +417,7 @@
             ]
           },
           "media_type": {
-            "description": "Type of attachment.",
+            "description": "Type of resource.",
             "type": "string",
             "enum": [
               "image",
@@ -391,8 +430,18 @@
             ],
             "readonly": true
           },
+          "mime_type": {
+            "description": "Mime type of resource.",
+            "type": "string",
+            "context": [
+              "view",
+              "edit",
+              "embed"
+            ],
+            "readonly": true
+          },
           "media_details": {
-            "description": "Details about the attachment file, specific to its type.",
+            "description": "Details about the resource file, specific to its type.",
             "type": "object",
             "context": [
               "view",
@@ -402,7 +451,7 @@
             "readonly": true
           },
           "post": {
-            "description": "The id for the associated post of the attachment.",
+            "description": "The id for the associated post of the resource.",
             "type": "integer",
             "context": [
               "view",
@@ -410,7 +459,7 @@
             ]
           },
           "source_url": {
-            "description": "URL to the original attachment file.",
+            "description": "URL to the original resource file.",
             "type": "string",
             "format": "uri",
             "context": [
@@ -474,7 +523,14 @@
               "required": false
             },
             "status": {
-              "required": false
+              "required": false,
+              "enum": [
+                "publish",
+                "future",
+                "draft",
+                "pending",
+                "private"
+              ]
             },
             "title": {
               "required": false
@@ -483,10 +539,18 @@
               "required": false
             },
             "comment_status": {
-              "required": false
+              "required": false,
+              "enum": [
+                "open",
+                "closed"
+              ]
             },
             "ping_status": {
-              "required": false
+              "required": false,
+              "enum": [
+                "open",
+                "closed"
+              ]
             },
             "alt_text": {
               "required": false
@@ -663,7 +727,7 @@
                 ]
               },
               "rendered": {
-                "description": "Title for the object, transformed for display.",
+                "description": "HTML title for the object, transformed for display.",
                 "type": "string",
                 "context": [
                   "view",
@@ -707,7 +771,7 @@
             ]
           },
           "alt_text": {
-            "description": "Alternative text to display when attachment is not displayed.",
+            "description": "Alternative text to display when resource is not displayed.",
             "type": "string",
             "context": [
               "view",
@@ -716,7 +780,7 @@
             ]
           },
           "caption": {
-            "description": "The caption for the attachment.",
+            "description": "The caption for the resource.",
             "type": "string",
             "context": [
               "view",
@@ -724,7 +788,7 @@
             ]
           },
           "description": {
-            "description": "The description for the attachment.",
+            "description": "The description for the resource.",
             "type": "string",
             "context": [
               "view",
@@ -732,7 +796,7 @@
             ]
           },
           "media_type": {
-            "description": "Type of attachment.",
+            "description": "Type of resource.",
             "type": "string",
             "enum": [
               "image",
@@ -745,8 +809,18 @@
             ],
             "readonly": true
           },
+          "mime_type": {
+            "description": "Mime type of resource.",
+            "type": "string",
+            "context": [
+              "view",
+              "edit",
+              "embed"
+            ],
+            "readonly": true
+          },
           "media_details": {
-            "description": "Details about the attachment file, specific to its type.",
+            "description": "Details about the resource file, specific to its type.",
             "type": "object",
             "context": [
               "view",
@@ -756,7 +830,7 @@
             "readonly": true
           },
           "post": {
-            "description": "The id for the associated post of the attachment.",
+            "description": "The id for the associated post of the resource.",
             "type": "integer",
             "context": [
               "view",
@@ -764,7 +838,7 @@
             ]
           },
           "source_url": {
-            "description": "URL to the original attachment file.",
+            "description": "URL to the original resource file.",
             "type": "string",
             "format": "uri",
             "context": [
@@ -927,7 +1001,7 @@
             ]
           },
           "rendered": {
-            "description": "Title for the object, transformed for display.",
+            "description": "HTML title for the object, transformed for display.",
             "type": "string",
             "context": [
               "view",
@@ -971,7 +1045,7 @@
         ]
       },
       "alt_text": {
-        "description": "Alternative text to display when attachment is not displayed.",
+        "description": "Alternative text to display when resource is not displayed.",
         "type": "string",
         "context": [
           "view",
@@ -980,7 +1054,7 @@
         ]
       },
       "caption": {
-        "description": "The caption for the attachment.",
+        "description": "The caption for the resource.",
         "type": "string",
         "context": [
           "view",
@@ -988,7 +1062,7 @@
         ]
       },
       "description": {
-        "description": "The description for the attachment.",
+        "description": "The description for the resource.",
         "type": "string",
         "context": [
           "view",
@@ -996,7 +1070,7 @@
         ]
       },
       "media_type": {
-        "description": "Type of attachment.",
+        "description": "Type of resource.",
         "type": "string",
         "enum": [
           "image",
@@ -1009,8 +1083,18 @@
         ],
         "readonly": true
       },
+      "mime_type": {
+        "description": "Mime type of resource.",
+        "type": "string",
+        "context": [
+          "view",
+          "edit",
+          "embed"
+        ],
+        "readonly": true
+      },
       "media_details": {
-        "description": "Details about the attachment file, specific to its type.",
+        "description": "Details about the resource file, specific to its type.",
         "type": "object",
         "context": [
           "view",
@@ -1020,7 +1104,7 @@
         "readonly": true
       },
       "post": {
-        "description": "The id for the associated post of the attachment.",
+        "description": "The id for the associated post of the resource.",
         "type": "integer",
         "context": [
           "view",
@@ -1028,7 +1112,7 @@
         ]
       },
       "source_url": {
-        "description": "URL to the original attachment file.",
+        "description": "URL to the original resource file.",
         "type": "string",
         "format": "uri",
         "context": [

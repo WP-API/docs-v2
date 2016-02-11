@@ -39,7 +39,17 @@
             },
             "author": {
               "required": false,
-              "description": "Limit result set to posts assigned to a specific author."
+              "default": [
+
+              ],
+              "description": "Limit result set to posts assigned to specific authors."
+            },
+            "author_exclude": {
+              "required": false,
+              "default": [
+
+              ],
+              "description": "Ensure result set excludes posts assigned to specific authors."
             },
             "exclude": {
               "required": false,
@@ -54,6 +64,10 @@
 
               ],
               "description": "Limit result set to specific ids."
+            },
+            "menu_order": {
+              "required": false,
+              "description": "Limit result set to resources with a specific menu_order value."
             },
             "offset": {
               "required": false,
@@ -76,7 +90,8 @@
                 "id",
                 "include",
                 "title",
-                "slug"
+                "slug",
+                "menu_order"
               ],
               "description": "Sort collection by object attribute."
             },
@@ -127,7 +142,14 @@
               "required": false
             },
             "status": {
-              "required": false
+              "required": false,
+              "enum": [
+                "publish",
+                "future",
+                "draft",
+                "pending",
+                "private"
+              ]
             },
             "parent": {
               "required": false
@@ -148,16 +170,27 @@
               "required": false
             },
             "comment_status": {
-              "required": false
+              "required": false,
+              "enum": [
+                "open",
+                "closed"
+              ]
             },
             "ping_status": {
-              "required": false
+              "required": false,
+              "enum": [
+                "open",
+                "closed"
+              ]
             },
             "menu_order": {
               "required": false
             },
             "template": {
-              "required": false
+              "required": false,
+              "enum": [
+
+              ]
             }
           }
         }
@@ -318,7 +351,7 @@
                 ]
               },
               "rendered": {
-                "description": "Title for the object, transformed for display.",
+                "description": "HTML title for the object, transformed for display.",
                 "type": "string",
                 "context": [
                   "view",
@@ -344,7 +377,7 @@
                 ]
               },
               "rendered": {
-                "description": "Content for the object, transformed for display.",
+                "description": "HTML content for the object, transformed for display.",
                 "type": "string",
                 "context": [
                   "view",
@@ -379,7 +412,7 @@
                 ]
               },
               "rendered": {
-                "description": "Excerpt for the object, transformed for display.",
+                "description": "HTML excerpt for the object, transformed for display.",
                 "type": "string",
                 "context": [
                   "view",
@@ -494,7 +527,14 @@
               "required": false
             },
             "status": {
-              "required": false
+              "required": false,
+              "enum": [
+                "publish",
+                "future",
+                "draft",
+                "pending",
+                "private"
+              ]
             },
             "parent": {
               "required": false
@@ -515,16 +555,27 @@
               "required": false
             },
             "comment_status": {
-              "required": false
+              "required": false,
+              "enum": [
+                "open",
+                "closed"
+              ]
             },
             "ping_status": {
-              "required": false
+              "required": false,
+              "enum": [
+                "open",
+                "closed"
+              ]
             },
             "menu_order": {
               "required": false
             },
             "template": {
-              "required": false
+              "required": false,
+              "enum": [
+
+              ]
             }
           }
         },
@@ -697,7 +748,7 @@
                 ]
               },
               "rendered": {
-                "description": "Title for the object, transformed for display.",
+                "description": "HTML title for the object, transformed for display.",
                 "type": "string",
                 "context": [
                   "view",
@@ -723,7 +774,7 @@
                 ]
               },
               "rendered": {
-                "description": "Content for the object, transformed for display.",
+                "description": "HTML content for the object, transformed for display.",
                 "type": "string",
                 "context": [
                   "view",
@@ -758,7 +809,7 @@
                 ]
               },
               "rendered": {
-                "description": "Excerpt for the object, transformed for display.",
+                "description": "HTML excerpt for the object, transformed for display.",
                 "type": "string",
                 "context": [
                   "view",
@@ -980,7 +1031,7 @@
             ]
           },
           "rendered": {
-            "description": "Title for the object, transformed for display.",
+            "description": "HTML title for the object, transformed for display.",
             "type": "string",
             "context": [
               "view",
@@ -1006,7 +1057,7 @@
             ]
           },
           "rendered": {
-            "description": "Content for the object, transformed for display.",
+            "description": "HTML content for the object, transformed for display.",
             "type": "string",
             "context": [
               "view",
@@ -1041,7 +1092,7 @@
             ]
           },
           "rendered": {
-            "description": "Excerpt for the object, transformed for display.",
+            "description": "HTML excerpt for the object, transformed for display.",
             "type": "string",
             "context": [
               "view",
