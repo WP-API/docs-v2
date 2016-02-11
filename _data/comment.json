@@ -37,9 +37,17 @@
               "required": false,
               "description": "Limit results to those matching a string."
             },
+            "author": {
+              "required": false,
+              "description": "Limit result set to comments assigned to specific user ids. Requires authorization."
+            },
+            "author_exclude": {
+              "required": false,
+              "description": "Ensure result set excludes comments assigned to specific user ids. Requires authorization."
+            },
             "author_email": {
               "required": false,
-              "description": "Limit result set to that from a specific author email."
+              "description": "Limit result set to that from a specific author email. Requires authorization."
             },
             "exclude": {
               "required": false,
@@ -57,7 +65,7 @@
             },
             "karma": {
               "required": false,
-              "description": "Limit result set to that of a particular comment karma."
+              "description": "Limit result set to that of a particular comment karma. Requires authorization."
             },
             "offset": {
               "required": false,
@@ -88,45 +96,34 @@
             },
             "parent": {
               "required": false,
-              "description": "Limit result set to that of a specific comment parent id."
+              "default": [
+
+              ],
+              "description": "Limit result set to resources of specific parent ids."
+            },
+            "parent_exclude": {
+              "required": false,
+              "default": [
+
+              ],
+              "description": "Ensure result set excludes specific parent ids."
             },
             "post": {
               "required": false,
-              "description": "Limit result set to comments assigned to a specific post id."
-            },
-            "post_author": {
-              "required": false,
-              "description": "Limit result set to comments associated with posts of a specific post author id."
-            },
-            "post_slug": {
-              "required": false,
-              "description": "Limit result set to comments associated with posts of a specific post slug."
-            },
-            "post_parent": {
-              "required": false,
-              "description": "Limit result set to comments associated with posts of a specific post parent id."
-            },
-            "post_status": {
-              "required": false,
-              "description": "Limit result set to comments associated with posts of a specific post status."
-            },
-            "post_type": {
-              "required": false,
-              "description": "Limit result set to comments associated with posts of a specific post type."
+              "default": [
+
+              ],
+              "description": "Limit result set to resources assigned to specific post ids."
             },
             "status": {
               "required": false,
               "default": "approve",
-              "description": "Limit result set to comments assigned a specific status."
+              "description": "Limit result set to comments assigned a specific status. Requires authorization."
             },
             "type": {
               "required": false,
               "default": "comment",
-              "description": "Limit result set to comments assigned a specific type."
-            },
-            "author": {
-              "required": false,
-              "description": "Limit result set to comments assigned to a specific user id."
+              "description": "Limit result set to comments assigned a specific type. Requires authorization."
             }
           }
         },
@@ -305,7 +302,7 @@
                 ]
               },
               "rendered": {
-                "description": "Content for the object, transformed for display.",
+                "description": "HTML content for the object, transformed for display.",
                 "type": "string",
                 "context": [
                   "view",
@@ -604,7 +601,7 @@
                 ]
               },
               "rendered": {
-                "description": "Content for the object, transformed for display.",
+                "description": "HTML content for the object, transformed for display.",
                 "type": "string",
                 "context": [
                   "view",
@@ -816,7 +813,7 @@
             ]
           },
           "rendered": {
-            "description": "Content for the object, transformed for display.",
+            "description": "HTML content for the object, transformed for display.",
             "type": "string",
             "context": [
               "view",
