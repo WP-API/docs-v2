@@ -31,7 +31,7 @@ Models:
  * Page
  * PageMeta
  * PageRevision
- * Posts
+ * Post
  * PostMeta
  * PostRevision
  * Schema
@@ -63,7 +63,7 @@ You can use these endpoints as-is to read, update, create and delete items using
 Each model and collection includes a reference to its default values, for example:
 
 ```
-wp.api.models.Posts.defaults
+wp.api.models.Post.defaults
  * author: null
  * comment_status: null
  * content: null
@@ -84,7 +84,7 @@ wp.api.models.Posts.defaults
 
 ### Available methods
 
-Each model and collection contains a list of methods the corrosponding endpoint supports. For example, models created from `wp.api.models.Posts` have a method array of:
+Each model and collection contains a list of methods the corrosponding endpoint supports. For example, models created from `wp.api.models.Post` have a method array of:
 
 ```
 ["GET", "POST", "PUT", "PATCH", "DELETE"]
@@ -112,11 +112,7 @@ To create a post and edit its categories, make sure you are logged in, then:
 
 ```js
 // Create a new post
-var post = new wp.api.models.Posts( { title: 'This is a test post' } );
-post.save();
-
-// Create a new post
-var post = new wp.api.models.Posts({ title:'new test' } );
+var post = new wp.api.models.Post( { title: 'This is a test post' } );
 post.save();
 
 // Get a collection of the post's categories
