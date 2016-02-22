@@ -72,9 +72,9 @@ var $link = jQuery( 'link[rel="https://api.w.org/"]' );
 var api_root = $link.attr( 'href' );
 
 // Native method
-var links = document.getElementsByTagName('link');
-var link = Array.prototype.filter.apply( links, function ( item ) {
-	return ( item.rel === "https://api.w.org/" );
+var links = document.getElementsByTagName( 'link' );
+var link = Array.prototype.filter.call( links, function ( item ) {
+	return ( item.rel === 'https://api.w.org/' );
 } );
 var api_root = link[0].href;
 ```
