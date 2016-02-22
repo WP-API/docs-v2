@@ -110,7 +110,7 @@ wp.api.collections.Posts.options
 
 To create a post and edit its categories, make sure you are logged in, then:
 
-```
+```javascript
 // Create a new post
 var post = new wp.api.models.Posts( { title: 'This is a test post' } );
 post.save();
@@ -170,26 +170,26 @@ postCategories.at( 0 ).get( 'name' );
 
 to get the last 10 posts:
 
-```
+```javascript
 var postsCollection = new wp.api.collections.Posts();
 postsCollection.fetch();
 ```
 
 to get the last 25 posts:
 
-```
+```javascript
 postsCollection.fetch( { data: { per_page: 25 } } );
 ```
 
 use filter to change the order & orderby options:
 
-```
+```javascript
 postsCollection.fetch( { data: { 'filter': { 'orderby': 'title', 'order': 'ASC' } } } );
 ```
 
 All collections support pagination automatically, and you can get the next page of results using `more`:
 
-```
+```javascript
 postsCollection.more();
 ```
 
