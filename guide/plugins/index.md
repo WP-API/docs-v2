@@ -17,29 +17,29 @@ Compatible Plugins on the WordPress.org Plugin Repository.
 NOTE: If you know of a plugin in the WordPress.org Plugin Repository not seen on this list which utilizes the WP REST API v2,
 please [contact the docs team](https://github.com/WP-API/docs-v2/issues/) and open an issue.
 
-| Name | Location | Description |
-| --- | --- | --- |
-| ACF to REST API | [ACF to REST API](https://wordpress.org/plugins/acf-to-rest-api/) | Exposes Advanced Custom Fields Endpoints in the WP REST API v2 |
-| ACF to WP API | [ACF to WP API](https://wordpress.org/plugins/acf-to-wp-api/) | Version 1.3.0 and higher put ACF data into endpoints for the WP REST API v2. |
-| BE REST Endpoints | [BE REST Endpoints](https://wordpress.org/plugins/be-rest-endpoints/) | Custom endpoints for WP REST API v2. Currently adds sidebars and widgets endpoints. For monkeying around! |
-| Custom Contact Forms | [Custom Contact Forms](https://wordpress.org/plugins/custom-contact-forms) | Build beautiful custom forms and manage submissions the WordPress way. View live previews of your forms while you build them. |
-| Dashboard Directory Size | [Dashboard Directory Size](https://wordpress.org/plugins/dashboard-directory-size/) | A dashboard widget that displays a list of common WordPress directories and their sizes. Handy if you need to keep an eye on the size of your WordPress install. Custom directories can also be configured. |
-| Easy Student Results | [Easy Student Results](https://wordpress.org/plugins/easy-student-results/) | Result Management System for School, College and University. Used to display and manage education related data. |
-| Invitations for Slack | [Invitations for Slack](https://wordpress.org/plugins/invitations-for-slack/) | Build a Slack community by allowing your visitors (or registered users) to invite themselves to your Slack team. |
-| JSON REST API Subscriptions | [JSON REST API Subscriptions](https://wordpress.org/plugins/json-rest-api-subscriptions/) | Enable subscriptions to posts, pages, and custom post types. Users can securely subscribe via simple API routes to created/updated/deleted content. |
-| JWT Authentication for WP REST API| [JWT Auth for WP REST API](https://wordpress.org/plugins/jwt-authentication-for-wp-rest-api/) | Extends the WP REST API using JSON Web Tokens Authentication as an authentication method. |
-| Prayers | [Prayers](https://wordpress.org/plugins/prayers/) | Lets an organization share, update, and manage prayer requests via their website w/ WP REST API v2 support |
-| REST API Console | [REST API Console](https://wordpress.org/plugins/rest-api-console/) | A console for your site's REST API that lives in your WordPress admin. |
-| REST API Post Embeds | [REST API Post Embeds](https://wordpress.org/plugins/rest-api-post-embeds/) | Embed posts from your site or others' into your posts and pages. |
-| REST Routes | [REST Routes](https://wordpress.org/plugins/rest-routes/) | Build endpoints from inside of the wp-admin. |
-| SearchWP API | [SearchWP API](https://wordpress.org/plugins/searchwp-api/) | Run advanced searches via the WordPress REST API and SearchWP. |
-| Maps by Store Locator Plus | [Maps by Store Locator Plus](https://wordpress.org/plugins/store-locator-le/) | Add a location finder or directory to your site in minutes. |
-| Tabulate | [Tabulate](https://wordpress.org/plugins/tabulate/) | Manage relational tabular data within the WP admin area, using the full power of your MySQL database. |
-| WP API Categories and Tags | [WP API Categories and Tags](https://wordpress.org/plugins/wp-api-categoriestags/) | This plugin allows users to post, submit, and view tags and categories in the WordPress REST API (v2) |
-| WP API Menus | [WP API Menus](https://wordpress.org/plugins/wp-api-menus/) | Extends WordPress WP REST API with new routes pointing to WordPress menus. |
-| WP REST API Log | [WP REST API Log](https://wordpress.org/plugins/wp-rest-api-log/) | WordPress plugin to log WP REST API requests and responses |
-| WP REST API Sidebars | [WP REST API Sidebars](https://wordpress.org/plugins/wp-rest-api-sidebars/) | An extension for the WP REST API that exposes endpoints for sidebars and widgets. |
-| WP REST API Extensions | [WP REST API Extensions](https://wordpress.org/plugins/wprestapiextensions/) | Extends the WP-REST API with custom read only endpoints. |
+| Name/Link | Description |
+| --- | --- |
+| [ACF to REST API](https://wordpress.org/plugins/acf-to-rest-api/) | Exposes Advanced Custom Fields Endpoints in the WP REST API v2 |
+| [ACF to WP API](https://wordpress.org/plugins/acf-to-wp-api/) | Version 1.3.0 and higher put ACF data into endpoints for the WP REST API v2. |
+| [BE REST Endpoints](https://wordpress.org/plugins/be-rest-endpoints/) | Custom endpoints for WP REST API v2. Currently adds sidebars and widgets endpoints. For monkeying around! |
+| [Custom Contact Forms](https://wordpress.org/plugins/custom-contact-forms) | Build beautiful custom forms and manage submissions the WordPress way. View live previews of your forms while you build them. |
+| [Dashboard Directory Size](https://wordpress.org/plugins/dashboard-directory-size/) | A dashboard widget that displays a list of common WordPress directories and their sizes. Handy if you need to keep an eye on the size of your WordPress install. Custom directories can also be configured. |
+| [Easy Student Results](https://wordpress.org/plugins/easy-student-results/) | Result Management System for School, College and University. Used to display and manage education related data. |
+| [Invitations for Slack](https://wordpress.org/plugins/invitations-for-slack/) | Build a Slack community by allowing your visitors (or registered users) to invite themselves to your Slack team. |
+| [JSON REST API Subscriptions](https://wordpress.org/plugins/json-rest-api-subscriptions/) | Enable subscriptions to posts, pages, and custom post types. Users can securely subscribe via simple API routes to created/updated/deleted content. |
+| [JWT Auth for WP REST API](https://wordpress.org/plugins/jwt-authentication-for-wp-rest-api/) | Extends the WP REST API using JSON Web Tokens Authentication as an authentication method. |
+| [Prayers](https://wordpress.org/plugins/prayers/) | Lets an organization share, update, and manage prayer requests via their website w/ WP REST API v2 support |
+| [REST API Console](https://wordpress.org/plugins/rest-api-console/) | A console for your site's REST API that lives in your WordPress admin. |
+| [REST API Post Embeds](https://wordpress.org/plugins/rest-api-post-embeds/) | Embed posts from your site or others' into your posts and pages. |
+| [REST Routes](https://wordpress.org/plugins/rest-routes/) | Build endpoints from inside of the wp-admin. |
+| [SearchWP API](https://wordpress.org/plugins/searchwp-api/) | Run advanced searches via the WordPress REST API and SearchWP. |
+| [Maps by Store Locator Plus](https://wordpress.org/plugins/store-locator-le/) | Add a location finder or directory to your site in minutes. |
+| [Tabulate](https://wordpress.org/plugins/tabulate/) | Manage relational tabular data within the WP admin area, using the full power of your MySQL database. |
+| [WP API Categories and Tags](https://wordpress.org/plugins/wp-api-categoriestags/) | This plugin allows users to post, submit, and view tags and categories in the WordPress REST API (v2) |
+| [WP API Menus](https://wordpress.org/plugins/wp-api-menus/) | Extends WordPress WP REST API with new routes pointing to WordPress menus. |
+| [WP REST API Log](https://wordpress.org/plugins/wp-rest-api-log/) | WordPress plugin to log WP REST API requests and responses |
+| [WP REST API Sidebars](https://wordpress.org/plugins/wp-rest-api-sidebars/) | An extension for the WP REST API that exposes endpoints for sidebars and widgets. |
+| [WP REST API Extensions](https://wordpress.org/plugins/wprestapiextensions/) | Extends the WP-REST API with custom read only endpoints. |
 
 Other Compatible Plugins.
 ------------------
