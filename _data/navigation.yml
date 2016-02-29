@@ -28,6 +28,9 @@
     - title: Common Problems
       page: guide/problems/index.md
 
+    - title: Compatible Plugins & Tools
+      page: guide/plugins/index.md
+
 - title: API Reference
   items:
     - title: Introduction
@@ -76,7 +79,7 @@
 
     - title: Adding Endpoints
       page: extending/adding/index.md
-      
+
     - title: Custom Content Types
       page: extending/custom-content-types/index.md
 
