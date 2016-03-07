@@ -32,11 +32,13 @@ please [contact the docs team](https://github.com/WP-API/docs-v2/issues/) and op
 | [REST API Console](https://wordpress.org/plugins/rest-api-console/) | A console for your site's REST API that lives in your WordPress admin. |
 | [REST API Post Embeds](https://wordpress.org/plugins/rest-api-post-embeds/) | Embed posts from your site or others' into your posts and pages. |
 | [REST Routes](https://wordpress.org/plugins/rest-routes/) | Build endpoints from inside of the wp-admin. |
+| [Rest API Widgets](https://wordpress.org/plugins/rest-api-widgets/) | Use a few different widgets through the REST API |
 | [SearchWP API](https://wordpress.org/plugins/searchwp-api/) | Run advanced searches via the WordPress REST API and SearchWP. |
 | [Maps by Store Locator Plus](https://wordpress.org/plugins/store-locator-le/) | Add a location finder or directory to your site in minutes. |
 | [Tabulate](https://wordpress.org/plugins/tabulate/) | Manage relational tabular data within the WP admin area, using the full power of your MySQL database. |
 | [WP API Categories and Tags](https://wordpress.org/plugins/wp-api-categoriestags/) | This plugin allows users to post, submit, and view tags and categories in the WordPress REST API (v2) |
 | [WP API Menus](https://wordpress.org/plugins/wp-api-menus/) | Extends WordPress WP REST API with new routes pointing to WordPress menus. |
+| [WP API Shortcodes](https://wordpress.org/plugins/wpapi-shortcode-and-widgets/) | Simple Shortcode Plugin to get WordPress data from WP REST API |
 | [WP REST API Log](https://wordpress.org/plugins/wp-rest-api-log/) | WordPress plugin to log WP REST API requests and responses |
 | [WP REST API Sidebars](https://wordpress.org/plugins/wp-rest-api-sidebars/) | An extension for the WP REST API that exposes endpoints for sidebars and widgets. |
 | [WP REST API Extensions](https://wordpress.org/plugins/wprestapiextensions/) | Extends the WP-REST API with custom read only endpoints. |
