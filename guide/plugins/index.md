@@ -42,6 +42,7 @@ please [contact the docs team](https://github.com/WP-API/docs-v2/issues/) and op
 | [WP REST API Log](https://wordpress.org/plugins/wp-rest-api-log/) | WordPress plugin to log WP REST API requests and responses |
 | [WP REST API Sidebars](https://wordpress.org/plugins/wp-rest-api-sidebars/) | An extension for the WP REST API that exposes endpoints for sidebars and widgets. |
 | [WP REST API Extensions](https://wordpress.org/plugins/wprestapiextensions/) | Extends the WP-REST API with custom read only endpoints. |
+| [WP REST JMESPath](https://wordpress.org/plugins/wp-rest-jmespath/) | Extends the WP REST API with [JMESPath](http://jmespath.org/) support to allow field selection and response filtering. |
 
 Other Compatible Plugins.
 ------------------
