@@ -84,7 +84,7 @@ wp.api.models.Post.prototype.args
 
 ### Available methods
 
-Each model and collection contains a list of methods the corrosponding endpoint supports. For example, models created from `wp.api.models.Post` have a methods array of:
+Each model and collection contains a list of methods the corresponding endpoint supports. For example, models created from `wp.api.models.Post` have a methods array of:
 
 ```
 ["GET", "POST", "PUT", "PATCH", "DELETE"]
