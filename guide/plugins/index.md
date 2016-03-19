@@ -43,6 +43,9 @@ please [contact the docs team](https://github.com/WP-API/docs-v2/issues/) and op
 | [WP REST API Sidebars](https://wordpress.org/plugins/wp-rest-api-sidebars/) | An extension for the WP REST API that exposes endpoints for sidebars and widgets. |
 | [WP REST API Extensions](https://wordpress.org/plugins/wprestapiextensions/) | Extends the WP-REST API with custom read only endpoints. |
 | [WP REST JMESPath](https://wordpress.org/plugins/wp-rest-jmespath/) | Extends the WP REST API with [JMESPath](http://jmespath.org/) support to allow field selection and response filtering. |
+| [WP REST API - Pure Taxonomies](https://wordpress.org/plugins/wp-rest-api-pure-taxonomies/) | Include all available taxonomy attributes (for example show category or tag name/slug/description) into the WordPress REST API (v2) without additional API requests. |
+| [WP REST API - All Terms](https://wordpress.org/plugins/wp-rest-api-all-terms/) | Include all existing terms (for example all used categories, or tags) into separate WordPress REST API (v2) endpoint. Usefull for filters, or list of terms. |
+| [WP REST API - Post Type Taxonomies](https://wordpress.org/plugins/wp-rest-api-post-type-taxonomies/) | Show all relations between existing post types and attached to them taxonomies in separate WordPress REST API (v2) endpoint. Usefull for creating filters. |
 
 Other Compatible Plugins.
 ------------------
