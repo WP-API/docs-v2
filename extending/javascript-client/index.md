@@ -106,6 +106,16 @@ wp.api.collections.Posts.prototype.options
  * search
  * status
 ```
+
+### Waiting for the client to load
+Client startup is asynchronous. If the api schema is localized, the client can start immediately; if not the client makes an ajax request to load the schema. The client exposes a load promise for provide a reliable wait to wait for client to be ready:
+
+```js
+wp.api.loadPromise.done( function() {
+	//... use the client here
+} )
+```
+
 ### Model examples:
 
 To create a post and edit its categories, make sure you are logged in, then:
@@ -115,26 +125,29 @@ To create a post and edit its categories, make sure you are logged in, then:
 var post = new wp.api.models.Post( { title: 'This is a test post' } );
 post.save();
 
-// Get a collection of the post's categories
-var postCategories = post.getCategories();
+// Load an existing post
+var post = new wp.api.models.Post( { id: 1 } );
+post.fetch();
 
 // Get a collection of the post's categories (returns a promise)
 // Uses _embedded data if available, in which case promise resolves immediately.
 post.getCategories().done( function( postCategories ) {
 	// ... do something with the categories.
 	// The new post has an single Category: Uncategorized
-	postCategories.at( 0 ).get( 'name' );
+	console.log( postCategories[0].name );
 	// response -> "Uncategorized"
 } );
 
 // Get a posts author User model.
 post.getAuthorUser().done( function( user ){
 	// ... do something with user
+	console.log( user.get( 'name' ) );
 } );
 
 // Get a posts featured image Media model.
 post.getFeaturedImage().done( function( image ){
 	// ... do something with image
+	console.log( image );
 } );
 
 // Set the post categories.
