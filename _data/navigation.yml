@@ -28,6 +28,9 @@
     - title: Common Problems
       page: guide/problems/index.md
 
+    - title: Compatible Plugins & Tools
+      page: guide/plugins/index.md
+
 - title: API Reference
   items:
     - title: Introduction
@@ -35,12 +38,6 @@
 
     - title: Posts
       page: reference/posts/index.md
-
-    - title: Post Meta
-      page: reference/posts/meta.md
-
-    - title: Post Terms
-      page: reference/posts/terms.md
 
     - title: Post Revisions
       page: reference/posts/revisions.md
@@ -57,20 +54,17 @@
     - title: Post Statuses
       page: reference/statuses/index.md
 
-  # - title: Post Meta
-  #   page: reference/meta.md
-
-  # - title: Post Revisions
-  #   page: reference/revisions.md
-
     - title: Comments
       page: reference/comments/index.md
 
     - title: Taxonomies
       page: reference/taxonomies/index.md
 
-    - title: Terms
-      page: reference/terms/index.md
+    - title: Categories
+      page: reference/categories/index.md
+
+    - title: Tags
+      page: reference/tags/index.md
 
     - title: Users
       page: reference/users/index.md
@@ -85,9 +79,12 @@
 
     - title: Adding Endpoints
       page: extending/adding/index.md
-      
+
     - title: Custom Content Types
       page: extending/custom-content-types/index.md
 
     - title: Linking
       page: extending/linking/index.md
+
+    - title: JavaScript Client
+      page: extending/javascript-client/index.md

@@ -25,7 +25,11 @@ ruby regenerate.rb
 Run the website locally, and recompile files on change
 
 ```bash
-jekyll serve --watch
+bundle exec jekyll serve --watch
 ```
 
 Open http://0.0.0.0:4000 in your browser to see the site
+
+### Notes
+
+Styles use of [Foundation v 5.5.3](http://foundation.zurb.com/sites/docs/v/5.5.3/)

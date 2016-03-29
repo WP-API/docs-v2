@@ -1,7 +1,7 @@
 {
   "name": "term",
   "routes": {
-    "/wp/v2/posts/<post_id>/terms/category": {
+    "/wp/v2/posts/<post_id>/categories": {
       "namespace": "wp/v2",
       "methods": [
         "GET"
@@ -12,13 +12,34 @@
             "GET"
           ],
           "args": {
+            "context": {
+              "required": false,
+              "default": "view",
+              "enum": [
+                "view",
+                "embed"
+              ],
+              "description": "Scope under which the request is made; determines fields present in response."
+            },
             "order": {
               "required": false,
-              "default": "asc"
+              "default": "asc",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "description": "Order sort attribute ascending or descending."
             },
             "orderby": {
               "required": false,
-              "default": "name"
+              "default": "name",
+              "enum": [
+                "count",
+                "name",
+                "slug",
+                "term_order"
+              ],
+              "description": "Sort collection by object attribute."
             }
           }
         }
@@ -96,7 +117,7 @@
             "readonly": true
           },
           "parent": {
-            "description": "The ID for the parent of the object.",
+            "description": "The id for the parent of the object.",
             "type": "integer",
             "context": [
               "view"
@@ -104,9 +125,9 @@
           }
         }
       },
-      "nicename": "/wp/v2/posts/&lt;post_id&gt;/terms/category"
+      "nicename": "/wp/v2/posts/&lt;post_id&gt;/categories"
     },
-    "/wp/v2/posts/<post_id>/terms/category/<term_id>": {
+    "/wp/v2/posts/<post_id>/categories/<term_id>": {
       "namespace": "wp/v2",
       "methods": [
         "GET",
@@ -118,9 +139,17 @@
           "methods": [
             "GET"
           ],
-          "args": [
-
-          ]
+          "args": {
+            "context": {
+              "required": false,
+              "default": "view",
+              "enum": [
+                "view",
+                "embed"
+              ],
+              "description": "Scope under which the request is made; determines fields present in response."
+            }
+          }
         },
         {
           "methods": [
@@ -134,9 +163,12 @@
           "methods": [
             "DELETE"
           ],
-          "args": [
-
-          ]
+          "args": {
+            "force": {
+              "required": false,
+              "default": false
+            }
+          }
         }
       ],
       "schema": {
@@ -212,7 +244,7 @@
             "readonly": true
           },
           "parent": {
-            "description": "The ID for the parent of the object.",
+            "description": "The id for the parent of the object.",
             "type": "integer",
             "context": [
               "view"
@@ -220,9 +252,9 @@
           }
         }
       },
-      "nicename": "/wp/v2/posts/&lt;post_id&gt;/terms/category/&lt;term_id&gt;"
+      "nicename": "/wp/v2/posts/&lt;post_id&gt;/categories/&lt;term_id&gt;"
     },
-    "/wp/v2/posts/<post_id>/terms/tag": {
+    "/wp/v2/posts/<post_id>/tags": {
       "namespace": "wp/v2",
       "methods": [
         "GET"
@@ -233,13 +265,34 @@
             "GET"
           ],
           "args": {
+            "context": {
+              "required": false,
+              "default": "view",
+              "enum": [
+                "view",
+                "embed"
+              ],
+              "description": "Scope under which the request is made; determines fields present in response."
+            },
             "order": {
               "required": false,
-              "default": "asc"
+              "default": "asc",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "description": "Order sort attribute ascending or descending."
             },
             "orderby": {
               "required": false,
-              "default": "name"
+              "default": "name",
+              "enum": [
+                "count",
+                "name",
+                "slug",
+                "term_order"
+              ],
+              "description": "Sort collection by object attribute."
             }
           }
         }
@@ -318,9 +371,9 @@
           }
         }
       },
-      "nicename": "/wp/v2/posts/&lt;post_id&gt;/terms/tag"
+      "nicename": "/wp/v2/posts/&lt;post_id&gt;/tags"
     },
-    "/wp/v2/posts/<post_id>/terms/tag/<term_id>": {
+    "/wp/v2/posts/<post_id>/tags/<term_id>": {
       "namespace": "wp/v2",
       "methods": [
         "GET",
@@ -332,9 +385,17 @@
           "methods": [
             "GET"
           ],
-          "args": [
-
-          ]
+          "args": {
+            "context": {
+              "required": false,
+              "default": "view",
+              "enum": [
+                "view",
+                "embed"
+              ],
+              "description": "Scope under which the request is made; determines fields present in response."
+            }
+          }
         },
         {
           "methods": [
@@ -348,9 +409,12 @@
           "methods": [
             "DELETE"
           ],
-          "args": [
-
-          ]
+          "args": {
+            "force": {
+              "required": false,
+              "default": false
+            }
+          }
         }
       ],
       "schema": {
@@ -427,9 +491,9 @@
           }
         }
       },
-      "nicename": "/wp/v2/posts/&lt;post_id&gt;/terms/tag/&lt;term_id&gt;"
+      "nicename": "/wp/v2/posts/&lt;post_id&gt;/tags/&lt;term_id&gt;"
     },
-    "/wp/v2/terms/category": {
+    "/wp/v2/categories": {
       "namespace": "wp/v2",
       "methods": [
         "GET",
@@ -441,35 +505,67 @@
             "GET"
           ],
           "args": {
+            "context": {
+              "required": false,
+              "default": "view",
+              "enum": [
+                "view",
+                "embed"
+              ],
+              "description": "Scope under which the request is made; determines fields present in response."
+            },
             "page": {
               "required": false,
-              "default": 1
+              "default": 1,
+              "description": "Current page of the collection."
             },
             "per_page": {
               "required": false,
-              "default": 10
+              "default": 10,
+              "description": "Maximum number of items to be returned in result set."
             },
             "search": {
-              "required": false
-            },
-            "context": {
               "required": false,
-              "default": "view"
+              "description": "Limit results to those matching a string."
+            },
+            "include": {
+              "required": false,
+              "default": [
+
+              ],
+              "description": "Limit result set to specific ids."
             },
             "order": {
               "required": false,
-              "default": "asc"
+              "default": "asc",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "description": "Order sort attribute ascending or descending."
             },
             "orderby": {
               "required": false,
-              "default": "name"
+              "default": "name",
+              "enum": [
+                "id",
+                "include",
+                "name",
+                "slug",
+                "term_group",
+                "description",
+                "count"
+              ],
+              "description": "Sort collection by object attribute."
             },
             "hide_empty": {
               "required": false,
-              "default": false
+              "default": false,
+              "description": "Whether to hide terms not assigned to any posts."
             },
             "parent": {
-              "required": false
+              "required": false,
+              "description": "Limit result set to terms assigned to a specific parent term."
             }
           }
         },
@@ -566,7 +662,7 @@
             "readonly": true
           },
           "parent": {
-            "description": "The ID for the parent of the object.",
+            "description": "The id for the parent of the object.",
             "type": "integer",
             "context": [
               "view"
@@ -575,11 +671,11 @@
         }
       },
       "_links": {
-        "self": "http://demo.wp-api.org/wp-json/wp/v2/terms/category"
+        "self": "http://demo.wp-api.org/wp-json/wp/v2/categories"
       },
-      "nicename": "/wp/v2/terms/category"
+      "nicename": "/wp/v2/categories"
     },
-    "/wp/v2/terms/category/<id>": {
+    "/wp/v2/categories/<id>": {
       "namespace": "wp/v2",
       "methods": [
         "GET",
@@ -593,9 +689,17 @@
           "methods": [
             "GET"
           ],
-          "args": [
-
-          ]
+          "args": {
+            "context": {
+              "required": false,
+              "default": "view",
+              "enum": [
+                "view",
+                "embed"
+              ],
+              "description": "Scope under which the request is made; determines fields present in response."
+            }
+          }
         },
         {
           "methods": [
@@ -700,7 +804,7 @@
             "readonly": true
           },
           "parent": {
-            "description": "The ID for the parent of the object.",
+            "description": "The id for the parent of the object.",
             "type": "integer",
             "context": [
               "view"
@@ -708,9 +812,9 @@
           }
         }
       },
-      "nicename": "/wp/v2/terms/category/&lt;id&gt;"
+      "nicename": "/wp/v2/categories/&lt;id&gt;"
     },
-    "/wp/v2/terms/tag": {
+    "/wp/v2/tags": {
       "namespace": "wp/v2",
       "methods": [
         "GET",
@@ -722,32 +826,63 @@
             "GET"
           ],
           "args": {
+            "context": {
+              "required": false,
+              "default": "view",
+              "enum": [
+                "view",
+                "embed"
+              ],
+              "description": "Scope under which the request is made; determines fields present in response."
+            },
             "page": {
               "required": false,
-              "default": 1
+              "default": 1,
+              "description": "Current page of the collection."
             },
             "per_page": {
               "required": false,
-              "default": 10
+              "default": 10,
+              "description": "Maximum number of items to be returned in result set."
             },
             "search": {
-              "required": false
-            },
-            "context": {
               "required": false,
-              "default": "view"
+              "description": "Limit results to those matching a string."
+            },
+            "include": {
+              "required": false,
+              "default": [
+
+              ],
+              "description": "Limit result set to specific ids."
             },
             "order": {
               "required": false,
-              "default": "asc"
+              "default": "asc",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "description": "Order sort attribute ascending or descending."
             },
             "orderby": {
               "required": false,
-              "default": "name"
+              "default": "name",
+              "enum": [
+                "id",
+                "include",
+                "name",
+                "slug",
+                "term_group",
+                "description",
+                "count"
+              ],
+              "description": "Sort collection by object attribute."
             },
             "hide_empty": {
               "required": false,
-              "default": false
+              "default": false,
+              "description": "Whether to hide terms not assigned to any posts."
             }
           }
         },
@@ -843,11 +978,11 @@
         }
       },
       "_links": {
-        "self": "http://demo.wp-api.org/wp-json/wp/v2/terms/tag"
+        "self": "http://demo.wp-api.org/wp-json/wp/v2/tags"
       },
-      "nicename": "/wp/v2/terms/tag"
+      "nicename": "/wp/v2/tags"
     },
-    "/wp/v2/terms/tag/<id>": {
+    "/wp/v2/tags/<id>": {
       "namespace": "wp/v2",
       "methods": [
         "GET",
@@ -861,9 +996,17 @@
           "methods": [
             "GET"
           ],
-          "args": [
-
-          ]
+          "args": {
+            "context": {
+              "required": false,
+              "default": "view",
+              "enum": [
+                "view",
+                "embed"
+              ],
+              "description": "Scope under which the request is made; determines fields present in response."
+            }
+          }
         },
         {
           "methods": [
@@ -966,7 +1109,7 @@
           }
         }
       },
-      "nicename": "/wp/v2/terms/tag/&lt;id&gt;"
+      "nicename": "/wp/v2/tags/&lt;id&gt;"
     }
   },
   "schema": {
@@ -1042,7 +1185,7 @@
         "readonly": true
       },
       "parent": {
-        "description": "The ID for the parent of the object.",
+        "description": "The id for the parent of the object.",
         "type": "integer",
         "context": [
           "view"

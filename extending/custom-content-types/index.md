@@ -59,7 +59,7 @@ Here is an example of registering a post type, with support for the REST API:
   
   	register_post_type( 'book', $args );
 }
-
+```
 
 
 ### Registering A Custom Taxonomy With REST API Support
@@ -108,7 +108,7 @@ Here is an example of how to register a custom taxonomy, with REST API support:
   	register_taxonomy( 'genre', array( 'book' ), $args );
   
   }
-
+```
 
 ### Adding REST API Support To Existing Content Types
 When a custom post type or custom taxonomy has been added by code that you do not control, for example a theme or plugin you are using, you will need to add REST API support, after it is registered. The arguments are the same as in the previous examples, but need to be added to the global `$wp_post_types` and `$wp_taxonomies` arrays.

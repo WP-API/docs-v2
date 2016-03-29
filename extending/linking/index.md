@@ -95,14 +95,14 @@ These link relations are a standardised system of categorising relationships bet
 
 	For any relations which don't fit a normal standard relation, custom link relations can be used. These custom relations are URIs, which ensures they are unique. Note though that these are still describing the *relationship*, not the resource you're linking to.
 
-	For example, the core API uses the `http://v2.wp-api.org/term` relation to specify terms on a post, but the terms themselves are at `/wp-json/wp/v2/terms/tag` on your own site. This indicates that the link is a term on the current resource, and the `taxonomy` key can be used to disambiguate it from others:
+	For example, the core API uses the `https://api.w.org/term` relation to specify terms on a post, but the terms themselves are at `/wp-json/wp/v2/tags` on your own site. This indicates that the link is a term on the current resource, and the `taxonomy` key can be used to disambiguate it from others:
 
 	```json
 	{
 		"_links": {
-			"http://v2.wp-api.org/term": [
+			"https://api.w.org/term": [
 				{
-					"href": "http://example.com/wp-json/wp/v2/terms/category",
+					"href": "http://example.com/wp-json/wp/v2/categories",
 					"taxonomy": "category",
 					"embeddable": true
 				}
@@ -114,9 +114,9 @@ These link relations are a standardised system of categorising relationships bet
 	You can pick any URI you'd like for the relation, but keep them constant across sites and versions when the relationship doesn't change.
 
 	The core REST API uses the following custom link relations:
-	* `http://v2.wp-api.org/attachment`: Refers to a resource attached to the current post (such as a featured image or video).
-	* `http://v2.wp-api.org/meta`: Refers to metadata attached to the current post.
-	* `http://v2.wp-api.org/term`: Refers to a term categorising the current resource.
+	* `https://api.w.org/attachment`: Refers to a resource attached to the current post (such as a featured image or video).
+	* `https://api.w.org/meta`: Refers to metadata attached to the current post.
+	* `https://api.w.org/term`: Refers to a term categorising the current resource.
 
 
 Embedding

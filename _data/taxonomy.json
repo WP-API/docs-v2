@@ -12,8 +12,19 @@
             "GET"
           ],
           "args": {
-            "post_type": {
-              "required": false
+            "context": {
+              "required": false,
+              "default": "view",
+              "enum": [
+                "view",
+                "embed",
+                "edit"
+              ],
+              "description": "Scope under which the request is made; determines fields present in response."
+            },
+            "type": {
+              "required": false,
+              "description": "Limit results to resources associated with a specific post type."
             }
           }
         }
@@ -23,54 +34,76 @@
         "title": "taxonomy",
         "type": "object",
         "properties": {
+          "capabilities": {
+            "description": "All capabilities used by the resource.",
+            "type": "array",
+            "context": [
+              "edit"
+            ],
+            "readonly": true
+          },
           "description": {
-            "description": "A human-readable description of the object.",
+            "description": "A human-readable description of the resource.",
             "type": "string",
             "context": [
-              "view"
-            ]
+              "view",
+              "edit"
+            ],
+            "readonly": true
           },
           "hierarchical": {
-            "description": "Whether or not the type should have children.",
+            "description": "Whether or not the resource should have children.",
             "type": "boolean",
             "context": [
-              "view"
-            ]
+              "view",
+              "edit"
+            ],
+            "readonly": true
           },
           "labels": {
-            "description": "Human-readable labels for the type for various contexts.",
+            "description": "Human-readable labels for the resource for various contexts.",
             "type": "object",
             "context": [
-              "view"
-            ]
+              "edit"
+            ],
+            "readonly": true
           },
           "name": {
-            "description": "The title for the object.",
+            "description": "The title for the resource.",
             "type": "string",
             "context": [
-              "view"
-            ]
+              "view",
+              "edit",
+              "embed"
+            ],
+            "readonly": true
           },
           "slug": {
-            "description": "An alphanumeric identifier for the object.",
+            "description": "An alphanumeric identifier for the resource.",
             "type": "string",
             "context": [
-              "view"
-            ]
+              "view",
+              "edit",
+              "embed"
+            ],
+            "readonly": true
           },
           "show_cloud": {
             "description": "Whether or not the term cloud should be displayed.",
             "type": "boolean",
             "context": [
-              "view"
-            ]
+              "edit"
+            ],
+            "readonly": true
           },
           "types": {
-            "description": "Types associated with taxonomy.",
+            "description": "Types associated with resource.",
             "type": "array",
             "context": [
-              "view"
-            ]
+              "view",
+              "edit"
+            ],
+            "readonly": true
           }
         }
       },
@@ -89,9 +122,18 @@
           "methods": [
             "GET"
           ],
-          "args": [
-
-          ]
+          "args": {
+            "context": {
+              "required": false,
+              "default": "view",
+              "enum": [
+                "view",
+                "embed",
+                "edit"
+              ],
+              "description": "Scope under which the request is made; determines fields present in response."
+            }
+          }
         }
       ],
       "schema": {
@@ -99,54 +141,76 @@
         "title": "taxonomy",
         "type": "object",
         "properties": {
+          "capabilities": {
+            "description": "All capabilities used by the resource.",
+            "type": "array",
+            "context": [
+              "edit"
+            ],
+            "readonly": true
+          },
           "description": {
-            "description": "A human-readable description of the object.",
+            "description": "A human-readable description of the resource.",
             "type": "string",
             "context": [
-              "view"
-            ]
+              "view",
+              "edit"
+            ],
+            "readonly": true
           },
           "hierarchical": {
-            "description": "Whether or not the type should have children.",
+            "description": "Whether or not the resource should have children.",
             "type": "boolean",
             "context": [
-              "view"
-            ]
+              "view",
+              "edit"
+            ],
+            "readonly": true
           },
           "labels": {
-            "description": "Human-readable labels for the type for various contexts.",
+            "description": "Human-readable labels for the resource for various contexts.",
             "type": "object",
             "context": [
-              "view"
-            ]
+              "edit"
+            ],
+            "readonly": true
           },
           "name": {
-            "description": "The title for the object.",
+            "description": "The title for the resource.",
             "type": "string",
             "context": [
-              "view"
-            ]
+              "view",
+              "edit",
+              "embed"
+            ],
+            "readonly": true
           },
           "slug": {
-            "description": "An alphanumeric identifier for the object.",
+            "description": "An alphanumeric identifier for the resource.",
             "type": "string",
             "context": [
-              "view"
-            ]
+              "view",
+              "edit",
+              "embed"
+            ],
+            "readonly": true
           },
           "show_cloud": {
             "description": "Whether or not the term cloud should be displayed.",
             "type": "boolean",
             "context": [
-              "view"
-            ]
+              "edit"
+            ],
+            "readonly": true
           },
           "types": {
-            "description": "Types associated with taxonomy.",
+            "description": "Types associated with resource.",
             "type": "array",
             "context": [
-              "view"
-            ]
+              "view",
+              "edit"
+            ],
+            "readonly": true
           }
         }
       },
@@ -158,54 +222,76 @@
     "title": "taxonomy",
     "type": "object",
     "properties": {
+      "capabilities": {
+        "description": "All capabilities used by the resource.",
+        "type": "array",
+        "context": [
+          "edit"
+        ],
+        "readonly": true
+      },
       "description": {
-        "description": "A human-readable description of the object.",
+        "description": "A human-readable description of the resource.",
         "type": "string",
         "context": [
-          "view"
-        ]
+          "view",
+          "edit"
+        ],
+        "readonly": true
       },
       "hierarchical": {
-        "description": "Whether or not the type should have children.",
+        "description": "Whether or not the resource should have children.",
         "type": "boolean",
         "context": [
-          "view"
-        ]
+          "view",
+          "edit"
+        ],
+        "readonly": true
       },
       "labels": {
-        "description": "Human-readable labels for the type for various contexts.",
+        "description": "Human-readable labels for the resource for various contexts.",
         "type": "object",
         "context": [
-          "view"
-        ]
+          "edit"
+        ],
+        "readonly": true
       },
       "name": {
-        "description": "The title for the object.",
+        "description": "The title for the resource.",
         "type": "string",
         "context": [
-          "view"
-        ]
+          "view",
+          "edit",
+          "embed"
+        ],
+        "readonly": true
       },
       "slug": {
-        "description": "An alphanumeric identifier for the object.",
+        "description": "An alphanumeric identifier for the resource.",
         "type": "string",
         "context": [
-          "view"
-        ]
+          "view",
+          "edit",
+          "embed"
+        ],
+        "readonly": true
       },
       "show_cloud": {
         "description": "Whether or not the term cloud should be displayed.",
         "type": "boolean",
         "context": [
-          "view"
-        ]
+          "edit"
+        ],
+        "readonly": true
       },
       "types": {
-        "description": "Types associated with taxonomy.",
+        "description": "Types associated with resource.",
         "type": "array",
         "context": [
-          "view"
-        ]
+          "view",
+          "edit"
+        ],
+        "readonly": true
       }
     }
   }

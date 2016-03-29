@@ -2,12 +2,12 @@
 title: Authentication
 ---
 
-There are two options for authenticating with the API. The basic choice boils
+There are several options for authenticating with the API. The basic choice boils
 down to:
 
 * Are you a plugin/theme running on the site? Use **cookie authentication**
 * Are you a desktop/web/mobile client accessing the site externally? Use
-  **OAuth authentication**
+  **OAuth authentication**, **application passwords**, or **basic authentication**.
 
 
 Cookie Authentication
@@ -28,9 +28,17 @@ correctly for any custom requests.
 
 For developers making manual Ajax requests, the nonce will need to be passed
 with each request. The API uses nonces with the action set to `wp_rest`. These
-can then be passed to the API via the `_wpnonce` data parameter (either POST data or in the query for GET requests), or via the `X-WP-Nonce` header.
+can then be passed to the API via the `_wpnonce` data parameter (either POST
+data or in the query for GET requests), or via the `X-WP-Nonce` header.
 
-It is important to keep in mind that this authentication method relies on WordPress cookies. As a result this method is only applicable when the REST API is used inside of WordPress and the current user is logged in. In addition, the current user must have the appropriate capability to perform the action being performed.
+Note: Until recently, most software had spotty support for `DELETE` requests. For
+instance, PHP doesn't transform the request body of a `DELETE` request into a super
+global. As such, supplying the nonce as a header is the most reliable approach.
+
+It is important to keep in mind that this authentication method relies on WordPress
+cookies. As a result this method is only applicable when the REST API is used inside
+of WordPress and the current user is logged in. In addition, the current user must
+have the appropriate capability to perform the action being performed.
 
 As an example, this is how the built-in Javascript client creates the nonce:
 
@@ -82,13 +90,18 @@ can be revoked by users at any point.
 
 OAuth authentication uses the [OAuth 1.0a specification][oauth] (published as
 RFC5849) and requires installing the [OAuth plugin][oauth-plugin] on the site.
-(This plugin will be included with the API when merged into core.)
 
 Once you have WP API and the OAuth server plugins activated on your server,
-you'll need to create a "consumer". This is an identifier for the application,
+you'll need to create a "client". This is an identifier for the application,
 and includes a "key" and "secret", both needed to link to your site.
 
-To create the consumer, run the following on your server:
+The OAuth server plugin now has a full admin UI, including client application
+management and the ability to revoke tokens. To generate a new client
+application, you should see an "Applications" item appear under the users menu:
+this is where you manage OAuth clients.
+
+You can also use WPCLI to generate client credentials on your server. To create
+the client, run the following on your server:
 
 ```bash
 $ wp oauth1 add
@@ -98,36 +111,43 @@ Key: sDc51JgH2mFu
 Secret: LnUdIsyhPFnURkatekRIAUfYV7nmP4iF3AVxkS5PRHPXxgOW
 ```
 
-This key and secret is your consumer key and secret, and needs to be used
-throughout the authorization process. Currently no UI exists to manage this,
-however this is planned for a future release.
+This key and secret is your client key and secret, and needs to be used
+throughout the authorization process.
 
-For examples on how to use this, both the [CLI client][client-cli] and the
-[API console][api-console] make use of the OAuth functionality, and are a great
-starting point.
+For examples on how to use OAuth Authentication, as a starting point, we suggest
+you checkout the [Demo PHP API Client][demo-api-client], the [CLI client][client-cli] or
+the [API console][api-console].
 
 [oauth]: http://tools.ietf.org/html/rfc5849
 [oauth-plugin]: https://github.com/WP-API/OAuth1
+[demo-api-client]: https://github.com/WP-API/example-client
 [client-cli]: https://github.com/WP-API/client-cli
 [api-console]: https://github.com/WP-API/api-console
 
-
-Basic Authentication
---------------------
+Application Passwords or Basic Authentication
+---------------------------------------------
 Basic authentication is an optional authentication handler for external clients.
 Due to the complexity of OAuth authentication, basic authentication can be
 useful during development. However, Basic authentication requires passing your
 username and password on every request, as well as giving your credentials to
 clients, so it is heavily discouraged for production use.
 
-Basic authentication uses [HTTP Basic Authentication][http-basic] (published as
-RFC2617) and requires installing the [Basic Auth plugin][basic-auth-plugin].
+Application passwords are used similarly, however instead of providing your normal
+account password, unique and easily revokable passwords are generated from your
+edit profile screen in the WordPress admin.  These application passwords are valid
+exclusively for the REST API and the legacy XML-RPC API and may not be used to log
+in to WordPress.
+
+Both basic authentication and application passwords use [HTTP Basic Authentication][http-basic]
+(published as RFC2617) and requires installing either the [Basic Auth plugin][basic-auth-plugin] or
+[Application Passwords plugin][application-passwords] respectively.
 
 To use Basic authentication, simply pass the username and password with each
-request through the `Authorization` header. This value should be encoded (using base64 encoding) as per
-the HTTP Basic specification.
+request through the `Authorization` header. This value should be encoded (using
+base64 encoding) as per the HTTP Basic specification.
 
-This is an example of how to update a post, using Basic authentication, via the WordPress HTTP API:
+This is an example of how to update a post, using these authentications, via the
+WordPress HTTP API:
 
 ```php
 $headers = array (
@@ -135,7 +155,7 @@ $headers = array (
 );
 $url = rest_url( 'wp/v2/posts/1' );
 
-$body = array(
+$data = array(
 	'title' => 'Hello Gaia' 
 );
 
@@ -149,3 +169,4 @@ $response = wp_remote_post( $url, array (
 
 [http-basic]: https://tools.ietf.org/html/rfc2617
 [basic-auth-plugin]: https://github.com/WP-API/Basic-Auth
+[application-passwords]: https://github.com/georgestephanis/application-passwords

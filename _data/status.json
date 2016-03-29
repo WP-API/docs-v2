@@ -11,9 +11,18 @@
           "methods": [
             "GET"
           ],
-          "args": [
-
-          ]
+          "args": {
+            "context": {
+              "required": false,
+              "default": "view",
+              "enum": [
+                "view",
+                "embed",
+                "edit"
+              ],
+              "description": "Scope under which the request is made; determines fields present in response."
+            }
+          }
         }
       ],
       "schema": {
@@ -22,53 +31,66 @@
         "type": "object",
         "properties": {
           "name": {
-            "description": "The title for the status.",
+            "description": "The title for the resource.",
             "type": "string",
             "context": [
-              "view"
-            ]
+              "embed",
+              "view",
+              "edit"
+            ],
+            "readonly": true
           },
           "private": {
-            "description": "Whether posts with this status should be private.",
+            "description": "Whether posts with this resource should be private.",
             "type": "boolean",
             "context": [
-              "view"
-            ]
+              "edit"
+            ],
+            "readonly": true
           },
           "protected": {
-            "description": "Whether posts with this status should be protected.",
+            "description": "Whether posts with this resource should be protected.",
             "type": "boolean",
             "context": [
-              "view"
-            ]
+              "edit"
+            ],
+            "readonly": true
           },
           "public": {
-            "description": "Whether posts of this status should be shown in the front end of the site.",
+            "description": "Whether posts of this resource should be shown in the front end of the site.",
             "type": "boolean",
             "context": [
-              "view"
-            ]
+              "view",
+              "edit"
+            ],
+            "readonly": true
           },
           "queryable": {
-            "description": "Whether posts with this status should be publicly-queryable.",
+            "description": "Whether posts with this resource should be publicly-queryable.",
             "type": "boolean",
             "context": [
-              "view"
-            ]
+              "view",
+              "edit"
+            ],
+            "readonly": true
           },
           "show_in_list": {
             "description": "Whether to include posts in the edit listing for their post type.",
             "type": "boolean",
             "context": [
-              "view"
-            ]
+              "edit"
+            ],
+            "readonly": true
           },
           "slug": {
-            "description": "An alphanumeric identifier for the status.",
+            "description": "An alphanumeric identifier for the resource.",
             "type": "string",
             "context": [
-              "view"
-            ]
+              "embed",
+              "view",
+              "edit"
+            ],
+            "readonly": true
           }
         }
       },
@@ -87,9 +109,18 @@
           "methods": [
             "GET"
           ],
-          "args": [
-
-          ]
+          "args": {
+            "context": {
+              "required": false,
+              "default": "view",
+              "enum": [
+                "view",
+                "embed",
+                "edit"
+              ],
+              "description": "Scope under which the request is made; determines fields present in response."
+            }
+          }
         }
       ],
       "schema": {
@@ -98,53 +129,66 @@
         "type": "object",
         "properties": {
           "name": {
-            "description": "The title for the status.",
+            "description": "The title for the resource.",
             "type": "string",
             "context": [
-              "view"
-            ]
+              "embed",
+              "view",
+              "edit"
+            ],
+            "readonly": true
           },
           "private": {
-            "description": "Whether posts with this status should be private.",
+            "description": "Whether posts with this resource should be private.",
             "type": "boolean",
             "context": [
-              "view"
-            ]
+              "edit"
+            ],
+            "readonly": true
           },
           "protected": {
-            "description": "Whether posts with this status should be protected.",
+            "description": "Whether posts with this resource should be protected.",
             "type": "boolean",
             "context": [
-              "view"
-            ]
+              "edit"
+            ],
+            "readonly": true
           },
           "public": {
-            "description": "Whether posts of this status should be shown in the front end of the site.",
+            "description": "Whether posts of this resource should be shown in the front end of the site.",
             "type": "boolean",
             "context": [
-              "view"
-            ]
+              "view",
+              "edit"
+            ],
+            "readonly": true
           },
           "queryable": {
-            "description": "Whether posts with this status should be publicly-queryable.",
+            "description": "Whether posts with this resource should be publicly-queryable.",
             "type": "boolean",
             "context": [
-              "view"
-            ]
+              "view",
+              "edit"
+            ],
+            "readonly": true
           },
           "show_in_list": {
             "description": "Whether to include posts in the edit listing for their post type.",
             "type": "boolean",
             "context": [
-              "view"
-            ]
+              "edit"
+            ],
+            "readonly": true
           },
           "slug": {
-            "description": "An alphanumeric identifier for the status.",
+            "description": "An alphanumeric identifier for the resource.",
             "type": "string",
             "context": [
-              "view"
-            ]
+              "embed",
+              "view",
+              "edit"
+            ],
+            "readonly": true
           }
         }
       },
@@ -157,53 +201,66 @@
     "type": "object",
     "properties": {
       "name": {
-        "description": "The title for the status.",
+        "description": "The title for the resource.",
         "type": "string",
         "context": [
-          "view"
-        ]
+          "embed",
+          "view",
+          "edit"
+        ],
+        "readonly": true
       },
       "private": {
-        "description": "Whether posts with this status should be private.",
+        "description": "Whether posts with this resource should be private.",
         "type": "boolean",
         "context": [
-          "view"
-        ]
+          "edit"
+        ],
+        "readonly": true
       },
       "protected": {
-        "description": "Whether posts with this status should be protected.",
+        "description": "Whether posts with this resource should be protected.",
         "type": "boolean",
         "context": [
-          "view"
-        ]
+          "edit"
+        ],
+        "readonly": true
       },
       "public": {
-        "description": "Whether posts of this status should be shown in the front end of the site.",
+        "description": "Whether posts of this resource should be shown in the front end of the site.",
         "type": "boolean",
         "context": [
-          "view"
-        ]
+          "view",
+          "edit"
+        ],
+        "readonly": true
       },
       "queryable": {
-        "description": "Whether posts with this status should be publicly-queryable.",
+        "description": "Whether posts with this resource should be publicly-queryable.",
         "type": "boolean",
         "context": [
-          "view"
-        ]
+          "view",
+          "edit"
+        ],
+        "readonly": true
       },
       "show_in_list": {
         "description": "Whether to include posts in the edit listing for their post type.",
         "type": "boolean",
         "context": [
-          "view"
-        ]
+          "edit"
+        ],
+        "readonly": true
       },
       "slug": {
-        "description": "An alphanumeric identifier for the status.",
+        "description": "An alphanumeric identifier for the resource.",
         "type": "string",
         "context": [
-          "view"
-        ]
+          "embed",
+          "view",
+          "edit"
+        ],
+        "readonly": true
       }
     }
   }

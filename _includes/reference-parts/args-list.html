@@ -11,6 +11,9 @@
 					{% endif %}
 				</td>
 				<td>
+					{% if arg[1].description %}
+						<p>{{ arg[1].description }}</p>
+					{% endif %}
 					{% if arg[1].required %}
 						<p class="required">
 							Required: {{ arg[1].required }}
@@ -20,6 +23,9 @@
 						<p class="default">
 							Default: <code>{{ arg[1].default }}</code>
 						</p>
+					{% endif %}
+					{% if arg[1].enum %}
+						<p>One of: <code>{{ arg[1].enum | join:"</code>, <code>"}}</code></p>
 					{% endif %}
 				</td>
 			</tr>

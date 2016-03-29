@@ -137,7 +137,7 @@ function slug_update_spaceship( $value, $object, $field_name ) {
 }
 ```
 
-This example shows how to allow reading and writing of a post meta field. This will allow the spaceship field to be updated via a POST request to `wp-json/wp/v2/posts/<post-id>` or created along with a post via a POST request to ``wp-json/wp/v2/posts/`
+This example shows how to allow reading and writing of a post meta field. This will allow the spaceship field to be updated via a POST request to `wp-json/wp/v2/posts/<post-id>` or created along with a post via a POST request to `wp-json/wp/v2/posts/`
 
 ### Return an arbitrary function
 
@@ -147,7 +147,7 @@ This example shows how to allow reading and writing of a post meta field. This w
  * Use arbitrary functions to add a field
  */
 add_action( 'rest_api_init', 'slug_register_something_random' );
-function slug_register_starship() {
+function slug_register_something_random() {
     register_rest_field( 'post',
         'something',
         array(
