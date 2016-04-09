@@ -44,14 +44,14 @@ As an example, this is how the built-in Javascript client creates the nonce:
 
 ```php
 <?php
-wp_localize_script( 'wp-api', 'WP_API_Settings', array( 'root' => esc_url_raw( rest_url() ), 'nonce' => wp_create_nonce( 'wp_rest' ) ) );
+wp_localize_script( 'wp-api', 'wpApiSettings', array( 'root' => esc_url_raw( rest_url() ), 'nonce' => wp_create_nonce( 'wp_rest' ) ) );
 ```
 
 This is then used in the base model:
 
 ```javascript
 options.beforeSend = function(xhr) {
-	xhr.setRequestHeader('X-WP-Nonce', WP_API_Settings.nonce);
+	xhr.setRequestHeader('X-WP-Nonce', wpApiSettings.nonce);
 
 	if (beforeSend) {
 		return beforeSend.apply(this, arguments);
@@ -63,10 +63,10 @@ Here is an example of editing the title of a post, using jQuery AJAX:
 
 ```javascript
 $.ajax( {
-    url: WP_API_Settings.root + 'wp/v2/posts/1',
+    url: wpApiSettings.root + 'wp/v2/posts/1',
     method: 'POST',
     beforeSend: function ( xhr ) {
-        xhr.setRequestHeader( 'X-WP-Nonce', WP_API_Settings.nonce );
+        xhr.setRequestHeader( 'X-WP-Nonce', wpApiSettings.nonce );
     },
     data:{
         'title' : 'Hello Moon'
