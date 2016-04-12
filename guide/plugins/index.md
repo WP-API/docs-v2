@@ -30,6 +30,7 @@ please [contact the docs team](https://github.com/WP-API/docs-v2/issues/) and op
 | [JWT Auth for WP REST API](https://wordpress.org/plugins/jwt-authentication-for-wp-rest-api/) | Extends the WP REST API using JSON Web Tokens Authentication as an authentication method. |
 | [Prayers](https://wordpress.org/plugins/prayers/) | Lets an organization share, update, and manage prayer requests via their website w/ WP REST API v2 support |
 | [REST API Console](https://wordpress.org/plugins/rest-api-console/) | A console for your site's REST API that lives in your WordPress admin. |
+| [REST API - Filter Fields](https://wordpress.org/plugins/rest-api-filter-fields/) | Filter the properties returned by the WordPress REST API V2 |
 | [REST API Post Embeds](https://wordpress.org/plugins/rest-api-post-embeds/) | Embed posts from your site or others' into your posts and pages. |
 | [REST Routes](https://wordpress.org/plugins/rest-routes/) | Build endpoints from inside of the wp-admin. |
 | [Rest API Widgets](https://wordpress.org/plugins/rest-api-widgets/) | Use a few different widgets through the REST API |
