@@ -1,0 +1,347 @@
+{
+  "name": "pages-revision",
+  "routes": {
+    "/wp/v2/pages/<parent_id>/revisions": {
+      "namespace": "wp/v2",
+      "methods": [
+        "GET"
+      ],
+      "endpoints": [
+        {
+          "methods": [
+            "GET"
+          ],
+          "args": {
+            "context": {
+              "required": false,
+              "default": "view",
+              "enum": [
+                "view"
+              ],
+              "description": "Scope under which the request is made; determines fields present in response."
+            }
+          }
+        }
+      ],
+      "schema": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "title": "pages-revision",
+        "type": "object",
+        "properties": {
+          "author": {
+            "description": "The id for the author of the object.",
+            "type": "integer",
+            "context": [
+              "view"
+            ]
+          },
+          "date": {
+            "description": "The date the object was published.",
+            "type": "string",
+            "format": "date-time",
+            "context": [
+              "view"
+            ]
+          },
+          "date_gmt": {
+            "description": "The date the object was published, as GMT.",
+            "type": "string",
+            "format": "date-time",
+            "context": [
+              "view"
+            ]
+          },
+          "guid": {
+            "description": "GUID for the object, as it exists in the database.",
+            "type": "string",
+            "context": [
+              "view"
+            ]
+          },
+          "id": {
+            "description": "Unique identifier for the object.",
+            "type": "integer",
+            "context": [
+              "view"
+            ]
+          },
+          "modified": {
+            "description": "The date the object was last modified.",
+            "type": "string",
+            "format": "date-time",
+            "context": [
+              "view"
+            ]
+          },
+          "modified_gmt": {
+            "description": "The date the object was last modified, as GMT.",
+            "type": "string",
+            "format": "date-time",
+            "context": [
+              "view"
+            ]
+          },
+          "parent": {
+            "description": "The id for the parent of the object.",
+            "type": "integer",
+            "context": [
+              "view"
+            ]
+          },
+          "slug": {
+            "description": "An alphanumeric identifier for the object unique to its type.",
+            "type": "string",
+            "context": [
+              "view"
+            ]
+          },
+          "title": {
+            "description": "Title for the object, as it exists in the database.",
+            "type": "string",
+            "context": [
+              "view"
+            ]
+          },
+          "content": {
+            "description": "Content for the object, as it exists in the database.",
+            "type": "string",
+            "context": [
+              "view"
+            ]
+          },
+          "excerpt": {
+            "description": "Excerpt for the object, as it exists in the database.",
+            "type": "string",
+            "context": [
+              "view"
+            ]
+          }
+        }
+      },
+      "nicename": "/wp/v2/pages/&lt;parent_id&gt;/revisions"
+    },
+    "/wp/v2/pages/<parent_id>/revisions/<id>": {
+      "namespace": "wp/v2",
+      "methods": [
+        "GET",
+        "DELETE"
+      ],
+      "endpoints": [
+        {
+          "methods": [
+            "GET"
+          ],
+          "args": {
+            "context": {
+              "required": false,
+              "default": "view",
+              "enum": [
+                "view"
+              ],
+              "description": "Scope under which the request is made; determines fields present in response."
+            }
+          }
+        },
+        {
+          "methods": [
+            "DELETE"
+          ],
+          "args": [
+
+          ]
+        }
+      ],
+      "schema": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "title": "pages-revision",
+        "type": "object",
+        "properties": {
+          "author": {
+            "description": "The id for the author of the object.",
+            "type": "integer",
+            "context": [
+              "view"
+            ]
+          },
+          "date": {
+            "description": "The date the object was published.",
+            "type": "string",
+            "format": "date-time",
+            "context": [
+              "view"
+            ]
+          },
+          "date_gmt": {
+            "description": "The date the object was published, as GMT.",
+            "type": "string",
+            "format": "date-time",
+            "context": [
+              "view"
+            ]
+          },
+          "guid": {
+            "description": "GUID for the object, as it exists in the database.",
+            "type": "string",
+            "context": [
+              "view"
+            ]
+          },
+          "id": {
+            "description": "Unique identifier for the object.",
+            "type": "integer",
+            "context": [
+              "view"
+            ]
+          },
+          "modified": {
+            "description": "The date the object was last modified.",
+            "type": "string",
+            "format": "date-time",
+            "context": [
+              "view"
+            ]
+          },
+          "modified_gmt": {
+            "description": "The date the object was last modified, as GMT.",
+            "type": "string",
+            "format": "date-time",
+            "context": [
+              "view"
+            ]
+          },
+          "parent": {
+            "description": "The id for the parent of the object.",
+            "type": "integer",
+            "context": [
+              "view"
+            ]
+          },
+          "slug": {
+            "description": "An alphanumeric identifier for the object unique to its type.",
+            "type": "string",
+            "context": [
+              "view"
+            ]
+          },
+          "title": {
+            "description": "Title for the object, as it exists in the database.",
+            "type": "string",
+            "context": [
+              "view"
+            ]
+          },
+          "content": {
+            "description": "Content for the object, as it exists in the database.",
+            "type": "string",
+            "context": [
+              "view"
+            ]
+          },
+          "excerpt": {
+            "description": "Excerpt for the object, as it exists in the database.",
+            "type": "string",
+            "context": [
+              "view"
+            ]
+          }
+        }
+      },
+      "nicename": "/wp/v2/pages/&lt;parent_id&gt;/revisions/&lt;id&gt;"
+    }
+  },
+  "schema": {
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "pages-revision",
+    "type": "object",
+    "properties": {
+      "author": {
+        "description": "The id for the author of the object.",
+        "type": "integer",
+        "context": [
+          "view"
+        ]
+      },
+      "date": {
+        "description": "The date the object was published.",
+        "type": "string",
+        "format": "date-time",
+        "context": [
+          "view"
+        ]
+      },
+      "date_gmt": {
+        "description": "The date the object was published, as GMT.",
+        "type": "string",
+        "format": "date-time",
+        "context": [
+          "view"
+        ]
+      },
+      "guid": {
+        "description": "GUID for the object, as it exists in the database.",
+        "type": "string",
+        "context": [
+          "view"
+        ]
+      },
+      "id": {
+        "description": "Unique identifier for the object.",
+        "type": "integer",
+        "context": [
+          "view"
+        ]
+      },
+      "modified": {
+        "description": "The date the object was last modified.",
+        "type": "string",
+        "format": "date-time",
+        "context": [
+          "view"
+        ]
+      },
+      "modified_gmt": {
+        "description": "The date the object was last modified, as GMT.",
+        "type": "string",
+        "format": "date-time",
+        "context": [
+          "view"
+        ]
+      },
+      "parent": {
+        "description": "The id for the parent of the object.",
+        "type": "integer",
+        "context": [
+          "view"
+        ]
+      },
+      "slug": {
+        "description": "An alphanumeric identifier for the object unique to its type.",
+        "type": "string",
+        "context": [
+          "view"
+        ]
+      },
+      "title": {
+        "description": "Title for the object, as it exists in the database.",
+        "type": "string",
+        "context": [
+          "view"
+        ]
+      },
+      "content": {
+        "description": "Content for the object, as it exists in the database.",
+        "type": "string",
+        "context": [
+          "view"
+        ]
+      },
+      "excerpt": {
+        "description": "Excerpt for the object, as it exists in the database.",
+        "type": "string",
+        "context": [
+          "view"
+        ]
+      }
+    }
+  }
+}
