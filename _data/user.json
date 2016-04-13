@@ -78,6 +78,10 @@
             "slug": {
               "required": false,
               "description": "Limit result set to resources with a specific slug."
+            },
+            "roles": {
+              "required": false,
+              "description": "Limit result set to resources matching at least one specific role provided. Accepts csv list or single role."
             }
           }
         },
@@ -87,40 +91,52 @@
           ],
           "args": {
             "username": {
-              "required": true
+              "required": true,
+              "description": "Login name for the resource."
             },
             "name": {
-              "required": false
+              "required": false,
+              "description": "Display name for the resource."
             },
             "first_name": {
-              "required": false
+              "required": false,
+              "description": "First name for the resource."
             },
             "last_name": {
-              "required": false
+              "required": false,
+              "description": "Last name for the resource."
             },
             "email": {
-              "required": true
+              "required": true,
+              "description": "The email address for the resource."
             },
             "url": {
-              "required": false
+              "required": false,
+              "description": "URL of the resource."
             },
             "description": {
-              "required": false
+              "required": false,
+              "description": "Description of the resource."
             },
             "nickname": {
-              "required": false
+              "required": false,
+              "description": "The nickname for the resource."
             },
             "slug": {
-              "required": false
+              "required": false,
+              "description": "An alphanumeric identifier for the resource."
             },
             "roles": {
-              "required": false
-            },
-            "capabilities": {
-              "required": false
+              "required": false,
+              "description": "Roles assigned to the resource."
             },
             "password": {
-              "required": true
+              "required": true,
+              "description": "Password for the resource (never included)."
+            },
+            "capabilities": {
+              "required": false,
+              "description": "All capabilities assigned to the resource."
             }
           }
         }
@@ -241,6 +257,14 @@
               "edit"
             ]
           },
+          "password": {
+            "description": "Password for the resource (never included).",
+            "type": "string",
+            "context": [
+
+            ],
+            "required": true
+          },
           "capabilities": {
             "description": "All capabilities assigned to the resource.",
             "type": "object",
@@ -340,40 +364,52 @@
           ],
           "args": {
             "username": {
-              "required": false
+              "required": false,
+              "description": "Login name for the resource."
             },
             "name": {
-              "required": false
+              "required": false,
+              "description": "Display name for the resource."
             },
             "first_name": {
-              "required": false
+              "required": false,
+              "description": "First name for the resource."
             },
             "last_name": {
-              "required": false
+              "required": false,
+              "description": "Last name for the resource."
             },
             "email": {
-              "required": false
+              "required": false,
+              "description": "The email address for the resource."
             },
             "url": {
-              "required": false
+              "required": false,
+              "description": "URL of the resource."
             },
             "description": {
-              "required": false
+              "required": false,
+              "description": "Description of the resource."
             },
             "nickname": {
-              "required": false
+              "required": false,
+              "description": "The nickname for the resource."
             },
             "slug": {
-              "required": false
+              "required": false,
+              "description": "An alphanumeric identifier for the resource."
             },
             "roles": {
-              "required": false
-            },
-            "capabilities": {
-              "required": false
+              "required": false,
+              "description": "Roles assigned to the resource."
             },
             "password": {
-              "required": false
+              "required": false,
+              "description": "Password for the resource (never included)."
+            },
+            "capabilities": {
+              "required": false,
+              "description": "All capabilities assigned to the resource."
             }
           }
         },
@@ -508,6 +544,14 @@
             "context": [
               "edit"
             ]
+          },
+          "password": {
+            "description": "Password for the resource (never included).",
+            "type": "string",
+            "context": [
+
+            ],
+            "required": true
           },
           "capabilities": {
             "description": "All capabilities assigned to the resource.",
@@ -686,6 +730,14 @@
         "context": [
           "edit"
         ]
+      },
+      "password": {
+        "description": "Password for the resource (never included).",
+        "type": "string",
+        "context": [
+
+        ],
+        "required": true
       },
       "capabilities": {
         "description": "All capabilities assigned to the resource.",

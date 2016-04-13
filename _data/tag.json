@@ -99,13 +99,16 @@
           ],
           "args": {
             "description": {
-              "required": false
+              "required": false,
+              "description": "HTML description of the resource."
             },
             "name": {
-              "required": true
+              "required": true,
+              "description": "HTML title for the resource."
             },
             "slug": {
-              "required": false
+              "required": false,
+              "description": "An alphanumeric identifier for the resource unique to its type."
             }
           }
         }
@@ -231,13 +234,16 @@
           ],
           "args": {
             "description": {
-              "required": false
+              "required": false,
+              "description": "HTML description of the resource."
             },
             "name": {
-              "required": false
+              "required": false,
+              "description": "HTML title for the resource."
             },
             "slug": {
-              "required": false
+              "required": false,
+              "description": "An alphanumeric identifier for the resource unique to its type."
             }
           }
         },
