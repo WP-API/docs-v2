@@ -37,6 +37,10 @@
               "required": false,
               "description": "Limit results to those matching a string."
             },
+            "after": {
+              "required": false,
+              "description": "Limit response to resources published after a given ISO8601 compliant date."
+            },
             "author": {
               "required": false,
               "default": [
@@ -50,6 +54,10 @@
 
               ],
               "description": "Ensure result set excludes posts assigned to specific authors."
+            },
+            "before": {
+              "required": false,
+              "description": "Limit response to resources published before a given ISO8601 compliant date."
             },
             "exclude": {
               "required": false,
@@ -102,6 +110,20 @@
             "filter": {
               "required": false,
               "description": "Use WP Query arguments to modify the response; private query vars require appropriate authorization."
+            },
+            "categories": {
+              "required": false,
+              "default": [
+
+              ],
+              "description": "Limit result set to all items that have the specified term assigned in the categories taxonomy."
+            },
+            "tags": {
+              "required": false,
+              "default": [
+
+              ],
+              "description": "Limit result set to all items that have the specified term assigned in the tags taxonomy."
             }
           }
         },
@@ -111,16 +133,20 @@
           ],
           "args": {
             "date": {
-              "required": false
+              "required": false,
+              "description": "The date the object was published, in the site's timezone."
             },
             "date_gmt": {
-              "required": false
+              "required": false,
+              "description": "The date the object was published, as GMT."
             },
             "password": {
-              "required": false
+              "required": false,
+              "description": "A password to protect access to the post."
             },
             "slug": {
-              "required": false
+              "required": false,
+              "description": "An alphanumeric identifier for the object unique to its type."
             },
             "status": {
               "required": false,
@@ -130,36 +156,44 @@
                 "draft",
                 "pending",
                 "private"
-              ]
+              ],
+              "description": "A named status for the object."
             },
             "title": {
-              "required": false
+              "required": false,
+              "description": "The title for the object."
             },
             "content": {
-              "required": false
+              "required": false,
+              "description": "The content for the object."
             },
             "author": {
-              "required": false
+              "required": false,
+              "description": "The id for the author of the object."
             },
             "excerpt": {
-              "required": false
+              "required": false,
+              "description": "The excerpt for the object."
             },
             "featured_media": {
-              "required": false
+              "required": false,
+              "description": "The id of the featured media for the object."
             },
             "comment_status": {
               "required": false,
               "enum": [
                 "open",
                 "closed"
-              ]
+              ],
+              "description": "Whether or not comments are open on the object."
             },
             "ping_status": {
               "required": false,
               "enum": [
                 "open",
                 "closed"
-              ]
+              ],
+              "description": "Whether or not the object can be pinged."
             },
             "format": {
               "required": false,
@@ -174,16 +208,20 @@
                 "status",
                 "video",
                 "audio"
-              ]
+              ],
+              "description": "The format for the object."
             },
             "sticky": {
-              "required": false
+              "required": false,
+              "description": "Whether or not the object should be treated as sticky."
             },
             "categories": {
-              "required": false
+              "required": false,
+              "description": "The terms assigned to the object in the category taxonomy."
             },
             "tags": {
-              "required": false
+              "required": false,
+              "description": "The terms assigned to the object in the post_tag taxonomy."
             }
           }
         }
@@ -525,16 +563,20 @@
           ],
           "args": {
             "date": {
-              "required": false
+              "required": false,
+              "description": "The date the object was published, in the site's timezone."
             },
             "date_gmt": {
-              "required": false
+              "required": false,
+              "description": "The date the object was published, as GMT."
             },
             "password": {
-              "required": false
+              "required": false,
+              "description": "A password to protect access to the post."
             },
             "slug": {
-              "required": false
+              "required": false,
+              "description": "An alphanumeric identifier for the object unique to its type."
             },
             "status": {
               "required": false,
@@ -544,36 +586,44 @@
                 "draft",
                 "pending",
                 "private"
-              ]
+              ],
+              "description": "A named status for the object."
             },
             "title": {
-              "required": false
+              "required": false,
+              "description": "The title for the object."
             },
             "content": {
-              "required": false
+              "required": false,
+              "description": "The content for the object."
             },
             "author": {
-              "required": false
+              "required": false,
+              "description": "The id for the author of the object."
             },
             "excerpt": {
-              "required": false
+              "required": false,
+              "description": "The excerpt for the object."
             },
             "featured_media": {
-              "required": false
+              "required": false,
+              "description": "The id of the featured media for the object."
             },
             "comment_status": {
               "required": false,
               "enum": [
                 "open",
                 "closed"
-              ]
+              ],
+              "description": "Whether or not comments are open on the object."
             },
             "ping_status": {
               "required": false,
               "enum": [
                 "open",
                 "closed"
-              ]
+              ],
+              "description": "Whether or not the object can be pinged."
             },
             "format": {
               "required": false,
@@ -588,16 +638,20 @@
                 "status",
                 "video",
                 "audio"
-              ]
+              ],
+              "description": "The format for the object."
             },
             "sticky": {
-              "required": false
+              "required": false,
+              "description": "Whether or not the object should be treated as sticky."
             },
             "categories": {
-              "required": false
+              "required": false,
+              "description": "The terms assigned to the object in the category taxonomy."
             },
             "tags": {
-              "required": false
+              "required": false,
+              "description": "The terms assigned to the object in the post_tag taxonomy."
             }
           }
         },

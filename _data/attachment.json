@@ -37,6 +37,10 @@
               "required": false,
               "description": "Limit results to those matching a string."
             },
+            "after": {
+              "required": false,
+              "description": "Limit response to resources published after a given ISO8601 compliant date."
+            },
             "author": {
               "required": false,
               "default": [
@@ -50,6 +54,10 @@
 
               ],
               "description": "Ensure result set excludes posts assigned to specific authors."
+            },
+            "before": {
+              "required": false,
+              "description": "Limit response to resources published before a given ISO8601 compliant date."
             },
             "exclude": {
               "required": false,
@@ -127,8 +135,9 @@
               "enum": [
                 "image",
                 "video",
-                "audio",
-                "application"
+                "text",
+                "application",
+                "audio"
               ],
               "description": "Limit result set to attachments of a particular media type."
             },
@@ -144,16 +153,20 @@
           ],
           "args": {
             "date": {
-              "required": false
+              "required": false,
+              "description": "The date the object was published, in the site's timezone."
             },
             "date_gmt": {
-              "required": false
+              "required": false,
+              "description": "The date the object was published, as GMT."
             },
             "password": {
-              "required": false
+              "required": false,
+              "description": "A password to protect access to the post."
             },
             "slug": {
-              "required": false
+              "required": false,
+              "description": "An alphanumeric identifier for the object unique to its type."
             },
             "status": {
               "required": false,
@@ -163,39 +176,48 @@
                 "draft",
                 "pending",
                 "private"
-              ]
+              ],
+              "description": "A named status for the object."
             },
             "title": {
-              "required": false
+              "required": false,
+              "description": "The title for the object."
             },
             "author": {
-              "required": false
+              "required": false,
+              "description": "The id for the author of the object."
             },
             "comment_status": {
               "required": false,
               "enum": [
                 "open",
                 "closed"
-              ]
+              ],
+              "description": "Whether or not comments are open on the object."
             },
             "ping_status": {
               "required": false,
               "enum": [
                 "open",
                 "closed"
-              ]
+              ],
+              "description": "Whether or not the object can be pinged."
             },
             "alt_text": {
-              "required": false
+              "required": false,
+              "description": "Alternative text to display when resource is not displayed."
             },
             "caption": {
-              "required": false
+              "required": false,
+              "description": "The caption for the resource."
             },
             "description": {
-              "required": false
+              "required": false,
+              "description": "The description for the resource."
             },
             "post": {
-              "required": false
+              "required": false,
+              "description": "The id for the associated post of the resource."
             }
           }
         }
@@ -511,16 +533,20 @@
           ],
           "args": {
             "date": {
-              "required": false
+              "required": false,
+              "description": "The date the object was published, in the site's timezone."
             },
             "date_gmt": {
-              "required": false
+              "required": false,
+              "description": "The date the object was published, as GMT."
             },
             "password": {
-              "required": false
+              "required": false,
+              "description": "A password to protect access to the post."
             },
             "slug": {
-              "required": false
+              "required": false,
+              "description": "An alphanumeric identifier for the object unique to its type."
             },
             "status": {
               "required": false,
@@ -530,39 +556,48 @@
                 "draft",
                 "pending",
                 "private"
-              ]
+              ],
+              "description": "A named status for the object."
             },
             "title": {
-              "required": false
+              "required": false,
+              "description": "The title for the object."
             },
             "author": {
-              "required": false
+              "required": false,
+              "description": "The id for the author of the object."
             },
             "comment_status": {
               "required": false,
               "enum": [
                 "open",
                 "closed"
-              ]
+              ],
+              "description": "Whether or not comments are open on the object."
             },
             "ping_status": {
               "required": false,
               "enum": [
                 "open",
                 "closed"
-              ]
+              ],
+              "description": "Whether or not the object can be pinged."
             },
             "alt_text": {
-              "required": false
+              "required": false,
+              "description": "Alternative text to display when resource is not displayed."
             },
             "caption": {
-              "required": false
+              "required": false,
+              "description": "The caption for the resource."
             },
             "description": {
-              "required": false
+              "required": false,
+              "description": "The description for the resource."
             },
             "post": {
-              "required": false
+              "required": false,
+              "description": "The id for the associated post of the resource."
             }
           }
         },
