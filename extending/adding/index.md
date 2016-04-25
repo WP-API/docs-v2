@@ -99,6 +99,7 @@ function my_awesome_func( WP_REST_Request $request ) {
 	$parameters = $request->get_url_params();
 	$parameters = $request->get_query_params();
 	$parameters = $request->get_body_params();
+	$parameters = $request->get_json_params();
 	$parameters = $request->get_default_params();
 
 	// Uploads aren't merged in, but can be accessed separately:
@@ -109,6 +110,8 @@ function my_awesome_func( WP_REST_Request $request ) {
 (To find out exactly how parameters are merged, check the source of `WP_REST_Request::get_parameter_order()`; the basic order is body, query, URL, then defaults.)
 
 Normally, you'll get every parameter brought in unaltered. However, you can register your arguments when registering your route, which allows you to run sanitization and validation on these.
+
+If the request has the `Content-type: application/json` header set and valid JSON in the body, `get_json_params()` will return the parsed JSON body as an associative array.  
 
 Arguments are defined as a map in the key `args` for each endpoint (next to your `callback` option). This map uses the name of the argument of the key, with the value being a map of options for that argument. This array can contain a key for `default`, `required`, `sanitize_callback` and `validate_callback`.
 
