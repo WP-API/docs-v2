@@ -5,7 +5,7 @@ description: Documentation for version 2.0 of the WP REST API.
 baseurl: /
 encoding: utf-8
 highlighter: rouge
-markdown: redcarpet
+markdown: kramdown
 redcarpet:
   extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
 # markdown: kramdown
