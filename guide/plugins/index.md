@@ -40,6 +40,7 @@ please [contact the docs team](https://github.com/WP-API/docs-v2/issues/) and op
 | [WP API Categories and Tags](https://wordpress.org/plugins/wp-api-categoriestags/) | This plugin allows users to post, submit, and view tags and categories in the WordPress REST API (v2) |
 | [WP API Menus](https://wordpress.org/plugins/wp-api-menus/) | Extends WordPress WP REST API with new routes pointing to WordPress menus. |
 | [WP API Shortcodes](https://wordpress.org/plugins/wpapi-shortcode-and-widgets/) | Simple Shortcode Plugin to get WordPress data from WP REST API |
+| [WPAPI-SwaggerGenerator](https://github.com/starfishmod/WPAPI-SwaggerGenerator) | Generate a swagger file for your Wordpress, based on the plugins installed |
 | [WP REST API Log](https://wordpress.org/plugins/wp-rest-api-log/) | WordPress plugin to log WP REST API requests and responses |
 | [WP REST API Sidebars](https://wordpress.org/plugins/wp-rest-api-sidebars/) | An extension for the WP REST API that exposes endpoints for sidebars and widgets. |
 | [WP REST API Extensions](https://wordpress.org/plugins/wprestapiextensions/) | Extends the WP-REST API with custom read only endpoints. |
