@@ -74,6 +74,14 @@ header {
 			top: 1.2em;
 			bottom: 0.5em;
 		}
+
+		a {
+			color: inherit;
+
+			&:after {
+				content: " \002192";
+			}
+		}
 	}
 
 	nav ul {

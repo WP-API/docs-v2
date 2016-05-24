@@ -32,42 +32,7 @@
       page: guide/plugins/index.md
 
 - title: API Reference
-  items:
-    - title: Introduction
-      page: reference/index.md
-
-    - title: Posts
-      page: reference/posts/index.md
-
-    - title: Post Revisions
-      page: reference/posts/revisions.md
-
-    - title: Pages
-      page: reference/pages/index.md
-
-    - title: Media
-      page: reference/media/index.md
-
-    - title: Post Types
-      page: reference/types/index.md
-
-    - title: Post Statuses
-      page: reference/statuses/index.md
-
-    - title: Comments
-      page: reference/comments/index.md
-
-    - title: Taxonomies
-      page: reference/taxonomies/index.md
-
-    - title: Categories
-      page: reference/categories/index.md
-
-    - title: Tags
-      page: reference/tags/index.md
-
-    - title: Users
-      page: reference/users/index.md
+  page: reference/
 
 - title: Extending
   items:

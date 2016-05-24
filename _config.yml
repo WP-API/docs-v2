@@ -29,4 +29,11 @@ defaults:
       path: "assets"
     values:
       layout: ""
+
+  -
+    scope:
+      path: "reference"
+    values:
+      layout: "reference"
+
 exclude: [vendor]
