@@ -272,10 +272,22 @@ pre {
 
 table.arguments, table.attributes {
 	width: 100%;
+	border: none;
+	border-collapse: collapse;
 
 	p {
 		margin: .5rem 0;
 	}
+
+	td {
+		border: none;
+		border-bottom: 1px solid #e0e0e0;
+	}
+
+	tr:last-of-type td {
+		border-bottom: none;
+	}
+
 	td:first-child {
 		width: 33%;
 
@@ -298,9 +310,17 @@ table.arguments, table.attributes {
 	}
 
 	.read-only {
-		color: #666;
+		color: #aaa;
 		font-size: 13px;
 		margin-top: 0;
+		border: 1px solid #ddd;
+		display: inline-block;
+		padding: 0.2em 0.3em;
+		border-radius: 6px;
+	}
+
+	code a {
+		text-decoration: none;
 	}
 }
 
