@@ -267,6 +267,7 @@ pre {
 .route {
 	@include grid-row($behavior: nest-collapse);
 	position: relative;
+	margin-bottom: 1rem;
 }
 
 table.arguments, table.attributes {
