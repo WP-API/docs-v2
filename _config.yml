@@ -35,5 +35,6 @@ defaults:
       path: "reference"
     values:
       layout: "reference"
+      has_superbar: Yes
 
 exclude: [vendor]
