@@ -176,18 +176,26 @@ pre {
 	}
 }
 
+.secondary {
+	@import "highlight-monokai";
+}
+
 .secondary pre {
 	background: rgba($fg-superbar, 0.04);
+	tab-size: 2;
+	-moz-tab-size: 2;
+	-o-tab-size: 2;
 }
 
 .secondary code {
 	background: rgba(0,0,0,.18);
-	margin: 0 -15px;
-	padding: 15px;
 	display: inline-block;
 	word-wrap: break-word;
-	width: 109%;
 	color: #bbb;
+}
+
+.secondary pre code {
+	background: transparent;
 }
 
 .note {
