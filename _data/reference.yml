@@ -3,6 +3,9 @@
     - title: Introduction
       page: reference/index.md
 
+    - title: Linking and Embedding
+      page: reference/links.md
+
     - title: Global Parameters
       page: reference/global.md
 
