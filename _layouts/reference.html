@@ -3,7 +3,7 @@
 	<head>
 		{% include head.html %}
 	</head>
-	<body class="{% if page.has_superbar %}has-superbar{% else %}no-superbar{% endif %}">
+	<body class="has-superbar">
 		{% include header.html %}
 
 		<section id="sidebar">
@@ -12,13 +12,7 @@
 		</section>
 
 		<section id="content">
-			{% if page.has_superbar %}
-				<div class="background"><div class="primary"></div><div class="secondary"></div></div>
-			{% else %}
-				{% if page.include_title %}
-					<h1>{{ page.title }} <small style="float:right;"><a href="https://github.com/WP-API/docs-v2/edit/gh-pages/{{page.path}}">Edit Page</a></small></h1>
-				{% endif %}
-			{% endif %}
+			<div class="background"><div class="primary"></div><div class="secondary"></div></div>
 
 			{{ content }}
 		</section>
