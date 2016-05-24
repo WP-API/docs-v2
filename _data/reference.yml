@@ -3,6 +3,9 @@
     - title: Introduction
       page: reference/index.md
 
+    - title: Global Parameters
+      page: reference/global.md
+
 - title: Resources
   items:
     - title: Posts
