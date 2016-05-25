@@ -43,7 +43,7 @@ function receiveData( data ) {
 	console.log( data );
 }
 </script>
-<script src="http://demo.wp-api.org/wp-json/?_jsonp=receiveData"></script>
+<script src="https://demo.wp-api.org/wp-json/?_jsonp=receiveData"></script>
 ```
 </div>
 </section>
