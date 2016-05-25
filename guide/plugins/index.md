@@ -25,6 +25,7 @@ please [contact the docs team](https://github.com/WP-API/docs-v2/issues/) and op
 | [Custom Contact Forms](https://wordpress.org/plugins/custom-contact-forms) | Build beautiful custom forms and manage submissions the WordPress way. View live previews of your forms while you build them. |
 | [Dashboard Directory Size](https://wordpress.org/plugins/dashboard-directory-size/) | A dashboard widget that displays a list of common WordPress directories and their sizes. Handy if you need to keep an eye on the size of your WordPress install. Custom directories can also be configured. |
 | [Easy Student Results](https://wordpress.org/plugins/easy-student-results/) | Result Management System for School, College and University. Used to display and manage education related data. |
+| [Event Espresso 4 Decaf](https://wordpress.org/plugins/event-espresso-decaf/) | Since version 4.8.29, Event Espresso comes with WP API v2 integration, exposing all data in Event Espresso custom post types and custom tables. Read [the plugin documentation](https://github.com/eventespresso/event-espresso-core/blob/master/docs/C--REST-API/ee4-rest-api-introduction.md) for more information. |
 | [Invitations for Slack](https://wordpress.org/plugins/invitations-for-slack/) | Build a Slack community by allowing your visitors (or registered users) to invite themselves to your Slack team. |
 | [JSON REST API Subscriptions](https://wordpress.org/plugins/json-rest-api-subscriptions/) | Enable subscriptions to posts, pages, and custom post types. Users can securely subscribe via simple API routes to created/updated/deleted content. |
 | [JWT Auth for WP REST API](https://wordpress.org/plugins/jwt-authentication-for-wp-rest-api/) | Extends the WP REST API using JSON Web Tokens Authentication as an authentication method. |
@@ -40,6 +41,7 @@ please [contact the docs team](https://github.com/WP-API/docs-v2/issues/) and op
 | [WP API Categories and Tags](https://wordpress.org/plugins/wp-api-categoriestags/) | This plugin allows users to post, submit, and view tags and categories in the WordPress REST API (v2) |
 | [WP API Menus](https://wordpress.org/plugins/wp-api-menus/) | Extends WordPress WP REST API with new routes pointing to WordPress menus. |
 | [WP API Shortcodes](https://wordpress.org/plugins/wpapi-shortcode-and-widgets/) | Simple Shortcode Plugin to get WordPress data from WP REST API |
+| [WPAPI-SwaggerGenerator](https://github.com/starfishmod/WPAPI-SwaggerGenerator) | Generate a swagger file for your Wordpress, based on the plugins installed |
 | [WP REST API Log](https://wordpress.org/plugins/wp-rest-api-log/) | WordPress plugin to log WP REST API requests and responses |
 | [WP REST API Sidebars](https://wordpress.org/plugins/wp-rest-api-sidebars/) | An extension for the WP REST API that exposes endpoints for sidebars and widgets. |
 | [WP REST API Extensions](https://wordpress.org/plugins/wprestapiextensions/) | Extends the WP-REST API with custom read only endpoints. |
