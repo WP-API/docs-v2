@@ -1,19 +1,28 @@
 <nav>
 
-	{% for section in site.data.navigation %}
+	{% for section in navigation %}
 
-		<h3>{{ section.title }}</h3>
-		<ul>
-			{% for item in section.items %}
+		{% if section.page %}
 
-				{% capture item_url %}/{{ item.page | remove: 'index.md' | replace: '.md', '.html' }}{% endcapture %}
+			{% capture section_url %}/{{ section.page | remove: 'index.md' | replace: '.md', '.html' }}{% endcapture %}
+			<h3><a href="{{ section_url }}">{{ section.title }}</a></h3>
 
-				<li {% if page.path == item.page %} class="active" {% endif %} >
-					<a href="{{ item_url }}">{{ item.title }}</a>
-				</li>
+		{% else %}
 
-			{% endfor %}
-		</ul>
+			<h3>{{ section.title }}</h3>
+			<ul>
+				{% for item in section.items %}
+
+					{% capture item_url %}/{{ item.page | remove: 'index.md' | replace: '.md', '.html' }}{% endcapture %}
+
+					<li {% if page.path == item.page %} class="active" {% endif %} >
+						<a href="{{ item_url }}">{{ item.title }}</a>
+					</li>
+
+				{% endfor %}
+			</ul>
+
+		{% endif %}
 
 	{% endfor %}
 

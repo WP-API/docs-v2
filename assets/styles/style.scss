@@ -74,6 +74,14 @@ header {
 			top: 1.2em;
 			bottom: 0.5em;
 		}
+
+		a {
+			color: inherit;
+
+			&:after {
+				content: " \002192";
+			}
+		}
 	}
 
 	nav ul {
@@ -168,18 +176,26 @@ pre {
 	}
 }
 
+.secondary {
+	@import "highlight-monokai";
+}
+
 .secondary pre {
 	background: rgba($fg-superbar, 0.04);
+	tab-size: 2;
+	-moz-tab-size: 2;
+	-o-tab-size: 2;
 }
 
 .secondary code {
 	background: rgba(0,0,0,.18);
-	margin: 0 -15px;
-	padding: 15px;
 	display: inline-block;
 	word-wrap: break-word;
-	width: 109%;
 	color: #bbb;
+}
+
+.secondary pre code {
+	background: transparent;
 }
 
 .note {
@@ -251,14 +267,27 @@ pre {
 .route {
 	@include grid-row($behavior: nest-collapse);
 	position: relative;
+	margin-bottom: 1rem;
 }
 
 table.arguments, table.attributes {
 	width: 100%;
+	border: none;
+	border-collapse: collapse;
 
 	p {
 		margin: .5rem 0;
 	}
+
+	td {
+		border: none;
+		border-bottom: 1px solid #e0e0e0;
+	}
+
+	tr:last-of-type td {
+		border-bottom: none;
+	}
+
 	td:first-child {
 		width: 33%;
 
@@ -281,9 +310,17 @@ table.arguments, table.attributes {
 	}
 
 	.read-only {
-		color: #666;
+		color: #aaa;
 		font-size: 13px;
 		margin-top: 0;
+		border: 1px solid #ddd;
+		display: inline-block;
+		padding: 0.2em 0.3em;
+		border-radius: 6px;
+	}
+
+	code a {
+		text-decoration: none;
 	}
 }
 

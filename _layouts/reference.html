@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+	<head>
+		{% include head.html %}
+	</head>
+	<body class="has-superbar">
+		{% include header.html %}
+
+		<section id="sidebar">
+			{% assign navigation = site.data.reference %}
+			{% include sidebar.html %}
+		</section>
+
+		<section id="content">
+			<div class="background"><div class="primary"></div><div class="secondary"></div></div>
+
+			{{ content }}
+		</section>
+
+		{% include footer.html %}
+	</body>
+</html>
