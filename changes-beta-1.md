@@ -21,31 +21,31 @@ then we'd also love to know that. :)
 
 ## Internals
 
-* Changed: Endpoints now take a single parameter of type `WP_REST_Request`.
+* **Changed**: Endpoints now take a single parameter of type `WP_REST_Request`.
   Argument registration has been moved to the route registration. You can now
   set whether arguments are required with the `required` option, and a default
   value with `default`. (A corresponding `rest_ensure_request` function has
   been added to coerce array data to a request object.)
 
-* Added: Route registration can now be done via `register_rest_route`. This
+* **Added**: Route registration can now be done via `register_rest_route`. This
   function requires using a namespace. We recommend plugin and theme authors
   use the plugin slug, followed by a version in the form of `/v1`; the core
   API endpoints use the namespace `wp/v2`
 
-* Changed:  All built-in endpoints now use a common Controller base class with
+* **Changed**:  All built-in endpoints now use a common Controller base class with
   a standardised pattern. This is part of the public API for developers, and
   we recommend you use this when working with most use cases. This simply
   codifies the best practices in the API core, but is not required in
   custom code.
 
-* Added: Permission callbacks can now be registered separately to the response
+* **Added**: Permission callbacks can now be registered separately to the response
   callback. This allows us to return richer errors and capability assertions
   for clients. Use the `permission_callback` option when registering a route,
   and return either `true` if the user has permission to access the API,
   `false` or `null` if the user doesn't have permission, or a `WP_Error` for a
   custom error to pass back to the user.
 
-* Added: The server can now validate and sanitize arguments for you, using the
+* **Added**: The server can now validate and sanitize arguments for you, using the
   `validate_callback` and `sanitize_callback` options when registering
   arguments. The validation callback can return a truthy value for valid
   parameters, `false` for invalid parameters, or a `WP_Error` for a custom
