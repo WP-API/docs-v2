@@ -1,0 +1,11 @@
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width" />
+
+<title>{% if page.include_title %}{{ page.title }} | {% endif %}{{site.title}}</title>
+
+<link rel="stylesheet" href="{{ site.baseurl }}assets/styles/style.css" />
+
+<!-- Meta -->
+<meta content="{{site.title}}" property="og:title" />
+<meta content="{{site.description}}" name="description" />

@@ -47,8 +47,10 @@ please [contact the docs team](https://github.com/WP-API/docs-v2/issues/) and op
 | [WP REST API Extensions](https://wordpress.org/plugins/wprestapiextensions/) | Extends the WP-REST API with custom read only endpoints. |
 | [WP REST JMESPath](https://wordpress.org/plugins/wp-rest-jmespath/) | Extends the WP REST API with [JMESPath](http://jmespath.org/) support to allow field selection and response filtering. |
 | [WP REST API - Pure Taxonomies](https://wordpress.org/plugins/wp-rest-api-pure-taxonomies/) | Include all available taxonomy attributes (for example show category or tag name/slug/description) into the WordPress REST API (v2) without additional API requests. |
-| [WP REST API - All Terms](https://wordpress.org/plugins/wp-rest-api-all-terms/) | Include all existing terms (for example all used categories, or tags) into separate WordPress REST API (v2) endpoint. Usefull for filters, or list of terms. |
+| [WP REST API - All Terms](https://wordpress.org/plugins/wp-rest-api-all-terms/) | Include all existing terms (for example all used categories, or tags) into separate WordPress REST API (v2) endpoint. Useful for filters, or list of terms. |
 | [WP REST API - Post Type Taxonomies](https://wordpress.org/plugins/wp-rest-api-post-type-taxonomies/) | Show all relations between existing post types and attached to them taxonomies in separate WordPress REST API (v2) endpoint. Usefull for creating filters. |
+| [WP REST API Cache](https://wordpress.org/plugins/wp-rest-api-cache/) | Enable caching for WordPress REST API and increase speed of your application |
+| [WP REST API Controller](https://wordpress.org/plugins/wp-rest-api-controller/) | Control post/custom post type/meta data visibility to thr REST API and setup custom endpoints without writing any code.  |
 
 Other Compatible Plugins.
 ------------------
@@ -91,4 +93,4 @@ Client libraries serve as a resource to easily access and utilize the WP REST AP
 [Node.js client]: https://github.com/kadamwhite/wordpress-rest-api
 [Golang client]: https://github.com/sogko/go-wordpress
 [Ruby client]: https://github.com/duncanjbrown/wp-api-client
-[AngularJS client]: https://github.com/shprink/wp-api-angularjs
+[AngularJS (v1 and v2) client]: https://github.com/shprink/wp-api-angularjs
