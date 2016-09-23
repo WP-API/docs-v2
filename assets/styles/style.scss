@@ -26,6 +26,10 @@ header {
 	a {
 		color: inherit;
 		text-decoration: none;
+
+		&:hover {
+			text-decoration: underline;
+		}
 	}
 
 	nav {
@@ -42,6 +46,10 @@ header {
 		margin: {
 			top: -$button-tny;
 			bottom: -$button-tny;
+		}
+
+		&:hover {
+			text-decoration: none;
 		}
 
 		@include button-size($padding:$button-tny);
@@ -110,6 +118,10 @@ header {
 	a {
 		color: rgba($fg-secondary, 0.7);
 		text-decoration: none;
+
+		&:hover {
+			text-decoration: underline;
+		}
 	}
 }
 
@@ -232,6 +244,10 @@ pre {
 	.status {
 		a {
 			text-decoration: none;
+
+			&:hover {
+				text-decoration: underline;
+			}
 		}
 	}
 }

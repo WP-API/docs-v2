@@ -158,3 +158,7 @@ Here is an example of how to add REST API support to an already registered custo
 ```
 
 If you are having trouble implementing either of these examples, be sure that you are adding these hooks with a sufficiently high priority. If the callback functions run before the post type or taxonomy is registered, then the `isset` check will prevent an error, but the support will not be added.
+
+### Custom Link Relationships
+
+Taxonomies & custom post types have a built-in association within WordPress, but what if you want to establish a link between two custom post types? This is not supported formally within WordPress itself, but we can create our own connections between arbitrary content types using the `_link` relation.
