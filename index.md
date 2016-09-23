@@ -22,6 +22,13 @@ include_title: No
 		</a>
 	</p>
 
+	<p class="status">
+		<em>Using Version 1 of the API?</em>
+		<a href="http://wp-api.org/index-deprecated.html">
+			View the legacy documentation
+		</a>
+	</p>
+
 </div>
 
 About
