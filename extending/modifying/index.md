@@ -37,7 +37,7 @@ How To Use `register_rest_field`
 
 The function `register_rest_field` field accepts three parameters:
 
-1. `$object_type`: The name of the object, as a string, or an array of the names of objects the field is being registered to. When adding to posts type endpoints, the name of the post type(s) should be used. Alternatively "terms", "meta", "user" or "comments" may be used.
+1. `$object_type`: The name of the object, as a string, or an array of the names of objects the field is being registered to. When adding to posts type endpoints, the name of the post type(s) should be used. Alternatively "terms", "meta", "user" or "comment" may be used.
 
 2. `$attribute`: The name of the field. This name will be used to define the key in the response object.
 
