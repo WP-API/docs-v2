@@ -3,6 +3,27 @@ title: Common Problems
 ---
 We try and make the REST API as easy as possible, but APIs are hard. Here's a collection of common issues we run into.
 
+* TOC
+{:toc}
+
+
+Query Parameters are ignored
+----------------------------
+
+If you find that you cannot use `?filter[]=`, `?page=` or any other query parameters, your server may not be properly configured to detect them. If you are using Nginx to serve your website, look for a `try_files` line in your site configuration. If it looks like this:
+
+```
+try_files $uri $uri/ /index.php$args;
+```
+
+change it to this:
+
+```
+try_files $uri $uri/ /index.php$is_args$args;
+```
+
+Adding `$is_args` (which will print a `?` character if query arguments are found) will allow WordPress to properly receive and interpret the query parameters.
+
 
 Authentication Errors with `/users/me`
 --------------------------------------
