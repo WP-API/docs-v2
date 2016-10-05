@@ -12,6 +12,7 @@ Hooks are divided by the file they are in. The table consists of what line they 
 | Line | Filter | Function | Description |
 |----|----|----|----|
 |:81|`apply_filters( 'rest_avatar_sizes', array( 24, 48, 96 ) );`|`rest_get_avatar_sizes()`| Used to control avatar sizes for avatars in the API.|
+
 **lib/endpoints/class-wp-rest-attachments-controller.php**
 
 | Line | Filter | Function | Description |
@@ -19,6 +20,7 @@ Hooks are divided by the file they are in. The table consists of what line they 
 |:152|`do_action( 'rest_insert_attachment', $attachment, $request, true );`|`create_item()`|Fires after a single attachment is created or updated via the REST API. Flag `$creating` set to `true` for create.|
 |:186|`do_action( 'rest_insert_attachment', $data, $request, false );`|`update_item()`|Fires after a single attachment is created or updated via the REST API. Flag `$creating` set to `false` for update.|
 |:288|`apply_filters( 'rest_prepare_attachment', $response, $post, $request );`|`prepare_item_for_response()`|Allows modification of the attachment right before it is returned.|
+
 **lib/endpoints/class-wp-rest-comments-controller.php**
 
 | Line | Filter | Function | Description |
@@ -31,16 +33,19 @@ Hooks are divided by the file they are in. The table consists of what line they 
 |:537|`do_action( 'rest_delete_comment', $comment, $response, $request );`|`delete_item()`|Fires after a comment is deleted via the REST API.|
 |:596|`apply_filters( 'rest_prepare_comment', $response, $comment, $request );`|`prepare_item_for_response()`|Allows modification of the comment right before it is returned.|
 |:764|`apply_filters( 'rest_preprocess_comment', $prepared_comment, $request );`|`prepare_item_for_database()`|Filter a comment before it is inserted via the REST API.|
+
 **lib/endpoints/class-wp-rest-post-statuses-controller.php**
 
 | Line | Filter | Function | Description |
 |----|----|----|----|
 |:172|`apply_filters( 'rest_prepare_status', $response, $status, $request );`|`prepare_item_for_response()`|Allows modification of the post status right before it is returned.|
+
 **lib/endpoints/class-wp-rest-post-types-controller.php**
 
 | Line | Filter | Function | Description |
 |----|----|----|----|
 |:136|`apply_filters( 'rest_prepare_post_type', $response, $post_type, $request );`|`prepare_item_for_response()`|Allows modification of the post type right before it is returned.|
+
 **lib/endpoints/class-wp-rest-posts-controller.php**
 
 | Line | Filter | Function | Description |
@@ -55,17 +60,20 @@ Hooks are divided by the file they are in. The table consists of what line they 
 |:646|`apply_filters( 'rest_query_vars', $valid_vars );`|`get_allowed_query_vars()`|Filter allowed query vars for the REST API.|
 |:857|`apply_filters( "rest_pre_insert_{$this->post_type}", $prepared_post, $request );`|`prepare_item_for_database()`|Filter a post before it is inserted via the REST API.|
 |:1197|`apply_filters( "rest_prepare_{$this->post_type}", $response, $post, $request );`|`prepare_item_for_response()`|Allows modification of the post right before it is returned.|
+
 **lib/endpoints/class-wp-rest-revisions-controller.php**
 
 | Line | Filter | Function | Description |
 |----|----|----|----|
 |:165|`do_action( 'rest_delete_revision', $result, $request );`|`delete_item()`|Fires after a revision is deleted via the REST API.|
 |:228|`apply_filters( 'rest_prepare_revision', $response, $post, $request );`|`prepare_item_for_response()`|Allows modification of the revision right before it is returned.|
+
 **lib/endpoints/class-wp-rest-taxonomies-controller.php**
 
 | Line | Filter | Function | Description |
 |----|----|----|----|
 |:168|`apply_filters( 'rest_prepare_taxonomy', $response, $taxonomy, $request );`|`prepare_item_for_response()`|Allows modification of the taxonomy right before it is returned.|
+
 **lib/endpoints/class-wp-rest-terms-controller.php**
 
 | Line | Filter | Function | Description |
@@ -76,6 +84,7 @@ Hooks are divided by the file they are in. The table consists of what line they 
 |:502|`do_action( "rest_delete_{$this->taxonomy}", $term, $response, $request );`|`delete_item()`|Fires after a term is deleted via the REST API.|
 |:549|`apply_filters( "rest_pre_insert_{$this->taxonomy}", $prepared_term, $request );`|`prepare_item_for_database()`|Filter a term before it is inserted via the REST API.|
 |:592|`apply_filters( "rest_prepare_{$this->taxonomy}", $response, $item, $request );`|`prepare_item_for_response()`|Allows modification of the term right before it is returned.|
+
 **lib/endpoints/class-wp-rest-users-controller.php**
 
 | Line | Filter | Function | Description |
