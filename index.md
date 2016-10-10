@@ -12,7 +12,7 @@ include_title: No
 
 	<a href="https://wordpress.org/plugins/rest-api/" class="download button radius">
 		Download the Plugin
-		<span>(Version 2.0 beta 12, for WordPress 4.4 and later)</span>
+		<span>(Version 2.0 beta 15, for WordPress 4.4 and later)</span>
 	</a>
 
 	<p class="status">
