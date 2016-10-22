@@ -19,6 +19,21 @@ add_filter( 'rest_endpoints', function( $endpoints ) {
 });
 ```
 
+Or you can disable just one set of endpoints. For example, to disable users endpoints:
+
+```
+add_filter( 'rest_endpoints', function( $endpoints ){
+    if ( isset( $endpoints['/wp/v2/users'] ) ) {
+        unset( $endpoints['/wp/v2/users'] );
+    }
+    if ( isset( $endpoints['/wp/v2/users/(?P<id>[\d]+)'] ) ) {
+        unset( $endpoints['/wp/v2/users/(?P<id>[\d]+)'] );
+    }
+    return $endpoints;
+});
+```
+
+
 ### Make API Require Login
 You can also use the `rest_authentication_errors` filter to prevent any requests to the REST API to non-logged in users.
 
