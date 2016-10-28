@@ -63,7 +63,7 @@ You can use these endpoints as-is to read, update, create and delete items using
 Each model and collection includes a reference to its default values, for example:
 
 ```
-wp.api.models.Posts.defaults
+wp.api.models.Post.prototype.args
  * author: null
  * comment_status: null
  * content: null
@@ -84,7 +84,7 @@ wp.api.models.Posts.defaults
 
 ### Available methods
 
-Each model and collection contains a list of methods the corrosponding endpoint supports. For example, models created from `wp.api.models.Posts` have a method array of:
+Each model and collection contains a list of methods the corresponding endpoint supports. For example, models created from `wp.api.models.Post` have a methods array of:
 
 ```
 ["GET", "POST", "PUT", "PATCH", "DELETE"]
@@ -95,7 +95,7 @@ Each model and collection contains a list of methods the corrosponding endpoint 
 Each model and collection contains a list of options the corrosponding endpoint accepts (note that options are passed as the second parameter when creating models or collections), for example:
 
 ```
-wp.api.collections.Posts.options
+wp.api.collections.Posts.prototype.options
  * author
  * context
  * filter
