@@ -107,6 +107,9 @@ wp.api.collections.Posts.prototype.options
  * status
 ```
 
+### Localizing the API Schema
+The client will accept and use a localized schema as part of the `wpApiSettings` object. The Schema is currently not passed by default; instead the client makes an ajax request to the API to load the Schema, then caches it in the browser's session storage (if available). Activating the client-js plugin with `SCRIPT_DEBUG` enabled uses a localized Schema. Check the [client-js example](https://github.com/WP-API/client-js/blob/master/client-js.php) or this branch which [attempts to only localize the schema once per client](https://github.com/WP-API/client-js/compare/features/only-localize-schma-once?expand=1).
+
 ### Waiting for the client to load
 Client startup is asynchronous. If the api schema is localized, the client can start immediately; if not the client makes an ajax request to load the schema. The client exposes a load promise for provide a reliable wait to wait for client to be ready:
 
@@ -202,4 +205,34 @@ All collections support pagination automatically, and you can get the next page 
 postsCollection.more();
 ```
 
-If you add custom endpoints to the api they will also become available as models/collections. For example, you will get new models and collections when you [add REST API support to your custom post type](http://v2.wp-api.org/extending/custom-content-types/). Note: because the schema is stored in the user's session cache to avoid re-fetchingyou may need to open a new tab to get a new read of the Schema.
+to get page 5 of a collection:
+
+```js
+posts.fetch( { data: { page: 5 }  } );
+```
+
+check if the collection has any more posts:
+
+```js
+posts.hasMore();
+```
+
+### Working With Revisions
+You can access post or page revisions using the PostRevisions or PageRevisions collections or through the Post or Page collection.
+
+For example, to get a collection of all revisions of post ID 1:
+```
+var revisions = new wp.api.collections.PostRevisions({}, { parent: 1 });
+```
+
+Revision collections can also be accessed via their parent's collection. This example makes 2 HTTP requests instead of one, but now the original post and its revisions are avaible:
+
+```
+var post = new wp.api.models.Post( { id: 1 } );
+post.fetch();
+post.getRevisions().done( function( revisions ){
+console.log( revisions );
+});
+```
+
+If you add custom endpoints to the api they will also become available as models/collections. For example, you will get new models and collections when you [add REST API support to your custom post type](http://v2.wp-api.org/extending/custom-content-types/). Note: because the schema is stored in the user's session cache to avoid re-fetching, you may need to open a new tab to get a new read of the Schema.
