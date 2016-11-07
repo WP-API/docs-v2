@@ -24,52 +24,6 @@ try_files $uri $uri/ /index.php$is_args$args;
 
 Adding `$is_args` (which will print a `?` character if query arguments are found) will allow WordPress to properly receive and interpret the query parameters.
 
-
-Authentication Errors with `/users/me`
---------------------------------------
-The current user endpoint redirects to `/users/{id}` with the current user's information, using a 302 status with a Location header.
-
-One particularly prevelant place this occurs is in browser requests. Browsers automatically follow HTTP requests when using XMLHttpRequest, and you cannot disable this behaviour.
-
-The reason why this happens is different for each authentication type:
-
-* **OAuth 1** requires each request to be signed, and the signature is unique to the request being sent. A redirect can cause the same authentication headers to be sent, but with different request data, causing the signature to fail.
-* **Cookie authentication** sends a nonce with the request. When sending this in the URL, this data won't be passed along to the redirected URL.
-
-Although the redirection can be annoying, it's intended behaviour. The Location header indicates that the current route (`/users/me`) is not the canonical source for the data, just a pointer to it.
-
-To work around the problems with untrustworthy clients like browsers, the API provides the ability to "envelope" a request. This takes the normal status code and headers, and moves the data into the response body instead. This will cause the API to also return a status code of 200, and no extra headers.
-
-For example, with a response that looks like this:
-
-```
-HTTP/1.1 302 Found
-Location: http://example.com/wp-json/wp/v2/users/42
-
-{
-	"id": 42,
-	...
-}
-```
-
-To trigger enveloping, we can append a `_envelope` parameter to the request URL (i.e. `/users/me?_envelope`). Enveloping would change this to the following response instead:
-
-```
-HTTP/1.1 200 OK
-
-{
-	"status": 200,
-	"headers": {
-		"Location": "http://example.com/wp-json/wp/v2/users/42",
-	},
-	"body": {
-		"id": 42,
-		...
-	}
-}
-```
-
-
 Meta Accessibility
 ------------------
 
