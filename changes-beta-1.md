@@ -137,6 +137,7 @@ function tsla_register_routes( $routes ) {
         'args'     => array(
             'honks' => array(
                 'required'          => false,
+                'default'           => 1,
                 'validate_callback' => 'is_numeric',
             ),
         )
