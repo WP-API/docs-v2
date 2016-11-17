@@ -122,7 +122,7 @@ headers. There are a few key changes we need to make here:
   single `WP_REST_Request` object
 
 * Route registration now takes place via a helper function rather than directly
-  via the filter
+  via the filter, and includes specification for arguments
 
 Here's what the new API looks like:
 
@@ -154,7 +154,6 @@ function tsla_add_horn_honks( WP_REST_Request $request ) {
 }
 ```
 
-You'll notice that a lot of this looks pretty much the same! We've moved our
-validation check out, and renamed a few things, but otherwise our callback is
-mostly the same. The route registration has expanded to use the function for
-registration instead.
+You'll notice that this looks pretty similar! We've moved argument preprocessing
+up to route registration, added a new class to receive data and renamed a few
+things, but the rest of our code is unchanged.
