@@ -1,0 +1,237 @@
+{
+  "name": "settings",
+  "routes": {
+    "/wp/v2/settings": {
+      "namespace": "wp/v2",
+      "methods": [
+        "GET",
+        "POST",
+        "PUT",
+        "PATCH"
+      ],
+      "endpoints": [
+        {
+          "methods": [
+            "GET"
+          ],
+          "args": [
+
+          ]
+        },
+        {
+          "methods": [
+            "POST",
+            "PUT",
+            "PATCH"
+          ],
+          "args": {
+            "title": {
+              "required": false,
+              "description": "Site title."
+            },
+            "description": {
+              "required": false,
+              "description": "Site description."
+            },
+            "url": {
+              "required": false,
+              "description": "Site URL."
+            },
+            "email": {
+              "required": false,
+              "description": "This address is used for admin purposes. If you change this we will send you an email at your new address to confirm it. The new address will not become active until confirmed."
+            },
+            "timezone": {
+              "required": false,
+              "description": "A city in the same timezone as you."
+            },
+            "date_format": {
+              "required": false,
+              "description": "A date format for all date strings."
+            },
+            "time_format": {
+              "required": false,
+              "description": "A time format for all time strings."
+            },
+            "start_of_week": {
+              "required": false,
+              "description": "A day number of the week that the week should start on."
+            },
+            "language": {
+              "required": false,
+              "description": "WordPress locale code."
+            },
+            "use_smilies": {
+              "required": false,
+              "description": "Convert emoticons like :-) and :-P to graphics on display."
+            },
+            "default_category": {
+              "required": false,
+              "description": "Default category."
+            },
+            "default_post_format": {
+              "required": false,
+              "description": "Default post format."
+            },
+            "posts_per_page": {
+              "required": false,
+              "description": "Blog pages show at most."
+            }
+          }
+        }
+      ],
+      "schema": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "title": "settings",
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "description": "Site title.",
+            "default": null
+          },
+          "description": {
+            "type": "string",
+            "description": "Site description.",
+            "default": null
+          },
+          "url": {
+            "type": "string",
+            "description": "Site URL.",
+            "default": null,
+            "format": "uri"
+          },
+          "email": {
+            "type": "string",
+            "description": "This address is used for admin purposes. If you change this we will send you an email at your new address to confirm it. The new address will not become active until confirmed.",
+            "default": null,
+            "format": "email"
+          },
+          "timezone": {
+            "type": "string",
+            "description": "A city in the same timezone as you.",
+            "default": null
+          },
+          "date_format": {
+            "type": "string",
+            "description": "A date format for all date strings.",
+            "default": null
+          },
+          "time_format": {
+            "type": "string",
+            "description": "A time format for all time strings.",
+            "default": null
+          },
+          "start_of_week": {
+            "type": "number",
+            "description": "A day number of the week that the week should start on.",
+            "default": null
+          },
+          "language": {
+            "type": "string",
+            "description": "WordPress locale code.",
+            "default": "en_US"
+          },
+          "use_smilies": {
+            "type": "boolean",
+            "description": "Convert emoticons like :-) and :-P to graphics on display.",
+            "default": true
+          },
+          "default_category": {
+            "type": "number",
+            "description": "Default category.",
+            "default": null
+          },
+          "default_post_format": {
+            "type": "string",
+            "description": "Default post format.",
+            "default": null
+          },
+          "posts_per_page": {
+            "type": "number",
+            "description": "Blog pages show at most.",
+            "default": 10
+          }
+        }
+      },
+      "_links": {
+        "self": "https://demo.wp-api.org/wp-json/wp/v2/settings"
+      },
+      "nicename": "/wp/v2/settings"
+    }
+  },
+  "schema": {
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "settings",
+    "type": "object",
+    "properties": {
+      "title": {
+        "type": "string",
+        "description": "Site title.",
+        "default": null
+      },
+      "description": {
+        "type": "string",
+        "description": "Site description.",
+        "default": null
+      },
+      "url": {
+        "type": "string",
+        "description": "Site URL.",
+        "default": null,
+        "format": "uri"
+      },
+      "email": {
+        "type": "string",
+        "description": "This address is used for admin purposes. If you change this we will send you an email at your new address to confirm it. The new address will not become active until confirmed.",
+        "default": null,
+        "format": "email"
+      },
+      "timezone": {
+        "type": "string",
+        "description": "A city in the same timezone as you.",
+        "default": null
+      },
+      "date_format": {
+        "type": "string",
+        "description": "A date format for all date strings.",
+        "default": null
+      },
+      "time_format": {
+        "type": "string",
+        "description": "A time format for all time strings.",
+        "default": null
+      },
+      "start_of_week": {
+        "type": "number",
+        "description": "A day number of the week that the week should start on.",
+        "default": null
+      },
+      "language": {
+        "type": "string",
+        "description": "WordPress locale code.",
+        "default": "en_US"
+      },
+      "use_smilies": {
+        "type": "boolean",
+        "description": "Convert emoticons like :-) and :-P to graphics on display.",
+        "default": true
+      },
+      "default_category": {
+        "type": "number",
+        "description": "Default category.",
+        "default": null
+      },
+      "default_post_format": {
+        "type": "string",
+        "description": "Default post format.",
+        "default": null
+      },
+      "posts_per_page": {
+        "type": "number",
+        "description": "Blog pages show at most.",
+        "default": 10
+      }
+    }
+  }
+}

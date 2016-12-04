@@ -91,6 +91,7 @@
               "default": "date",
               "enum": [
                 "date",
+                "relevance",
                 "id",
                 "include",
                 "title",
@@ -105,7 +106,18 @@
             "status": {
               "required": false,
               "default": "publish",
-              "description": "Limit result set to posts assigned a specific status."
+              "enum": [
+                "publish",
+                "future",
+                "draft",
+                "pending",
+                "private",
+                "trash",
+                "auto-draft",
+                "inherit",
+                "any"
+              ],
+              "description": "Limit result set to posts assigned a specific status; can be comma-delimited list of status types."
             },
             "filter": {
               "required": false,
@@ -124,6 +136,10 @@
 
               ],
               "description": "Limit result set to all items that have the specified term assigned in the tags taxonomy."
+            },
+            "sticky": {
+              "required": false,
+              "description": "Limit result set to items that are sticky."
             }
           }
         },
@@ -139,10 +155,6 @@
             "date_gmt": {
               "required": false,
               "description": "The date the object was published, as GMT."
-            },
-            "password": {
-              "required": false,
-              "description": "A password to protect access to the post."
             },
             "slug": {
               "required": false,
@@ -211,17 +223,37 @@
               ],
               "description": "The format for the object."
             },
+            "meta": {
+              "required": false,
+              "description": "Meta fields."
+            },
             "sticky": {
               "required": false,
               "description": "Whether or not the object should be treated as sticky."
+            },
+            "password": {
+              "required": false,
+              "description": "A password to protect access to the content and excerpt."
             },
             "categories": {
               "required": false,
               "description": "The terms assigned to the object in the category taxonomy."
             },
+            "categories_exclude": {
+              "required": false,
+              "description": "The terms in the category taxonomy that should not be assigned to the object."
+            },
             "tags": {
               "required": false,
               "description": "The terms assigned to the object in the post_tag taxonomy."
+            },
+            "tags_exclude": {
+              "required": false,
+              "description": "The terms in the post_tag taxonomy that should not be assigned to the object."
+            },
+            "liveblog_likes": {
+              "required": false,
+              "description": "The number of Liveblog Likes the post has."
             }
           }
         }
@@ -264,7 +296,8 @@
                 "type": "string",
                 "context": [
                   "edit"
-                ]
+                ],
+                "readonly": true
               },
               "rendered": {
                 "description": "GUID for the object, transformed for display.",
@@ -272,7 +305,8 @@
                 "context": [
                   "view",
                   "edit"
-                ]
+                ],
+                "readonly": true
               }
             }
           },
@@ -316,13 +350,6 @@
               "edit"
             ],
             "readonly": true
-          },
-          "password": {
-            "description": "A password to protect access to the post.",
-            "type": "string",
-            "context": [
-              "edit"
-            ]
           },
           "slug": {
             "description": "An alphanumeric identifier for the object unique to its type.",
@@ -380,7 +407,8 @@
                   "view",
                   "edit",
                   "embed"
-                ]
+                ],
+                "readonly": true
               }
             }
           },
@@ -405,7 +433,18 @@
                 "context": [
                   "view",
                   "edit"
-                ]
+                ],
+                "readonly": true
+              },
+              "protected": {
+                "description": "Whether the content is protected with a password.",
+                "type": "boolean",
+                "context": [
+                  "view",
+                  "edit",
+                  "embed"
+                ],
+                "readonly": true
               }
             }
           },
@@ -441,7 +480,18 @@
                   "view",
                   "edit",
                   "embed"
-                ]
+                ],
+                "readonly": true
+              },
+              "protected": {
+                "description": "Whether the excerpt is protected with a password.",
+                "type": "boolean",
+                "context": [
+                  "view",
+                  "edit",
+                  "embed"
+                ],
+                "readonly": true
               }
             }
           },
@@ -497,6 +547,17 @@
               "edit"
             ]
           },
+          "meta": {
+            "description": "Meta fields.",
+            "type": "object",
+            "context": [
+              "view",
+              "edit"
+            ],
+            "properties": [
+
+            ]
+          },
           "sticky": {
             "description": "Whether or not the object should be treated as sticky.",
             "type": "boolean",
@@ -505,8 +566,23 @@
               "edit"
             ]
           },
+          "password": {
+            "description": "A password to protect access to the content and excerpt.",
+            "type": "string",
+            "context": [
+              "edit"
+            ]
+          },
           "categories": {
             "description": "The terms assigned to the object in the category taxonomy.",
+            "type": "array",
+            "context": [
+              "view",
+              "edit"
+            ]
+          },
+          "categories_exclude": {
+            "description": "The terms in the category taxonomy that should not be assigned to the object.",
             "type": "array",
             "context": [
               "view",
@@ -520,11 +596,28 @@
               "view",
               "edit"
             ]
+          },
+          "tags_exclude": {
+            "description": "The terms in the post_tag taxonomy that should not be assigned to the object.",
+            "type": "array",
+            "context": [
+              "view",
+              "edit"
+            ]
+          },
+          "liveblog_likes": {
+            "type": "integer",
+            "description": "The number of Liveblog Likes the post has.",
+            "context": [
+              "view",
+              "edit",
+              "embed"
+            ]
           }
         }
       },
       "_links": {
-        "self": "http://demo.wp-api.org/wp-json/wp/v2/posts"
+        "self": "https://demo.wp-api.org/wp-json/wp/v2/posts"
       },
       "nicename": "/wp/v2/posts"
     },
@@ -552,6 +645,10 @@
                 "edit"
               ],
               "description": "Scope under which the request is made; determines fields present in response."
+            },
+            "password": {
+              "required": false,
+              "description": "The password for the post if it is password protected."
             }
           }
         },
@@ -569,10 +666,6 @@
             "date_gmt": {
               "required": false,
               "description": "The date the object was published, as GMT."
-            },
-            "password": {
-              "required": false,
-              "description": "A password to protect access to the post."
             },
             "slug": {
               "required": false,
@@ -641,17 +734,37 @@
               ],
               "description": "The format for the object."
             },
+            "meta": {
+              "required": false,
+              "description": "Meta fields."
+            },
             "sticky": {
               "required": false,
               "description": "Whether or not the object should be treated as sticky."
+            },
+            "password": {
+              "required": false,
+              "description": "A password to protect access to the content and excerpt."
             },
             "categories": {
               "required": false,
               "description": "The terms assigned to the object in the category taxonomy."
             },
+            "categories_exclude": {
+              "required": false,
+              "description": "The terms in the category taxonomy that should not be assigned to the object."
+            },
             "tags": {
               "required": false,
               "description": "The terms assigned to the object in the post_tag taxonomy."
+            },
+            "tags_exclude": {
+              "required": false,
+              "description": "The terms in the post_tag taxonomy that should not be assigned to the object."
+            },
+            "liveblog_likes": {
+              "required": false,
+              "description": "The number of Liveblog Likes the post has."
             }
           }
         },
@@ -706,7 +819,8 @@
                 "type": "string",
                 "context": [
                   "edit"
-                ]
+                ],
+                "readonly": true
               },
               "rendered": {
                 "description": "GUID for the object, transformed for display.",
@@ -714,7 +828,8 @@
                 "context": [
                   "view",
                   "edit"
-                ]
+                ],
+                "readonly": true
               }
             }
           },
@@ -758,13 +873,6 @@
               "edit"
             ],
             "readonly": true
-          },
-          "password": {
-            "description": "A password to protect access to the post.",
-            "type": "string",
-            "context": [
-              "edit"
-            ]
           },
           "slug": {
             "description": "An alphanumeric identifier for the object unique to its type.",
@@ -822,7 +930,8 @@
                   "view",
                   "edit",
                   "embed"
-                ]
+                ],
+                "readonly": true
               }
             }
           },
@@ -847,7 +956,18 @@
                 "context": [
                   "view",
                   "edit"
-                ]
+                ],
+                "readonly": true
+              },
+              "protected": {
+                "description": "Whether the content is protected with a password.",
+                "type": "boolean",
+                "context": [
+                  "view",
+                  "edit",
+                  "embed"
+                ],
+                "readonly": true
               }
             }
           },
@@ -883,7 +1003,18 @@
                   "view",
                   "edit",
                   "embed"
-                ]
+                ],
+                "readonly": true
+              },
+              "protected": {
+                "description": "Whether the excerpt is protected with a password.",
+                "type": "boolean",
+                "context": [
+                  "view",
+                  "edit",
+                  "embed"
+                ],
+                "readonly": true
               }
             }
           },
@@ -939,6 +1070,17 @@
               "edit"
             ]
           },
+          "meta": {
+            "description": "Meta fields.",
+            "type": "object",
+            "context": [
+              "view",
+              "edit"
+            ],
+            "properties": [
+
+            ]
+          },
           "sticky": {
             "description": "Whether or not the object should be treated as sticky.",
             "type": "boolean",
@@ -947,8 +1089,23 @@
               "edit"
             ]
           },
+          "password": {
+            "description": "A password to protect access to the content and excerpt.",
+            "type": "string",
+            "context": [
+              "edit"
+            ]
+          },
           "categories": {
             "description": "The terms assigned to the object in the category taxonomy.",
+            "type": "array",
+            "context": [
+              "view",
+              "edit"
+            ]
+          },
+          "categories_exclude": {
+            "description": "The terms in the category taxonomy that should not be assigned to the object.",
             "type": "array",
             "context": [
               "view",
@@ -961,6 +1118,23 @@
             "context": [
               "view",
               "edit"
+            ]
+          },
+          "tags_exclude": {
+            "description": "The terms in the post_tag taxonomy that should not be assigned to the object.",
+            "type": "array",
+            "context": [
+              "view",
+              "edit"
+            ]
+          },
+          "liveblog_likes": {
+            "type": "integer",
+            "description": "The number of Liveblog Likes the post has.",
+            "context": [
+              "view",
+              "edit",
+              "embed"
             ]
           }
         }
@@ -1006,7 +1180,8 @@
             "type": "string",
             "context": [
               "edit"
-            ]
+            ],
+            "readonly": true
           },
           "rendered": {
             "description": "GUID for the object, transformed for display.",
@@ -1014,7 +1189,8 @@
             "context": [
               "view",
               "edit"
-            ]
+            ],
+            "readonly": true
           }
         }
       },
@@ -1058,13 +1234,6 @@
           "edit"
         ],
         "readonly": true
-      },
-      "password": {
-        "description": "A password to protect access to the post.",
-        "type": "string",
-        "context": [
-          "edit"
-        ]
       },
       "slug": {
         "description": "An alphanumeric identifier for the object unique to its type.",
@@ -1122,7 +1291,8 @@
               "view",
               "edit",
               "embed"
-            ]
+            ],
+            "readonly": true
           }
         }
       },
@@ -1147,7 +1317,18 @@
             "context": [
               "view",
               "edit"
-            ]
+            ],
+            "readonly": true
+          },
+          "protected": {
+            "description": "Whether the content is protected with a password.",
+            "type": "boolean",
+            "context": [
+              "view",
+              "edit",
+              "embed"
+            ],
+            "readonly": true
           }
         }
       },
@@ -1183,7 +1364,18 @@
               "view",
               "edit",
               "embed"
-            ]
+            ],
+            "readonly": true
+          },
+          "protected": {
+            "description": "Whether the excerpt is protected with a password.",
+            "type": "boolean",
+            "context": [
+              "view",
+              "edit",
+              "embed"
+            ],
+            "readonly": true
           }
         }
       },
@@ -1239,6 +1431,17 @@
           "edit"
         ]
       },
+      "meta": {
+        "description": "Meta fields.",
+        "type": "object",
+        "context": [
+          "view",
+          "edit"
+        ],
+        "properties": [
+
+        ]
+      },
       "sticky": {
         "description": "Whether or not the object should be treated as sticky.",
         "type": "boolean",
@@ -1247,8 +1450,23 @@
           "edit"
         ]
       },
+      "password": {
+        "description": "A password to protect access to the content and excerpt.",
+        "type": "string",
+        "context": [
+          "edit"
+        ]
+      },
       "categories": {
         "description": "The terms assigned to the object in the category taxonomy.",
+        "type": "array",
+        "context": [
+          "view",
+          "edit"
+        ]
+      },
+      "categories_exclude": {
+        "description": "The terms in the category taxonomy that should not be assigned to the object.",
         "type": "array",
         "context": [
           "view",
@@ -1261,6 +1479,23 @@
         "context": [
           "view",
           "edit"
+        ]
+      },
+      "tags_exclude": {
+        "description": "The terms in the post_tag taxonomy that should not be assigned to the object.",
+        "type": "array",
+        "context": [
+          "view",
+          "edit"
+        ]
+      },
+      "liveblog_likes": {
+        "type": "integer",
+        "description": "The number of Liveblog Likes the post has.",
+        "context": [
+          "view",
+          "edit",
+          "embed"
         ]
       }
     }

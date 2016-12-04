@@ -91,6 +91,7 @@
               "default": "date",
               "enum": [
                 "date",
+                "relevance",
                 "id",
                 "include",
                 "title",
@@ -124,7 +125,7 @@
                 "private",
                 "trash"
               ],
-              "description": "Limit result set to posts assigned a specific status."
+              "description": "Limit result set to posts assigned a specific status; can be comma-delimited list of status types."
             },
             "filter": {
               "required": false,
@@ -135,15 +136,14 @@
               "enum": [
                 "image",
                 "video",
-                "text",
-                "application",
-                "audio"
+                "audio",
+                "application"
               ],
               "description": "Limit result set to attachments of a particular media type."
             },
             "mime_type": {
               "required": false,
-              "description": "Limit result set to attachments of a particular mime type."
+              "description": "Limit result set to attachments of a particular MIME type."
             }
           }
         },
@@ -159,10 +159,6 @@
             "date_gmt": {
               "required": false,
               "description": "The date the object was published, as GMT."
-            },
-            "password": {
-              "required": false,
-              "description": "A password to protect access to the post."
             },
             "slug": {
               "required": false,
@@ -202,6 +198,10 @@
                 "closed"
               ],
               "description": "Whether or not the object can be pinged."
+            },
+            "meta": {
+              "required": false,
+              "description": "Meta fields."
             },
             "alt_text": {
               "required": false,
@@ -260,7 +260,8 @@
                 "type": "string",
                 "context": [
                   "edit"
-                ]
+                ],
+                "readonly": true
               },
               "rendered": {
                 "description": "GUID for the object, transformed for display.",
@@ -268,7 +269,8 @@
                 "context": [
                   "view",
                   "edit"
-                ]
+                ],
+                "readonly": true
               }
             }
           },
@@ -312,13 +314,6 @@
               "edit"
             ],
             "readonly": true
-          },
-          "password": {
-            "description": "A password to protect access to the post.",
-            "type": "string",
-            "context": [
-              "edit"
-            ]
           },
           "slug": {
             "description": "An alphanumeric identifier for the object unique to its type.",
@@ -376,7 +371,8 @@
                   "view",
                   "edit",
                   "embed"
-                ]
+                ],
+                "readonly": true
               }
             }
           },
@@ -411,6 +407,17 @@
             "context": [
               "view",
               "edit"
+            ]
+          },
+          "meta": {
+            "description": "Meta fields.",
+            "type": "object",
+            "context": [
+              "view",
+              "edit"
+            ],
+            "properties": [
+
             ]
           },
           "alt_text": {
@@ -453,7 +460,7 @@
             "readonly": true
           },
           "mime_type": {
-            "description": "Mime type of resource.",
+            "description": "MIME type of resource.",
             "type": "string",
             "context": [
               "view",
@@ -494,7 +501,7 @@
         }
       },
       "_links": {
-        "self": "http://demo.wp-api.org/wp-json/wp/v2/media"
+        "self": "https://demo.wp-api.org/wp-json/wp/v2/media"
       },
       "nicename": "/wp/v2/media"
     },
@@ -522,6 +529,10 @@
                 "edit"
               ],
               "description": "Scope under which the request is made; determines fields present in response."
+            },
+            "password": {
+              "required": false,
+              "description": "The password for the post if it is password protected."
             }
           }
         },
@@ -539,10 +550,6 @@
             "date_gmt": {
               "required": false,
               "description": "The date the object was published, as GMT."
-            },
-            "password": {
-              "required": false,
-              "description": "A password to protect access to the post."
             },
             "slug": {
               "required": false,
@@ -582,6 +589,10 @@
                 "closed"
               ],
               "description": "Whether or not the object can be pinged."
+            },
+            "meta": {
+              "required": false,
+              "description": "Meta fields."
             },
             "alt_text": {
               "required": false,
@@ -652,7 +663,8 @@
                 "type": "string",
                 "context": [
                   "edit"
-                ]
+                ],
+                "readonly": true
               },
               "rendered": {
                 "description": "GUID for the object, transformed for display.",
@@ -660,7 +672,8 @@
                 "context": [
                   "view",
                   "edit"
-                ]
+                ],
+                "readonly": true
               }
             }
           },
@@ -704,13 +717,6 @@
               "edit"
             ],
             "readonly": true
-          },
-          "password": {
-            "description": "A password to protect access to the post.",
-            "type": "string",
-            "context": [
-              "edit"
-            ]
           },
           "slug": {
             "description": "An alphanumeric identifier for the object unique to its type.",
@@ -768,7 +774,8 @@
                   "view",
                   "edit",
                   "embed"
-                ]
+                ],
+                "readonly": true
               }
             }
           },
@@ -803,6 +810,17 @@
             "context": [
               "view",
               "edit"
+            ]
+          },
+          "meta": {
+            "description": "Meta fields.",
+            "type": "object",
+            "context": [
+              "view",
+              "edit"
+            ],
+            "properties": [
+
             ]
           },
           "alt_text": {
@@ -845,7 +863,7 @@
             "readonly": true
           },
           "mime_type": {
-            "description": "Mime type of resource.",
+            "description": "MIME type of resource.",
             "type": "string",
             "context": [
               "view",
@@ -926,7 +944,8 @@
             "type": "string",
             "context": [
               "edit"
-            ]
+            ],
+            "readonly": true
           },
           "rendered": {
             "description": "GUID for the object, transformed for display.",
@@ -934,7 +953,8 @@
             "context": [
               "view",
               "edit"
-            ]
+            ],
+            "readonly": true
           }
         }
       },
@@ -978,13 +998,6 @@
           "edit"
         ],
         "readonly": true
-      },
-      "password": {
-        "description": "A password to protect access to the post.",
-        "type": "string",
-        "context": [
-          "edit"
-        ]
       },
       "slug": {
         "description": "An alphanumeric identifier for the object unique to its type.",
@@ -1042,7 +1055,8 @@
               "view",
               "edit",
               "embed"
-            ]
+            ],
+            "readonly": true
           }
         }
       },
@@ -1077,6 +1091,17 @@
         "context": [
           "view",
           "edit"
+        ]
+      },
+      "meta": {
+        "description": "Meta fields.",
+        "type": "object",
+        "context": [
+          "view",
+          "edit"
+        ],
+        "properties": [
+
         ]
       },
       "alt_text": {
@@ -1119,7 +1144,7 @@
         "readonly": true
       },
       "mime_type": {
-        "description": "Mime type of resource.",
+        "description": "MIME type of resource.",
         "type": "string",
         "context": [
           "view",

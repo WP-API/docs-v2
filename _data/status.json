@@ -95,7 +95,7 @@
         }
       },
       "_links": {
-        "self": "http://demo.wp-api.org/wp-json/wp/v2/statuses"
+        "self": "https://demo.wp-api.org/wp-json/wp/v2/statuses"
       },
       "nicename": "/wp/v2/statuses"
     },

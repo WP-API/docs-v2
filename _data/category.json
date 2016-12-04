@@ -113,6 +113,10 @@
             "parent": {
               "required": false,
               "description": "The id for the parent of the resource."
+            },
+            "meta": {
+              "required": false,
+              "description": "Meta fields."
             }
           }
         }
@@ -203,11 +207,22 @@
               "view",
               "edit"
             ]
+          },
+          "meta": {
+            "description": "Meta fields.",
+            "type": "object",
+            "context": [
+              "view",
+              "edit"
+            ],
+            "properties": [
+
+            ]
           }
         }
       },
       "_links": {
-        "self": "http://demo.wp-api.org/wp-json/wp/v2/categories"
+        "self": "https://demo.wp-api.org/wp-json/wp/v2/categories"
       },
       "nicename": "/wp/v2/categories"
     },
@@ -260,6 +275,10 @@
             "parent": {
               "required": false,
               "description": "The id for the parent of the resource."
+            },
+            "meta": {
+              "required": false,
+              "description": "Meta fields."
             }
           }
         },
@@ -362,6 +381,17 @@
               "view",
               "edit"
             ]
+          },
+          "meta": {
+            "description": "Meta fields.",
+            "type": "object",
+            "context": [
+              "view",
+              "edit"
+            ],
+            "properties": [
+
+            ]
           }
         }
       },
@@ -453,6 +483,17 @@
         "context": [
           "view",
           "edit"
+        ]
+      },
+      "meta": {
+        "description": "Meta fields.",
+        "type": "object",
+        "context": [
+          "view",
+          "edit"
+        ],
+        "properties": [
+
         ]
       }
     }
