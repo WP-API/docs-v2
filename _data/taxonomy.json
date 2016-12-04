@@ -108,7 +108,7 @@
         }
       },
       "_links": {
-        "self": "http://demo.wp-api.org/wp-json/wp/v2/taxonomies"
+        "self": "https://demo.wp-api.org/wp-json/wp/v2/taxonomies"
       },
       "nicename": "/wp/v2/taxonomies"
     },

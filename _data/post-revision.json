@@ -59,12 +59,32 @@
             ]
           },
           "guid": {
-            "description": "GUID for the object, as it exists in the database.",
-            "type": "string",
+            "description": "The globally unique identifier for the object.",
+            "type": "object",
             "context": [
               "view",
               "edit"
-            ]
+            ],
+            "readonly": true,
+            "properties": {
+              "raw": {
+                "description": "GUID for the object, as it exists in the database.",
+                "type": "string",
+                "context": [
+                  "edit"
+                ],
+                "readonly": true
+              },
+              "rendered": {
+                "description": "GUID for the object, transformed for display.",
+                "type": "string",
+                "context": [
+                  "view",
+                  "edit"
+                ],
+                "readonly": true
+              }
+            }
           },
           "id": {
             "description": "Unique identifier for the object.",
@@ -112,30 +132,106 @@
             ]
           },
           "title": {
-            "description": "Title for the object, as it exists in the database.",
-            "type": "string",
+            "description": "The title for the object.",
+            "type": "object",
             "context": [
               "view",
               "edit",
               "embed"
-            ]
+            ],
+            "properties": {
+              "raw": {
+                "description": "Title for the object, as it exists in the database.",
+                "type": "string",
+                "context": [
+                  "edit"
+                ]
+              },
+              "rendered": {
+                "description": "HTML title for the object, transformed for display.",
+                "type": "string",
+                "context": [
+                  "view",
+                  "edit",
+                  "embed"
+                ],
+                "readonly": true
+              }
+            }
           },
           "content": {
-            "description": "Content for the object, as it exists in the database.",
-            "type": "string",
+            "description": "The content for the object.",
+            "type": "object",
             "context": [
               "view",
               "edit"
-            ]
+            ],
+            "properties": {
+              "raw": {
+                "description": "Content for the object, as it exists in the database.",
+                "type": "string",
+                "context": [
+                  "edit"
+                ]
+              },
+              "rendered": {
+                "description": "HTML content for the object, transformed for display.",
+                "type": "string",
+                "context": [
+                  "view",
+                  "edit"
+                ],
+                "readonly": true
+              },
+              "protected": {
+                "description": "Whether the content is protected with a password.",
+                "type": "boolean",
+                "context": [
+                  "view",
+                  "edit",
+                  "embed"
+                ],
+                "readonly": true
+              }
+            }
           },
           "excerpt": {
-            "description": "Excerpt for the object, as it exists in the database.",
-            "type": "string",
+            "description": "The excerpt for the object.",
+            "type": "object",
             "context": [
               "view",
               "edit",
               "embed"
-            ]
+            ],
+            "properties": {
+              "raw": {
+                "description": "Excerpt for the object, as it exists in the database.",
+                "type": "string",
+                "context": [
+                  "edit"
+                ]
+              },
+              "rendered": {
+                "description": "HTML excerpt for the object, transformed for display.",
+                "type": "string",
+                "context": [
+                  "view",
+                  "edit",
+                  "embed"
+                ],
+                "readonly": true
+              },
+              "protected": {
+                "description": "Whether the excerpt is protected with a password.",
+                "type": "boolean",
+                "context": [
+                  "view",
+                  "edit",
+                  "embed"
+                ],
+                "readonly": true
+              }
+            }
           }
         }
       },
@@ -208,12 +304,32 @@
             ]
           },
           "guid": {
-            "description": "GUID for the object, as it exists in the database.",
-            "type": "string",
+            "description": "The globally unique identifier for the object.",
+            "type": "object",
             "context": [
               "view",
               "edit"
-            ]
+            ],
+            "readonly": true,
+            "properties": {
+              "raw": {
+                "description": "GUID for the object, as it exists in the database.",
+                "type": "string",
+                "context": [
+                  "edit"
+                ],
+                "readonly": true
+              },
+              "rendered": {
+                "description": "GUID for the object, transformed for display.",
+                "type": "string",
+                "context": [
+                  "view",
+                  "edit"
+                ],
+                "readonly": true
+              }
+            }
           },
           "id": {
             "description": "Unique identifier for the object.",
@@ -261,30 +377,106 @@
             ]
           },
           "title": {
-            "description": "Title for the object, as it exists in the database.",
-            "type": "string",
+            "description": "The title for the object.",
+            "type": "object",
             "context": [
               "view",
               "edit",
               "embed"
-            ]
+            ],
+            "properties": {
+              "raw": {
+                "description": "Title for the object, as it exists in the database.",
+                "type": "string",
+                "context": [
+                  "edit"
+                ]
+              },
+              "rendered": {
+                "description": "HTML title for the object, transformed for display.",
+                "type": "string",
+                "context": [
+                  "view",
+                  "edit",
+                  "embed"
+                ],
+                "readonly": true
+              }
+            }
           },
           "content": {
-            "description": "Content for the object, as it exists in the database.",
-            "type": "string",
+            "description": "The content for the object.",
+            "type": "object",
             "context": [
               "view",
               "edit"
-            ]
+            ],
+            "properties": {
+              "raw": {
+                "description": "Content for the object, as it exists in the database.",
+                "type": "string",
+                "context": [
+                  "edit"
+                ]
+              },
+              "rendered": {
+                "description": "HTML content for the object, transformed for display.",
+                "type": "string",
+                "context": [
+                  "view",
+                  "edit"
+                ],
+                "readonly": true
+              },
+              "protected": {
+                "description": "Whether the content is protected with a password.",
+                "type": "boolean",
+                "context": [
+                  "view",
+                  "edit",
+                  "embed"
+                ],
+                "readonly": true
+              }
+            }
           },
           "excerpt": {
-            "description": "Excerpt for the object, as it exists in the database.",
-            "type": "string",
+            "description": "The excerpt for the object.",
+            "type": "object",
             "context": [
               "view",
               "edit",
               "embed"
-            ]
+            ],
+            "properties": {
+              "raw": {
+                "description": "Excerpt for the object, as it exists in the database.",
+                "type": "string",
+                "context": [
+                  "edit"
+                ]
+              },
+              "rendered": {
+                "description": "HTML excerpt for the object, transformed for display.",
+                "type": "string",
+                "context": [
+                  "view",
+                  "edit",
+                  "embed"
+                ],
+                "readonly": true
+              },
+              "protected": {
+                "description": "Whether the excerpt is protected with a password.",
+                "type": "boolean",
+                "context": [
+                  "view",
+                  "edit",
+                  "embed"
+                ],
+                "readonly": true
+              }
+            }
           }
         }
       },
@@ -325,12 +517,32 @@
         ]
       },
       "guid": {
-        "description": "GUID for the object, as it exists in the database.",
-        "type": "string",
+        "description": "The globally unique identifier for the object.",
+        "type": "object",
         "context": [
           "view",
           "edit"
-        ]
+        ],
+        "readonly": true,
+        "properties": {
+          "raw": {
+            "description": "GUID for the object, as it exists in the database.",
+            "type": "string",
+            "context": [
+              "edit"
+            ],
+            "readonly": true
+          },
+          "rendered": {
+            "description": "GUID for the object, transformed for display.",
+            "type": "string",
+            "context": [
+              "view",
+              "edit"
+            ],
+            "readonly": true
+          }
+        }
       },
       "id": {
         "description": "Unique identifier for the object.",
@@ -378,30 +590,106 @@
         ]
       },
       "title": {
-        "description": "Title for the object, as it exists in the database.",
-        "type": "string",
+        "description": "The title for the object.",
+        "type": "object",
         "context": [
           "view",
           "edit",
           "embed"
-        ]
+        ],
+        "properties": {
+          "raw": {
+            "description": "Title for the object, as it exists in the database.",
+            "type": "string",
+            "context": [
+              "edit"
+            ]
+          },
+          "rendered": {
+            "description": "HTML title for the object, transformed for display.",
+            "type": "string",
+            "context": [
+              "view",
+              "edit",
+              "embed"
+            ],
+            "readonly": true
+          }
+        }
       },
       "content": {
-        "description": "Content for the object, as it exists in the database.",
-        "type": "string",
+        "description": "The content for the object.",
+        "type": "object",
         "context": [
           "view",
           "edit"
-        ]
+        ],
+        "properties": {
+          "raw": {
+            "description": "Content for the object, as it exists in the database.",
+            "type": "string",
+            "context": [
+              "edit"
+            ]
+          },
+          "rendered": {
+            "description": "HTML content for the object, transformed for display.",
+            "type": "string",
+            "context": [
+              "view",
+              "edit"
+            ],
+            "readonly": true
+          },
+          "protected": {
+            "description": "Whether the content is protected with a password.",
+            "type": "boolean",
+            "context": [
+              "view",
+              "edit",
+              "embed"
+            ],
+            "readonly": true
+          }
+        }
       },
       "excerpt": {
-        "description": "Excerpt for the object, as it exists in the database.",
-        "type": "string",
+        "description": "The excerpt for the object.",
+        "type": "object",
         "context": [
           "view",
           "edit",
           "embed"
-        ]
+        ],
+        "properties": {
+          "raw": {
+            "description": "Excerpt for the object, as it exists in the database.",
+            "type": "string",
+            "context": [
+              "edit"
+            ]
+          },
+          "rendered": {
+            "description": "HTML excerpt for the object, transformed for display.",
+            "type": "string",
+            "context": [
+              "view",
+              "edit",
+              "embed"
+            ],
+            "readonly": true
+          },
+          "protected": {
+            "description": "Whether the excerpt is protected with a password.",
+            "type": "boolean",
+            "context": [
+              "view",
+              "edit",
+              "embed"
+            ],
+            "readonly": true
+          }
+        }
       }
     }
   }

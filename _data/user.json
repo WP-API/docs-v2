@@ -71,7 +71,10 @@
                 "id",
                 "include",
                 "name",
-                "registered_date"
+                "registered_date",
+                "slug",
+                "email",
+                "url"
               ],
               "description": "Sort collection by object attribute."
             },
@@ -134,9 +137,9 @@
               "required": true,
               "description": "Password for the resource (never included)."
             },
-            "capabilities": {
+            "meta": {
               "required": false,
-              "description": "All capabilities assigned to the resource."
+              "description": "Meta fields."
             }
           }
         }
@@ -244,7 +247,8 @@
           },
           "registered_date": {
             "description": "Registration date for the resource.",
-            "type": "date-time",
+            "type": "string",
+            "format": "date-time",
             "context": [
               "edit"
             ],
@@ -270,7 +274,8 @@
             "type": "object",
             "context": [
               "edit"
-            ]
+            ],
+            "readonly": true
           },
           "extra_capabilities": {
             "description": "Any extra capabilities assigned to the resource.",
@@ -321,11 +326,22 @@
                 ]
               }
             }
+          },
+          "meta": {
+            "description": "Meta fields.",
+            "type": "object",
+            "context": [
+              "view",
+              "edit"
+            ],
+            "properties": [
+
+            ]
           }
         }
       },
       "_links": {
-        "self": "http://demo.wp-api.org/wp-json/wp/v2/users"
+        "self": "https://demo.wp-api.org/wp-json/wp/v2/users"
       },
       "nicename": "/wp/v2/users"
     },
@@ -407,9 +423,9 @@
               "required": false,
               "description": "Password for the resource (never included)."
             },
-            "capabilities": {
+            "meta": {
               "required": false,
-              "description": "All capabilities assigned to the resource."
+              "description": "Meta fields."
             }
           }
         },
@@ -532,7 +548,8 @@
           },
           "registered_date": {
             "description": "Registration date for the resource.",
-            "type": "date-time",
+            "type": "string",
+            "format": "date-time",
             "context": [
               "edit"
             ],
@@ -558,7 +575,8 @@
             "type": "object",
             "context": [
               "edit"
-            ]
+            ],
+            "readonly": true
           },
           "extra_capabilities": {
             "description": "Any extra capabilities assigned to the resource.",
@@ -609,6 +627,17 @@
                 ]
               }
             }
+          },
+          "meta": {
+            "description": "Meta fields.",
+            "type": "object",
+            "context": [
+              "view",
+              "edit"
+            ],
+            "properties": [
+
+            ]
           }
         }
       },
@@ -718,7 +747,8 @@
       },
       "registered_date": {
         "description": "Registration date for the resource.",
-        "type": "date-time",
+        "type": "string",
+        "format": "date-time",
         "context": [
           "edit"
         ],
@@ -744,7 +774,8 @@
         "type": "object",
         "context": [
           "edit"
-        ]
+        ],
+        "readonly": true
       },
       "extra_capabilities": {
         "description": "Any extra capabilities assigned to the resource.",
@@ -795,6 +826,17 @@
             ]
           }
         }
+      },
+      "meta": {
+        "description": "Meta fields.",
+        "type": "object",
+        "context": [
+          "view",
+          "edit"
+        ],
+        "properties": [
+
+        ]
       }
     }
   }

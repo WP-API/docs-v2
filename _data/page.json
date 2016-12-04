@@ -95,6 +95,7 @@
               "default": "date",
               "enum": [
                 "date",
+                "relevance",
                 "id",
                 "include",
                 "title",
@@ -124,7 +125,18 @@
             "status": {
               "required": false,
               "default": "publish",
-              "description": "Limit result set to posts assigned a specific status."
+              "enum": [
+                "publish",
+                "future",
+                "draft",
+                "pending",
+                "private",
+                "trash",
+                "auto-draft",
+                "inherit",
+                "any"
+              ],
+              "description": "Limit result set to posts assigned a specific status; can be comma-delimited list of status types."
             },
             "filter": {
               "required": false,
@@ -144,10 +156,6 @@
             "date_gmt": {
               "required": false,
               "description": "The date the object was published, as GMT."
-            },
-            "password": {
-              "required": false,
-              "description": "A password to protect access to the post."
             },
             "slug": {
               "required": false,
@@ -208,6 +216,10 @@
               "required": false,
               "description": "The order of the object in relation to other object of its type."
             },
+            "meta": {
+              "required": false,
+              "description": "Meta fields."
+            },
             "template": {
               "required": false,
               "enum": [
@@ -256,7 +268,8 @@
                 "type": "string",
                 "context": [
                   "edit"
-                ]
+                ],
+                "readonly": true
               },
               "rendered": {
                 "description": "GUID for the object, transformed for display.",
@@ -264,7 +277,8 @@
                 "context": [
                   "view",
                   "edit"
-                ]
+                ],
+                "readonly": true
               }
             }
           },
@@ -308,13 +322,6 @@
               "edit"
             ],
             "readonly": true
-          },
-          "password": {
-            "description": "A password to protect access to the post.",
-            "type": "string",
-            "context": [
-              "edit"
-            ]
           },
           "slug": {
             "description": "An alphanumeric identifier for the object unique to its type.",
@@ -380,7 +387,8 @@
                   "view",
                   "edit",
                   "embed"
-                ]
+                ],
+                "readonly": true
               }
             }
           },
@@ -405,7 +413,18 @@
                 "context": [
                   "view",
                   "edit"
-                ]
+                ],
+                "readonly": true
+              },
+              "protected": {
+                "description": "Whether the content is protected with a password.",
+                "type": "boolean",
+                "context": [
+                  "view",
+                  "edit",
+                  "embed"
+                ],
+                "readonly": true
               }
             }
           },
@@ -441,7 +460,18 @@
                   "view",
                   "edit",
                   "embed"
-                ]
+                ],
+                "readonly": true
+              },
+              "protected": {
+                "description": "Whether the excerpt is protected with a password.",
+                "type": "boolean",
+                "context": [
+                  "view",
+                  "edit",
+                  "embed"
+                ],
+                "readonly": true
               }
             }
           },
@@ -485,6 +515,17 @@
               "edit"
             ]
           },
+          "meta": {
+            "description": "Meta fields.",
+            "type": "object",
+            "context": [
+              "view",
+              "edit"
+            ],
+            "properties": [
+
+            ]
+          },
           "template": {
             "description": "The theme file to use to display the object.",
             "type": "string",
@@ -499,7 +540,7 @@
         }
       },
       "_links": {
-        "self": "http://demo.wp-api.org/wp-json/wp/v2/pages"
+        "self": "https://demo.wp-api.org/wp-json/wp/v2/pages"
       },
       "nicename": "/wp/v2/pages"
     },
@@ -527,6 +568,10 @@
                 "edit"
               ],
               "description": "Scope under which the request is made; determines fields present in response."
+            },
+            "password": {
+              "required": false,
+              "description": "The password for the post if it is password protected."
             }
           }
         },
@@ -544,10 +589,6 @@
             "date_gmt": {
               "required": false,
               "description": "The date the object was published, as GMT."
-            },
-            "password": {
-              "required": false,
-              "description": "A password to protect access to the post."
             },
             "slug": {
               "required": false,
@@ -607,6 +648,10 @@
             "menu_order": {
               "required": false,
               "description": "The order of the object in relation to other object of its type."
+            },
+            "meta": {
+              "required": false,
+              "description": "Meta fields."
             },
             "template": {
               "required": false,
@@ -668,7 +713,8 @@
                 "type": "string",
                 "context": [
                   "edit"
-                ]
+                ],
+                "readonly": true
               },
               "rendered": {
                 "description": "GUID for the object, transformed for display.",
@@ -676,7 +722,8 @@
                 "context": [
                   "view",
                   "edit"
-                ]
+                ],
+                "readonly": true
               }
             }
           },
@@ -720,13 +767,6 @@
               "edit"
             ],
             "readonly": true
-          },
-          "password": {
-            "description": "A password to protect access to the post.",
-            "type": "string",
-            "context": [
-              "edit"
-            ]
           },
           "slug": {
             "description": "An alphanumeric identifier for the object unique to its type.",
@@ -792,7 +832,8 @@
                   "view",
                   "edit",
                   "embed"
-                ]
+                ],
+                "readonly": true
               }
             }
           },
@@ -817,7 +858,18 @@
                 "context": [
                   "view",
                   "edit"
-                ]
+                ],
+                "readonly": true
+              },
+              "protected": {
+                "description": "Whether the content is protected with a password.",
+                "type": "boolean",
+                "context": [
+                  "view",
+                  "edit",
+                  "embed"
+                ],
+                "readonly": true
               }
             }
           },
@@ -853,7 +905,18 @@
                   "view",
                   "edit",
                   "embed"
-                ]
+                ],
+                "readonly": true
+              },
+              "protected": {
+                "description": "Whether the excerpt is protected with a password.",
+                "type": "boolean",
+                "context": [
+                  "view",
+                  "edit",
+                  "embed"
+                ],
+                "readonly": true
               }
             }
           },
@@ -895,6 +958,17 @@
             "context": [
               "view",
               "edit"
+            ]
+          },
+          "meta": {
+            "description": "Meta fields.",
+            "type": "object",
+            "context": [
+              "view",
+              "edit"
+            ],
+            "properties": [
+
             ]
           },
           "template": {
@@ -951,7 +1025,8 @@
             "type": "string",
             "context": [
               "edit"
-            ]
+            ],
+            "readonly": true
           },
           "rendered": {
             "description": "GUID for the object, transformed for display.",
@@ -959,7 +1034,8 @@
             "context": [
               "view",
               "edit"
-            ]
+            ],
+            "readonly": true
           }
         }
       },
@@ -1003,13 +1079,6 @@
           "edit"
         ],
         "readonly": true
-      },
-      "password": {
-        "description": "A password to protect access to the post.",
-        "type": "string",
-        "context": [
-          "edit"
-        ]
       },
       "slug": {
         "description": "An alphanumeric identifier for the object unique to its type.",
@@ -1075,7 +1144,8 @@
               "view",
               "edit",
               "embed"
-            ]
+            ],
+            "readonly": true
           }
         }
       },
@@ -1100,7 +1170,18 @@
             "context": [
               "view",
               "edit"
-            ]
+            ],
+            "readonly": true
+          },
+          "protected": {
+            "description": "Whether the content is protected with a password.",
+            "type": "boolean",
+            "context": [
+              "view",
+              "edit",
+              "embed"
+            ],
+            "readonly": true
           }
         }
       },
@@ -1136,7 +1217,18 @@
               "view",
               "edit",
               "embed"
-            ]
+            ],
+            "readonly": true
+          },
+          "protected": {
+            "description": "Whether the excerpt is protected with a password.",
+            "type": "boolean",
+            "context": [
+              "view",
+              "edit",
+              "embed"
+            ],
+            "readonly": true
           }
         }
       },
@@ -1178,6 +1270,17 @@
         "context": [
           "view",
           "edit"
+        ]
+      },
+      "meta": {
+        "description": "Meta fields.",
+        "type": "object",
+        "context": [
+          "view",
+          "edit"
+        ],
+        "properties": [
+
         ]
       },
       "template": {

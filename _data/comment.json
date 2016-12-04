@@ -81,7 +81,7 @@
             },
             "order": {
               "required": false,
-              "default": "asc",
+              "default": "desc",
               "enum": [
                 "asc",
                 "desc"
@@ -148,9 +148,13 @@
               "required": false,
               "description": "Email address for the object author."
             },
+            "author_ip": {
+              "required": false,
+              "default": "127.0.0.1",
+              "description": "IP address for the object author."
+            },
             "author_name": {
               "required": false,
-              "default": "",
               "description": "Display name for the object author."
             },
             "author_url": {
@@ -159,7 +163,6 @@
             },
             "content": {
               "required": false,
-              "default": "",
               "description": "The content for the object."
             },
             "date": {
@@ -190,8 +193,12 @@
             },
             "type": {
               "required": false,
-              "default": "",
+              "default": "comment",
               "description": "Type of Comment for the object."
+            },
+            "meta": {
+              "required": false,
+              "description": "Meta fields."
             }
           }
         }
@@ -231,10 +238,10 @@
           "author_ip": {
             "description": "IP address for the object author.",
             "type": "string",
+            "format": "ipv4",
             "context": [
               "edit"
-            ],
-            "readonly": true
+            ]
           },
           "author_name": {
             "description": "Display name for the object author.",
@@ -359,7 +366,8 @@
               "view",
               "edit",
               "embed"
-            ]
+            ],
+            "default": "comment"
           },
           "author_avatar_urls": {
             "description": "Avatar URLs for the object author.",
@@ -402,11 +410,22 @@
                 ]
               }
             }
+          },
+          "meta": {
+            "description": "Meta fields.",
+            "type": "object",
+            "context": [
+              "view",
+              "edit"
+            ],
+            "properties": [
+
+            ]
           }
         }
       },
       "_links": {
-        "self": "http://demo.wp-api.org/wp-json/wp/v2/comments"
+        "self": "https://demo.wp-api.org/wp-json/wp/v2/comments"
       },
       "nicename": "/wp/v2/comments"
     },
@@ -452,6 +471,10 @@
               "required": false,
               "description": "Email address for the object author."
             },
+            "author_ip": {
+              "required": false,
+              "description": "IP address for the object author."
+            },
             "author_name": {
               "required": false,
               "description": "Display name for the object author."
@@ -491,6 +514,10 @@
             "type": {
               "required": false,
               "description": "Type of Comment for the object."
+            },
+            "meta": {
+              "required": false,
+              "description": "Meta fields."
             }
           }
         },
@@ -542,10 +569,10 @@
           "author_ip": {
             "description": "IP address for the object author.",
             "type": "string",
+            "format": "ipv4",
             "context": [
               "edit"
-            ],
-            "readonly": true
+            ]
           },
           "author_name": {
             "description": "Display name for the object author.",
@@ -670,7 +697,8 @@
               "view",
               "edit",
               "embed"
-            ]
+            ],
+            "default": "comment"
           },
           "author_avatar_urls": {
             "description": "Avatar URLs for the object author.",
@@ -713,6 +741,17 @@
                 ]
               }
             }
+          },
+          "meta": {
+            "description": "Meta fields.",
+            "type": "object",
+            "context": [
+              "view",
+              "edit"
+            ],
+            "properties": [
+
+            ]
           }
         }
       },
@@ -754,10 +793,10 @@
       "author_ip": {
         "description": "IP address for the object author.",
         "type": "string",
+        "format": "ipv4",
         "context": [
           "edit"
-        ],
-        "readonly": true
+        ]
       },
       "author_name": {
         "description": "Display name for the object author.",
@@ -882,7 +921,8 @@
           "view",
           "edit",
           "embed"
-        ]
+        ],
+        "default": "comment"
       },
       "author_avatar_urls": {
         "description": "Avatar URLs for the object author.",
@@ -925,6 +965,17 @@
             ]
           }
         }
+      },
+      "meta": {
+        "description": "Meta fields.",
+        "type": "object",
+        "context": [
+          "view",
+          "edit"
+        ],
+        "properties": [
+
+        ]
       }
     }
   }

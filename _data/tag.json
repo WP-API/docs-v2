@@ -109,6 +109,10 @@
             "slug": {
               "required": false,
               "description": "An alphanumeric identifier for the resource unique to its type."
+            },
+            "meta": {
+              "required": false,
+              "description": "Meta fields."
             }
           }
         }
@@ -191,11 +195,22 @@
               "edit"
             ],
             "readonly": true
+          },
+          "meta": {
+            "description": "Meta fields.",
+            "type": "object",
+            "context": [
+              "view",
+              "edit"
+            ],
+            "properties": [
+
+            ]
           }
         }
       },
       "_links": {
-        "self": "http://demo.wp-api.org/wp-json/wp/v2/tags"
+        "self": "https://demo.wp-api.org/wp-json/wp/v2/tags"
       },
       "nicename": "/wp/v2/tags"
     },
@@ -244,6 +259,10 @@
             "slug": {
               "required": false,
               "description": "An alphanumeric identifier for the resource unique to its type."
+            },
+            "meta": {
+              "required": false,
+              "description": "Meta fields."
             }
           }
         },
@@ -338,6 +357,17 @@
               "edit"
             ],
             "readonly": true
+          },
+          "meta": {
+            "description": "Meta fields.",
+            "type": "object",
+            "context": [
+              "view",
+              "edit"
+            ],
+            "properties": [
+
+            ]
           }
         }
       },
@@ -422,6 +452,17 @@
           "edit"
         ],
         "readonly": true
+      },
+      "meta": {
+        "description": "Meta fields.",
+        "type": "object",
+        "context": [
+          "view",
+          "edit"
+        ],
+        "properties": [
+
+        ]
       }
     }
   }

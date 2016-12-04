@@ -87,7 +87,7 @@
         }
       },
       "_links": {
-        "self": "http://demo.wp-api.org/wp-json/wp/v2/types"
+        "self": "https://demo.wp-api.org/wp-json/wp/v2/types"
       },
       "nicename": "/wp/v2/types"
     },
