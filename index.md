@@ -12,7 +12,7 @@ include_title: No
 
 	<a href="https://wordpress.org/plugins/rest-api/" class="download button radius">
 		Download the Plugin
-		<span>(Version 2.0 beta 12, for WordPress 4.4 and later)</span>
+		<span>(Version 2.0 beta 15, for WordPress 4.4 and later)</span>
 	</a>
 
 	<p class="status">
@@ -40,4 +40,4 @@ This plugin provides an easy to use REST API, available via HTTP. Grab your site
 
 Want to get your site's posts? Simply send a `GET` request to `/wp-json/wp/v2/posts`. Update user with ID 4? Send a `POST` request to `/wp-json/wp/v2/users/4`. Get all posts with the search term "awesome"? `GET /wp-json/wp/v2/posts?search=awesome`. It's that easy.
 
-The API exposes a simple yet easy interface to WP Query, the posts API, post meta API, users API, revisions API and many more. Chances are, if you can do it with WordPress, WP API will let you do it.
+The API exposes a simple yet powerful interface to WP Query, the posts API, post meta API, users API, revisions API and many more. Chances are, if you can do it with WordPress, WP API will let you do it.
