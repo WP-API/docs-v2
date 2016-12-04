@@ -1,0 +1,7 @@
+<section class="route">
+	<div class="primary">
+		<h2>Update a {{ page.resource }}</h2>
+		{% assign args = include.route.endpoints[1].args %}
+		{% include reference-parts/args-list.html args=args link=true %}
+	</div>
+</section>

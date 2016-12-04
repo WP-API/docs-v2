@@ -43,3 +43,6 @@
 
     - title: Users
       page: reference/users/index.md
+
+    - title: Settings
+      page: reference/settings/index.md
