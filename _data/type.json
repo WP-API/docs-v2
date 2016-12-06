@@ -20,26 +20,27 @@
                 "embed",
                 "edit"
               ],
-              "description": "Scope under which the request is made; determines fields present in response."
+              "description": "Scope under which the request is made; determines fields present in response.",
+              "type": "string"
             }
           }
         }
       ],
       "schema": {
-        "$schema": "http://json-schema.org/draft-04/schema#",
+        "$schema": "http://json-schema.org/schema#",
         "title": "type",
         "type": "object",
         "properties": {
           "capabilities": {
-            "description": "All capabilities used by the resource.",
-            "type": "array",
+            "description": "All capabilities used by the post type.",
+            "type": "object",
             "context": [
               "edit"
             ],
             "readonly": true
           },
           "description": {
-            "description": "A human-readable description of the resource.",
+            "description": "A human-readable description of the post type.",
             "type": "string",
             "context": [
               "view",
@@ -48,7 +49,7 @@
             "readonly": true
           },
           "hierarchical": {
-            "description": "Whether or not the resource should have children.",
+            "description": "Whether or not the post type should have children.",
             "type": "boolean",
             "context": [
               "view",
@@ -57,7 +58,7 @@
             "readonly": true
           },
           "labels": {
-            "description": "Human-readable labels for the resource for various contexts.",
+            "description": "Human-readable labels for the post type for various contexts.",
             "type": "object",
             "context": [
               "edit"
@@ -65,7 +66,7 @@
             "readonly": true
           },
           "name": {
-            "description": "The title for the resource.",
+            "description": "The title for the post type.",
             "type": "string",
             "context": [
               "view",
@@ -75,7 +76,29 @@
             "readonly": true
           },
           "slug": {
-            "description": "An alphanumeric identifier for the resource.",
+            "description": "An alphanumeric identifier for the post type.",
+            "type": "string",
+            "context": [
+              "view",
+              "edit",
+              "embed"
+            ],
+            "readonly": true
+          },
+          "taxonomies": {
+            "description": "Taxonomies associated with post type.",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "context": [
+              "view",
+              "edit"
+            ],
+            "readonly": true
+          },
+          "rest_base": {
+            "description": "REST base route for the post type.",
             "type": "string",
             "context": [
               "view",
@@ -110,26 +133,27 @@
                 "embed",
                 "edit"
               ],
-              "description": "Scope under which the request is made; determines fields present in response."
+              "description": "Scope under which the request is made; determines fields present in response.",
+              "type": "string"
             }
           }
         }
       ],
       "schema": {
-        "$schema": "http://json-schema.org/draft-04/schema#",
+        "$schema": "http://json-schema.org/schema#",
         "title": "type",
         "type": "object",
         "properties": {
           "capabilities": {
-            "description": "All capabilities used by the resource.",
-            "type": "array",
+            "description": "All capabilities used by the post type.",
+            "type": "object",
             "context": [
               "edit"
             ],
             "readonly": true
           },
           "description": {
-            "description": "A human-readable description of the resource.",
+            "description": "A human-readable description of the post type.",
             "type": "string",
             "context": [
               "view",
@@ -138,7 +162,7 @@
             "readonly": true
           },
           "hierarchical": {
-            "description": "Whether or not the resource should have children.",
+            "description": "Whether or not the post type should have children.",
             "type": "boolean",
             "context": [
               "view",
@@ -147,7 +171,7 @@
             "readonly": true
           },
           "labels": {
-            "description": "Human-readable labels for the resource for various contexts.",
+            "description": "Human-readable labels for the post type for various contexts.",
             "type": "object",
             "context": [
               "edit"
@@ -155,7 +179,7 @@
             "readonly": true
           },
           "name": {
-            "description": "The title for the resource.",
+            "description": "The title for the post type.",
             "type": "string",
             "context": [
               "view",
@@ -165,7 +189,29 @@
             "readonly": true
           },
           "slug": {
-            "description": "An alphanumeric identifier for the resource.",
+            "description": "An alphanumeric identifier for the post type.",
+            "type": "string",
+            "context": [
+              "view",
+              "edit",
+              "embed"
+            ],
+            "readonly": true
+          },
+          "taxonomies": {
+            "description": "Taxonomies associated with post type.",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "context": [
+              "view",
+              "edit"
+            ],
+            "readonly": true
+          },
+          "rest_base": {
+            "description": "REST base route for the post type.",
             "type": "string",
             "context": [
               "view",
@@ -180,20 +226,20 @@
     }
   },
   "schema": {
-    "$schema": "http://json-schema.org/draft-04/schema#",
+    "$schema": "http://json-schema.org/schema#",
     "title": "type",
     "type": "object",
     "properties": {
       "capabilities": {
-        "description": "All capabilities used by the resource.",
-        "type": "array",
+        "description": "All capabilities used by the post type.",
+        "type": "object",
         "context": [
           "edit"
         ],
         "readonly": true
       },
       "description": {
-        "description": "A human-readable description of the resource.",
+        "description": "A human-readable description of the post type.",
         "type": "string",
         "context": [
           "view",
@@ -202,7 +248,7 @@
         "readonly": true
       },
       "hierarchical": {
-        "description": "Whether or not the resource should have children.",
+        "description": "Whether or not the post type should have children.",
         "type": "boolean",
         "context": [
           "view",
@@ -211,7 +257,7 @@
         "readonly": true
       },
       "labels": {
-        "description": "Human-readable labels for the resource for various contexts.",
+        "description": "Human-readable labels for the post type for various contexts.",
         "type": "object",
         "context": [
           "edit"
@@ -219,7 +265,7 @@
         "readonly": true
       },
       "name": {
-        "description": "The title for the resource.",
+        "description": "The title for the post type.",
         "type": "string",
         "context": [
           "view",
@@ -229,7 +275,29 @@
         "readonly": true
       },
       "slug": {
-        "description": "An alphanumeric identifier for the resource.",
+        "description": "An alphanumeric identifier for the post type.",
+        "type": "string",
+        "context": [
+          "view",
+          "edit",
+          "embed"
+        ],
+        "readonly": true
+      },
+      "taxonomies": {
+        "description": "Taxonomies associated with post type.",
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "context": [
+          "view",
+          "edit"
+        ],
+        "readonly": true
+      },
+      "rest_base": {
+        "description": "REST base route for the post type.",
         "type": "string",
         "context": [
           "view",

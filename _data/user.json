@@ -21,39 +21,52 @@
                 "embed",
                 "edit"
               ],
-              "description": "Scope under which the request is made; determines fields present in response."
+              "description": "Scope under which the request is made; determines fields present in response.",
+              "type": "string"
             },
             "page": {
               "required": false,
               "default": 1,
-              "description": "Current page of the collection."
+              "description": "Current page of the collection.",
+              "type": "integer"
             },
             "per_page": {
               "required": false,
               "default": 10,
-              "description": "Maximum number of items to be returned in result set."
+              "description": "Maximum number of items to be returned in result set.",
+              "type": "integer"
             },
             "search": {
               "required": false,
-              "description": "Limit results to those matching a string."
+              "description": "Limit results to those matching a string.",
+              "type": "string"
             },
             "exclude": {
               "required": false,
               "default": [
 
               ],
-              "description": "Ensure result set excludes specific ids."
+              "description": "Ensure result set excludes specific IDs.",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
             },
             "include": {
               "required": false,
               "default": [
 
               ],
-              "description": "Limit result set to specific ids."
+              "description": "Limit result set to specific IDs.",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
             },
             "offset": {
               "required": false,
-              "description": "Offset the result set by a specific number of items."
+              "description": "Offset the result set by a specific number of items.",
+              "type": "integer"
             },
             "order": {
               "required": false,
@@ -62,7 +75,8 @@
                 "asc",
                 "desc"
               ],
-              "description": "Order sort attribute ascending or descending."
+              "description": "Order sort attribute ascending or descending.",
+              "type": "string"
             },
             "orderby": {
               "required": false,
@@ -76,15 +90,21 @@
                 "email",
                 "url"
               ],
-              "description": "Sort collection by object attribute."
+              "description": "Sort collection by object attribute.",
+              "type": "string"
             },
             "slug": {
               "required": false,
-              "description": "Limit result set to resources with a specific slug."
+              "description": "Limit result set to users with a specific slug.",
+              "type": "string"
             },
             "roles": {
               "required": false,
-              "description": "Limit result set to resources matching at least one specific role provided. Accepts csv list or single role."
+              "description": "Limit result set to users matching at least one specific role provided. Accepts csv list or single role.",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
             }
           }
         },
@@ -95,62 +115,86 @@
           "args": {
             "username": {
               "required": true,
-              "description": "Login name for the resource."
+              "description": "Login name for the user.",
+              "type": "string"
             },
             "name": {
               "required": false,
-              "description": "Display name for the resource."
+              "description": "Display name for the user.",
+              "type": "string"
             },
             "first_name": {
               "required": false,
-              "description": "First name for the resource."
+              "description": "First name for the user.",
+              "type": "string"
             },
             "last_name": {
               "required": false,
-              "description": "Last name for the resource."
+              "description": "Last name for the user.",
+              "type": "string"
             },
             "email": {
               "required": true,
-              "description": "The email address for the resource."
+              "description": "The email address for the user.",
+              "type": "string"
             },
             "url": {
               "required": false,
-              "description": "URL of the resource."
+              "description": "URL of the user.",
+              "type": "string"
             },
             "description": {
               "required": false,
-              "description": "Description of the resource."
+              "description": "Description of the user.",
+              "type": "string"
+            },
+            "locale": {
+              "required": false,
+              "enum": [
+                "",
+                "en_US"
+              ],
+              "description": "Locale for the user.",
+              "type": "string"
             },
             "nickname": {
               "required": false,
-              "description": "The nickname for the resource."
+              "description": "The nickname for the user.",
+              "type": "string"
             },
             "slug": {
               "required": false,
-              "description": "An alphanumeric identifier for the resource."
+              "description": "An alphanumeric identifier for the user.",
+              "type": "string"
             },
             "roles": {
               "required": false,
-              "description": "Roles assigned to the resource."
+              "description": "Roles assigned to the user.",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
             },
             "password": {
               "required": true,
-              "description": "Password for the resource (never included)."
+              "description": "Password for the user (never included).",
+              "type": "string"
             },
             "meta": {
               "required": false,
-              "description": "Meta fields."
+              "description": "Meta fields.",
+              "type": "object"
             }
           }
         }
       ],
       "schema": {
-        "$schema": "http://json-schema.org/draft-04/schema#",
+        "$schema": "http://json-schema.org/schema#",
         "title": "user",
         "type": "object",
         "properties": {
           "id": {
-            "description": "Unique identifier for the resource.",
+            "description": "Unique identifier for the user.",
             "type": "integer",
             "context": [
               "embed",
@@ -160,7 +204,7 @@
             "readonly": true
           },
           "username": {
-            "description": "Login name for the resource.",
+            "description": "Login name for the user.",
             "type": "string",
             "context": [
               "edit"
@@ -168,7 +212,7 @@
             "required": true
           },
           "name": {
-            "description": "Display name for the resource.",
+            "description": "Display name for the user.",
             "type": "string",
             "context": [
               "embed",
@@ -177,21 +221,21 @@
             ]
           },
           "first_name": {
-            "description": "First name for the resource.",
+            "description": "First name for the user.",
             "type": "string",
             "context": [
               "edit"
             ]
           },
           "last_name": {
-            "description": "Last name for the resource.",
+            "description": "Last name for the user.",
             "type": "string",
             "context": [
               "edit"
             ]
           },
           "email": {
-            "description": "The email address for the resource.",
+            "description": "The email address for the user.",
             "type": "string",
             "format": "email",
             "context": [
@@ -200,7 +244,7 @@
             "required": true
           },
           "url": {
-            "description": "URL of the resource.",
+            "description": "URL of the user.",
             "type": "string",
             "format": "uri",
             "context": [
@@ -210,7 +254,7 @@
             ]
           },
           "description": {
-            "description": "Description of the resource.",
+            "description": "Description of the user.",
             "type": "string",
             "context": [
               "embed",
@@ -219,7 +263,7 @@
             ]
           },
           "link": {
-            "description": "Author URL to the resource.",
+            "description": "Author URL of the user.",
             "type": "string",
             "format": "uri",
             "context": [
@@ -229,15 +273,26 @@
             ],
             "readonly": true
           },
+          "locale": {
+            "description": "Locale for the user.",
+            "type": "string",
+            "enum": [
+              "",
+              "en_US"
+            ],
+            "context": [
+              "edit"
+            ]
+          },
           "nickname": {
-            "description": "The nickname for the resource.",
+            "description": "The nickname for the user.",
             "type": "string",
             "context": [
               "edit"
             ]
           },
           "slug": {
-            "description": "An alphanumeric identifier for the resource.",
+            "description": "An alphanumeric identifier for the user.",
             "type": "string",
             "context": [
               "embed",
@@ -246,7 +301,7 @@
             ]
           },
           "registered_date": {
-            "description": "Registration date for the resource.",
+            "description": "Registration date for the user.",
             "type": "string",
             "format": "date-time",
             "context": [
@@ -255,14 +310,17 @@
             "readonly": true
           },
           "roles": {
-            "description": "Roles assigned to the resource.",
+            "description": "Roles assigned to the user.",
             "type": "array",
+            "items": {
+              "type": "string"
+            },
             "context": [
               "edit"
             ]
           },
           "password": {
-            "description": "Password for the resource (never included).",
+            "description": "Password for the user (never included).",
             "type": "string",
             "context": [
 
@@ -270,7 +328,7 @@
             "required": true
           },
           "capabilities": {
-            "description": "All capabilities assigned to the resource.",
+            "description": "All capabilities assigned to the user.",
             "type": "object",
             "context": [
               "edit"
@@ -278,7 +336,7 @@
             "readonly": true
           },
           "extra_capabilities": {
-            "description": "Any extra capabilities assigned to the resource.",
+            "description": "Any extra capabilities assigned to the user.",
             "type": "object",
             "context": [
               "edit"
@@ -286,7 +344,7 @@
             "readonly": true
           },
           "avatar_urls": {
-            "description": "Avatar URLs for the resource.",
+            "description": "Avatar URLs for the user.",
             "type": "object",
             "context": [
               "embed",
@@ -368,7 +426,8 @@
                 "embed",
                 "edit"
               ],
-              "description": "Scope under which the request is made; determines fields present in response."
+              "description": "Scope under which the request is made; determines fields present in response.",
+              "type": "string"
             }
           }
         },
@@ -381,51 +440,75 @@
           "args": {
             "username": {
               "required": false,
-              "description": "Login name for the resource."
+              "description": "Login name for the user.",
+              "type": "string"
             },
             "name": {
               "required": false,
-              "description": "Display name for the resource."
+              "description": "Display name for the user.",
+              "type": "string"
             },
             "first_name": {
               "required": false,
-              "description": "First name for the resource."
+              "description": "First name for the user.",
+              "type": "string"
             },
             "last_name": {
               "required": false,
-              "description": "Last name for the resource."
+              "description": "Last name for the user.",
+              "type": "string"
             },
             "email": {
               "required": false,
-              "description": "The email address for the resource."
+              "description": "The email address for the user.",
+              "type": "string"
             },
             "url": {
               "required": false,
-              "description": "URL of the resource."
+              "description": "URL of the user.",
+              "type": "string"
             },
             "description": {
               "required": false,
-              "description": "Description of the resource."
+              "description": "Description of the user.",
+              "type": "string"
+            },
+            "locale": {
+              "required": false,
+              "enum": [
+                "",
+                "en_US"
+              ],
+              "description": "Locale for the user.",
+              "type": "string"
             },
             "nickname": {
               "required": false,
-              "description": "The nickname for the resource."
+              "description": "The nickname for the user.",
+              "type": "string"
             },
             "slug": {
               "required": false,
-              "description": "An alphanumeric identifier for the resource."
+              "description": "An alphanumeric identifier for the user.",
+              "type": "string"
             },
             "roles": {
               "required": false,
-              "description": "Roles assigned to the resource."
+              "description": "Roles assigned to the user.",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
             },
             "password": {
               "required": false,
-              "description": "Password for the resource (never included)."
+              "description": "Password for the user (never included).",
+              "type": "string"
             },
             "meta": {
               "required": false,
-              "description": "Meta fields."
+              "description": "Meta fields.",
+              "type": "object"
             }
           }
         },
@@ -437,21 +520,24 @@
             "force": {
               "required": false,
               "default": false,
-              "description": "Required to be true, as resource does not support trashing."
+              "description": "Required to be true, as users do not support trashing.",
+              "type": "boolean"
             },
             "reassign": {
-              "required": false
+              "required": false,
+              "description": "Reassign the deleted user's posts and links to this user ID.",
+              "type": "integer"
             }
           }
         }
       ],
       "schema": {
-        "$schema": "http://json-schema.org/draft-04/schema#",
+        "$schema": "http://json-schema.org/schema#",
         "title": "user",
         "type": "object",
         "properties": {
           "id": {
-            "description": "Unique identifier for the resource.",
+            "description": "Unique identifier for the user.",
             "type": "integer",
             "context": [
               "embed",
@@ -461,7 +547,7 @@
             "readonly": true
           },
           "username": {
-            "description": "Login name for the resource.",
+            "description": "Login name for the user.",
             "type": "string",
             "context": [
               "edit"
@@ -469,7 +555,7 @@
             "required": true
           },
           "name": {
-            "description": "Display name for the resource.",
+            "description": "Display name for the user.",
             "type": "string",
             "context": [
               "embed",
@@ -478,21 +564,21 @@
             ]
           },
           "first_name": {
-            "description": "First name for the resource.",
+            "description": "First name for the user.",
             "type": "string",
             "context": [
               "edit"
             ]
           },
           "last_name": {
-            "description": "Last name for the resource.",
+            "description": "Last name for the user.",
             "type": "string",
             "context": [
               "edit"
             ]
           },
           "email": {
-            "description": "The email address for the resource.",
+            "description": "The email address for the user.",
             "type": "string",
             "format": "email",
             "context": [
@@ -501,7 +587,7 @@
             "required": true
           },
           "url": {
-            "description": "URL of the resource.",
+            "description": "URL of the user.",
             "type": "string",
             "format": "uri",
             "context": [
@@ -511,7 +597,7 @@
             ]
           },
           "description": {
-            "description": "Description of the resource.",
+            "description": "Description of the user.",
             "type": "string",
             "context": [
               "embed",
@@ -520,7 +606,7 @@
             ]
           },
           "link": {
-            "description": "Author URL to the resource.",
+            "description": "Author URL of the user.",
             "type": "string",
             "format": "uri",
             "context": [
@@ -530,15 +616,26 @@
             ],
             "readonly": true
           },
+          "locale": {
+            "description": "Locale for the user.",
+            "type": "string",
+            "enum": [
+              "",
+              "en_US"
+            ],
+            "context": [
+              "edit"
+            ]
+          },
           "nickname": {
-            "description": "The nickname for the resource.",
+            "description": "The nickname for the user.",
             "type": "string",
             "context": [
               "edit"
             ]
           },
           "slug": {
-            "description": "An alphanumeric identifier for the resource.",
+            "description": "An alphanumeric identifier for the user.",
             "type": "string",
             "context": [
               "embed",
@@ -547,7 +644,7 @@
             ]
           },
           "registered_date": {
-            "description": "Registration date for the resource.",
+            "description": "Registration date for the user.",
             "type": "string",
             "format": "date-time",
             "context": [
@@ -556,14 +653,17 @@
             "readonly": true
           },
           "roles": {
-            "description": "Roles assigned to the resource.",
+            "description": "Roles assigned to the user.",
             "type": "array",
+            "items": {
+              "type": "string"
+            },
             "context": [
               "edit"
             ]
           },
           "password": {
-            "description": "Password for the resource (never included).",
+            "description": "Password for the user (never included).",
             "type": "string",
             "context": [
 
@@ -571,7 +671,7 @@
             "required": true
           },
           "capabilities": {
-            "description": "All capabilities assigned to the resource.",
+            "description": "All capabilities assigned to the user.",
             "type": "object",
             "context": [
               "edit"
@@ -579,7 +679,7 @@
             "readonly": true
           },
           "extra_capabilities": {
-            "description": "Any extra capabilities assigned to the resource.",
+            "description": "Any extra capabilities assigned to the user.",
             "type": "object",
             "context": [
               "edit"
@@ -587,7 +687,7 @@
             "readonly": true
           },
           "avatar_urls": {
-            "description": "Avatar URLs for the resource.",
+            "description": "Avatar URLs for the user.",
             "type": "object",
             "context": [
               "embed",
@@ -642,15 +742,358 @@
         }
       },
       "nicename": "/wp/v2/users/&lt;id&gt;"
+    },
+    "/wp/v2/users/me": {
+      "namespace": "wp/v2",
+      "methods": [
+        "GET",
+        "POST",
+        "PUT",
+        "PATCH",
+        "DELETE"
+      ],
+      "endpoints": [
+        {
+          "methods": [
+            "GET"
+          ],
+          "args": {
+            "context": {
+              "required": false,
+              "default": "view",
+              "enum": [
+                "view",
+                "embed",
+                "edit"
+              ],
+              "description": "Scope under which the request is made; determines fields present in response.",
+              "type": "string"
+            }
+          }
+        },
+        {
+          "methods": [
+            "POST",
+            "PUT",
+            "PATCH"
+          ],
+          "args": {
+            "username": {
+              "required": false,
+              "description": "Login name for the user.",
+              "type": "string"
+            },
+            "name": {
+              "required": false,
+              "description": "Display name for the user.",
+              "type": "string"
+            },
+            "first_name": {
+              "required": false,
+              "description": "First name for the user.",
+              "type": "string"
+            },
+            "last_name": {
+              "required": false,
+              "description": "Last name for the user.",
+              "type": "string"
+            },
+            "email": {
+              "required": false,
+              "description": "The email address for the user.",
+              "type": "string"
+            },
+            "url": {
+              "required": false,
+              "description": "URL of the user.",
+              "type": "string"
+            },
+            "description": {
+              "required": false,
+              "description": "Description of the user.",
+              "type": "string"
+            },
+            "locale": {
+              "required": false,
+              "enum": [
+                "",
+                "en_US"
+              ],
+              "description": "Locale for the user.",
+              "type": "string"
+            },
+            "nickname": {
+              "required": false,
+              "description": "The nickname for the user.",
+              "type": "string"
+            },
+            "slug": {
+              "required": false,
+              "description": "An alphanumeric identifier for the user.",
+              "type": "string"
+            },
+            "roles": {
+              "required": false,
+              "description": "Roles assigned to the user.",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "password": {
+              "required": false,
+              "description": "Password for the user (never included).",
+              "type": "string"
+            },
+            "meta": {
+              "required": false,
+              "description": "Meta fields.",
+              "type": "object"
+            }
+          }
+        },
+        {
+          "methods": [
+            "DELETE"
+          ],
+          "args": {
+            "force": {
+              "required": false,
+              "default": false,
+              "description": "Required to be true, as users do not support trashing.",
+              "type": "boolean"
+            },
+            "reassign": {
+              "required": false,
+              "description": "Reassign the deleted user's posts and links to this user ID.",
+              "type": "integer"
+            }
+          }
+        }
+      ],
+      "schema": {
+        "$schema": "http://json-schema.org/schema#",
+        "title": "user",
+        "type": "object",
+        "properties": {
+          "id": {
+            "description": "Unique identifier for the user.",
+            "type": "integer",
+            "context": [
+              "embed",
+              "view",
+              "edit"
+            ],
+            "readonly": true
+          },
+          "username": {
+            "description": "Login name for the user.",
+            "type": "string",
+            "context": [
+              "edit"
+            ],
+            "required": true
+          },
+          "name": {
+            "description": "Display name for the user.",
+            "type": "string",
+            "context": [
+              "embed",
+              "view",
+              "edit"
+            ]
+          },
+          "first_name": {
+            "description": "First name for the user.",
+            "type": "string",
+            "context": [
+              "edit"
+            ]
+          },
+          "last_name": {
+            "description": "Last name for the user.",
+            "type": "string",
+            "context": [
+              "edit"
+            ]
+          },
+          "email": {
+            "description": "The email address for the user.",
+            "type": "string",
+            "format": "email",
+            "context": [
+              "edit"
+            ],
+            "required": true
+          },
+          "url": {
+            "description": "URL of the user.",
+            "type": "string",
+            "format": "uri",
+            "context": [
+              "embed",
+              "view",
+              "edit"
+            ]
+          },
+          "description": {
+            "description": "Description of the user.",
+            "type": "string",
+            "context": [
+              "embed",
+              "view",
+              "edit"
+            ]
+          },
+          "link": {
+            "description": "Author URL of the user.",
+            "type": "string",
+            "format": "uri",
+            "context": [
+              "embed",
+              "view",
+              "edit"
+            ],
+            "readonly": true
+          },
+          "locale": {
+            "description": "Locale for the user.",
+            "type": "string",
+            "enum": [
+              "",
+              "en_US"
+            ],
+            "context": [
+              "edit"
+            ]
+          },
+          "nickname": {
+            "description": "The nickname for the user.",
+            "type": "string",
+            "context": [
+              "edit"
+            ]
+          },
+          "slug": {
+            "description": "An alphanumeric identifier for the user.",
+            "type": "string",
+            "context": [
+              "embed",
+              "view",
+              "edit"
+            ]
+          },
+          "registered_date": {
+            "description": "Registration date for the user.",
+            "type": "string",
+            "format": "date-time",
+            "context": [
+              "edit"
+            ],
+            "readonly": true
+          },
+          "roles": {
+            "description": "Roles assigned to the user.",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "context": [
+              "edit"
+            ]
+          },
+          "password": {
+            "description": "Password for the user (never included).",
+            "type": "string",
+            "context": [
+
+            ],
+            "required": true
+          },
+          "capabilities": {
+            "description": "All capabilities assigned to the user.",
+            "type": "object",
+            "context": [
+              "edit"
+            ],
+            "readonly": true
+          },
+          "extra_capabilities": {
+            "description": "Any extra capabilities assigned to the user.",
+            "type": "object",
+            "context": [
+              "edit"
+            ],
+            "readonly": true
+          },
+          "avatar_urls": {
+            "description": "Avatar URLs for the user.",
+            "type": "object",
+            "context": [
+              "embed",
+              "view",
+              "edit"
+            ],
+            "readonly": true,
+            "properties": {
+              "24": {
+                "description": "Avatar URL with image size of 24 pixels.",
+                "type": "string",
+                "format": "uri",
+                "context": [
+                  "embed",
+                  "view",
+                  "edit"
+                ]
+              },
+              "48": {
+                "description": "Avatar URL with image size of 48 pixels.",
+                "type": "string",
+                "format": "uri",
+                "context": [
+                  "embed",
+                  "view",
+                  "edit"
+                ]
+              },
+              "96": {
+                "description": "Avatar URL with image size of 96 pixels.",
+                "type": "string",
+                "format": "uri",
+                "context": [
+                  "embed",
+                  "view",
+                  "edit"
+                ]
+              }
+            }
+          },
+          "meta": {
+            "description": "Meta fields.",
+            "type": "object",
+            "context": [
+              "view",
+              "edit"
+            ],
+            "properties": [
+
+            ]
+          }
+        }
+      },
+      "_links": {
+        "self": "https://demo.wp-api.org/wp-json/wp/v2/users/me"
+      },
+      "nicename": "/wp/v2/users/me"
     }
   },
   "schema": {
-    "$schema": "http://json-schema.org/draft-04/schema#",
+    "$schema": "http://json-schema.org/schema#",
     "title": "user",
     "type": "object",
     "properties": {
       "id": {
-        "description": "Unique identifier for the resource.",
+        "description": "Unique identifier for the user.",
         "type": "integer",
         "context": [
           "embed",
@@ -660,7 +1103,7 @@
         "readonly": true
       },
       "username": {
-        "description": "Login name for the resource.",
+        "description": "Login name for the user.",
         "type": "string",
         "context": [
           "edit"
@@ -668,7 +1111,7 @@
         "required": true
       },
       "name": {
-        "description": "Display name for the resource.",
+        "description": "Display name for the user.",
         "type": "string",
         "context": [
           "embed",
@@ -677,21 +1120,21 @@
         ]
       },
       "first_name": {
-        "description": "First name for the resource.",
+        "description": "First name for the user.",
         "type": "string",
         "context": [
           "edit"
         ]
       },
       "last_name": {
-        "description": "Last name for the resource.",
+        "description": "Last name for the user.",
         "type": "string",
         "context": [
           "edit"
         ]
       },
       "email": {
-        "description": "The email address for the resource.",
+        "description": "The email address for the user.",
         "type": "string",
         "format": "email",
         "context": [
@@ -700,7 +1143,7 @@
         "required": true
       },
       "url": {
-        "description": "URL of the resource.",
+        "description": "URL of the user.",
         "type": "string",
         "format": "uri",
         "context": [
@@ -710,7 +1153,7 @@
         ]
       },
       "description": {
-        "description": "Description of the resource.",
+        "description": "Description of the user.",
         "type": "string",
         "context": [
           "embed",
@@ -719,7 +1162,7 @@
         ]
       },
       "link": {
-        "description": "Author URL to the resource.",
+        "description": "Author URL of the user.",
         "type": "string",
         "format": "uri",
         "context": [
@@ -729,15 +1172,26 @@
         ],
         "readonly": true
       },
+      "locale": {
+        "description": "Locale for the user.",
+        "type": "string",
+        "enum": [
+          "",
+          "en_US"
+        ],
+        "context": [
+          "edit"
+        ]
+      },
       "nickname": {
-        "description": "The nickname for the resource.",
+        "description": "The nickname for the user.",
         "type": "string",
         "context": [
           "edit"
         ]
       },
       "slug": {
-        "description": "An alphanumeric identifier for the resource.",
+        "description": "An alphanumeric identifier for the user.",
         "type": "string",
         "context": [
           "embed",
@@ -746,7 +1200,7 @@
         ]
       },
       "registered_date": {
-        "description": "Registration date for the resource.",
+        "description": "Registration date for the user.",
         "type": "string",
         "format": "date-time",
         "context": [
@@ -755,14 +1209,17 @@
         "readonly": true
       },
       "roles": {
-        "description": "Roles assigned to the resource.",
+        "description": "Roles assigned to the user.",
         "type": "array",
+        "items": {
+          "type": "string"
+        },
         "context": [
           "edit"
         ]
       },
       "password": {
-        "description": "Password for the resource (never included).",
+        "description": "Password for the user (never included).",
         "type": "string",
         "context": [
 
@@ -770,7 +1227,7 @@
         "required": true
       },
       "capabilities": {
-        "description": "All capabilities assigned to the resource.",
+        "description": "All capabilities assigned to the user.",
         "type": "object",
         "context": [
           "edit"
@@ -778,7 +1235,7 @@
         "readonly": true
       },
       "extra_capabilities": {
-        "description": "Any extra capabilities assigned to the resource.",
+        "description": "Any extra capabilities assigned to the user.",
         "type": "object",
         "context": [
           "edit"
@@ -786,7 +1243,7 @@
         "readonly": true
       },
       "avatar_urls": {
-        "description": "Avatar URLs for the resource.",
+        "description": "Avatar URLs for the user.",
         "type": "object",
         "context": [
           "embed",
