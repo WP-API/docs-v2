@@ -20,18 +20,19 @@
                 "embed",
                 "edit"
               ],
-              "description": "Scope under which the request is made; determines fields present in response."
+              "description": "Scope under which the request is made; determines fields present in response.",
+              "type": "string"
             }
           }
         }
       ],
       "schema": {
-        "$schema": "http://json-schema.org/draft-04/schema#",
+        "$schema": "http://json-schema.org/schema#",
         "title": "page-revision",
         "type": "object",
         "properties": {
           "author": {
-            "description": "The id for the author of the object.",
+            "description": "The ID for the author of the object.",
             "type": "integer",
             "context": [
               "view",
@@ -114,7 +115,7 @@
             ]
           },
           "parent": {
-            "description": "The id for the parent of the object.",
+            "description": "The ID for the parent of the object.",
             "type": "integer",
             "context": [
               "view",
@@ -257,7 +258,8 @@
                 "embed",
                 "edit"
               ],
-              "description": "Scope under which the request is made; determines fields present in response."
+              "description": "Scope under which the request is made; determines fields present in response.",
+              "type": "string"
             }
           }
         },
@@ -265,18 +267,23 @@
           "methods": [
             "DELETE"
           ],
-          "args": [
-
-          ]
+          "args": {
+            "force": {
+              "required": false,
+              "default": false,
+              "description": "Required to be true, as revisions do not support trashing.",
+              "type": "boolean"
+            }
+          }
         }
       ],
       "schema": {
-        "$schema": "http://json-schema.org/draft-04/schema#",
+        "$schema": "http://json-schema.org/schema#",
         "title": "page-revision",
         "type": "object",
         "properties": {
           "author": {
-            "description": "The id for the author of the object.",
+            "description": "The ID for the author of the object.",
             "type": "integer",
             "context": [
               "view",
@@ -359,7 +366,7 @@
             ]
           },
           "parent": {
-            "description": "The id for the parent of the object.",
+            "description": "The ID for the parent of the object.",
             "type": "integer",
             "context": [
               "view",
@@ -484,12 +491,12 @@
     }
   },
   "schema": {
-    "$schema": "http://json-schema.org/draft-04/schema#",
+    "$schema": "http://json-schema.org/schema#",
     "title": "page-revision",
     "type": "object",
     "properties": {
       "author": {
-        "description": "The id for the author of the object.",
+        "description": "The ID for the author of the object.",
         "type": "integer",
         "context": [
           "view",
@@ -572,7 +579,7 @@
         ]
       },
       "parent": {
-        "description": "The id for the parent of the object.",
+        "description": "The ID for the parent of the object.",
         "type": "integer",
         "context": [
           "view",

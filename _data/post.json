@@ -21,61 +21,84 @@
                 "embed",
                 "edit"
               ],
-              "description": "Scope under which the request is made; determines fields present in response."
+              "description": "Scope under which the request is made; determines fields present in response.",
+              "type": "string"
             },
             "page": {
               "required": false,
               "default": 1,
-              "description": "Current page of the collection."
+              "description": "Current page of the collection.",
+              "type": "integer"
             },
             "per_page": {
               "required": false,
               "default": 10,
-              "description": "Maximum number of items to be returned in result set."
+              "description": "Maximum number of items to be returned in result set.",
+              "type": "integer"
             },
             "search": {
               "required": false,
-              "description": "Limit results to those matching a string."
+              "description": "Limit results to those matching a string.",
+              "type": "string"
             },
             "after": {
               "required": false,
-              "description": "Limit response to resources published after a given ISO8601 compliant date."
+              "description": "Limit response to posts published after a given ISO8601 compliant date.",
+              "type": "string"
             },
             "author": {
               "required": false,
               "default": [
 
               ],
-              "description": "Limit result set to posts assigned to specific authors."
+              "description": "Limit result set to posts assigned to specific authors.",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
             },
             "author_exclude": {
               "required": false,
               "default": [
 
               ],
-              "description": "Ensure result set excludes posts assigned to specific authors."
+              "description": "Ensure result set excludes posts assigned to specific authors.",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
             },
             "before": {
               "required": false,
-              "description": "Limit response to resources published before a given ISO8601 compliant date."
+              "description": "Limit response to posts published before a given ISO8601 compliant date.",
+              "type": "string"
             },
             "exclude": {
               "required": false,
               "default": [
 
               ],
-              "description": "Ensure result set excludes specific ids."
+              "description": "Ensure result set excludes specific IDs.",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
             },
             "include": {
               "required": false,
               "default": [
 
               ],
-              "description": "Limit result set to specific ids."
+              "description": "Limit result set to specific IDs.",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
             },
             "offset": {
               "required": false,
-              "description": "Offset the result set by a specific number of items."
+              "description": "Offset the result set by a specific number of items.",
+              "type": "integer"
             },
             "order": {
               "required": false,
@@ -84,7 +107,8 @@
                 "asc",
                 "desc"
               ],
-              "description": "Order sort attribute ascending or descending."
+              "description": "Order sort attribute ascending or descending.",
+              "type": "string"
             },
             "orderby": {
               "required": false,
@@ -97,49 +121,85 @@
                 "title",
                 "slug"
               ],
-              "description": "Sort collection by object attribute."
+              "description": "Sort collection by object attribute.",
+              "type": "string"
             },
             "slug": {
               "required": false,
-              "description": "Limit result set to posts with a specific slug."
+              "description": "Limit result set to posts with one or more specific slugs.",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
             },
             "status": {
               "required": false,
               "default": "publish",
-              "enum": [
-                "publish",
-                "future",
-                "draft",
-                "pending",
-                "private",
-                "trash",
-                "auto-draft",
-                "inherit",
-                "any"
-              ],
-              "description": "Limit result set to posts assigned a specific status; can be comma-delimited list of status types."
-            },
-            "filter": {
-              "required": false,
-              "description": "Use WP Query arguments to modify the response; private query vars require appropriate authorization."
+              "description": "Limit result set to posts assigned one or more statuses.",
+              "type": "array",
+              "items": {
+                "enum": [
+                  "publish",
+                  "future",
+                  "draft",
+                  "pending",
+                  "private",
+                  "trash",
+                  "auto-draft",
+                  "inherit",
+                  "any"
+                ],
+                "type": "string"
+              }
             },
             "categories": {
               "required": false,
               "default": [
 
               ],
-              "description": "Limit result set to all items that have the specified term assigned in the categories taxonomy."
+              "description": "Limit result set to all items that have the specified term assigned in the categories taxonomy.",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            "categories_exclude": {
+              "required": false,
+              "default": [
+
+              ],
+              "description": "Limit result set to all items except those that have the specified term assigned in the categories taxonomy.",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
             },
             "tags": {
               "required": false,
               "default": [
 
               ],
-              "description": "Limit result set to all items that have the specified term assigned in the tags taxonomy."
+              "description": "Limit result set to all items that have the specified term assigned in the tags taxonomy.",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            "tags_exclude": {
+              "required": false,
+              "default": [
+
+              ],
+              "description": "Limit result set to all items except those that have the specified term assigned in the tags taxonomy.",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
             },
             "sticky": {
               "required": false,
-              "description": "Limit result set to items that are sticky."
+              "description": "Limit result set to items that are sticky.",
+              "type": "boolean"
             }
           }
         },
@@ -150,15 +210,18 @@
           "args": {
             "date": {
               "required": false,
-              "description": "The date the object was published, in the site's timezone."
+              "description": "The date the object was published, in the site's timezone.",
+              "type": "string"
             },
             "date_gmt": {
               "required": false,
-              "description": "The date the object was published, as GMT."
+              "description": "The date the object was published, as GMT.",
+              "type": "string"
             },
             "slug": {
               "required": false,
-              "description": "An alphanumeric identifier for the object unique to its type."
+              "description": "An alphanumeric identifier for the object unique to its type.",
+              "type": "string"
             },
             "status": {
               "required": false,
@@ -169,27 +232,38 @@
                 "pending",
                 "private"
               ],
-              "description": "A named status for the object."
+              "description": "A named status for the object.",
+              "type": "string"
+            },
+            "password": {
+              "required": false,
+              "description": "A password to protect access to the content and excerpt.",
+              "type": "string"
             },
             "title": {
               "required": false,
-              "description": "The title for the object."
+              "description": "The title for the object.",
+              "type": "object"
             },
             "content": {
               "required": false,
-              "description": "The content for the object."
+              "description": "The content for the object.",
+              "type": "object"
             },
             "author": {
               "required": false,
-              "description": "The id for the author of the object."
+              "description": "The ID for the author of the object.",
+              "type": "integer"
             },
             "excerpt": {
               "required": false,
-              "description": "The excerpt for the object."
+              "description": "The excerpt for the object.",
+              "type": "object"
             },
             "featured_media": {
               "required": false,
-              "description": "The id of the featured media for the object."
+              "description": "The ID of the featured media for the object.",
+              "type": "integer"
             },
             "comment_status": {
               "required": false,
@@ -197,7 +271,8 @@
                 "open",
                 "closed"
               ],
-              "description": "Whether or not comments are open on the object."
+              "description": "Whether or not comments are open on the object.",
+              "type": "string"
             },
             "ping_status": {
               "required": false,
@@ -205,61 +280,61 @@
                 "open",
                 "closed"
               ],
-              "description": "Whether or not the object can be pinged."
+              "description": "Whether or not the object can be pinged.",
+              "type": "string"
             },
             "format": {
               "required": false,
               "enum": [
-                "standard",
-                "aside",
-                "chat",
-                "gallery",
-                "link",
-                "image",
-                "quote",
-                "status",
-                "video",
-                "audio"
+                "standard"
               ],
-              "description": "The format for the object."
+              "description": "The format for the object.",
+              "type": "string"
             },
             "meta": {
               "required": false,
-              "description": "Meta fields."
+              "description": "Meta fields.",
+              "type": "object"
             },
             "sticky": {
               "required": false,
-              "description": "Whether or not the object should be treated as sticky."
+              "description": "Whether or not the object should be treated as sticky.",
+              "type": "boolean"
             },
-            "password": {
+            "template": {
               "required": false,
-              "description": "A password to protect access to the content and excerpt."
+              "enum": [
+                ""
+              ],
+              "description": "The theme file to use to display the object.",
+              "type": "string"
             },
             "categories": {
               "required": false,
-              "description": "The terms assigned to the object in the category taxonomy."
-            },
-            "categories_exclude": {
-              "required": false,
-              "description": "The terms in the category taxonomy that should not be assigned to the object."
+              "description": "The terms assigned to the object in the category taxonomy.",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
             },
             "tags": {
               "required": false,
-              "description": "The terms assigned to the object in the post_tag taxonomy."
-            },
-            "tags_exclude": {
-              "required": false,
-              "description": "The terms in the post_tag taxonomy that should not be assigned to the object."
+              "description": "The terms assigned to the object in the post_tag taxonomy.",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
             },
             "liveblog_likes": {
               "required": false,
-              "description": "The number of Liveblog Likes the post has."
+              "description": "The number of Liveblog Likes the post has.",
+              "type": "integer"
             }
           }
         }
       ],
       "schema": {
-        "$schema": "http://json-schema.org/draft-04/schema#",
+        "$schema": "http://json-schema.org/schema#",
         "title": "post",
         "type": "object",
         "properties": {
@@ -384,6 +459,13 @@
             ],
             "readonly": true
           },
+          "password": {
+            "description": "A password to protect access to the content and excerpt.",
+            "type": "string",
+            "context": [
+              "edit"
+            ]
+          },
           "title": {
             "description": "The title for the object.",
             "type": "object",
@@ -449,7 +531,7 @@
             }
           },
           "author": {
-            "description": "The id for the author of the object.",
+            "description": "The ID for the author of the object.",
             "type": "integer",
             "context": [
               "view",
@@ -496,7 +578,7 @@
             }
           },
           "featured_media": {
-            "description": "The id of the featured media for the object.",
+            "description": "The ID of the featured media for the object.",
             "type": "integer",
             "context": [
               "view",
@@ -531,16 +613,7 @@
             "description": "The format for the object.",
             "type": "string",
             "enum": [
-              "standard",
-              "aside",
-              "chat",
-              "gallery",
-              "link",
-              "image",
-              "quote",
-              "status",
-              "video",
-              "audio"
+              "standard"
             ],
             "context": [
               "view",
@@ -566,24 +639,23 @@
               "edit"
             ]
           },
-          "password": {
-            "description": "A password to protect access to the content and excerpt.",
+          "template": {
+            "description": "The theme file to use to display the object.",
             "type": "string",
+            "enum": [
+              ""
+            ],
             "context": [
+              "view",
               "edit"
             ]
           },
           "categories": {
             "description": "The terms assigned to the object in the category taxonomy.",
             "type": "array",
-            "context": [
-              "view",
-              "edit"
-            ]
-          },
-          "categories_exclude": {
-            "description": "The terms in the category taxonomy that should not be assigned to the object.",
-            "type": "array",
+            "items": {
+              "type": "integer"
+            },
             "context": [
               "view",
               "edit"
@@ -592,14 +664,9 @@
           "tags": {
             "description": "The terms assigned to the object in the post_tag taxonomy.",
             "type": "array",
-            "context": [
-              "view",
-              "edit"
-            ]
-          },
-          "tags_exclude": {
-            "description": "The terms in the post_tag taxonomy that should not be assigned to the object.",
-            "type": "array",
+            "items": {
+              "type": "integer"
+            },
             "context": [
               "view",
               "edit"
@@ -644,11 +711,13 @@
                 "embed",
                 "edit"
               ],
-              "description": "Scope under which the request is made; determines fields present in response."
+              "description": "Scope under which the request is made; determines fields present in response.",
+              "type": "string"
             },
             "password": {
               "required": false,
-              "description": "The password for the post if it is password protected."
+              "description": "The password for the post if it is password protected.",
+              "type": "string"
             }
           }
         },
@@ -661,15 +730,18 @@
           "args": {
             "date": {
               "required": false,
-              "description": "The date the object was published, in the site's timezone."
+              "description": "The date the object was published, in the site's timezone.",
+              "type": "string"
             },
             "date_gmt": {
               "required": false,
-              "description": "The date the object was published, as GMT."
+              "description": "The date the object was published, as GMT.",
+              "type": "string"
             },
             "slug": {
               "required": false,
-              "description": "An alphanumeric identifier for the object unique to its type."
+              "description": "An alphanumeric identifier for the object unique to its type.",
+              "type": "string"
             },
             "status": {
               "required": false,
@@ -680,27 +752,38 @@
                 "pending",
                 "private"
               ],
-              "description": "A named status for the object."
+              "description": "A named status for the object.",
+              "type": "string"
+            },
+            "password": {
+              "required": false,
+              "description": "A password to protect access to the content and excerpt.",
+              "type": "string"
             },
             "title": {
               "required": false,
-              "description": "The title for the object."
+              "description": "The title for the object.",
+              "type": "object"
             },
             "content": {
               "required": false,
-              "description": "The content for the object."
+              "description": "The content for the object.",
+              "type": "object"
             },
             "author": {
               "required": false,
-              "description": "The id for the author of the object."
+              "description": "The ID for the author of the object.",
+              "type": "integer"
             },
             "excerpt": {
               "required": false,
-              "description": "The excerpt for the object."
+              "description": "The excerpt for the object.",
+              "type": "object"
             },
             "featured_media": {
               "required": false,
-              "description": "The id of the featured media for the object."
+              "description": "The ID of the featured media for the object.",
+              "type": "integer"
             },
             "comment_status": {
               "required": false,
@@ -708,7 +791,8 @@
                 "open",
                 "closed"
               ],
-              "description": "Whether or not comments are open on the object."
+              "description": "Whether or not comments are open on the object.",
+              "type": "string"
             },
             "ping_status": {
               "required": false,
@@ -716,55 +800,55 @@
                 "open",
                 "closed"
               ],
-              "description": "Whether or not the object can be pinged."
+              "description": "Whether or not the object can be pinged.",
+              "type": "string"
             },
             "format": {
               "required": false,
               "enum": [
-                "standard",
-                "aside",
-                "chat",
-                "gallery",
-                "link",
-                "image",
-                "quote",
-                "status",
-                "video",
-                "audio"
+                "standard"
               ],
-              "description": "The format for the object."
+              "description": "The format for the object.",
+              "type": "string"
             },
             "meta": {
               "required": false,
-              "description": "Meta fields."
+              "description": "Meta fields.",
+              "type": "object"
             },
             "sticky": {
               "required": false,
-              "description": "Whether or not the object should be treated as sticky."
+              "description": "Whether or not the object should be treated as sticky.",
+              "type": "boolean"
             },
-            "password": {
+            "template": {
               "required": false,
-              "description": "A password to protect access to the content and excerpt."
+              "enum": [
+                ""
+              ],
+              "description": "The theme file to use to display the object.",
+              "type": "string"
             },
             "categories": {
               "required": false,
-              "description": "The terms assigned to the object in the category taxonomy."
-            },
-            "categories_exclude": {
-              "required": false,
-              "description": "The terms in the category taxonomy that should not be assigned to the object."
+              "description": "The terms assigned to the object in the category taxonomy.",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
             },
             "tags": {
               "required": false,
-              "description": "The terms assigned to the object in the post_tag taxonomy."
-            },
-            "tags_exclude": {
-              "required": false,
-              "description": "The terms in the post_tag taxonomy that should not be assigned to the object."
+              "description": "The terms assigned to the object in the post_tag taxonomy.",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
             },
             "liveblog_likes": {
               "required": false,
-              "description": "The number of Liveblog Likes the post has."
+              "description": "The number of Liveblog Likes the post has.",
+              "type": "integer"
             }
           }
         },
@@ -776,13 +860,14 @@
             "force": {
               "required": false,
               "default": false,
-              "description": "Whether to bypass trash and force deletion."
+              "description": "Whether to bypass trash and force deletion.",
+              "type": "boolean"
             }
           }
         }
       ],
       "schema": {
-        "$schema": "http://json-schema.org/draft-04/schema#",
+        "$schema": "http://json-schema.org/schema#",
         "title": "post",
         "type": "object",
         "properties": {
@@ -907,6 +992,13 @@
             ],
             "readonly": true
           },
+          "password": {
+            "description": "A password to protect access to the content and excerpt.",
+            "type": "string",
+            "context": [
+              "edit"
+            ]
+          },
           "title": {
             "description": "The title for the object.",
             "type": "object",
@@ -972,7 +1064,7 @@
             }
           },
           "author": {
-            "description": "The id for the author of the object.",
+            "description": "The ID for the author of the object.",
             "type": "integer",
             "context": [
               "view",
@@ -1019,7 +1111,7 @@
             }
           },
           "featured_media": {
-            "description": "The id of the featured media for the object.",
+            "description": "The ID of the featured media for the object.",
             "type": "integer",
             "context": [
               "view",
@@ -1054,16 +1146,7 @@
             "description": "The format for the object.",
             "type": "string",
             "enum": [
-              "standard",
-              "aside",
-              "chat",
-              "gallery",
-              "link",
-              "image",
-              "quote",
-              "status",
-              "video",
-              "audio"
+              "standard"
             ],
             "context": [
               "view",
@@ -1089,24 +1172,23 @@
               "edit"
             ]
           },
-          "password": {
-            "description": "A password to protect access to the content and excerpt.",
+          "template": {
+            "description": "The theme file to use to display the object.",
             "type": "string",
+            "enum": [
+              ""
+            ],
             "context": [
+              "view",
               "edit"
             ]
           },
           "categories": {
             "description": "The terms assigned to the object in the category taxonomy.",
             "type": "array",
-            "context": [
-              "view",
-              "edit"
-            ]
-          },
-          "categories_exclude": {
-            "description": "The terms in the category taxonomy that should not be assigned to the object.",
-            "type": "array",
+            "items": {
+              "type": "integer"
+            },
             "context": [
               "view",
               "edit"
@@ -1115,14 +1197,9 @@
           "tags": {
             "description": "The terms assigned to the object in the post_tag taxonomy.",
             "type": "array",
-            "context": [
-              "view",
-              "edit"
-            ]
-          },
-          "tags_exclude": {
-            "description": "The terms in the post_tag taxonomy that should not be assigned to the object.",
-            "type": "array",
+            "items": {
+              "type": "integer"
+            },
             "context": [
               "view",
               "edit"
@@ -1143,7 +1220,7 @@
     }
   },
   "schema": {
-    "$schema": "http://json-schema.org/draft-04/schema#",
+    "$schema": "http://json-schema.org/schema#",
     "title": "post",
     "type": "object",
     "properties": {
@@ -1268,6 +1345,13 @@
         ],
         "readonly": true
       },
+      "password": {
+        "description": "A password to protect access to the content and excerpt.",
+        "type": "string",
+        "context": [
+          "edit"
+        ]
+      },
       "title": {
         "description": "The title for the object.",
         "type": "object",
@@ -1333,7 +1417,7 @@
         }
       },
       "author": {
-        "description": "The id for the author of the object.",
+        "description": "The ID for the author of the object.",
         "type": "integer",
         "context": [
           "view",
@@ -1380,7 +1464,7 @@
         }
       },
       "featured_media": {
-        "description": "The id of the featured media for the object.",
+        "description": "The ID of the featured media for the object.",
         "type": "integer",
         "context": [
           "view",
@@ -1415,16 +1499,7 @@
         "description": "The format for the object.",
         "type": "string",
         "enum": [
-          "standard",
-          "aside",
-          "chat",
-          "gallery",
-          "link",
-          "image",
-          "quote",
-          "status",
-          "video",
-          "audio"
+          "standard"
         ],
         "context": [
           "view",
@@ -1450,24 +1525,23 @@
           "edit"
         ]
       },
-      "password": {
-        "description": "A password to protect access to the content and excerpt.",
+      "template": {
+        "description": "The theme file to use to display the object.",
         "type": "string",
+        "enum": [
+          ""
+        ],
         "context": [
+          "view",
           "edit"
         ]
       },
       "categories": {
         "description": "The terms assigned to the object in the category taxonomy.",
         "type": "array",
-        "context": [
-          "view",
-          "edit"
-        ]
-      },
-      "categories_exclude": {
-        "description": "The terms in the category taxonomy that should not be assigned to the object.",
-        "type": "array",
+        "items": {
+          "type": "integer"
+        },
         "context": [
           "view",
           "edit"
@@ -1476,14 +1550,9 @@
       "tags": {
         "description": "The terms assigned to the object in the post_tag taxonomy.",
         "type": "array",
-        "context": [
-          "view",
-          "edit"
-        ]
-      },
-      "tags_exclude": {
-        "description": "The terms in the post_tag taxonomy that should not be assigned to the object.",
-        "type": "array",
+        "items": {
+          "type": "integer"
+        },
         "context": [
           "view",
           "edit"

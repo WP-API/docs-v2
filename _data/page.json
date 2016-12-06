@@ -21,65 +21,89 @@
                 "embed",
                 "edit"
               ],
-              "description": "Scope under which the request is made; determines fields present in response."
+              "description": "Scope under which the request is made; determines fields present in response.",
+              "type": "string"
             },
             "page": {
               "required": false,
               "default": 1,
-              "description": "Current page of the collection."
+              "description": "Current page of the collection.",
+              "type": "integer"
             },
             "per_page": {
               "required": false,
               "default": 10,
-              "description": "Maximum number of items to be returned in result set."
+              "description": "Maximum number of items to be returned in result set.",
+              "type": "integer"
             },
             "search": {
               "required": false,
-              "description": "Limit results to those matching a string."
+              "description": "Limit results to those matching a string.",
+              "type": "string"
             },
             "after": {
               "required": false,
-              "description": "Limit response to resources published after a given ISO8601 compliant date."
+              "description": "Limit response to posts published after a given ISO8601 compliant date.",
+              "type": "string"
             },
             "author": {
               "required": false,
               "default": [
 
               ],
-              "description": "Limit result set to posts assigned to specific authors."
+              "description": "Limit result set to posts assigned to specific authors.",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
             },
             "author_exclude": {
               "required": false,
               "default": [
 
               ],
-              "description": "Ensure result set excludes posts assigned to specific authors."
+              "description": "Ensure result set excludes posts assigned to specific authors.",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
             },
             "before": {
               "required": false,
-              "description": "Limit response to resources published before a given ISO8601 compliant date."
+              "description": "Limit response to posts published before a given ISO8601 compliant date.",
+              "type": "string"
             },
             "exclude": {
               "required": false,
               "default": [
 
               ],
-              "description": "Ensure result set excludes specific ids."
+              "description": "Ensure result set excludes specific IDs.",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
             },
             "include": {
               "required": false,
               "default": [
 
               ],
-              "description": "Limit result set to specific ids."
+              "description": "Limit result set to specific IDs.",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
             },
             "menu_order": {
               "required": false,
-              "description": "Limit result set to resources with a specific menu_order value."
+              "description": "Limit result set to posts with a specific menu_order value.",
+              "type": "integer"
             },
             "offset": {
               "required": false,
-              "description": "Offset the result set by a specific number of items."
+              "description": "Offset the result set by a specific number of items.",
+              "type": "integer"
             },
             "order": {
               "required": false,
@@ -88,7 +112,8 @@
                 "asc",
                 "desc"
               ],
-              "description": "Order sort attribute ascending or descending."
+              "description": "Order sort attribute ascending or descending.",
+              "type": "string"
             },
             "orderby": {
               "required": false,
@@ -102,45 +127,58 @@
                 "slug",
                 "menu_order"
               ],
-              "description": "Sort collection by object attribute."
+              "description": "Sort collection by object attribute.",
+              "type": "string"
             },
             "parent": {
               "required": false,
               "default": [
 
               ],
-              "description": "Limit result set to those of particular parent ids."
+              "description": "Limit result set to those of particular parent IDs.",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
             },
             "parent_exclude": {
               "required": false,
               "default": [
 
               ],
-              "description": "Limit result set to all items except those of a particular parent id."
+              "description": "Limit result set to all items except those of a particular parent ID.",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
             },
             "slug": {
               "required": false,
-              "description": "Limit result set to posts with a specific slug."
+              "description": "Limit result set to posts with one or more specific slugs.",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
             },
             "status": {
               "required": false,
               "default": "publish",
-              "enum": [
-                "publish",
-                "future",
-                "draft",
-                "pending",
-                "private",
-                "trash",
-                "auto-draft",
-                "inherit",
-                "any"
-              ],
-              "description": "Limit result set to posts assigned a specific status; can be comma-delimited list of status types."
-            },
-            "filter": {
-              "required": false,
-              "description": "Use WP Query arguments to modify the response; private query vars require appropriate authorization."
+              "description": "Limit result set to posts assigned one or more statuses.",
+              "type": "array",
+              "items": {
+                "enum": [
+                  "publish",
+                  "future",
+                  "draft",
+                  "pending",
+                  "private",
+                  "trash",
+                  "auto-draft",
+                  "inherit",
+                  "any"
+                ],
+                "type": "string"
+              }
             }
           }
         },
@@ -151,15 +189,18 @@
           "args": {
             "date": {
               "required": false,
-              "description": "The date the object was published, in the site's timezone."
+              "description": "The date the object was published, in the site's timezone.",
+              "type": "string"
             },
             "date_gmt": {
               "required": false,
-              "description": "The date the object was published, as GMT."
+              "description": "The date the object was published, as GMT.",
+              "type": "string"
             },
             "slug": {
               "required": false,
-              "description": "An alphanumeric identifier for the object unique to its type."
+              "description": "An alphanumeric identifier for the object unique to its type.",
+              "type": "string"
             },
             "status": {
               "required": false,
@@ -170,31 +211,43 @@
                 "pending",
                 "private"
               ],
-              "description": "A named status for the object."
+              "description": "A named status for the object.",
+              "type": "string"
+            },
+            "password": {
+              "required": false,
+              "description": "A password to protect access to the content and excerpt.",
+              "type": "string"
             },
             "parent": {
               "required": false,
-              "description": "The id for the parent of the object."
+              "description": "The ID for the parent of the object.",
+              "type": "integer"
             },
             "title": {
               "required": false,
-              "description": "The title for the object."
+              "description": "The title for the object.",
+              "type": "object"
             },
             "content": {
               "required": false,
-              "description": "The content for the object."
+              "description": "The content for the object.",
+              "type": "object"
             },
             "author": {
               "required": false,
-              "description": "The id for the author of the object."
+              "description": "The ID for the author of the object.",
+              "type": "integer"
             },
             "excerpt": {
               "required": false,
-              "description": "The excerpt for the object."
+              "description": "The excerpt for the object.",
+              "type": "object"
             },
             "featured_media": {
               "required": false,
-              "description": "The id of the featured media for the object."
+              "description": "The ID of the featured media for the object.",
+              "type": "integer"
             },
             "comment_status": {
               "required": false,
@@ -202,7 +255,8 @@
                 "open",
                 "closed"
               ],
-              "description": "Whether or not comments are open on the object."
+              "description": "Whether or not comments are open on the object.",
+              "type": "string"
             },
             "ping_status": {
               "required": false,
@@ -210,28 +264,32 @@
                 "open",
                 "closed"
               ],
-              "description": "Whether or not the object can be pinged."
+              "description": "Whether or not the object can be pinged.",
+              "type": "string"
             },
             "menu_order": {
               "required": false,
-              "description": "The order of the object in relation to other object of its type."
+              "description": "The order of the object in relation to other object of its type.",
+              "type": "integer"
             },
             "meta": {
               "required": false,
-              "description": "Meta fields."
+              "description": "Meta fields.",
+              "type": "object"
             },
             "template": {
               "required": false,
               "enum": [
-
+                ""
               ],
-              "description": "The theme file to use to display the object."
+              "description": "The theme file to use to display the object.",
+              "type": "string"
             }
           }
         }
       ],
       "schema": {
-        "$schema": "http://json-schema.org/draft-04/schema#",
+        "$schema": "http://json-schema.org/schema#",
         "title": "page",
         "type": "object",
         "properties": {
@@ -356,8 +414,15 @@
             ],
             "readonly": true
           },
+          "password": {
+            "description": "A password to protect access to the content and excerpt.",
+            "type": "string",
+            "context": [
+              "edit"
+            ]
+          },
           "parent": {
-            "description": "The id for the parent of the object.",
+            "description": "The ID for the parent of the object.",
             "type": "integer",
             "context": [
               "view",
@@ -429,7 +494,7 @@
             }
           },
           "author": {
-            "description": "The id for the author of the object.",
+            "description": "The ID for the author of the object.",
             "type": "integer",
             "context": [
               "view",
@@ -476,7 +541,7 @@
             }
           },
           "featured_media": {
-            "description": "The id of the featured media for the object.",
+            "description": "The ID of the featured media for the object.",
             "type": "integer",
             "context": [
               "view",
@@ -530,7 +595,7 @@
             "description": "The theme file to use to display the object.",
             "type": "string",
             "enum": [
-
+              ""
             ],
             "context": [
               "view",
@@ -567,11 +632,13 @@
                 "embed",
                 "edit"
               ],
-              "description": "Scope under which the request is made; determines fields present in response."
+              "description": "Scope under which the request is made; determines fields present in response.",
+              "type": "string"
             },
             "password": {
               "required": false,
-              "description": "The password for the post if it is password protected."
+              "description": "The password for the post if it is password protected.",
+              "type": "string"
             }
           }
         },
@@ -584,15 +651,18 @@
           "args": {
             "date": {
               "required": false,
-              "description": "The date the object was published, in the site's timezone."
+              "description": "The date the object was published, in the site's timezone.",
+              "type": "string"
             },
             "date_gmt": {
               "required": false,
-              "description": "The date the object was published, as GMT."
+              "description": "The date the object was published, as GMT.",
+              "type": "string"
             },
             "slug": {
               "required": false,
-              "description": "An alphanumeric identifier for the object unique to its type."
+              "description": "An alphanumeric identifier for the object unique to its type.",
+              "type": "string"
             },
             "status": {
               "required": false,
@@ -603,31 +673,43 @@
                 "pending",
                 "private"
               ],
-              "description": "A named status for the object."
+              "description": "A named status for the object.",
+              "type": "string"
+            },
+            "password": {
+              "required": false,
+              "description": "A password to protect access to the content and excerpt.",
+              "type": "string"
             },
             "parent": {
               "required": false,
-              "description": "The id for the parent of the object."
+              "description": "The ID for the parent of the object.",
+              "type": "integer"
             },
             "title": {
               "required": false,
-              "description": "The title for the object."
+              "description": "The title for the object.",
+              "type": "object"
             },
             "content": {
               "required": false,
-              "description": "The content for the object."
+              "description": "The content for the object.",
+              "type": "object"
             },
             "author": {
               "required": false,
-              "description": "The id for the author of the object."
+              "description": "The ID for the author of the object.",
+              "type": "integer"
             },
             "excerpt": {
               "required": false,
-              "description": "The excerpt for the object."
+              "description": "The excerpt for the object.",
+              "type": "object"
             },
             "featured_media": {
               "required": false,
-              "description": "The id of the featured media for the object."
+              "description": "The ID of the featured media for the object.",
+              "type": "integer"
             },
             "comment_status": {
               "required": false,
@@ -635,7 +717,8 @@
                 "open",
                 "closed"
               ],
-              "description": "Whether or not comments are open on the object."
+              "description": "Whether or not comments are open on the object.",
+              "type": "string"
             },
             "ping_status": {
               "required": false,
@@ -643,22 +726,26 @@
                 "open",
                 "closed"
               ],
-              "description": "Whether or not the object can be pinged."
+              "description": "Whether or not the object can be pinged.",
+              "type": "string"
             },
             "menu_order": {
               "required": false,
-              "description": "The order of the object in relation to other object of its type."
+              "description": "The order of the object in relation to other object of its type.",
+              "type": "integer"
             },
             "meta": {
               "required": false,
-              "description": "Meta fields."
+              "description": "Meta fields.",
+              "type": "object"
             },
             "template": {
               "required": false,
               "enum": [
-
+                ""
               ],
-              "description": "The theme file to use to display the object."
+              "description": "The theme file to use to display the object.",
+              "type": "string"
             }
           }
         },
@@ -670,13 +757,14 @@
             "force": {
               "required": false,
               "default": false,
-              "description": "Whether to bypass trash and force deletion."
+              "description": "Whether to bypass trash and force deletion.",
+              "type": "boolean"
             }
           }
         }
       ],
       "schema": {
-        "$schema": "http://json-schema.org/draft-04/schema#",
+        "$schema": "http://json-schema.org/schema#",
         "title": "page",
         "type": "object",
         "properties": {
@@ -801,8 +889,15 @@
             ],
             "readonly": true
           },
+          "password": {
+            "description": "A password to protect access to the content and excerpt.",
+            "type": "string",
+            "context": [
+              "edit"
+            ]
+          },
           "parent": {
-            "description": "The id for the parent of the object.",
+            "description": "The ID for the parent of the object.",
             "type": "integer",
             "context": [
               "view",
@@ -874,7 +969,7 @@
             }
           },
           "author": {
-            "description": "The id for the author of the object.",
+            "description": "The ID for the author of the object.",
             "type": "integer",
             "context": [
               "view",
@@ -921,7 +1016,7 @@
             }
           },
           "featured_media": {
-            "description": "The id of the featured media for the object.",
+            "description": "The ID of the featured media for the object.",
             "type": "integer",
             "context": [
               "view",
@@ -975,7 +1070,7 @@
             "description": "The theme file to use to display the object.",
             "type": "string",
             "enum": [
-
+              ""
             ],
             "context": [
               "view",
@@ -988,7 +1083,7 @@
     }
   },
   "schema": {
-    "$schema": "http://json-schema.org/draft-04/schema#",
+    "$schema": "http://json-schema.org/schema#",
     "title": "page",
     "type": "object",
     "properties": {
@@ -1113,8 +1208,15 @@
         ],
         "readonly": true
       },
+      "password": {
+        "description": "A password to protect access to the content and excerpt.",
+        "type": "string",
+        "context": [
+          "edit"
+        ]
+      },
       "parent": {
-        "description": "The id for the parent of the object.",
+        "description": "The ID for the parent of the object.",
         "type": "integer",
         "context": [
           "view",
@@ -1186,7 +1288,7 @@
         }
       },
       "author": {
-        "description": "The id for the author of the object.",
+        "description": "The ID for the author of the object.",
         "type": "integer",
         "context": [
           "view",
@@ -1233,7 +1335,7 @@
         }
       },
       "featured_media": {
-        "description": "The id of the featured media for the object.",
+        "description": "The ID of the featured media for the object.",
         "type": "integer",
         "context": [
           "view",
@@ -1287,7 +1389,7 @@
         "description": "The theme file to use to display the object.",
         "type": "string",
         "enum": [
-
+          ""
         ],
         "context": [
           "view",

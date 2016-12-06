@@ -27,61 +27,92 @@
           "args": {
             "title": {
               "required": false,
-              "description": "Site title."
+              "description": "Site title.",
+              "type": "string"
             },
             "description": {
               "required": false,
-              "description": "Site description."
+              "description": "Site description.",
+              "type": "string"
             },
             "url": {
               "required": false,
-              "description": "Site URL."
+              "description": "Site URL.",
+              "type": "string"
             },
             "email": {
               "required": false,
-              "description": "This address is used for admin purposes. If you change this we will send you an email at your new address to confirm it. The new address will not become active until confirmed."
+              "description": "This address is used for admin purposes. If you change this we will send you an email at your new address to confirm it. The new address will not become active until confirmed.",
+              "type": "string"
             },
             "timezone": {
               "required": false,
-              "description": "A city in the same timezone as you."
+              "description": "A city in the same timezone as you.",
+              "type": "string"
             },
             "date_format": {
               "required": false,
-              "description": "A date format for all date strings."
+              "description": "A date format for all date strings.",
+              "type": "string"
             },
             "time_format": {
               "required": false,
-              "description": "A time format for all time strings."
+              "description": "A time format for all time strings.",
+              "type": "string"
             },
             "start_of_week": {
               "required": false,
-              "description": "A day number of the week that the week should start on."
+              "description": "A day number of the week that the week should start on.",
+              "type": "number"
             },
             "language": {
               "required": false,
-              "description": "WordPress locale code."
+              "description": "WordPress locale code.",
+              "type": "string"
             },
             "use_smilies": {
               "required": false,
-              "description": "Convert emoticons like :-) and :-P to graphics on display."
+              "description": "Convert emoticons like :-) and :-P to graphics on display.",
+              "type": "boolean"
             },
             "default_category": {
               "required": false,
-              "description": "Default category."
+              "description": "Default category.",
+              "type": "number"
             },
             "default_post_format": {
               "required": false,
-              "description": "Default post format."
+              "description": "Default post format.",
+              "type": "string"
             },
             "posts_per_page": {
               "required": false,
-              "description": "Blog pages show at most."
+              "description": "Blog pages show at most.",
+              "type": "number"
+            },
+            "default_ping_status": {
+              "required": false,
+              "enum": [
+                "open",
+                "closed"
+              ],
+              "description": "Allow link notifications from other blogs (pingbacks and trackbacks) on new articles.",
+              "type": "string"
+            },
+            "default_comment_status": {
+              "required": false,
+              "enum": [
+                "open",
+                "closed"
+              ],
+              "description": "Allow people to post comments on new articles.",
+              "type": "string"
             }
           }
         }
       ],
       "schema": {
-        "$schema": "http://json-schema.org/draft-04/schema#",
+        "$schema": "http://json-schema.org/schema#",
         "title": "settings",
         "type": "object",
         "properties": {
@@ -151,6 +182,24 @@
             "type": "number",
             "description": "Blog pages show at most.",
             "default": 10
+          },
+          "default_ping_status": {
+            "type": "string",
+            "description": "Allow link notifications from other blogs (pingbacks and trackbacks) on new articles.",
+            "default": null,
+            "enum": [
+              "open",
+              "closed"
+            ]
+          },
+          "default_comment_status": {
+            "type": "string",
+            "description": "Allow people to post comments on new articles.",
+            "default": null,
+            "enum": [
+              "open",
+              "closed"
+            ]
           }
         }
       },
@@ -161,7 +210,7 @@
     }
   },
   "schema": {
-    "$schema": "http://json-schema.org/draft-04/schema#",
+    "$schema": "http://json-schema.org/schema#",
     "title": "settings",
     "type": "object",
     "properties": {
@@ -231,6 +280,24 @@
         "type": "number",
         "description": "Blog pages show at most.",
         "default": 10
+      },
+      "default_ping_status": {
+        "type": "string",
+        "description": "Allow link notifications from other blogs (pingbacks and trackbacks) on new articles.",
+        "default": null,
+        "enum": [
+          "open",
+          "closed"
+        ]
+      },
+      "default_comment_status": {
+        "type": "string",
+        "description": "Allow people to post comments on new articles.",
+        "default": null,
+        "enum": [
+          "open",
+          "closed"
+        ]
       }
     }
   }
