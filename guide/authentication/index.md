@@ -170,3 +170,13 @@ $response = wp_remote_post( $url, array (
 [http-basic]: https://tools.ietf.org/html/rfc2617
 [basic-auth-plugin]: https://github.com/WP-API/Basic-Auth
 [application-passwords]: https://github.com/georgestephanis/application-passwords
+
+JSON Web Token Authentication
+-----------------------------
+As an alternative to oAuth for Token based authentication, you can use [JSON Web Token](https://tools.ietf.org/html/rfc75190 (JWT) authentication. An implimentation of the JWT standard, for the WordPress REST API is provided by the [JWT Authentication For The REST API](https://wordpress.org/plugins/jwt-authentication-for-wp-rest-api/).
+
+Usage of this plugin is well documented in the plugin [README](https://github.com/Tmeister/wp-api-jwt-auth/blob/develop/README.md).
+
+[WordPress.org Plugin Page](https://wordpress.org/plugins/jwt-authentication-for-wp-rest-api/)
+[Git Repo](https://github.com/Tmeister/wp-api-jwt-auth)
+[More Information On JWT](https://jwt.io/)
