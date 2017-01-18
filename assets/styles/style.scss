@@ -360,3 +360,26 @@ h1, h2, h3, h4, h5, h6 {
 		}
 	}
 }
+
+.warning {
+	background-color: #ffbeae;
+	font-size: 1.3em;
+	line-height: 1.6em;
+	margin: 2em 0 2em -60px;
+	padding: 1em 1em 1em 3em;
+	position: relative;
+
+	&::before {
+		content: "!";
+		display: block;
+		font-family: serif;
+		font-size: 48px;
+		font-style: italic;
+		font-weight: bold;
+		left: 24px;
+		line-height: 48px;
+		margin-top: -24px;
+		position: absolute;
+		top: 50%;
+	}
+}

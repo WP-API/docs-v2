@@ -2,6 +2,10 @@
 title: Authentication
 ---
 
+<div class="warning">
+This documentation has moved to <a href="https://developer.wordpress.org/rest-api/using-the-rest-api/authentication/">The WordPress REST API Handbook</a>. The below may be out of date.
+</div>
+
 There are several options for authenticating with the API. The basic choice boils
 down to:
 

@@ -1,6 +1,11 @@
 ---
 title: JavaScript Client
 ---
+
+<div class="warning">
+This documentation has moved to <a href="https://developer.wordpress.org/rest-api/using-the-rest-api/backbone-javascript-client/">The WordPress REST API Handbook</a>. The below may be out of date.
+</div>
+
 The REST API includes a JavaScript/Backbone client library.
 
 The library provides an interface for the WP REST API by providing Backbone Models and Collections for all endpoints exposed the API Schema.

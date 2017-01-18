@@ -4,6 +4,10 @@ title: API Reference
 layout: reference-static
 ---
 
+<div class="warning">
+This documentation has moved to <a href="https://developer.wordpress.org/rest-api/reference/">The WordPress REST API Handbook</a>. The below may be out of date.
+</div>
+
 Welcome to the API reference for the WordPress REST API! It's great to have you here.
 
 The API is organized around [REST][]. Our API is designed to have predictable, resource-oriented URLs and to use HTTP response codes to indicate API errors. We use built-in HTTP features, like HTTP authentication and HTTP verbs, which can be understood by off-the-shelf HTTP clients, and we support cross-origin resource sharing to allow you to interact securely with the API from a client-side web application.
