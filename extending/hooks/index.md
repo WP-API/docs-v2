@@ -2,6 +2,10 @@
 title: Actions and Filters Reference for the WordPress REST API.
 ---
 
+<div class="warning">
+This documentation has moved to <a href="https://developer.wordpress.org/?s=rest_&post_type%5B%5D=wp-parser-hook">The WordPress Developer Code Reference</a>. The below may be out of date.
+</div>
+
 The REST API has a number of built in hooks that can be used to modify its functionality.  This section only details the hooks that are **NOT** in WordPress core currently.  To find more information about those hooks visit https://developer.wordpress.org.
 
 ### Hooks Reference.

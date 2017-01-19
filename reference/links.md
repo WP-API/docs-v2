@@ -4,6 +4,10 @@ title: Linking and Embedding
 layout: reference
 ---
 
+<div class="warning">
+This documentation has moved to <a href="https://developer.wordpress.org/rest-api/using-the-rest-api/linking-and-embedding/">The WordPress REST API Handbook</a>. The below may be out of date.
+</div>
+
 <section class="route">
 <div class="primary" markdown="1">
 

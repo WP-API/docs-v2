@@ -1,6 +1,11 @@
 ---
 title: Modifying Responses
 ---
+
+<div class="warning">
+This documentation has moved to <a href="https://developer.wordpress.org/rest-api/extending-the-rest-api/modifying-responses/">The WordPress REST API Handbook</a>. The below may be out of date.
+</div>
+
 The default endpoints of the WordPress REST API are designed to be sensible defaults in terms of what data is returned. This fits the 80/20 rule by providing for 80% of sites and uses, but these default collections of data cannot always fulfill the needs of every one of the millions of sites.
 
 The REST API is designed to be highly extensible, like the rest (no pun intended) of WordPress. This document details how to add additional data, including but not limited to post or user meta data to the responses of default endpoints, using the function `register_rest_field`; a helper function designed to add fields to the response for a specific option.

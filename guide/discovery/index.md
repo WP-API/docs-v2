@@ -2,6 +2,10 @@
 title: Discovery
 ---
 
+<div class="warning">
+This documentation has moved to <a href="https://developer.wordpress.org/rest-api/using-the-rest-api/discovery/">The WordPress REST API Handbook</a>. The below may be out of date.
+</div>
+
 When your client talks to an unknown site, you'll need to discover what the
 site is capable of and how the site is configured. There are a couple of steps
 for this, depending on what you need to discover.

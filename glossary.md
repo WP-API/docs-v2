@@ -2,6 +2,10 @@
 title: Glossary
 ---
 
+<div class="warning">
+This documentation has moved to <a href="https://developer.wordpress.org/rest-api/extending-the-rest-api/glossary/">The WordPress REST API Handbook</a>. The below may be out of date.
+</div>
+
 New to REST APIs? Get up to speed with phrases used throughout our documentation.
 
 ## Controller
