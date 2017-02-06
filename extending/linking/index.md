@@ -2,6 +2,10 @@
 title: Linking
 ---
 
+<div class="warning">
+This documentation has moved to <a href="https://developer.wordpress.org/rest-api/using-the-rest-api/linking-and-embedding/">The WordPress REST API Handbook</a>. The below may be out of date.
+</div>
+
 The WP REST API heavily incorporates hypermedia concepts, including linking. At the core, this relies on hyperlinking between resources, similar to how normal web pages link between related pages. This allows the API to be discoverable to new users and clients.
 
 The linking system we use is based on [HAL][] (Hypertext Application Language).
