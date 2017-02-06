@@ -2,6 +2,10 @@
 title: Adding Custom Endpoints
 ---
 
+<div class="warning">
+This documentation has moved to <a href="https://developer.wordpress.org/rest-api/extending-the-rest-api/adding-custom-endpoints/">The WordPress REST API Handbook</a>. The below may be out of date.
+</div>
+
 The WordPress REST API is more than just a set of default routes. It is also a tool for creating custom routes and endpoints. The WordPress front-end provides a default set of URL mappings, but the tools used to create them (e.g. the Rewrites API, as well as the query classes: `WP_Query`, `WP_User`, etc) are also available for creating your own URL mappings, or custom queries.
 
 This document details how to create a totally custom route, with its own endpoints. We'll first work through a short example, then expand it out to the full controller pattern as used internally.

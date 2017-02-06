@@ -1,6 +1,11 @@
 ---
 title: Common Problems
 ---
+
+<div class="warning">
+This documentation has moved to <a href="https://developer.wordpress.org/rest-api/using-the-rest-api/frequently-asked-questions/">The WordPress REST API Handbook</a>. The below may be out of date.
+</div>
+
 We try and make the REST API as easy as possible, but APIs are hard. Here's a collection of common issues we run into.
 
 * TOC
