@@ -87,7 +87,7 @@ Client libraries serve as a resource to easily access and utilize the WP REST AP
 * [Node.js client][]
 * [Golang client][]
 * [Ruby client][]
-* [AngularJS client][]
+* [AngularJS (v1 and v2) client][]
 
 [Backbone.js client]: https://github.com/WP-API/client-js
 [Node.js client]: https://github.com/kadamwhite/wordpress-rest-api
