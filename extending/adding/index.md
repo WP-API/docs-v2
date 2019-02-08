@@ -1,5 +1,6 @@
 ---
 title: Adding Custom Endpoints
+canonical_url: https://developer.wordpress.org/rest-api/extending-the-rest-api/adding-custom-endpoints/
 ---
 
 <div class="warning">
