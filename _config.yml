@@ -1,6 +1,8 @@
 name: WP REST API v2 Documentation
 title: WP REST API v2 Documentation
 description: Documentation for version 2.0 of the WP REST API.
+plugins:
+  - jekyll-redirect-from
 # url: http://v2.wp-api.org/
 baseurl: /
 encoding: utf-8

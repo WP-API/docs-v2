@@ -2,6 +2,8 @@
 page: introduction
 title: WP REST API version 2.0 Introduction
 include_title: No
+redirect_to:
+  - https://developer.wordpress.org/rest-api/
 ---
 
 <div class="hero">
