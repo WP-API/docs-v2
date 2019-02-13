@@ -9,3 +9,6 @@
 <!-- Meta -->
 <meta content="{{site.title}}" property="og:title" />
 <meta content="{{site.description}}" name="description" />
+{% if page.canonical_url != nil %}
+<link rel="canonical" href="{{ page.canonical_url }}"/>
+{% endif %}
