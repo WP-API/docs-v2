@@ -1,5 +1,6 @@
 ---
 title: Modifying Responses
+canonical_url: https://developer.wordpress.org/rest-api/extending-the-rest-api/modifying-responses/
 ---
 
 <div class="warning">

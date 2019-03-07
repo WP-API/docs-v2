@@ -1,5 +1,6 @@
 ---
 title: Extending Internal Classes
+canonical_url: https://developer.wordpress.org/rest-api/extending-the-rest-api/controller-classes/
 ---
 
 WP-API has a deliberate design pattern for its internal classes. They can be

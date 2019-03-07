@@ -1,5 +1,6 @@
 ---
 title: Compatible Plugins & Tools
+canonical_url: https://developer.wordpress.org/rest-api/
 ---
 The following is a list of plugins that utilize and are compatible with the WordPress REST API v2.
 Some plugins may be more intended for development purposes and others for production environments. Code quality is also highly variant.

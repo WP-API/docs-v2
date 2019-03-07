@@ -1,5 +1,6 @@
 ---
 title: JavaScript Client
+canonical_url: https://developer.wordpress.org/rest-api/using-the-rest-api/backbone-javascript-client/
 ---
 
 <div class="warning">
