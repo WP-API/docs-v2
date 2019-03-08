@@ -2,6 +2,7 @@
 page: introduction
 title: API Reference
 layout: reference-static
+canonical_url: https://developer.wordpress.org/rest-api/reference/
 ---
 
 <div class="warning">

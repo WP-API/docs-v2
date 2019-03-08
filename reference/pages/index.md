@@ -3,6 +3,7 @@ title: Pages API Reference
 has_superbar: Yes
 route_path: wp-json/wp/v2/pages
 resource: Page
+canonical_url: https://developer.wordpress.org/rest-api/reference/pages/
 ---
 
 <section class="route">

@@ -3,6 +3,7 @@ title: Comments API Reference
 has_superbar: Yes
 route_path: wp-json/wp/v2/comments
 resource: Comment
+canonical_url: https://developer.wordpress.org/rest-api/reference/comments/
 ---
 
 <section class="route">

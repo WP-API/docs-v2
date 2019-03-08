@@ -3,6 +3,7 @@ title: Post Statuses API Reference
 has_superbar: Yes
 route_path: wp-json/wp/v2/statuses
 resource: Status
+canonical_url: https://developer.wordpress.org/rest-api/reference/post-statuses/
 ---
 
 <section class="route">

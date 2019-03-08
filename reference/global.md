@@ -2,6 +2,7 @@
 page: global
 title: Global Parameters
 layout: reference
+canonical_url: https://developer.wordpress.org/rest-api/using-the-rest-api/global-parameters/
 ---
 
 <div class="warning">
