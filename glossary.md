@@ -1,5 +1,8 @@
 ---
 title: Glossary
+canonical_url: https://developer.wordpress.org/rest-api/extending-the-rest-api/glossary/
+redirect_to:
+  - https://developer.wordpress.org/rest-api/extending-the-rest-api/glossary/
 ---
 
 <div class="warning">
