@@ -1,6 +1,8 @@
 ---
 title: Adding REST API Support For Custom Content Types
 canonical_url: https://developer.wordpress.org/rest-api/extending-the-rest-api/adding-rest-api-support-for-custom-content-types/
+redirect_to:
+  - https://developer.wordpress.org/rest-api/extending-the-rest-api/adding-rest-api-support-for-custom-content-types/
 ---
 
 <div class="warning">

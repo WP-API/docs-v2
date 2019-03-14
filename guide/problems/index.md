@@ -1,6 +1,8 @@
 ---
 title: Common Problems
 canonical_url: https://developer.wordpress.org/rest-api/using-the-rest-api/frequently-asked-questions/
+redirect_to:
+  - https://developer.wordpress.org/rest-api/using-the-rest-api/frequently-asked-questions/
 ---
 
 <div class="warning">

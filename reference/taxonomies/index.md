@@ -4,6 +4,8 @@ has_superbar: Yes
 route_path: wp-json/wp/v2/taxonomies
 resource: Taxonomy
 canonical_url: https://developer.wordpress.org/rest-api/reference/Taxonomies/
+redirect_to:
+  - https://developer.wordpress.org/rest-api/reference/Taxonomies/
 ---
 
 <section class="route">

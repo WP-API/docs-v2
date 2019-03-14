@@ -1,6 +1,8 @@
 ---
 title: Authentication
 canonical_url: https://developer.wordpress.org/rest-api/using-the-rest-api/authentication/
+redirect_to:
+  - https://developer.wordpress.org/rest-api/using-the-rest-api/authentication/
 ---
 
 <div class="warning">

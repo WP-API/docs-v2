@@ -4,6 +4,8 @@ has_superbar: Yes
 route_path: wp-json/wp/v2/settings
 resource: Setting
 canonical_url: https://developer.wordpress.org/rest-api/reference/settings/
+redirect_to:
+  - https://developer.wordpress.org/rest-api/reference/settings/
 ---
 
 <section class="route">

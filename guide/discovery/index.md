@@ -1,6 +1,8 @@
 ---
 title: Discovery
 canonical_url: https://developer.wordpress.org/rest-api/using-the-rest-api/discovery/
+redirect_to:
+  - https://developer.wordpress.org/rest-api/using-the-rest-api/discovery/
 ---
 
 <div class="warning">

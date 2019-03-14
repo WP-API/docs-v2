@@ -3,6 +3,8 @@ page: links
 title: Linking and Embedding
 layout: reference
 canonical_url: https://developer.wordpress.org/rest-api/using-the-rest-api/linking-and-embedding/
+redirect_to:
+  - https://developer.wordpress.org/rest-api/using-the-rest-api/linking-and-embedding/
 ---
 
 <div class="warning">

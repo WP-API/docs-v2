@@ -1,6 +1,8 @@
 ---
 title: Actions and Filters Reference for the WordPress REST API.
 canonical_url: https://developer.wordpress.org/?s=rest_&post_type%5B%5D=wp-parser-hook
+redirect_to:
+  - https://developer.wordpress.org/?s=rest_&post_type%5B%5D=wp-parser-hook
 ---
 
 <div class="warning">

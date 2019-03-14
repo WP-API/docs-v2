@@ -4,6 +4,8 @@ has_superbar: Yes
 route_path: wp-json/wp/v2/categories
 resource: Category
 canonical_url: https://developer.wordpress.org/rest-api/reference/categories/
+redirect_to:
+  - https://developer.wordpress.org/rest-api/reference/categories/
 ---
 
 
